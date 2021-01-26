@@ -1,34 +1,371 @@
 ---
-title: "Tarea 1. Consumo"
+title: "Tarea 1 - Reporte,  Macroeconomía II \\ Maestría en Economía, Colmex \\ Enero-mayo, 2021"
 author: 
   - Ayma Huaman Vanessa
   - Enríquez Hernández leobardo
   - Méndez Atienza Marco
   - Valdés de la Torre Flor Yurivia
 date: "1/22/2021"
-output: pdf_document
+header-includes:
+   - \usepackage[utf8]{inputenc}
+   - \usepackage[spanish]{babel}
+   - \usepackage{graphicx}
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F)
 ```
 
-## R Markdown
+```{r}
+# Limpiamos nuestro ambiente
+rm(list = ls())
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+# Llamamos las librerías a utilizar con pacman
+# install.packages("pacman")
+pacman::p_load(tidyverse,
+               kableExtra,
+               ggplot2,
+               cowplot,
+               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex,ggbernie)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+# Instrucciones
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+\begin{enumerate}
+\item Resuelva los ejercicios 8.1, 8.2, 8.4, 8.5 y 8.6. Realice estos con ayuda de su laboratorista y entregue las soluciones a máquina, utilizando LaTeX. [3 horas,1 punto cada inciso]
+\item Simule una variedad de agentes que tienen ingresos permamentes diferentes e ingresos transitorios diferentes y calcule la relación entre consumo e ingreso que resulta dada una variedad de supuestos para las varianzas de cada tipo de ingreso sigiendo estos pasos:[2 horas, 1 punto cada inciso]
+\begin{enumerate}
+\item Cree un vector de 20 ingresos permanentes aleatorios $Y_i^P$, distribuidos normalmente, con media 10 y varianza $\sigma^P$. Cree 20 vectores (cada uno de estos vectores representa una persona) cada uno con 100 observaciones idénticas del ingreso permanente. Grafíquelos (eje x, persona; eje y, ingreso permanente).
+\item Cree 20 vectores de 100 ingresos transitorios aleatorios $Y_{i,t}^T$, distribuidos normalmente, con media 0 y con varianza $\sigma^T$. Grafíquelos.
+\item Cree 20 vectores de 100 ingresos totales $Y_{i,t}$, sumando el ingreso transitorio y el permanente. Grafíquelos.
+\item Cree 20 vectores de 100 errores de medición $\epsilon_{i,t}$, distribuidos normalmente, con media 0 y varianza $\sigma^\epsilon>0$. Grafíquelos.
+\item Cree  20 vectores de 100 consumos $C_{i,t}$ cada uno, de acuerdo a la siguiente regla $C_{i,t}=Y_i^P+0.1Y_{i,t}^T+\epsilon_{i,t}$. Grafíquelos.
+\item Estime la relación lineal entre ingreso total y consumo $C_{i,t}=\alpha+\beta Y_{i,t}+\epsilon_{i,t}$. Describa el resultado de su estimación y grafíque la relación entre las observaciones del consumo y las del ingreso.
+\item Incremente la varianza del ingreso permanente, y disminuya la varianza del ingreso transitorio y vuelva a estimar y graficar la relación entre el consumo y el ingreso.
+\item Disminuya la varianza del ingreso permanente, y aumente la varianza del ingreso transitorio y vuelva a estimar y graficar la relación entre el consumo y el ingreso.
+\end{enumerate}
+
+\item Estudie el consumo agregado en México siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
+\begin{enumerate}
+\item Obtenga, del Inegi, datos de ``C'', el consumo agregado en México, de ``Y'', el producto agregado, de ``I'', la inversión agregada, de ``G'', el gasto del gobierno y de , de ``NX'', las exportaciones netas,  entre 1980 y el tercer trimestre de 2019, EN TÉRMINOS REALES.
+\item Grafíque dichas serie de tiempo juntas para compraralas visualmente.  (Compare la gráfica de las variables (de las que son siempre positivas) en su valor real original, y después de sacarles el logaritmo (cualquier logaritmo, no hace diferencia...)).
+\item Grafique también la tasa de crecimiento, $ \% \Delta a_t = (a_t-a_{t-1})/a_{t-1}$,  de todas estas series. 
+\item Enfóquese ahora nada más al consumo y al producto agregado. Grafique la relación entre una serie y la otra, es decir, grafique los puntos $(\% \Delta Y_t,\% \Delta C_t)$ poniendo el consumo en las ordenadas.
+\item Calcule la volatilidad de ambas series de tasas de crecimiento.
+\item Estime cuatro modelos lineales: $C_t=a+bY_t+\epsilon_t$, $\Delta\%C_t=a+b \Delta\%Y_t+\epsilon_t$, $\Delta\%C_t=a+b \Delta\%Y_{t-1}+\epsilon_t$ y $c_t=a+by_t+\epsilon_t$, donde las minúsculas reflejan el logaritmo de la variable en mayúscula, y reporte los valores estimados de los coeficientes, los estadísticos T, las R cuadradas, etc.
+\item Explique qué se puede concluir a cerca de la Hipótesis de Ingreso Permanente para México a partir de los coeficientes encontrados.
+\end{enumerate}
+
+\item Estudie el consumo de los individuos en México, siguiendo estos pasos:[1 hora, 0.5 puntos cada inciso]
+\begin{enumerate}
+\item Baje los datos de un año de la ENIGH del sitio del INEGI, (Grupo 1-2018, Grupo 2-2016, etc.)  y establezca el número de hogares y el ingreso y el gasto promedio.
+\item Estime una relación entre ingreso y gasto y reporte sus resultados.
+\item Estime una relación entre ingreso y gasto pero para hogares unipersonales de edad entre 30 y 40 años de edad de la Ciudad de México.
+\item Interprete sus resultados.
+\item Para todos los hogares unipersonales, estime el valor promedio del ingreso por edad, separando la muestra en grupos de edad de cinco años cada uno y grafiquelo.
+
+\end{enumerate}
+
+\item Estudie el ``acertijo del premio al riesgo'' para el caso de Mexico siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
+\begin{enumerate}
+\item Consiga los valores anuales de IPC, el Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores por lo menos desde 1990.
+\item Calcule su tasa de retorno nominal para cada año.
+\item Consiga los valores promedio anual de la tasa de interés de CETES a 7 días, o la TIIE, la tasa interbancaria de equilibrio, y de la tasa de interés a un año, para el periodo que esté disponible.
+\item Calcule la diferencia entre el retorno del IPC y el retorno de invertir en CETES a distintos plazos.
+\item Calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado de la economía mexicana. 
+\item Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.
+\item Ahora calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado DE BIENES IMPORTADOS [aquí hay una serie: www.inegi.org.mx/temas/imcp/] de la economía mexicana. 
+\item Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.
+\end{enumerate}
+
+\item Utilice el método del árbol binomal para explicar el precio P=80 de un activo y valuar un ``call'' sobre él, con precio de ejercicio K=P-N donde N es el número de su equipo, asumiendo una tasa de interés de 5 por ciento: [1 horas, 0.5 puntos cada inciso]
+
+\end{enumerate}
+
+\newpage
+
+
+
+
+
+
+# Soluciones
+
+## Ejercicio 1
+Resuelva los ejercicios 8.1, 8.2, 8.4, 8.5 y 8.6. Realice estos con ayuda de su laboratorista y entregue las soluciones a máquina, utilizando LaTeX. [3 horas,1 punto cada inciso]
+
+
+8.1\\
+
+kdlcslfdvfv \\
+
+8.2\\
+
+hfbvdfjbvfdjv\\
+
+8.3\\
+
+ckndfncsodpc\\
+
+8.4\\
+
+jbvfjvfdkddf\\
+
+8.5\\
+
+kvnfdpvnfpvf\\
+
+8.6\\
+
+ncdvnfvkbfjv\\
+
+
+## Ejercicio 2
+
+Simule una variedad de agentes que tienen ingresos permamentes diferentes e ingresos transitorios diferentes y calcule la relación entre consumo e ingreso que resulta dada una variedad de supuestos para las varianzas de cada tipo de ingreso sigiendo estos pasos:[2 horas, 1 punto cada inciso]
+
+### Ejercicio 2.a
+
+Cree un vector de 20 ingresos permanentes aleatorios $Y_i^P$, distribuidos normalmente, con media 10 y varianza $\sigma^P$. Cree 20 vectores (cada uno de estos vectores representa una persona) cada uno con 100 observaciones idénticas del ingreso permanente. Grafíquelos (eje x, persona; eje y, ingreso permanente).
+
+
+
+```{r, INGRESO PERMANENTE, include=FALSE}
+#Generación de una base de 20 datos con distribución normal de media 10 y varianza 4
+Yp_i<-rnorm(20,mean=10,sd=2)
+
+#Generacion de una matriz de ceros de 100 filas y 20 columnas
+Yp<-matrix(0,nrow=100,ncol=20)
+
+#Proceso para llenar la matriz Yp
+#Ciclo definido para variar columnas, los datos de las 100 filas de cada columna serán sustituidas por el valor que le corresponda a i (donde i va de 1 a 20) de Yp_i
+
+for (i in 1:20){
+  Yp[,i]<- Yp_i[i]
+}
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r, echo=FALSE}
+#Graficar los datos de consumo de las 20 personas
+plot(y=Yp[1,], 1:20,type="p",  pch = 18, cex = 1, xlab="Personas", ylab="Ingreso Permanente", col="green")
+title (main="Ingreso Permanente (Miles de pesos) ", sub="Fuente: datos aleatorios", cex.main = 1,   font.main= 1, col.main= "black", col.sub="black")
+```
+
+### Ejercicio 2.b
+
+Cree 20 vectores de 100 ingresos transitorios aleatorios $Y_{i,t}^T$, distribuidos normalmente, con media 0 y con varianza $\sigma^T$. Grafíquelos.
+
+```{r, INGRESO TRANSITORIO, include=FALSE}
+Yt_i<-rnorm(100,0,2)
+
+Yt<-matrix(0,nrow=100,ncol=20)
+
+for (j in 1:20)
+  
+for (i in 1:100){
+  Yt[i,j]<-Yt_i[i]+rnorm(20,0,2)[j]
+}
+
+```
+
+
+```{r, echo=FALSE}
+
+plot(1:20,Yt[50,], type="p", pch = 19, cex = 1, xlab="Personas", ylab="Ingreso Transitorio", col="red")
+title (main="Ingreso Transitorio (Miles de pesos) ", sub="Fuente: datos aleatorios", cex.main = 1,   font.main= 1, col.main= "black", col.sub="black")
+
+```
+
+
+
+
+
+### Ejercicio 2.c
+Cree 20 vectores de 100 ingresos totales $Y_{i,t}$, sumando el ingreso transitorio y el permanente. Grafíquelos.
+
+
+```{r, INGRESO TOTAL, include=FALSE}
+
+#Suma de matrices (Ingreso transitorio + ingreso permanente)
+Y<- Yt + Yp
+
+```
+
+
+```{r, echo=FALSE}
+
+plot(1:20,Y[50,], type="p", pch = 15, cex = 1, xlab="Personas", ylab="Ingreso Total", col="blue")
+title (main="Ingreso Total (Miles de pesos) ", sub="Fuente: datos aleatorios", cex.main = 1,   font.main= 1, col.main= "black", col.sub="black")
+```
+
+
+### Ejercicio 2.d
+Cree 20 vectores de 100 errores de medición $\epsilon_{i,t}$, distribuidos normalmente, con media 0 y varianza $\sigma^\epsilon>0$. Grafíquelos.
+
+
+```{r, ERROR, include=FALSE}
+E_i<-rnorm(100,0,0.5)
+u <- rnorm(20,0,0.5)
+
+Error <-matrix(0,nrow=100,ncol=20)
+
+  for (j in 1:20)
+    for (i in 1:100)
+       {
+  Error[i,j]<- E_i[i]+u[j]
+}
+
+
+```
+
+```{r, echo=FALSE}
+
+plot(1:20,Error[75,], type="p", pch = 8, cex = 1, xlab="Personas", ylab="Error", col="orange")
+title (main="Errores de Medición (Miles de pesos) ", sub="Fuente: datos aleatorios", cex.main = 1,   font.main= 1, col.main= "black", col.sub="black")
+```
+
+
+
+### Ejercicio 2.e
+Cree  20 vectores de 100 consumos $C_{i,t}$ cada uno, de acuerdo a la siguiente regla $C_{i,t}=Y_i^P+0.1Y_{i,t}^T+\epsilon_{i,t}$. Grafíquelos.
+
+```{r, CONSUMO, include=FALSE}
+
+
+C <-matrix(0,nrow=100,ncol=20)
+
+  for (j in 1:20)
+    for (i in 1:100)
+       {
+  C[i,j]<- Yp[i,j]+0.1*Yt[i,j]+Error[i,j]
+}
+
+```
+
+```{r, echo=FALSE}
+
+plot(1:20,C[58,], type="p", pch = 3, cex = 1, xlab="Personas", ylab="Consumo permanente", col="purple")
+title (main="Consumo (Miles de pesos) ", sub="Fuente: datos aleatorios", cex.main = 1,   font.main= 1, col.main= "black", col.sub="black")
+
+```
+
+
+### Ejercicio 2.f
+Estime la relación lineal entre ingreso total y consumo $C_{i,t}=\alpha+\beta Y_{i,t}+\epsilon_{i,t}$. Describa el resultado de su estimación y grafíque la relación entre las observaciones del consumo y las del ingreso.
+
+
+
+
+```{r, echo=FALSE, message = T, warning=T}
+
+plot(x=Y, y=C, main = "Relación del Cosumo e Ingreso",
+     xlab = "Ingreso", ylab = "Consumo",
+     pch = 1, frame = T)
+abline(lm(C ~ Y), col = "blue")
+```
+
+
+
+
+
+
+### Ejercicio 2.g
+Incremente la varianza del ingreso permanente, y disminuya la varianza del ingreso transitorio y vuelva a estimar y graficar la relación entre el consumo y el ingreso.
+
+### Ejercicio 2.h
+Disminuya la varianza del ingreso permanente, y aumente la varianza del ingreso transitorio y vuelva a estimar y graficar la relación entre el consumo y el ingreso.
+
+
+
+
+## Ejercicio 3
+Estudie el consumo agregado en México siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
+
+
+### Ejercicio 3.a
+Obtenga, del Inegi, datos de C, el consumo agregado en México, de Y, el producto agregado, de I, la inversión agregada, de G, el gasto del gobierno y de NX, las exportaciones netas,  entre 1980 y el tercer trimestre de 2019, EN TÉRMINOS REALES.
+
+
+
+
+### Ejercicio 3.b
+Grafíque dichas serie de tiempo juntas para compraralas visualmente.  (Compare la gráfica de las variables (de las que son siempre positivas) en su valor real original, y después de sacarles el logaritmo (cualquier logaritmo, no hace diferencia...)).
+
+### Ejercicio 3.c
+Grafique también la tasa de crecimiento, $\% \Delta a_t = (a_t-a_{t-1})/a_{t-1}$,  de todas estas series. 
+
+### Ejercicio 3.d
+Enfóquese ahora nada más al consumo y al producto agregado. Grafique la relación entre una serie y la otra, es decir, grafique los puntos $(\% \Delta Y_t,\% \Delta C_t)$ poniendo el consumo en las ordenadas.
+
+### Ejercicio 3.e
+Calcule la volatilidad de ambas series de tasas de crecimiento.
+
+### Ejercicio 3.f
+
+Estime cuatro modelos lineales: $C_t=a+bY_t+\epsilon_t$, $\Delta\%C_t=a+b \Delta\%Y_t+\epsilon_t$, $\Delta\%C_t=a+b \Delta\%Y_{t-1}+\epsilon_t$ y $c_t=a+by_t+\epsilon_t$, donde las minúsculas reflejan el logaritmo de la variable en mayúscula, y reporte los valores estimados de los coeficientes, los estadísticos T, las R cuadradas, etc.
+
+### Ejercicio 3.g
+Explique qué se puede concluir a cerca de la Hipótesis de Ingreso Permanente para México a partir de los coeficientes encontrados.
+
+## Ejercicio 4
+Estudie el consumo de los individuos en México, siguiendo estos pasos:[1 hora, 0.5 puntos cada inciso]
+
+### Ejercicio 4.a
+Baje los datos de un año de la ENIGH del sitio del INEGI, (Grupo 1-2018, Grupo 2-2016, etc.)  y establezca el número de hogares y el ingreso y el gasto promedio.
+
+### Ejercicio 4.b
+Estime una relación entre ingreso y gasto y reporte sus resultados.
+
+### Ejercicio 4.c
+Estime una relación entre ingreso y gasto pero para hogares unipersonales de edad entre 30 y 40 años de edad de la Ciudad de México.
+
+### Ejercicio 4.d
+Interprete sus resultados.
+
+### Ejercicio 4.e
+Para todos los hogares unipersonales, estime el valor promedio del ingreso por edad, separando la muestra en grupos de edad de cinco años cada uno y grafiquelo.
+
+
+## Ejercicio 5
+Estudie el ``acertijo del premio al riesgo'' para el caso de Mexico siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
+
+### Ejercicio 5.a
+Consiga los valores anuales de IPC, el Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores por lo menos desde 1990.
+
+### Ejercicio 5.b
+Calcule su tasa de retorno nominal para cada año.
+
+### Ejercicio 5.c
+Consiga los valores promedio anual de la tasa de interés de CETES a 7 días, o la TIIE, la tasa interbancaria de equilibrio, y de la tasa de interés a un año, para el periodo que esté disponible.
+
+### Ejercicio 5.d
+Calcule la diferencia entre el retorno del IPC y el retorno de invertir en CETES a distintos plazos.
+
+### Ejercicio 5.e
+Calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado de la economía mexicana. 
+
+### Ejercicio 5.f
+Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.
+
+### Ejercicio 5.g
+Ahora calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado DE BIENES IMPORTADOS [aquí hay una serie: www.inegi.org.mx/temas/imcp/] de la economía mexicana. 
+
+### Ejercicio 5.h
+Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.
+
+## Ejercicio 6
+Utilice el método del árbol binomal para explicar el precio P=80 de un activo y valuar un ``call'' sobre él, con precio de ejercicio K=P-N donde N es el número de su equipo, asumiendo una tasa de interés de 5 por ciento: [1 horas, 0.5 puntos cada inciso]
+
+
+
+
+
+
