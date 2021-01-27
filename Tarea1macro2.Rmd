@@ -5,7 +5,7 @@ author:
   - Enríquez Hernández leobardo
   - Méndez Atienza Marco
   - Valdés de la Torre Flor Yurivia
-date: "1/22/2021"
+date: "`r format(Sys.time(), '%d de %B de %Y')`"
 header-includes:
    - \usepackage[utf8]{inputenc}
    - \usepackage[spanish]{babel}
