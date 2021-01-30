@@ -525,8 +525,249 @@ u'''(C_t )=-\theta (-\theta -1) C_t^{-\theta - 2} > 0
 
 Por tanto, un individuo con una función de utilidad CRRA exhibe el comportamiento de ahorro preventivo explicado en la Sección 7.6. Un aumento de la incertidumbre (medida por $\sigma^2$, la varianza del logaritmo del consumo) aumenta el ahorro y, por lo tanto, el crecimiento esperado del consumo.
 
-8.6\\
-ncdvnfvkbfjv\\
+
+### Problema 8.6
+
+**Un marco para investigar el exceso de suavidad**. Suponga que $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ y que $A_{t+1}=(1+r)(A_t+Y_t-C_t)$.
+
+(a)  Muestre que estos supuestos implican que $E_t[C_{t+1}]=C_t$ (y entonces que el consumo sigue una caminata aleatoria) y que $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}$. 
+
+Sustituyendo la expresión para el consumo en el periodo t: 
+
+\begin{equation}
+C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}
+\end{equation}
+
+
+en la expresión de la riqueza en el periodo t+1: 
+
+\begin{equation}
+A_{t+1}=(1+r)(A_t+Y_t-C_t)
+\end{equation}
+
+
+obtenemos la expresión:
+
+
+
+\begin{equation}
+A_{t+1}=(1+r)[A_t+Y_t-\frac{r}{1+r}A_t-\frac{r}{1+r}(Y_t+\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)]
+\end{equation}
+
+Obteniendo un común denominador de $(1+r)$ y cancelando los términos $(1+r)$ obtenemos:
+
+\begin{equation}
+A_{t+1}=A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)
+\end{equation}
+
+
+
+
+Como la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ se mantiene en todos los periodos, podemos escribir el consumo en el periodo t+1 como: 
+
+\begin{equation}
+C_{t+1}=\frac{r}{1+r}[A_{t+1}+\sum^\infty_{s=0}\frac{E_{t+1}[Y_{t+1+s}]}{(1+r)^s}]
+\end{equation}
+
+
+
+Sustituyendo la ecuación $A_{t+1}=A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)$  en $C_{t+1}=\frac{r}{1+r}[A_{t+1}+\sum^\infty_{s=0}\frac{E_{t+1}[Y_{t+1+s}]}{(1+r)^s}]$ tenemos la ecuación: 
+
+\begin{equation}
+C_{t+1}=\frac{r}{1+r}[A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)+(E_{t+1}Y_{t+1}+\frac{E_{t+1}Y_{t+2}}{1+r}+...)]
+\end{equation}
+ 
+
+Tomando la esperanza, condicional a la información en el tiempo t, de ambos lados de esta última ecuación, tenemos:
+
+\begin{equation}
+E_tC_{t+1}=\frac{r}{1+r}[A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)+(E_{t}Y_{t+1}+\frac{E_{t}Y_{t+2}}{1+r}+...)]
+\end{equation}
+
+
+donde hemos usado la ley de las proyeccciones iteradas tal que para toda variable $x$, $E_tE_{t+1}x_{t+2}=E_tx_{t+2}$. Si esto no se sostuviera, los individuos estarían esperando a revisar su estimación hacia arriba o hacia abajo, y entonces su expectativa original no podría haber sido racional. 
+
+Colectando términos de la última ecuación, tenemos:
+
+
+\begin{equation}
+E_tC_{t+1}=\frac{r}{1+r}[A_t+Y_t-(1-\frac{r}{1+r})E_tY_{t+1}+(\frac{1}{(1+r)}-\frac{r}{(1+r)^2})E_tY_{t+2}+...]
+\end{equation}
+
+
+el cual se simplifica a: 
+
+\begin{equation}
+E_tC_{t+1}=\frac{r}{1+r}[A_t+Y_t+\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...]
+\end{equation}
+
+Usando la notación de suma, y que $E_tY_t=Y_t$ tenemos la expresión:
+
+\begin{equation}
+E_tC_{t+1}=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_tY_{t+s}}{(1+r)^s}]
+\end{equation}
+
+ 
+
+El lado derecho de la ecuación $$C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$$  y de la ecuación $E_tC_{t+1}=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_tY_{t+s}}{(1+r)^s}]$ son iguales por lo que: 
+
+\begin{equation}
+E_tC_{t+1}=C_t
+\end{equation}
+
+
+
+El consumo sigue una caminata aleatoria; cambios en el consumo son impredecibles.
+
+Como el consumo sigue una caminata aleatoria, el mejor estimador del consumo para cualquier periodo futuro es simplemente el valor esperado del consumo en ese periodo. Esto es, para toda $s\geq 0$, podemos escribir: 
+
+\begin{equation}
+E_tC_{t+s}=C_t
+\end{equation}
+
+
+Usando esta ecuación $E_tC_{t+s}=C_t$, podemos escribir el valor presente de la trayectoria esperada de consumo como:
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\sum^\infty_{s=0} \frac{C_t}{(1+r)^s}=C_t\sum^\infty_{s=0}\frac{1}{(1+r)^s}
+\end{equation}
+
+
+
+Como $\frac{1}{1+r}<1$, la suma infinita del lado derecho de la última ecuación converge a $\frac{1}{[1-\frac{1}{1+r}]}=\frac{(1+r)}{r}$ y entonces tenemos:
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{1+r}{r}C_t
+\end{equation}
+
+
+Sustituyendo la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ por $C_t$ en el lado derecho de la ecuación $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{1+r}{r}C_t$ tenemos la ecuación:
+
+
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{r}{1+r}(\frac{1+r}{r})[A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}]=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}
+\end{equation}
+
+Esta última ecuación establece que el valor presente de la trayectoria esperada del consumo iguala a la riqueza inicial más el valor presente de la trayectoria esperada del ingreso. 
+
+
+
+
+
+
+(b) Suponga que $\Delta Y_t=\phi \Delta Y_{t+1}+u_t$, donde *u* es ruido blanco. Suponga que $Y_t$ excede $E_{t-1}[Y_t]$ en 1 unidad (esto es, suponga *u_t=1*). ¿En cuánto incrementa el consumo?
+
+
+Tomando el valor esperado, como del tiempo t-1, en ambos lados de la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$, tenemos:
+
+\begin{equation}
+E_{t-1}C_t=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_{t-1}(Y_{t+s})}{(1+r)^s}]
+\end{equation}
+
+
+donde hemos usado el hecho de que $A_t=(1+r)[A_{t-1}+Y_{t-1}-C_{t-1}]$ no es incierto como en t-1. 
+
+Adicionalmente, hemos usado la ley de las proyecciones iteradas tal que $E_{t-1}E_{t}[Y_{t+s}]=E_{t-1}[Y_{t+s}]$. 
+
+Restando la ecuación $E_{t-1}C_t=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_{t-1}(Y_{t+s})}{(1+r)^s}]$ de la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ tenemos el cambio en el consumo:
+
+
+\begin{equation}
+C_t-E_{t-1}C_t=\frac{r}{1+r}[\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}-\sum^\infty_{s=0}\frac{E_{t-1}[Y_{t+s}]}{(1+r)^s}]=\frac{r}{1+r}[\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}]
+\end{equation}
+
+
+
+El cambio en el consumo será la fracción $\frac{r}{(1+r)}$ del valor presente del cambio  en el ingreso vitalicio esperado.  
+
+El siguiente paso es determinar el valor presente del cambio en el ingreso vitalicio esperado: 
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=[Y_t-E_{t-1}Y_t]+[\frac{E_tY_{t+1}-E_{t-1}Y_{t+1}}{1+r}]+[\frac{E_tY_{t+2}-E_{t-1}Y_{t+2}}{(1+r)^2}]+...
+\end{equation}
+
+ 
+
+En lo subsecuente "se espera que sea más alto" significa que "el valor esperado, como por ejemplo en el periodo t, sea mayor a lo que era en el periodo t-1". Como $u_t=1$, entonces: 
+
+\begin{equation}
+Y_t-E_{t-1}Y_t=1
+\end{equation}
+
+
+
+En el periodo t+1, como $\Delta Y_{t+1}=\phi \Delta Y_t + u_{t+1}$, el cambio en $Y_{t+1}$ se espera que sea $\phi \Delta Y_t=\phi$ más alto. Entonces, el nivel de $Y_{t+1}$ se espera que sea más alto por $1+\phi$. Entonces:
+
+\begin{equation}
+\frac{E_tY_{t+1}-E_{t-1}Y_{t+1}}{1+r}=\frac{1+\phi}{1+r}
+\end{equation}
+
+
+En el periodo t+2, como $\Delta Y_{t+2}=\phi \Delta Y_{t+1}+u_{t+2}$, el cambio en $Y_{t+2}$ se espera que sea más alto por $\phi \Delta Y_{t+1}=\phi^2$. Entonces el nivel de $Y_{t+2}$ se espera que sea más alto por $1+\phi +\phi^2$. Por lo tanto, tenemos:
+
+\begin{equation}
+\frac{E_tY_{t+2}-E_{t-1}Y_{t+2}}{(1+r)^2}=\frac{1+\phi+\phi^2}{(1+2)^2}
+\end{equation}
+
+
+
+Este comportamiento debe de ser claro. Tenemos que:
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=1+\frac{1+\phi}{1+r}+\frac{1+\phi + \phi^2}{(1+r)^2}+\frac{1+\phi+\phi^2`+\phi^3}{(1+r)^3}+...
+\end{equation}
+
+
+
+
+Notemos que la serie infinita puede escribirse como: 
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=[1+\frac{1}{1+r}+\frac{1}{(1+r)^2}+...]+[\frac{\phi}{1+r}+\frac{\phi}{(1+r)^2}+\frac{\phi}{(1+r)^3}+...]+[\frac{\phi^2}{(1+r)^2}+\frac{\phi^2}{(1+r)^3}+...]+...
+\end{equation}
+
+Si definimos $\gamma =\frac{1}{1+r}$, la primera suma del lado rerecho de la última ecuación converge a $\frac{1}{1-\gamma}$, la segunda suma converge a $\frac{\phi \gamma}{(1-\gamma)}$, la tercera suma converge a $\frac{\phi^2 \gamma^2}{1-\gamma}$, y así sucesivamente. 
+
+Por lo tanto la ecuación anterior puede escribirse como 
+
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=\frac{1}{1-\gamma}[1+\phi \gamma+\phi^2 \gamma^2+...]=\frac{1}{(1-\gamma)} \frac{1}{(1-\phi \gamma)}
+\end{equation}
+
+Reescribiendo esta última ecuación con la definición de $\gamma =\frac{1}{1+r}$ tenemos: 
+
+
+\begin{equation}
+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=\frac{1}{1-[\frac{1}{1+r}]}\frac{1}{1-[\frac{\phi}{1+r}]}=\frac{(1+r)}{r}\frac{(1+r)}{(1+r-\phi)}
+\end{equation}
+
+
+Sustituyendo esta última ecuación en la ecuación inmediata anterior tenemos el siguiente cambio en el consumo: 
+
+
+\begin{equation}
+C_t-E_{t-1}C_t=\frac{r}{(1+r)}[\frac{(1+r)}{r}\frac{(1+r)}{(1+r-\phi)}]=\frac{(1+r)}{(1+r-\phi)}
+\end{equation}
+
+
+
+(c) Para el caso de $\phi >0$, cuál tiene una mayor varianza, la innovación en el ingreso, $u_t$, o la innovación en el consumo,$C_t-E_{t-1}[C_t]$? ¿Utilizan los consumidores el ahorro y el endeudamiento para suavizar la senda del consumo en relaciónal ingreso en este modelo? Explique.
+
+
+La varianza del cambio en el consumo es: 
+
+\begin{equation}
+var(C_t-E_{t-1}C_t)=var[\frac{(1+r)}{(1+r-\phi)}u_t]=[\frac{(1+r)}{(1+r-\phi)}]^2 var(u_t)>var(u_t)
+\end{equation}
+
+
+Como$\frac{(1+r)}{(1+r-\phi)}>1$, la varianza del cambio en el consumo es más grande que la varianza del cambio en el ingreso.
+
+Intuitivamente, un cambio en el ingreso significa que en promedio, el consumidor experimentará más cambios en el ingreso en la misma dirección en los periodos futuros. 
+
+No es claro si el consumidor usa el ahorro o la deuda para suavizar el consumo relativo al ingreso. El ingreso no es estacionario, entoces no es obvio lo que significa suavizarlo.  
 
 ## Ejercicio 2
 **Simule una variedad de agentes que tienen ingresos permamentes diferentes e ingresos transitorios diferentes y calcule la relación entre consumo e ingreso que resulta dada una variedad de supuestos para las varianzas de cada tipo de ingreso sigiendo estos pasos:[2 horas, 1 punto cada inciso]**
