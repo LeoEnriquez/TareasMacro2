@@ -90,8 +90,181 @@ pacman::p_load(tidyverse,
 ## Ejercicio 1
 **Resuelva los ejercicios 8.1, 8.2, 8.4, 8.5 y 8.6. Realice estos con ayuda de su laboratorista y entregue las soluciones a máquina, utilizando LaTeX. [3 horas,1 punto cada inciso].**
 
-8.1\\
-kdlcslfdvfv \\
+### Problema 8.1.
+
+\textbf{Ahorro en el ciclo vital (Modigliani y Brumberg, 1954).} Suponga un individuo que vive de 0 a T y cuya utilidad vital viene dada por $U = \int_{t=0}^{T} u(C(t))dt$, donde $u'(.)>0$ y  $u''(.)<0$. La renta de este individuo es igual a $Y_0 + gt$ cuando $0\leq t<R$ e igual a 0 cuando $R\leq t \leq T$. La edad de jubilación, R, satisface que $0<R<T$. El tipo de interés es cero, el individuo no dispone de ninguna riqueza inicial y no hay incertidumbre.
+
+#### a) ¿Cuál es la restricción presupuestaria vital de este individuo?
+
+El modelo planteado por Modigliani y Brumberg explica que los individuos ahorran durante la etapa de generación de ingresos, es decir cuando $0\leq t<R$, gastando menos de los ingresos que genera y pensando en su etapa de jubilación, ya que en ese periodo no generarán ingresos los individuos. La teoría planteada se basa en la gestión y planificación de ahorro para su jubilación, y en incentivar al ahorro a los individuos. 
+
+Con este resumen, podemos plantear la restricción presupuestaria vital a la que se enfrenta el individuo. Para ello, consideramos los siguientes supuestos, de acuerdo al enunciado, el tipo de interés es cero, el individuo no dispone de ninguna riqueza inicial y no hay incertidumbre. 
+
+El valor actual del consumo de por vida debe ser menor o igual al valor presente de por vida de los ingresos (el individuo no tiene riqueza inicial). Así tenemos:
+
+\begin{equation}
+\int_{t=0}^{T} C(t)dt\leqslant\int_{t=0}^{T}Y(t)dt
+\end{equation}
+
+El ingreso del individuo es $Y(t)=Y_0+gt$ para $0\leq t<R$ y $Y(t)=0$ para $R\leq t \leq T$, el valor presente del ingreso del ciclo de vida es 
+
+\begin{equation}
+\int_{t=0}^{T}Y(t)dt=\int_{t=0}^{R}(Y_0+gt)dt
+\end{equation}
+
+Resolviendo esta integral, obtenemos como resultado:
+
+\begin{equation}
+\int_{t=0}^{R}(Y_0+gt)dt=\left|Y_0t+\frac{1}{2}gt^2\right|_{0}^{R}
+\end{equation}
+
+Simplificando:
+
+\begin{equation}
+\int_{t=0}^{R}(Y_0+gt)dt=RY_0+\frac{1}{2}gR^2
+\end{equation}
+
+Sustituyendo la ecuación (4) en la ecuación (1) se obtiene la restricción presupuestaria del ciclo de vida: 
+
+\begin{equation}
+\int_{t=0}^{T} C(t)dt\leqslant RY_0+\frac{1}{2}gR^2
+\end{equation}
+
+#### b) ¿Qué trayectoria del consumo, C(t), maximiza su utilidad?
+
+Dado que $u''(.)<0$ y la tasa de interés y la tasa de descuento son iguales a cero, esto implica que la utilidad marginal del individuo es constante y depende únicamente del consumo. La trayectoria del consumo debe ser constante durante el periodo de vida del individuo. Entonces, la restricción presupuestaria implica que el consumo en cada momento es igual a los recursos de por vida divididos por la duración de la vida (T). 
+
+En la parte (a), los recursos de por vida vienen dados por $RY_0+\frac{1}{2}gR^2$ y así el nivel de consumo constante es:
+
+\begin{equation}
+\bar C= \frac {1}{T} (RY_0+\frac{1}{2}gR^2)
+\end{equation} 
+
+
+Simplificando la ecuación:
+
+\begin{equation}
+\bar C= \frac {R}{T} (Y_0+\frac{1}{2}gR)
+\end{equation}
+
+
+#### c) ¿Qué trayectoria sigue la riqueza de este individuo en función de t?
+
+La riqueza del individuo en cualquier momento t es la suma del ahorro desde el momento 0 hasta el momento t.
+
+\begin{equation}
+W(t)=\int_{\gamma=0}^{t}S(\gamma)d\gamma
+\end{equation}
+
+Donde W es la riqueza y S es el ahorro. El ahorro del individuo en el periodo t es la diferencia entre la renta y el consumo.
+
+\begin{equation}
+S(t)=Y(t)-C(t)
+\end{equation}
+
+Si diferenciamos los dos periodos:
+
+En el periodo $0\leq t<R$, el individuo logra ahorrar, siendo la trayectoria del ahorro:
+
+\begin{equation}
+S_t=Y_t-C_t=Y_0+gt-\frac {R}{T} (Y_0+\frac{1}{2}gR)=Y_0+gt-\bar C
+\end{equation}
+
+En el periodo $R\leq t \leq T$, el individuo no obtiene ingresos, por lo que el individuo utiliza el ahorro que genero. La trayectoria del ahorro en este periodo es:
+
+\begin{equation}
+S_t=Y_t-C_t=0-\frac {R}{T} (Y_0+\frac{1}{2}gR)=-\bar C
+\end{equation}
+
+Entonces, el ahorro se define:
+
+\begin{equation}
+S(t)=\left\{ \begin{array}{lcc}
+              Y_0+gt-\frac {R}{T} (Y_0+\frac{1}{2}gR) &   si  & 0\leq t<R \\
+            \\ -\frac {R}{T} (Y_0+\frac{1}{2}gR) &  si  & R\leq t \leq T
+             \end{array}
+   \right.
+\end{equation}
+
+Ahora, la trayectoria de la riqueza es:
+
+En el periodo $0\leq t<R$, la riqueza viene dada por:
+
+\begin{equation}
+W(t)=\int_{\gamma=0}^{t}S(\gamma)d\gamma=\int_{\gamma=0}^{t}(Y_0+g\gamma-\bar C) d\gamma
+\end{equation}
+
+Resolviendo la integral, se obtiene:
+
+\begin{equation}
+W(t)=\left|Y_0\gamma+\frac{1}{2}g\gamma^2-\bar C\gamma\right|_{\gamma=0}^{t}
+\end{equation}
+
+\begin{equation}
+W(t)=Y_0t+\frac{1}{2}gt^2-\bar Ct
+\end{equation}
+
+Simplificando la ecuación, se obtiene lo siguiente:
+
+\begin{equation}
+W(t)=t(Y_0+\frac{1}{2}gt-\bar C)
+\end{equation}
+
+Para el periodo $R\leq t \leq T$, la riqueza es igual a:
+
+\begin{equation}
+W(t)=\int_{\gamma=0}^{t}S(\gamma)d\gamma+W(R)
+\end{equation}
+
+donde W(R) es la riqueza en el momento en que el individuo se jubila. Podemos sustituir t=R en la ecuación (15) para determinar la riqueza al jubilarse. Esto nos da:
+
+\begin{equation}
+W(R)=R(Y_0+\frac{1}{2}gR-\bar C)
+\end{equation}
+
+Como $\bar C= \frac {R}{T} (Y_0+\frac{1}{2}gR)$, reemplazando en la ecuación (15), se obtiene:
+
+\begin{equation}
+W(R)=R(\frac{T}{R}\bar C-\bar C)
+\end{equation}
+
+que se simplifica a:
+
+\begin{equation}
+W(R)=(T-R)\bar C
+\end{equation}
+
+La ecuación (20) es intuitiva, dado que el individuo no recibe ingresos al jubilarse, el individuo para poder consumir tiene que utilizar la riqueza acumulada durante el periodo que percibió ingresos. Dado que $(T-R)$ es el tiempo que pasa en la jubilación y dado que el individuo consume C, la riqueza en la jubilación debe ser igual $(T-R)\bar C$.  
+
+Sustituyendo la ecuación (20) y dado que $S_t=-\bar C$ para $R\leq t \leq T$ en la ecuación (17) se obtiene:
+
+\begin{equation}
+W(t)=(T-R)\bar C-\int_{\gamma=R}^{t}\bar Cd\gamma
+\end{equation}
+
+
+Resolviendo la integral en la ecuación (21), se obtiene lo siguiente: 
+
+\begin{equation}
+W(t)=(T-R)\bar C-\bar C(t-R)
+\end{equation}
+
+Simplificando:
+
+\begin{equation}
+W(t)=(T-t)\bar C
+\end{equation}
+
+Por lo tanto, el individuo comienza a ahorrar de manera positiva una vez que los ingresos actuales exceden los ingresos medios de por vida. La riqueza es maximizada en la jubilación, después de lo cual la riqueza se reduce para financiar el consumo hasta el final de la vida.
+El patrón implícito en nuestro análisis se muestra en las siguientes figuras:
+
+
+
+
+
+La figura de la izquierda muestra el ingreso y el consumo como funciones del tiempo, asumiendo que el ingreso en el tiempo 0 supera el nivel constante de consumo. La línea en negrita muestra ingresos que equivalen a $Y_0 + g$t hasta jubilación y es igual a 0 a partir de entonces. El consumo es constante en el nivel $\bar C$.
+
+La figura de la derecha representa la riqueza en función del tiempo. La pendiente de la curva de riqueza es igual a ahorro que a su vez es igual a la diferencia entre ingreso y consumo en la figura de la izquierda. Riqueza aumenta (a un ritmo creciente) durante la vida laboral, ya que los ingresos superan el consumo; la riqueza alcanza un máximo de $(T-R)\bar C$ barrita al jubilarse. Durante la jubilación - entre período R y T- la riqueza disminuye a una tasa constante hasta que llega a cero al final de la vida. Dada la forma de la función de la riqueza, este patrón de acumulación de riqueza durante el ciclo de vida se conoce como "ahorro de joroba".
 
 ### Problema 8.2
 
