@@ -16,7 +16,6 @@ output:
   pdf_document:
     toc: true
     toc_depth: 3
-    
 ---
 
 ```{r setup, include=FALSE}
@@ -747,7 +746,7 @@ Así, la siguiente gráfica muestra el ingreso permanente de 20 individuos, dond
 
 GrafIngPerm <- barplot (Yp[1,], col = "blue", ylim = c(0, 20), main = "Gráfica 2.1. Ingreso permanente de 20 individuos", xlab = "Individuos", ylab = "Ingreso permanente en miles de pesos", cex.names = .7)
 
-abline(h = mean(Yp), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Yp[1,]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 \newpage
 
@@ -769,11 +768,11 @@ Una vez creados los 20 vectores con 100 ingresos transitorios para cada individu
 
 GrafIngTrans1 <- barplot (Yt[1,], col = "green", ylim = c(-7, 7), main = "Gráfica 2.2. Un ingreso transitorio de 20 individuos", xlab = "Individuos", ylab = "Ingreso transitorio en miles de pesos", cex.names = 0.7)
 
-abline(h = mean(Yt), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Yt[1,]), col ="red", legend("topright", "Media", fill = "red"))
 
 GrafIngTrans2 <- barplot (Yt[,1], col = "green", ylim = c(-7, 7), main = "Gráfica 2.3. 100 Ingresos transitorios para el individuo 1", xlab = "Ingresos transitorios aleatorios", ylab = "Miles de pesos", cex.names = 0.7)
 
-abline(h = mean(Yt), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Yt[,1]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 \newpage
 
@@ -792,11 +791,11 @@ Y <- Yp + Yt
 
 GrafIngTotal1 <- barplot (Y[1,], col = "purple", ylim = c(0, 20), main = "Gráfica 2.4. Un ingreso total de 20 individuos", xlab = "Individuos", ylab = "Ingreso total en miles de pesos", cex.names = 0.7)
 
-abline(h = mean(Y), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Y[1,]), col ="red", legend("topright", "Media", fill = "red"))
 
 GrafIngTotal2 <- barplot (Y[,1], col = "purple", ylim = c(0, 20), main = "Gráfica 2.5. 100 ingresos totales para el individuo 1", xlab = "Ingresos totales", ylab = "Miles de pesos", cex.names = 0.7)
 
-abline(h = mean(Y), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Y[,1]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 
 Puede observarse que los valores del ingreso total para todos los individuos, $Y$, la media se mantiene alrededor del valor de 10, producto de la propiedad de linealidad de la esperanza: $E[Y] = E[Y^P] + E[Y^T] = 10 + 0 = 10$.
@@ -818,13 +817,13 @@ rownames(et) <- c(paste0(1:100))
 ```
 
 ```{r GRÁFICA ERRORES , echo = FALSE}
-GrafError1 <- barplot (et[1,], col = "red", ylim = c(-1.5, 1.5), main = "Gráfica 2.6. Un error de medición de 20 individuos", xlab = "Individuos", ylab = "Error promedio de medición en miles de pesos", cex.names = 0.7)
+GrafError1 <- barplot (et[1,], col = "red", ylim = c(-2, 2), main = "Gráfica 2.6. Un error de medición de 20 individuos", xlab = "Individuos", ylab = "Error promedio de medición en miles de pesos", cex.names = 0.7)
 
-abline(h = mean(et), col ="yellow", legend("topright", "Media", fill = "yellow"))
+abline(h = mean(et[1,]), col ="yellow", legend("topright", "Media", fill = "yellow"))
 
-GrafError1 <- barplot (et[,1], col = "red", ylim = c(-1.5, 1.5), main = "Gráfica 2.7. 100 errores de medición para el individuo 1", xlab = "Errores aleatorios", ylab = "Miles de pesos", cex.names = 0.7)
+GrafError1 <- barplot (et[,1], col = "red", ylim = c(-2.5, 2.5), main = "Gráfica 2.7. 100 errores de medición para el individuo 1", xlab = "Errores aleatorios", ylab = "Miles de pesos", cex.names = 0.7)
 
-abline(h = mean(et), col ="yellow", legend("topright", "Media", fill = "yellow"))
+abline(h = mean(et[,1]), col ="yellow", legend("topright", "Media", fill = "yellow"))
 ```
 \newpage
 
@@ -841,13 +840,13 @@ Ct <- Yp + 0.1*(Yt) + et
 
 ```{r GRAFICA CONSUMO, echo = FALSE}
 
-barplot (Ct[1,], col = "#00FFFF", ylim = c(0, 17), main = "Gráfica 2.8. Un consumo de 20 individuos", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
+barplot (Ct[1,], col = "#00FFFF", ylim = c(0, 20), main = "Gráfica 2.8. Un consumo de 20 individuos", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
 
-abline(h = mean(Ct), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Ct[1,]), col ="red", legend("topright", "Media", fill = "red"))
 
-barplot (Ct[,1], col = "#00FFFF", ylim = c(0, 17), main = "Gráfica 2.9. 100 consumos para el individuo 1", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
+barplot (Ct[,1], col = "#00FFFF", ylim = c(0, 20), main = "Gráfica 2.9. 100 consumos para el individuo 1", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
 
-abline(h = mean(Ct), col ="red", legend("topright", "Media", fill = "red"))
+abline(h = mean(Ct[,1]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 
 Dado que $C_{i,t}=Y_i^P+0.1Y_{i,t}^T+\epsilon_{i,t}$, entonces $E[C_{i,t}] = E[Y_i^P] + E[0.1Y_{i,t}^T] + E[\epsilon_{i,t}] = 10 + 0.1(0) + 0 = 10$, lo cual es consistente con las gráficas. 
