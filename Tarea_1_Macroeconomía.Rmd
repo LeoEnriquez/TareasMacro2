@@ -30,7 +30,7 @@ pacman::p_load(tidyverse,
                kableExtra,
                ggplot2,
                cowplot,
-               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr)
+               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr, imager)
 ```
 
 \newpage
@@ -258,6 +258,12 @@ W(t)=(T-t)\bar C
 
 Por lo tanto, el individuo comienza a ahorrar de manera positiva una vez que los ingresos actuales exceden los ingresos medios de por vida. La riqueza es maximizada en la jubilación, después de lo cual la riqueza se reduce para financiar el consumo hasta el final de la vida.
 El patrón implícito en nuestro análisis se muestra en las siguientes figuras:
+
+```{r}
+imagen1 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-1/Problema%208.1.PNG")
+
+plot(imagen1, main = "Figura 1. Ahorro en el ciclo de vida", axes = FALSE)
+```
 
 La figura de la izquierda muestra el ingreso y el consumo como funciones del tiempo, asumiendo que el ingreso en el tiempo 0 supera el nivel constante de consumo. La línea en negrita muestra ingresos que equivalen a $Y_0 + g$t hasta jubilación y es igual a 0 a partir de entonces. El consumo es constante en el nivel $\bar C$.
 
@@ -719,7 +725,7 @@ No es claro si el consumidor usa el ahorro o la deuda para suavizar el consumo r
 
 **Cree un vector de 20 ingresos permanentes aleatorios $Y_i^P$, distribuidos normalmente, con media 10 y varianza $\sigma^P$. Cree 20 vectores (cada uno de estos vectores representa una persona) cada uno con 100 observaciones idénticas del ingreso permanente. Grafíquelos (eje x, persona; eje y, ingreso permanente).**
 
-Se creó un vector de 20 observaciones distribuidas normalmente con media igual a diez y varianza de 4 que representan el ingreso permanente de 20 individuos, esto es: $\mu_{Y^P_{i}} = 10$ y $Var(Y^P_{i}) = 4$. Posteriormente, se construyó una matriz con 100 observaciones para cada individuo, siendo estas idénticas a su consumo permanente.
+Se creó un vector de 20 observaciones distribuidas normalmente con media igual a 10 y varianza de 4 que representan el ingreso permanente de 20 individuos, esto es: $\mu_{Y^P_{i}} = 10$ y $Var(Y^P_{i}) = 4$. Posteriormente, se construyó una matriz con 100 observaciones para cada individuo, siendo estas idénticas a su ingreso permanente.
 
 ```{r INGRESO PERMANENTE, include = FALSE}
 
