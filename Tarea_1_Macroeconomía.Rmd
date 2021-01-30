@@ -16,7 +16,6 @@ output:
   pdf_document:
     toc: true
     toc_depth: 3
-    
 ---
 
 ```{r setup, include=FALSE}
@@ -34,6 +33,7 @@ pacman::p_load(tidyverse,
                stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr)
 ```
 
+\newpage
 
 # Instrucciones
 
@@ -88,13 +88,13 @@ pacman::p_load(tidyverse,
 # Soluciones
 
 ## Ejercicio 1
-**Resuelva los ejercicios 8.1, 8.2, 8.4, 8.5 y 8.6. Realice estos con ayuda de su laboratorista y entregue las soluciones a máquina, utilizando LaTeX. [3 horas,1 punto cada inciso].**
+**Resuelva los ejercicios 8.1, 8.2, 8.4, 8.5 y 8.6 de Romer. Realice estos con ayuda de su laboratorista y entregue las soluciones a máquina, utilizando LaTeX. [3 horas,1 punto cada inciso].**
 
 ### Problema 8.1.
 
-\textbf{Ahorro en el ciclo vital (Modigliani y Brumberg, 1954).} Suponga un individuo que vive de 0 a T y cuya utilidad vital viene dada por $U = \int_{t=0}^{T} u(C(t))dt$, donde $u'(.)>0$ y  $u''(.)<0$. La renta de este individuo es igual a $Y_0 + gt$ cuando $0\leq t<R$ e igual a 0 cuando $R\leq t \leq T$. La edad de jubilación, R, satisface que $0<R<T$. El tipo de interés es cero, el individuo no dispone de ninguna riqueza inicial y no hay incertidumbre.
+**Ahorro en el ciclo vital (Modigliani y Brumberg, 1954). Suponga un individuo que vive de 0 a T y cuya utilidad vital viene dada por $U = \int_{t=0}^{T} u(C(t))dt$, donde $u'(.)>0$ y  $u''(.)<0$. La renta de este individuo es igual a $Y_0 + gt$ cuando $0\leq t<R$ e igual a 0 cuando $R\leq t \leq T$. La edad de jubilación, R, satisface que $0<R<T$. El tipo de interés es cero, el individuo no dispone de ninguna riqueza inicial y no hay incertidumbre.**
 
-#### a) ¿Cuál es la restricción presupuestaria vital de este individuo?
+**a) ¿Cuál es la restricción presupuestaria vital de este individuo?**
 
 El modelo planteado por Modigliani y Brumberg explica que los individuos ahorran durante la etapa de generación de ingresos, es decir cuando $0\leq t<R$, gastando menos de los ingresos que genera y pensando en su etapa de jubilación, ya que en ese periodo no generarán ingresos los individuos. La teoría planteada se basa en la gestión y planificación de ahorro para su jubilación, y en incentivar al ahorro a los individuos. 
 
@@ -102,6 +102,7 @@ Con este resumen, podemos plantear la restricción presupuestaria vital a la que
 
 El valor actual del consumo de por vida debe ser menor o igual al valor presente de por vida de los ingresos (el individuo no tiene riqueza inicial). Así tenemos:
 
+\setcounter{equation}{0}
 \begin{equation}
 \int_{t=0}^{T} C(t)dt\leqslant\int_{t=0}^{T}Y(t)dt
 \end{equation}
@@ -130,7 +131,7 @@ Sustituyendo la ecuación (4) en la ecuación (1) se obtiene la restricción pre
 \int_{t=0}^{T} C(t)dt\leqslant RY_0+\frac{1}{2}gR^2
 \end{equation}
 
-#### b) ¿Qué trayectoria del consumo, C(t), maximiza su utilidad?
+**b) ¿Qué trayectoria del consumo, C(t), maximiza su utilidad?**
 
 Dado que $u''(.)<0$ y la tasa de interés y la tasa de descuento son iguales a cero, esto implica que la utilidad marginal del individuo es constante y depende únicamente del consumo. La trayectoria del consumo debe ser constante durante el periodo de vida del individuo. Entonces, la restricción presupuestaria implica que el consumo en cada momento es igual a los recursos de por vida divididos por la duración de la vida (T). 
 
@@ -148,7 +149,7 @@ Simplificando la ecuación:
 \end{equation}
 
 
-#### c) ¿Qué trayectoria sigue la riqueza de este individuo en función de t?
+**c) ¿Qué trayectoria sigue la riqueza de este individuo en función de t?**
 
 La riqueza del individuo en cualquier momento t es la suma del ahorro desde el momento 0 hasta el momento t.
 
@@ -264,14 +265,15 @@ El patrón implícito en nuestro análisis se muestra en las siguientes figuras:
 
 La figura de la izquierda muestra el ingreso y el consumo como funciones del tiempo, asumiendo que el ingreso en el tiempo 0 supera el nivel constante de consumo. La línea en negrita muestra ingresos que equivalen a $Y_0 + g$t hasta jubilación y es igual a 0 a partir de entonces. El consumo es constante en el nivel $\bar C$.
 
-La figura de la derecha representa la riqueza en función del tiempo. La pendiente de la curva de riqueza es igual a ahorro que a su vez es igual a la diferencia entre ingreso y consumo en la figura de la izquierda. Riqueza aumenta (a un ritmo creciente) durante la vida laboral, ya que los ingresos superan el consumo; la riqueza alcanza un máximo de $(T-R)\bar C$ barrita al jubilarse. Durante la jubilación - entre período R y T- la riqueza disminuye a una tasa constante hasta que llega a cero al final de la vida. Dada la forma de la función de la riqueza, este patrón de acumulación de riqueza durante el ciclo de vida se conoce como "ahorro de joroba".
+La figura de la derecha representa la riqueza en función del tiempo. La pendiente de la curva de riqueza es igual a ahorro que a su vez es igual a la diferencia entre ingreso y consumo en la figura de la izquierda. Riqueza aumenta (a un ritmo creciente) durante la vida laboral, ya que los ingresos superan el consumo; la riqueza alcanza un máximo de $(T-R)\bar C$ barrita al jubilarse. Durante la jubilación - entre período R y T- la riqueza disminuye a una tasa constante hasta que llega a cero al final de la vida. Dada la forma de la función de la riqueza, este patrón de acumulación de riqueza durante el ciclo de vida se conoce como *hump saving*.
 
-### Problema 8.2
+### Problema 8.2.
 
 **El Ingreso promedio de los agricultores es menor al ingreso promedio de los no agricultores, pero fluctúa más año con año. Dado esto, ¿cómo la Hipótesis del Ingreso Permanente predice que las funciones de consumo estimado entre ambos grupos difieren?**
 
 Sabemos que, en promedio, el ingreso transitorio es igual a cero y que el ingreso promedio puede ser interpretado como el ingreso permanente promedio. Así, el problema indica que el ingreso permanente de los agricultores es menor al de los no agricultores, esto es:
 
+\setcounter{equation}{0}
 \begin{equation}
 \bar{Y}_{A}^P < \bar{Y}_{NA}^P 
 \end{equation}
@@ -309,6 +311,7 @@ Los agricultores, en promedio, tienen un ingreso permanente menor a los no agric
 
 Sabemos que la utilidad esperada vitalicia esperada es:
 
+\setcounter{equation}{0}
 \begin{equation}
 E_{1}[U] = E_{1}[\sum_{t=1}^{T} (C_{t} - \frac{a}{2}C_{t}^2)]
 \end{equation}
@@ -331,7 +334,7 @@ Que puede escribirse:
 C_{t} = C_{1} + e_{t}
 \end{equation}
 
-donde $E_{1}[e_{t}] = 0$ y $Var(e_{t} = \sigma_{e_{t}}^2)$. La ecuación (8) se cumple para todos los periodos; entonces, sustituyéndola en la ecuación (6):
+donde $E_{1}[e_{t}] = 0$ y $Var(e_{t} = \sigma_{e_{t}}^2)$. La ecuación (4) se cumple para todos los periodos; entonces, sustituyéndola en la ecuación (2):
 
 \begin{equation}
 E_{1}[U] = \sum_{t=1}^T(E_{1}[C_{1} + e_{t}]-\frac{a}{2}E_{1}[(C_{1} + e_{t})^2]
@@ -343,7 +346,7 @@ Como $E_{1}[C_{1}] = C_{1}$ y $E_{1}[e_{t}] = 0$:
 E_{1}[U] = \sum_{t=1}^{T}(C_{1} - \frac{a}{2}C_{1}^{2} - \frac{a}{2}E_{1}[e_{t}^{2}])
 \end{equation}
 
-Como $E_{1}[e_{t}^{2}] = Var(e_{t}) = \sigma_{e_{t}}^{2}$, la ecuación (10) puede ser escrita:
+Como $E_{1}[e_{t}^{2}] = Var(e_{t}) = \sigma_{e_{t}}^{2}$, la ecuación (6) puede ser escrita:
 
 \begin{equation}
 E_{1}[U] = \sum_{t=1}^{T}(C_{1} - \frac{a}{2}C_{1}^{2} - \frac{a}{2}\sigma_{e_{t}}^{2})
@@ -355,25 +358,26 @@ Si $C_{t} = C_{1}$ con seguridad, tal que $e_{t} = 0$ y $Var(e_{t}) = \sigma_{e_
 U = \sum_{t=1}^{T}(C_{1} - \frac{a}{2}C_{1}^{2})
 \end{equation}
 
-Es decir, se comparan las ecuaciones con incertidumbre (11) y con certidumbre (12): como $C_{1}$ es el mismo con o sin incertidumbre, **la utilidad bajo incertidumbre (siempre que $Var(e_{t}) = \sigma_{e_{t}}^{2} > 0$) será menor.**
+Es decir, se comparan las ecuaciones con incertidumbre (7) y con certidumbre (8): como $C_{1}$ es el mismo con o sin incertidumbre, **la utilidad bajo incertidumbre (siempre que $Var(e_{t}) = \sigma_{e_{t}}^{2} > 0$) será menor.**
 
 ### Problema 8.5
 
-{(Seguimos en este problema a Hansen y Singleton, 1983.) Suponga que la función de utilidad instantánea adopta la forma de aversión constante al riesgo realtivo, $u(C_t)=\frac{C_t^{1-\theta}}{(1-\theta)} \ , \ \theta>0$ . Suponga también que el tipo de interés real, $r$, es constante, pero no necesariamente igual la tasa de descuento, $\rho$.}
+**(Seguimos en este problema a Hansen y Singleton, 1983.) Suponga que la función de utilidad instantánea adopta la forma de aversión constante al riesgo relativo, $u(C_t)=\frac{C_t^{1-\theta}}{(1-\theta)} \ , \ \theta>0$ . Suponga también que el tipo de interés real, $r$, es constante, pero no necesariamente igual la tasa de descuento, $\rho$.**
 
-\textbf{a) Halle la ecuación de Euler que relaciona $C_t$ con las expectativas sobre $C_{t+1}$.}
+**a) Halle la ecuación de Euler que relaciona $C_t$ con las expectativas sobre $C_{t+1}$.**
 
 
-Nota: Sabemos que la ecuación de Euler que relaciona $C_t$ con $C_{t+1}$ en situaciones de certidumbre, admitiendo un tipo de interés distinto de cero (y con las demás características idénticas al planteado en este ejercicio, de acuerdo al texto sección 8.4 y a lo visto en clase) es:
+Sabemos que la ecuación de Euler que relaciona $C_t$ con $C_{t+1}$ en situaciones de certidumbre, admitiendo un tipo de interés distinto de cero (y con las demás características idénticas al planteado en este ejercicio, de acuerdo al texto sección 8.4 y a lo visto en clase) es:
 
+\setcounter{equation}{0}
 \begin{equation}
 \frac{C_{t+1}}{C_t}=[\frac{1+r}{1+\rho}]^\frac{1}{\theta}
 \end{equation}
 
 
-Haremos un proceso similiar, pero ahora tomando en cuenta que hay incertidumbre. 
+Haremos un proceso similar, pero ahora tomando en cuenta que hay incertidumbre. 
 
-Derivado la función de utilidad instántania CRRA  $[u(C_t)=\frac{C_t^{1-\theta}}{(1-\theta)} \ , \ \theta>0]$  c.r.a. $C_t$ y $C_{t+1}$ obtenemos la utilidad marginal del consumo para los periodos $t$ y $t+1$ respectivamente:
+Derivado la función de utilidad instantánea CRRA  $[u(C_t)=\frac{C_t^{1-\theta}}{(1-\theta)} \ , \ \theta>0]$  c.r.a. $C_t$ y $C_{t+1}$ obtenemos la utilidad marginal del consumo para los periodos $t$ y $t+1$ respectivamente:
 
 \begin{equation} 
 u'(C_t) = C_t^{-\theta} \ \ \ \ \ \ y \ \ \ \ \ \ u'(C_{t+1}) = C_{t+1}^{-\theta}
@@ -404,15 +408,11 @@ C_t^{-\theta}dC = \frac{1}{1+\rho}E_t[C_{t+1}^{-\theta}(1+r)dC]
 C_{t}^{-\theta}=\frac{1+r}{1+\rho}E_t[C_{t+1}^{-\theta}]
 \end{equation}
 
-donde hemos cancelado (bastante informalmente) los dD. La ecuación (5) es la ecuación de Euler.
+donde hemos cancelado los dD. La ecuación (6) es la ecuación de Euler.
 
+**b) Suponga que la distribución del logaritmo de la renta y, por tanto, la del logaritmo de $C_{t+1}$ es normal. Llamemos $\sigma^2$ a la varianza de este último condicionada a la información disponible en el período $t$. Reescriba la expresión hallada en a) en términos de $lnC_1$, $E_t [lnC_{t+1} ]$, $\sigma^2$ y los parámetros $r,\rho \ y \ \theta$. [Pista: si una variable $x$ está distribuida normalmente con media $\mu$  y varianza $V$,     $E[e^x]=e^{\mu} e^{V/2}$ ].**
 
-
-
-
-\textbf{ b) Suponga que la distribución del logaritmo de la renta y, por tanto, la del logaritmo de $C_{t+1}$ es normal. Llamemos $\sigma^2$ a la varianza de este último condicionada a la información disponible en el período $t$. Reescriba la expresión hallada en a) en términos de $lnC_1$, $E_t [lnC_{t+1} ]$, $\sigma^2$ y los parámetros $r,\rho \ y \ \theta$. [Pista: si una variable $x$ está distribuida normalmente con media $\mu$  y varianza $V$,     $E[e^x]=e^{\mu} e^{V/2}$ ].}
-
-Aplicando logaritmos a ambos lados de la ecuación (5)
+Aplicando logaritmos a ambos lados de la ecuación (6)
 \begin{equation}
 ln(C_{t}^{-\theta})=ln(\frac{1+r}{1+\rho}E_t[C_{t+1}^{-\theta}])
 \end{equation}
@@ -439,7 +439,7 @@ E_t[C_{t+1}^{-\theta}] = E_t[e^{-\theta E_t ln C_{t+1}}e^{\theta^2\sigma^2}]=e^{
 
 En la primera línea, hemos utilizado el hecho de que, condicional a la información del tiempo $t$, la varianza del logaritmo del consumo es $\sigma^2$. Además, hemos escrito la media del logaritmo del consumo en el período $t +1$, condicionado a la información del tiempo $t$, como $E_t  lnC_{t+1}$. Finalmente, en la última línea hemos utilizado el hecho de que $e^{-\theta E_t ln C_{t+1}}e^{\theta^2\sigma^2}$ es simplemente una constante.
 
-Sustituyendo la ecuación (9) nuevamente en la ecuación (7) tenemos:
+Sustituyendo la ecuación (10) nuevamente en la ecuación (8) tenemos:
 
 \begin{equation}
 ln(C_{t}^{-\theta})=ln(1+r)-ln(1+\rho)+ln[e^{-\theta E_t ln C_{t+1}}e^{\theta^2\sigma^2}]
@@ -450,21 +450,16 @@ ln(C_{t}^{-\theta})=ln(1+r)-ln(1+\rho)+ln[e^{-\theta E_t ln C_{t+1}}e^{\theta^2\
 \end{equation}
 
 
-Dividiendo ambos lados de la ecuación (11) por $-\theta$ , nos queda:
+Dividiendo ambos lados de la ecuación (12) por $-\theta$ , nos queda:
 
 
 \begin{equation}
 ln C_t = E_t ln C_{t+1} + \frac { ln(1-\rho)-ln(1+r)}{\theta - \theta \sigma^2}
 \end{equation}
 
+**c) Demuestre que si r y $\sigma^2$ permanecen constantes a lo largo del tiempo, el resultado de la parte b) implica que el logaritmo del consumo sigue un paseo aleatorio cuyo rumbo es $lnC_{t+1}=a+lnC_t + u_{t+1}$, dónde $u$ es ruido blanco.**
 
-
-
-
-
-\textbf{ c) Demuestre que si r y $\sigma^2$ permanecen constantes a lo largo del tiempo, el resultado de la parte b) implica que el logaritmo del consumo sigue un paseo aleatorio cuyo rumbo es $lnC_{t+1}=a+lnC_t + u_{t+1}$, dónde $u$ es ruido blanco.}
-
-Reordenando la ecuación (12) para resolver para $E_tlnC_{t+1}$ nos da:
+Reordenando la ecuación (13) para resolver para $E_tlnC_{t+1}$ nos da:
 
 \begin{equation}
 E_t ln C_{t+1} =ln C_t - \frac { ln(1-\rho)-ln(1+r)}{\theta - \theta \sigma^2}
@@ -474,7 +469,7 @@ E_t ln C_{t+1} =ln C_t - \frac { ln(1-\rho)-ln(1+r)}{\theta - \theta \sigma^2}
 E_tlnC_{t+1}=lnC_t + \frac {ln(1+r)-ln(1-\rho)}{\theta + \theta \sigma^2}
 \end{equation}
 
-La ecuación (14) implica que se espera que el consumo cambie en una cantidad constante $\frac{ln(1+r)-ln(1- \rho)}{\theta + \theta \sigma^2}$ de un período al siguiente. Los cambios en el consumo aparte de esta cantidad determinista son impredecibles. Por la definición de expectativas podemos escribir:
+La ecuación (15) implica que se espera que el consumo cambie en una cantidad constante $\frac{ln(1+r)-ln(1- \rho)}{\theta + \theta \sigma^2}$ de un período al siguiente. Los cambios en el consumo aparte de esta cantidad determinista son impredecibles. Por la definición de expectativas podemos escribir:
 
 
 \begin{equation}
@@ -484,16 +479,10 @@ lnC_{t+1}=lnC_t+ \frac{ln(1+r)-ln(1- \rho)}{\theta + \theta \sigma^2}+U_{t+1}
 
 Dónde $u_{t+1}$ tiene una media cero, condicionada a la información del tiempo $t$. Por lo tanto, el logaritmo del consumo sigue un paseo aleatorio con deriva donde $\frac{ln(1+r)-ln(1- \rho)}{\theta + \theta \sigma^2}$   es el parámetro de deriva.
 
+**d) ¿Cómo afectan los cambios en r y en $\sigma^2$ al crecimiento esperado del consumo,  $E_t[ln C_{t+1}-ln  C_t ]$? Interprete la influencia de $\sigma^2$ sobre el crecimiento esperado del consumo a la luz del análisis desarrollado en la Sección 7.6 sobre el ahorro precautorio.**
 
 
-
-
-
-
-\textbf {d) ¿Cómo afectan los cambios en r y en $\sigma^2$ al crecimiento esperado del consumo,  $E_t[ln C_{t+1}-ln  C_t ]$? Interprete la influencia de $\sigma^2$ sobre el crecimiento esperado del consumo a la luz del análisis desarrollado en la Sección 7.6 sobre el ahorro precautorio.}
-
-
-De la ecuación (14), el crecimiento esperado del consumo es:
+De la ecuación (15), el crecimiento esperado del consumo es:
 
 \begin{equation}
 E_t[lnC_{t+1}-lnC_t]= \frac{ln(1+r)-ln(1- \rho)}{\theta + \theta \sigma^2}
@@ -517,8 +506,7 @@ Un aumento en $\sigma^2$  también aumenta el crecimiento del consumo:
 \end{equation}   
 
 
-Es sencillo verificar que la función de utilidad CRRA tiene una tercera derivada positiva. 
-Ecuación (1) $u'(C_t )=C_t^{-\theta }$ y $u''(C_t )=-\theta C_t^{-\theta }$. Entonces:
+Es sencillo verificar que la función de utilidad CRRA tiene una tercera derivada positiva. Como $u'(C_t )=C_t^{-\theta }$ y $u''(C_t )=-\theta C_t^{-\theta }$. Entonces:
 	        
 \begin{equation}
 u'''(C_t )=-\theta (-\theta -1) C_t^{-\theta - 2} > 0
@@ -529,16 +517,16 @@ Por tanto, un individuo con una función de utilidad CRRA exhibe el comportamien
 
 ### Problema 8.6
 
-**Un marco para investigar el exceso de suavidad**. Suponga que $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ y que $A_{t+1}=(1+r)(A_t+Y_t-C_t)$.
+**Un marco para investigar el exceso de suavidad. Suponga que $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ y que $A_{t+1}=(1+r)(A_t+Y_t-C_t)$.**
 
-#### (a)  Muestre que estos supuestos implican que $E_t[C_{t+1}]=C_t$ (y entonces que el consumo sigue una caminata aleatoria) y que $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}$. 
+**a) Muestre que estos supuestos implican que $E_t[C_{t+1}]=C_t$ (y entonces que el consumo sigue una caminata aleatoria) y que $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}$.** 
 
 Sustituyendo la expresión para el consumo en el periodo t: 
 
+\setcounter{equation}{0}
 \begin{equation}
 C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}
 \end{equation}
-
 
 en la expresión de la riqueza en el periodo t+1: 
 
@@ -546,10 +534,7 @@ en la expresión de la riqueza en el periodo t+1:
 A_{t+1}=(1+r)(A_t+Y_t-C_t)
 \end{equation}
 
-
 obtenemos la expresión:
-
-
 
 \begin{equation}
 A_{t+1}=(1+r)[A_t+Y_t-\frac{r}{1+r}A_t-\frac{r}{1+r}(Y_t+\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)]
@@ -561,40 +546,31 @@ Obteniendo un común denominador de $(1+r)$ y cancelando los términos $(1+r)$ o
 A_{t+1}=A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)
 \end{equation}
 
-
-
-
 Como la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ se mantiene en todos los periodos, podemos escribir el consumo en el periodo t+1 como: 
 
 \begin{equation}
 C_{t+1}=\frac{r}{1+r}[A_{t+1}+\sum^\infty_{s=0}\frac{E_{t+1}[Y_{t+1+s}]}{(1+r)^s}]
 \end{equation}
 
-
-
-Sustituyendo la ecuación $A_{t+1}=A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)$  en $C_{t+1}=\frac{r}{1+r}[A_{t+1}+\sum^\infty_{s=0}\frac{E_{t+1}[Y_{t+1+s}]}{(1+r)^s}]$ tenemos la ecuación: 
+Sustituyendo la ecuación (4) en (5) tenemos la ecuación: 
 
 \begin{equation}
 C_{t+1}=\frac{r}{1+r}[A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)+(E_{t+1}Y_{t+1}+\frac{E_{t+1}Y_{t+2}}{1+r}+...)]
 \end{equation}
  
-
 Tomando la esperanza, condicional a la información en el tiempo t, de ambos lados de esta última ecuación, tenemos:
 
 \begin{equation}
 E_tC_{t+1}=\frac{r}{1+r}[A_t+Y_t-r(\frac{E_tY_{t+1}}{1+r}+\frac{E_tY_{t+2}}{(1+r)^2}+...)+(E_{t}Y_{t+1}+\frac{E_{t}Y_{t+2}}{1+r}+...)]
 \end{equation}
 
-
 donde hemos usado la ley de las proyeccciones iteradas tal que para toda variable $x$, $E_tE_{t+1}x_{t+2}=E_tx_{t+2}$. Si esto no se sostuviera, los individuos estarían esperando a revisar su estimación hacia arriba o hacia abajo, y entonces su expectativa original no podría haber sido racional. 
 
-Colectando términos de la última ecuación, tenemos:
-
+Y simplificando términos de la última ecuación, tenemos:
 
 \begin{equation}
 E_tC_{t+1}=\frac{r}{1+r}[A_t+Y_t-(1-\frac{r}{1+r})E_tY_{t+1}+(\frac{1}{(1+r)}-\frac{r}{(1+r)^2})E_tY_{t+2}+...]
 \end{equation}
-
 
 el cual se simplifica a: 
 
@@ -608,15 +584,11 @@ Usando la notación de suma, y que $E_tY_t=Y_t$ tenemos la expresión:
 E_tC_{t+1}=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_tY_{t+s}}{(1+r)^s}]
 \end{equation}
 
- 
-
 El lado derecho de la ecuación $$C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$$  y de la ecuación $E_tC_{t+1}=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_tY_{t+s}}{(1+r)^s}]$ son iguales por lo que: 
 
 \begin{equation}
 E_tC_{t+1}=C_t
 \end{equation}
-
-
 
 El consumo sigue una caminata aleatoria; cambios en el consumo son impredecibles.
 
@@ -626,14 +598,11 @@ Como el consumo sigue una caminata aleatoria, el mejor estimador del consumo par
 E_tC_{t+s}=C_t
 \end{equation}
 
-
 Usando esta ecuación $E_tC_{t+s}=C_t$, podemos escribir el valor presente de la trayectoria esperada de consumo como:
 
 \begin{equation}
 \sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\sum^\infty_{s=0} \frac{C_t}{(1+r)^s}=C_t\sum^\infty_{s=0}\frac{1}{(1+r)^s}
 \end{equation}
-
-
 
 Como $\frac{1}{1+r}<1$, la suma infinita del lado derecho de la última ecuación converge a $\frac{1}{[1-\frac{1}{1+r}]}=\frac{(1+r)}{r}$ y entonces tenemos:
 
@@ -641,10 +610,7 @@ Como $\frac{1}{1+r}<1$, la suma infinita del lado derecho de la última ecuació
 \sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{1+r}{r}C_t
 \end{equation}
 
-
-Sustituyendo la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ por $C_t$ en el lado derecho de la ecuación $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{1+r}{r}C_t$ tenemos la ecuación:
-
-
+Sustituyendo la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ por $C_t$ en el lado derecho de la ecuación $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{1+r}{r}C_t$ tenemos:
 
 \begin{equation}
 \sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=\frac{r}{1+r}(\frac{1+r}{r})[A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}]=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}
@@ -652,12 +618,7 @@ Sustituyendo la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y
 
 Esta última ecuación establece que el valor presente de la trayectoria esperada del consumo iguala a la riqueza inicial más el valor presente de la trayectoria esperada del ingreso. 
 
-
-
-
-
-
-#### (b) Suponga que $\Delta Y_t=\phi \Delta Y_{t+1}+u_t$, donde *u* es ruido blanco. Suponga que $Y_t$ excede $E_{t-1}[Y_t]$ en 1 unidad (esto es, suponga *u_t=1*). ¿En cuánto incrementa el consumo?
+**b) Suponga que $\Delta Y_t=\phi \Delta Y_{t+1}+u_t$, donde *u* es ruido blanco. Suponga que $Y_t$ excede $E_{t-1}[Y_t]$ en 1 unidad (esto es, suponga *u_t=1*). ¿En cuánto incrementa el consumo?**
 
 
 Tomando el valor esperado, como del tiempo t-1, en ambos lados de la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$, tenemos:
@@ -666,19 +627,16 @@ Tomando el valor esperado, como del tiempo t-1, en ambos lados de la ecuación $
 E_{t-1}C_t=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_{t-1}(Y_{t+s})}{(1+r)^s}]
 \end{equation}
 
-
 donde hemos usado el hecho de que $A_t=(1+r)[A_{t-1}+Y_{t-1}-C_{t-1}]$ no es incierto como en t-1. 
 
 Adicionalmente, hemos usado la ley de las proyecciones iteradas tal que $E_{t-1}E_{t}[Y_{t+s}]=E_{t-1}[Y_{t+s}]$. 
 
-Restando la ecuación $E_{t-1}C_t=\frac{r}{1+r}[A_t+\sum^\infty_{s=0}\frac{E_{t-1}(Y_{t+s})}{(1+r)^s}]$ de la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ tenemos el cambio en el consumo:
+Restando la ecuación (16) de la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ tenemos el cambio en el consumo:
 
 
 \begin{equation}
 C_t-E_{t-1}C_t=\frac{r}{1+r}[\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}-\sum^\infty_{s=0}\frac{E_{t-1}[Y_{t+s}]}{(1+r)^s}]=\frac{r}{1+r}[\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}]
 \end{equation}
-
-
 
 El cambio en el consumo será la fracción $\frac{r}{(1+r)}$ del valor presente del cambio  en el ingreso vitalicio esperado.  
 
@@ -688,15 +646,11 @@ El siguiente paso es determinar el valor presente del cambio en el ingreso vital
 \sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=[Y_t-E_{t-1}Y_t]+[\frac{E_tY_{t+1}-E_{t-1}Y_{t+1}}{1+r}]+[\frac{E_tY_{t+2}-E_{t-1}Y_{t+2}}{(1+r)^2}]+...
 \end{equation}
 
- 
-
 En lo subsecuente "se espera que sea más alto" significa que "el valor esperado, como por ejemplo en el periodo t, sea mayor a lo que era en el periodo t-1". Como $u_t=1$, entonces: 
 
 \begin{equation}
 Y_t-E_{t-1}Y_t=1
 \end{equation}
-
-
 
 En el periodo t+1, como $\Delta Y_{t+1}=\phi \Delta Y_t + u_{t+1}$, el cambio en $Y_{t+1}$ se espera que sea $\phi \Delta Y_t=\phi$ más alto. Entonces, el nivel de $Y_{t+1}$ se espera que sea más alto por $1+\phi$. Entonces:
 
@@ -704,23 +658,17 @@ En el periodo t+1, como $\Delta Y_{t+1}=\phi \Delta Y_t + u_{t+1}$, el cambio en
 \frac{E_tY_{t+1}-E_{t-1}Y_{t+1}}{1+r}=\frac{1+\phi}{1+r}
 \end{equation}
 
-
 En el periodo t+2, como $\Delta Y_{t+2}=\phi \Delta Y_{t+1}+u_{t+2}$, el cambio en $Y_{t+2}$ se espera que sea más alto por $\phi \Delta Y_{t+1}=\phi^2$. Entonces el nivel de $Y_{t+2}$ se espera que sea más alto por $1+\phi +\phi^2$. Por lo tanto, tenemos:
 
 \begin{equation}
 \frac{E_tY_{t+2}-E_{t-1}Y_{t+2}}{(1+r)^2}=\frac{1+\phi+\phi^2}{(1+2)^2}
 \end{equation}
 
-
-
 Este comportamiento debe de ser claro. Tenemos que:
 
 \begin{equation}
 \sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=1+\frac{1+\phi}{1+r}+\frac{1+\phi + \phi^2}{(1+r)^2}+\frac{1+\phi+\phi^2`+\phi^3}{(1+r)^3}+...
 \end{equation}
-
-
-
 
 Notemos que la serie infinita puede escribirse como: 
 
@@ -732,29 +680,23 @@ Si definimos $\gamma =\frac{1}{1+r}$, la primera suma del lado rerecho de la úl
 
 Por lo tanto la ecuación anterior puede escribirse como 
 
-
 \begin{equation}
 \sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=\frac{1}{1-\gamma}[1+\phi \gamma+\phi^2 \gamma^2+...]=\frac{1}{(1-\gamma)} \frac{1}{(1-\phi \gamma)}
 \end{equation}
 
 Reescribiendo esta última ecuación con la definición de $\gamma =\frac{1}{1+r}$ tenemos: 
 
-
 \begin{equation}
 \sum^\infty_{s=0}\frac{E_t[Y_{t+s}]-E_{t-1}[Y_{t+s}]}{(1+r)^s}=\frac{1}{1-[\frac{1}{1+r}]}\frac{1}{1-[\frac{\phi}{1+r}]}=\frac{(1+r)}{r}\frac{(1+r)}{(1+r-\phi)}
 \end{equation}
 
-
 Sustituyendo esta última ecuación en la ecuación inmediata anterior tenemos el siguiente cambio en el consumo: 
-
 
 \begin{equation}
 C_t-E_{t-1}C_t=\frac{r}{(1+r)}[\frac{(1+r)}{r}\frac{(1+r)}{(1+r-\phi)}]=\frac{(1+r)}{(1+r-\phi)}
 \end{equation}
 
-
-
-#### (c) Para el caso de $\phi >0$, cuál tiene una mayor varianza, la innovación en el ingreso, $u_t$, o la innovación en el consumo,$C_t-E_{t-1}[C_t]$? ¿Utilizan los consumidores el ahorro y el endeudamiento para suavizar la senda del consumo en relaciónal ingreso en este modelo? Explique.
+**c) Para el caso de $\phi >0$, cuál tiene una mayor varianza, la innovación en el ingreso, $u_t$, o la innovación en el consumo,$C_t-E_{t-1}[C_t]$? ¿Utilizan los consumidores el ahorro y el endeudamiento para suavizar la senda del consumo en relaciónal ingreso en este modelo? Explique.**
 
 
 La varianza del cambio en el consumo es: 
@@ -785,14 +727,9 @@ Se creó un vector de 20 observaciones distribuidas normalmente con media igual 
 
 ```{r INGRESO PERMANENTE, include = FALSE}
 
-# Generación de una base de 20 ingresos permanente con media 10 y varianza positiva = 4
 Yp_i <- rnorm(20, 10, 2)
 
-#Generación de una matriz de ceros de 100 filas y 20 columnas
 Yp <- matrix(0, nrow = 100, ncol = 20)
-
-#Proceso para llenar la matriz Yp
-#Ciclo definido para variar columnas, los datos de las 100 filas de cada columna serán sustituidas por el valor que le corresponda a i (donde i va de 1 a 20) de Yp_i
 
 for (i in 1:20){
   Yp[,i] <- Yp_i[i]
@@ -801,15 +738,15 @@ for (i in 1:20){
 colnames(Yp) <- c(paste0(1:20))
 rownames(Yp) <- c(1:100)
 
-mean(Yp)
-
 ```
 
-Así, la siguiente gráfica muestra el ingreso permanente de 20 individuos, donde puede observarse que todas las observaciones se encuentran alrededor del valor de 10, dado que $\mu_{Y^P_{i}} = 10$.
+Así, la siguiente gráfica muestra el ingreso permanente de 20 individuos, donde puede observarse que la media de todas las observaciones es bastante cercana al valor de 10, dado que $\mu_{Y^P_{i}} = 10$.
 
 ```{r GRÁFICA INGRESO PERMANENTE, echo=FALSE}
 
 GrafIngPerm <- barplot (Yp[1,], col = "blue", ylim = c(0, 20), main = "Gráfica 2.1. Ingreso permanente de 20 individuos", xlab = "Individuos", ylab = "Ingreso permanente en miles de pesos", cex.names = .7)
+
+abline(h = mean(Yp[1,]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 \newpage
 
@@ -822,15 +759,20 @@ GrafIngPerm <- barplot (Yp[1,], col = "blue", ylim = c(0, 20), main = "Gráfica 
 Yt <- matrix( rnorm(100*20, mean = 0, sd = 2), 100, 20)
 
 colnames(Yt) <- c(paste0(1:20))
+rownames(Yt) <- c(1:100)
 ```
 
-Una vez creados los 20 vectores con 100 ingresos transitorios para cada individuo con $\mu_{Y^T_{i}} = 0$ y $Var(Y^T_{i}) = 4$, y con el objetivo de facilitar la representación gráfica, se presenta la primera observación para los 20 individuos, así como 100 observaciones para el primer individuo:
+Una vez creados los 20 vectores con 100 ingresos transitorios para cada individuo con $\mu_{Y^T_{i}} = 0$ y $Var(Y^T_{i}) = 4$, y con el objetivo de facilitar la representación gráfica, se presenta la primera observación para los 20 individuos, así como 100 observaciones para el primer individuo, donde puede observarse que ambas medias son cercanas a cero:
 
 ```{r GRÁFICO INGRESO TRANSITORIO , echo = FALSE}
 
-GrafIngTrans1 <- barplot (Yt[1,], col = "green", ylim = c(-5, 5), main = "Gráfica 2.2. Un ingreso transitorio de 20 individuos", xlab = "Individuos", ylab = "Ingreso transitorio en miles de pesos", cex.names = 0.7)
+GrafIngTrans1 <- barplot (Yt[1,], col = "green", ylim = c(-7, 7), main = "Gráfica 2.2. Un ingreso transitorio de 20 individuos", xlab = "Individuos", ylab = "Ingreso transitorio en miles de pesos", cex.names = 0.7)
+
+abline(h = mean(Yt[1,]), col ="red", legend("topright", "Media", fill = "red"))
 
 GrafIngTrans2 <- barplot (Yt[,1], col = "green", ylim = c(-7, 7), main = "Gráfica 2.3. 100 Ingresos transitorios para el individuo 1", xlab = "Ingresos transitorios aleatorios", ylab = "Miles de pesos", cex.names = 0.7)
+
+abline(h = mean(Yt[,1]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 \newpage
 
@@ -849,10 +791,14 @@ Y <- Yp + Yt
 
 GrafIngTotal1 <- barplot (Y[1,], col = "purple", ylim = c(0, 20), main = "Gráfica 2.4. Un ingreso total de 20 individuos", xlab = "Individuos", ylab = "Ingreso total en miles de pesos", cex.names = 0.7)
 
+abline(h = mean(Y[1,]), col ="red", legend("topright", "Media", fill = "red"))
+
 GrafIngTotal2 <- barplot (Y[,1], col = "purple", ylim = c(0, 20), main = "Gráfica 2.5. 100 ingresos totales para el individuo 1", xlab = "Ingresos totales", ylab = "Miles de pesos", cex.names = 0.7)
+
+abline(h = mean(Y[,1]), col ="red", legend("topright", "Media", fill = "red"))
 ```
 
-Puede observarse que los valores del ingreso total para todos los individuos, $Y$, se mantienen alrededor del valor de 10, producto de la propiedad de linealidad de la esperanza: $E[Y] = E[Y^P] + E[Y^T] = 10 + 0 = 10$.
+Puede observarse que los valores del ingreso total para todos los individuos, $Y$, la media se mantiene alrededor del valor de 10, producto de la propiedad de linealidad de la esperanza: $E[Y] = E[Y^P] + E[Y^T] = 10 + 0 = 10$.
 
 \newpage
 
@@ -867,12 +813,17 @@ Se crearon 20 vectores con 100 errores cada uno, con media cero y varianza de 0.
 et <- matrix( rnorm(100*20, mean = 0, sd = 0.5), 100, 20)
 
 colnames(et) <- c(paste0(1:20))
+rownames(et) <- c(paste0(1:100))
 ```
 
 ```{r GRÁFICA ERRORES , echo = FALSE}
-GrafError1 <- barplot (et[1,], col = "red", ylim = c(-1.5, 1.5), main = "Gráfica 2.6. Un error de medición de 20 individuos", xlab = "Individuos", ylab = "Error promedio de medición en miles de pesos", cex.names = 0.7)
+GrafError1 <- barplot (et[1,], col = "red", ylim = c(-2, 2), main = "Gráfica 2.6. Un error de medición de 20 individuos", xlab = "Individuos", ylab = "Error promedio de medición en miles de pesos", cex.names = 0.7)
 
-GrafError1 <- barplot (et[,1], col = "red", ylim = c(-1.5, 1.5), main = "Gráfica 2.7. 100 errores de medición para el individuo 1", xlab = "Errores aleatorios", ylab = "Miles de pesos", cex.names = 0.7)
+abline(h = mean(et[1,]), col ="yellow", legend("topright", "Media", fill = "yellow"))
+
+GrafError1 <- barplot (et[,1], col = "red", ylim = c(-2.5, 2.5), main = "Gráfica 2.7. 100 errores de medición para el individuo 1", xlab = "Errores aleatorios", ylab = "Miles de pesos", cex.names = 0.7)
+
+abline(h = mean(et[,1]), col ="yellow", legend("topright", "Media", fill = "yellow"))
 ```
 \newpage
 
@@ -889,10 +840,15 @@ Ct <- Yp + 0.1*(Yt) + et
 
 ```{r GRAFICA CONSUMO, echo = FALSE}
 
-barplot (Ct[1,], col = "#00FFFF", ylim = c(0, 16), main = "Gráfica 2.8. Un consumo de 20 individuos", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
+barplot (Ct[1,], col = "#00FFFF", ylim = c(0, 20), main = "Gráfica 2.8. Un consumo de 20 individuos", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
 
-barplot (Ct[,1], col = "#00FFFF", ylim = c(0, 15), main = "Gráfica 2.9. 100 consumos para el individuo 1", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
+abline(h = mean(Ct[1,]), col ="red", legend("topright", "Media", fill = "red"))
+
+barplot (Ct[,1], col = "#00FFFF", ylim = c(0, 20), main = "Gráfica 2.9. 100 consumos para el individuo 1", xlab = "Individuos", ylab = "Consumo promedio en miles de pesos", cex.names = 0.7)
+
+abline(h = mean(Ct[,1]), col ="red", legend("topright", "Media", fill = "red"))
 ```
+
 Dado que $C_{i,t}=Y_i^P+0.1Y_{i,t}^T+\epsilon_{i,t}$, entonces $E[C_{i,t}] = E[Y_i^P] + E[0.1Y_{i,t}^T] + E[\epsilon_{i,t}] = 10 + 0.1(0) + 0 = 10$, lo cual es consistente con las gráficas. 
 
 \newpage
