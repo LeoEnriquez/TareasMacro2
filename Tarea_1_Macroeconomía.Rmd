@@ -530,7 +530,7 @@ Por tanto, un individuo con una función de utilidad CRRA exhibe el comportamien
 
 **Un marco para investigar el exceso de suavidad**. Suponga que $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$ y que $A_{t+1}=(1+r)(A_t+Y_t-C_t)$.
 
-(a)  Muestre que estos supuestos implican que $E_t[C_{t+1}]=C_t$ (y entonces que el consumo sigue una caminata aleatoria) y que $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}$. 
+#### (a)  Muestre que estos supuestos implican que $E_t[C_{t+1}]=C_t$ (y entonces que el consumo sigue una caminata aleatoria) y que $\sum^\infty_{s=0}\frac{E_t[C_{t+s}]}{(1+r)^s}=A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}$. 
 
 Sustituyendo la expresión para el consumo en el periodo t: 
 
@@ -656,7 +656,7 @@ Esta última ecuación establece que el valor presente de la trayectoria esperad
 
 
 
-(b) Suponga que $\Delta Y_t=\phi \Delta Y_{t+1}+u_t$, donde *u* es ruido blanco. Suponga que $Y_t$ excede $E_{t-1}[Y_t]$ en 1 unidad (esto es, suponga *u_t=1*). ¿En cuánto incrementa el consumo?
+#### (b) Suponga que $\Delta Y_t=\phi \Delta Y_{t+1}+u_t$, donde *u* es ruido blanco. Suponga que $Y_t$ excede $E_{t-1}[Y_t]$ en 1 unidad (esto es, suponga *u_t=1*). ¿En cuánto incrementa el consumo?
 
 
 Tomando el valor esperado, como del tiempo t-1, en ambos lados de la ecuación $C_t=[\frac{r}{1+r}]\{A_t+\sum^\infty_{s=0}\frac{E_t[Y_{t+s}]}{(1+r)^s}\}$, tenemos:
@@ -753,7 +753,7 @@ C_t-E_{t-1}C_t=\frac{r}{(1+r)}[\frac{(1+r)}{r}\frac{(1+r)}{(1+r-\phi)}]=\frac{(1
 
 
 
-(c) Para el caso de $\phi >0$, cuál tiene una mayor varianza, la innovación en el ingreso, $u_t$, o la innovación en el consumo,$C_t-E_{t-1}[C_t]$? ¿Utilizan los consumidores el ahorro y el endeudamiento para suavizar la senda del consumo en relaciónal ingreso en este modelo? Explique.
+#### (c) Para el caso de $\phi >0$, cuál tiene una mayor varianza, la innovación en el ingreso, $u_t$, o la innovación en el consumo,$C_t-E_{t-1}[C_t]$? ¿Utilizan los consumidores el ahorro y el endeudamiento para suavizar la senda del consumo en relaciónal ingreso en este modelo? Explique.
 
 
 La varianza del cambio en el consumo es: 
@@ -768,6 +768,10 @@ Como$\frac{(1+r)}{(1+r-\phi)}>1$, la varianza del cambio en el consumo es más g
 Intuitivamente, un cambio en el ingreso significa que en promedio, el consumidor experimentará más cambios en el ingreso en la misma dirección en los periodos futuros. 
 
 No es claro si el consumidor usa el ahorro o la deuda para suavizar el consumo relativo al ingreso. El ingreso no es estacionario, entoces no es obvio lo que significa suavizarlo.  
+
+
+
+
 
 ## Ejercicio 2
 **Simule una variedad de agentes que tienen ingresos permamentes diferentes e ingresos transitorios diferentes y calcule la relación entre consumo e ingreso que resulta dada una variedad de supuestos para las varianzas de cada tipo de ingreso sigiendo estos pasos:[2 horas, 1 punto cada inciso]**
