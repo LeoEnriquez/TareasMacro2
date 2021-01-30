@@ -260,9 +260,9 @@ Por lo tanto, el individuo comienza a ahorrar de manera positiva una vez que los
 El patrón implícito en nuestro análisis se muestra en las siguientes figuras:
 
 ```{r}
-imagen1 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-1/Problema%208.1.PNG")
+#imagen1 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-1/Problema%208.1.PNG")
 
-plot(imagen1, main = "Figura 1. Ahorro en el ciclo de vida", axes = FALSE)
+#plot(imagen1, main = "Figura 1. Ahorro en el ciclo de vida", axes = FALSE)
 ```
 
 La figura de la izquierda muestra el ingreso y el consumo como funciones del tiempo, asumiendo que el ingreso en el tiempo 0 supera el nivel constante de consumo. La línea en negrita muestra ingresos que equivalen a $Y_0 + g$t hasta jubilación y es igual a 0 a partir de entonces. El consumo es constante en el nivel $\bar C$.
@@ -865,13 +865,69 @@ Al realizar la regresión del modelo, puede observarse una relación positiva en
 
 scatter.smooth(x = Y, y = Ct, span = 1, main = "Gráfica 2.10. Relación entre el Consumo y el Ingreso", xlab = "Ingreso", ylab = "Consumo", col = "#333399", cex = 0.5)
 
-reg1 <- lm(Ct[,1] ~ Y[,1])
-
-#summary(reg1)
-
-#coefficients(reg1)
 ```
+
+
+
+```{r, echo=FALSE, message = F, warning=F, include=F}
+for (i in 1:20) {
+    rr <- paste("reg", i, sep = "_")
+    reg_full<-assign(rr, lm(Ct[,i] ~ Y[,i]))
+    
+}
+
+
+```
+
 \newpage
+\begin{landscape}
+
+```{r regresiones, results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
+#Tabla mejorada
+stargazer(reg_1, reg_2, reg_3, reg_4, reg_5,reg_6, reg_7, reg_8, reg_9, reg_10,
+          title= "Tabla de Regresión 1",
+          column.labels = c("1","2","3","4","5","6","7","8","9","10"),
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Consumo",
+          covariate.labels = c("Ingreso", "Constante"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+#h", "t","b", "p", "!", "H"
+
+###
+stargazer(reg_11, reg_12, reg_13, reg_14, reg_15, reg_16, reg_17, reg_18, reg_19, reg_20,
+          title= "Tabla de Regresión 1 (Continuación)",
+          column.labels = c("11","12","13","14","15","16","17","18","19","20"),
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Consumo",
+          covariate.labels = c("Ingreso","Constante"),
+          #omit.stat = c("ll","rsq"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+#h", "t","b", "p", "!", "H"
+
+```
+
+
+
+
+
+\end{landscape}
+
+\newpage
+
+
+\newpage
+
+
+
+
 
 ### Ejercicio 2.g
 
@@ -915,9 +971,7 @@ Hasta ahora, los valores de las varianzas del ingreso permanente y el transitori
 
 scatter.smooth(x = NY, y = NCt, span = 1, main = "Gráfica 2.11. Relación entre el Consumo y el Ingreso.\n Varianza del ingreso permanente más alta y varianza del ingreso transitorio más baja.", xlab = "Ingreso", ylab = "Consumo", col = "#333399", cex = 0.5, cex.main = 1)
 
-reg2 <- lm(NCt ~ NY)
 
-#summary(reg2)
 
 ```
 Donde se pueden observar dos características relevantes:
@@ -926,7 +980,66 @@ Donde se pueden observar dos características relevantes:
 
 2. Por otra parte, se observa que la concentración de observaciones es más compacta que en el caso anterior. Esto se debe a que la varianza del Ingreso Transitorio es más baja que antes, lo que implica una menor dispersión de los datos alrededor del modelo estimado. De hecho, ahora es mucho más visible que los puntos se encuentran cercanos a los niveles de 10 de ambas variables.
 
+
+```{r, echo=FALSE, message = F, warning=F, include=F}
+for (i in 1:20) {
+    nrr <- paste("nreg", i, sep = "_")
+    nreg_full<-assign(nrr, lm(NCt[,i] ~ NY[,i]))
+    
+}
+
+
+```
+
 \newpage
+\begin{landscape}
+
+```{r regresiones2, results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
+#Tabla mejorada
+stargazer(nreg_1, nreg_2, nreg_3, nreg_4, nreg_5,nreg_6, nreg_7, nreg_8, nreg_9, nreg_10,
+          title= "Tabla de Regresión 2",
+          column.labels = c("1","2","3","4","5","6","7","8","9","10"),
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Consumo",
+          covariate.labels = c("Ingreso", "Constante"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+#h", "t","b", "p", "!", "H"
+
+###
+stargazer(nreg_11, nreg_12, nreg_13, nreg_14, nreg_15, nreg_16, nreg_17, nreg_18, nreg_19, nreg_20,
+          title= "Tabla de Regresión 2 (Continuación)",
+          column.labels = c("11","12","13","14","15","16","17","18","19","20"),
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Consumo",
+          covariate.labels = c("Ingreso","Constante"),
+          #omit.stat = c("ll","rsq"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+#h", "t","b", "p", "!", "H"
+
+```
+
+
+
+
+
+\end{landscape}
+
+\newpage
+
+
+
+
+
+
+
 
 ### Ejercicio 2.h
 
@@ -965,21 +1078,72 @@ NNCt <- NNYp + 0.1*(NNYt) + et
 
 Hasta ahora, los valores de las varianzas del ingreso permanente y el transitorio eran, respectivamente: $Var(Y^P) = Var(Y^T) = 4$. Ahora, se utilizaron los valores $Var'(Y^P) = .25$ y $Var'(Y^T) = 9$. Una vez realizado el procedimiento de código correspondiente, se encontró la siguiente relación entre el Nuevo Consumo y el Nuevo Ingreso:
 
+
+
 ```{r REGRESIÓN 3, echo=FALSE}
 
 reg3 <- scatter.smooth(x = NNY, y = NNCt, span = 1, main = "Gráfica 2.12. Relación entre el Consumo y el Ingreso.\n Varianza del ingreso permanente más alta y varianza del ingreso transitorio más baja.", xlab = "Ingreso", ylab = "Consumo", col = "#333399", cex = 0.5, cex.main = 0.7)
 
-reg3 <- lm(NNCt ~ NNY)
-
-#summary(reg3)
 
 ```
+
+
 
 Donde se pueden observar dos características relevantes:
 
 1. El intercepto de la función estimada para el segundo modelo $\hat{\alpha}$ **TAREA**.
 
 2. Por otra parte, se observa que la concentración de observaciones es menos compacta que en el caso anterior. Esto se debe a que la varianza del Ingreso Transitorio es más alta que antes, lo que implica una mayor dispersión de los datos alrededor del modelo estimado. Además, la pendiente es menor.
+
+
+```{r, echo=FALSE, message = F, warning=F, include=F}
+for (i in 1:20) {
+    nnrr <- paste("nnreg", i, sep = "_")
+    nnreg_full<-assign(nnrr, lm(NNCt[,i] ~ NNY[,i]))
+    
+}
+
+
+```
+
+
+\newpage
+\begin{landscape}
+
+```{r regresiones3, results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
+#Tabla mejorada
+stargazer(nnreg_1, nnreg_2, nnreg_3, nnreg_4, nnreg_5,nnreg_6, nnreg_7, nnreg_8, nnreg_9, nnreg_10,
+          title= "Tabla de Regresión 3",
+          column.labels = c("1","2","3","4","5","6","7","8","9","10"),
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Consumo",
+          covariate.labels = c("Ingreso", "Constante"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+#h", "t","b", "p", "!", "H"
+
+###
+stargazer(nnreg_11, nnreg_12, nnreg_13, nnreg_14, nnreg_15, nnreg_16, nnreg_17, nnreg_18, nnreg_19, nnreg_20,
+          title= "Tabla de Regresión 3 (Continuación)",
+          column.labels = c("11","12","13","14","15","16","17","18","19","20"),
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Consumo",
+          covariate.labels = c("Ingreso","Constante"),
+          #omit.stat = c("ll","rsq"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+#h", "t","b", "p", "!", "H"
+
+```
+
+\end{landscape}
+\newpage
 
 ## Ejercicio 3
 Estudie el consumo agregado en México siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
