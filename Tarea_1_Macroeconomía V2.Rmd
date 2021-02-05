@@ -1,6 +1,6 @@
 ---
 title: |
-  | Tarea 1, Macroeconomía II
+  | **Tarea 1, Macroeconomía II**
   | Maestría en Economía, El Colegio de México, enero - mayo, 2021
 author:
   - Vanessa Ayma Huaman
@@ -9,14 +9,22 @@ author:
   - Flor Yurivia Valdés de la Torre 
 date: "`r format(Sys.time(), '%d de %B de %Y')`"
 header-includes:
-   - \usepackage[utf8]{inputenc}
-   - \usepackage[spanish]{babel}
-   - \usepackage{graphicx}
+- \usepackage[utf8]{inputenc}
+- \usepackage[spanish]{babel}
+- \usepackage{graphicx}
+- \usepackage{titling}
+- \pretitle{\begin{center}\LARGE\includegraphics[width=12cm]{C:/Users/marco/OneDrive/Documents/GitHub/TareasMacro2/colmex.jpg}\\[\bigskipamount]}
+- \posttitle{\end{center}}
+- \pagenumbering{gobble} 
+include-before:
+- '`\newpage{}`{=latex}'
 output: 
   pdf_document:
     toc: true
     toc_depth: 3
 ---
+\pagenumbering{gobble}
+\pagenumbering{arabic} 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, fig.width = 6, fig.height = 3.5)
