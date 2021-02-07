@@ -12,8 +12,9 @@ header-includes:
 - \usepackage[utf8]{inputenc}
 - \usepackage[spanish]{babel}
 - \usepackage{graphicx}
+- \usepackage{multirow,rotating}
 - \usepackage{titling}
-- \pretitle{\begin{center}\LARGE\includegraphics[width=12cm]{C:/Users/marco/OneDrive/Documents/GitHub/TareasMacro2/colmex.jpg}\\[\bigskipamount]}
+- \pretitle{\begin{center}\LARGE\includegraphics[width=12cm]{/Users/leobardoenriquez/Documents/GitHub/TareasMacro2/colmex.jpg}\\[\bigskipamount]}
 - \posttitle{\end{center}}
 - \pagenumbering{gobble} 
 include-before:
@@ -26,11 +27,11 @@ output:
 \pagenumbering{gobble}
 \pagenumbering{arabic} 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE }
 knitr::opts_chunk$set(echo = F, fig.width = 6, fig.height = 3.5)
 ```
 
-```{r}
+```{r, include=FALSE}
 
 rm(list = ls())
 
@@ -1589,39 +1590,569 @@ Por su parte, las relaciones ya establecidas a lo largo de este documento indica
 
 ## Ejercicio 5
 
-Estudie el ``acertijo del premio al riesgo'' para el caso de Mexico siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
+**Estudie el acertijo del premio al riesgo para el caso de Mexico siguiendo los pasos a - h. [3 horas, 0.5 puntos cada inciso]**
+
+Una de las implicaciones más importantes del análisis de los rendimientos esperados de los activos se refiere al caso en el que el activo de riesgo es una amplia cartera de acciones. Si asumimos que los individuos tienen una utilidad de aversión al riesgo relativo constante, la ecuación de Euler puede expresarse como $C_t^{-\theta}=\frac{1}{1+\rho}E_t[(1+r^i_{t+1})C^{-\theta}_{t+1}]$, donde $\theta$ es el *coeficiente de aversión relativa al riesgo*. Siguiendo a Romer^[Romer, Advanced Macroeconomics, McGraw-Hill Education, 5 dition, p.397] tenemos que la diferencia entre los retornos esperados de dos activos, *i* y *j*, satisface la ecuación $E[r^i]-E[r^j]=\theta Cov(r^i-r^j, g^c)$, donde $g^c$ es la tasa de crecimiento del consumo de un periodo t al periodo t+1, $(\frac{C_{t+1}}{C_t})-1$.      
 
 ### Ejercicio 5.a
 
-Consiga los valores anuales de IPC, el Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores por lo menos desde 1990.
+**Consiga los valores anuales de IPC, el Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores por lo menos desde 1990.**
+
+
+
+En la siguiente gráfica se muestra la evolución de los valores de cierre anuales del Índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (S&P/BMV IPC) desde 1990 hasta el año 2020, con año base de 1978. La tendencia de largo plazo es creciente, y en los últimos años las caídas más drásticas son en los años 2008 y 2018. Se oberva también un máximo histórico del índice en el año 2017, con un valor de 49,354.40. 
+
+
+```{r}
+base<-read_excel("/Users/leobardoenriquez/Downloads/base.xlsx")
+IPCc<- ts(base$IPCc, start=1990, frequency = 1)
+ts.plot (IPCc,   xlab="Años", ylab="IPC cierre", main="Indice de Precios y Cotizaciones de la BMV", col="blue")
+
+```
+
+\newpage
 
 ### Ejercicio 5.b
 
-Calcule su tasa de retorno nominal para cada año.
+**Calcule su tasa de retorno nominal para cada año.**
+
+La tasa de retorno de un activo i es $r^i_{t+1}=\frac{D^i_{t+1}}{P^i_t}-1$, donde $D^i_{t+1}$ es el pago del activo i, que incluye pagos de dividendos y beneficios por la venta del activo en t+1, y  $P^i_t$ es el precio inicial del activo. 
+
+La siguiente gráfica muestra la evolución de la tasa de retorno del IPC, de 1991 a 2020. Para el cálculo se tomó la tasa de crecimiento del índice de un año a otro. Se observa una mayor variabilidad en los primeros años considerados, y más estabilidad en los últimos años.  Las caídas más fuertes, coinciden con los acontecimientos que más han impactado de manera negativa en la economía mexicana, y que han tenido su orígen en el mercado financiero doméstico e internacional, como por ejemplo en 1994, 1998, 2008 y 2018.  
+
+```{r}
+tc_IPCc<-growth.rate(IPCc, lag=1)
+ts.plot (tc_IPCc,   xlab="Años", ylab="Tasa de retorno del IPC cierre", main="Tasa de retorno del IPC de la BMV", col="blue")
+```
+
+\newpage
 
 ### Ejercicio 5.c
 
-Consiga los valores promedio anual de la tasa de interés de CETES a 7 días, o la TIIE, la tasa interbancaria de equilibrio, y de la tasa de interés a un año, para el periodo que esté disponible.
+**Consiga los valores promedio anual de la tasa de interés de CETES a 28 días, o la TIIE, la tasa interbancaria de equilibrio, y de la tasa de interés a un año, para el periodo que esté disponible.**
 
+Para el corto plazo se tomó la tasa de interés de CETES a 28 días y para el largo plazo se tomó la tasa de CETES a 364 días. En la siguiente gráfica se muestra la evolución de ambas tasas, éstas muestran una tendencia descendente entre 1990 y 2020. Se observa un incremento drástico en 1995 con una tasa de 48.65% debido a la crisis financiera originada internamente a finales de 1994 y principios de 1995,  
+
+
+```{r}
+CETES28<- ts(base$CETES28, start=1990, frequency = 1)
+CETES364<-ts(base$CETES364, start=1990, frequency = 1)
+
+
+ts.plot (CETES28,CETES364,  gpars=list(xlab="Años", ylab="Tasas de interés", main=" Tasas de interés de CETES a 28 y 364 días", col=c("blue","red"),cex.main=0.9))
+legend ('topright', col=c("blue","red"),lwd=2, legend=c("CETES 28","CETES 364"), bg='white')
+
+```
+
+\newpage
 ### Ejercicio 5.d
 
-Calcule la diferencia entre el retorno del IPC y el retorno de invertir en CETES a distintos plazos.
+**Calcule la diferencia entre el retorno del IPC y el retorno de invertir en CETES a distintos plazos.**
 
+
+La siguiente gráfica muestra el diferencial de los retornos del IPC y de invertir en CETES a 28 días y el diferencial de los retornos del IPC y de invertir en CETES A 364 días. Se observa que el diferencial (exceso de rendimiento) para ambos casos es más estable en la última década. Se observan caídas importantes del exceso de rendimiento con respecto a los activos sin riesgo en 1995, 1998, 2000, 2008, y 2018. 
+
+
+```{r}
+
+basec<-base[-1,]
+
+d_IPCCETES28<-tc_IPCc-basec$CETES28
+d_IPCCETES364<-tc_IPCc-basec$CETES364
+
+d_IPCCETES28<-ts(d_IPCCETES28, start=1991, frequency = 1)
+d_IPCCETES364<-ts(d_IPCCETES364, start=1991, frequency = 1)
+
+ts.plot (d_IPCCETES28,d_IPCCETES364,  gpars=list(xlab="Años", ylab="Diferencial de retornos", main=" Diferencial de retornos del IPC con respecto a CETES a 28 y 364 días", col=c("blue","red"),cex.main=0.9))
+legend ('topright', col=c("blue","red"),lwd=2, legend=c("Diferencial con CETES 28","Diferencial con CETES 364"), bg='white')
+
+
+
+
+```
+
+
+
+
+\newpage
 ### Ejercicio 5.e
 
-Calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado de la economía mexicana. 
+**Calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado de la economía mexicana.** 
 
+
+En la siguiente gráfica se muestra la evolución de la tasa de crecimiento del consumo ($g^c$) de la economía mexicana de 1991 a 2020. Las caídas más drásticas se obervan en 1995, 2009 y 2020, siendo sta última la caida más grande del periodo, con una tasa de -11.66%, casi del doble de la caída de 1995 y 2009.   
+
+```{r}
+Cons<- ts(base$Cons, start=1990, frequency = 1)
+tc_Cons <- growth.rate(Cons, lag=1)
+ts.plot (tc_Cons,   xlab="Años", ylab="Tasa de crecimiento", main="Tasa de crecimiento del Consumo", col="blue")
+```
+
+
+Para calcular la covarianza de la tasa de crecimiento del consumo ($g^c$), y del diferencial del retorno del IPC con el retorno de los CETES, planteamos dos cálculos, uno para las tasas de CETES a 28 días y otro para las tasas de CETES a 364 días.  
+
+i) $cov(r^i-r_{cp}^j, g^c)$, donde $r^i$ es la tasa de retorno del IPC y $r_{cp}^j$ la tasa libre de riesgos de los CETES a 28 días. 
+
+El cálculo se obtiene como $cov(r^i-r_{cp}^j, g^c)=corr(r^i-r_{cp}^j, g^c)*sd(g^c)*sd(r^i-r_{cp}^j)$. Donde $corr(r^i-r_{cp}^j, g^c)$ es la correlación entre el diferencial de retornos (exceso de rendimiento en el mercado de activos) y la tasa de crecimiento del consumo,  $sd(g^c)$ la desviación estándar de la tasa de crecimiento del consumo y $sd(r^i-r_{cp}^j)$ es la desviación estándar del diferencial de retornos. 
+
+
+```{r}
+#Desviación estándar del crecimiento del consumo, divido por 100 para cambiar de escala para decimales como en Romer
+sd_tcCons<-(sd(tc_Cons))/100
+#sd_tcCons
+
+#Desviación estándar del diferencial de la tasa de CETES28 y la tasa de crecimiento del IPCc como indicador de retorno der mercado de valores. Misma obs para la división de 100
+sd_dif_IPC_CETES28<-(sd(d_IPCCETES28))/100
+#sd_dif_IPC_CETES28
+
+
+#Correlación de tasa de crecimiento del consumo y el diferencial de rendimientos
+corr_sd<-cor(tc_Cons, d_IPCCETES28)
+#corr_sd
+
+
+#La covarianza entre la tasa de crecimiento del consumo y el diferencial de rendimientos.Coto plazo 
+cov_C_CETES28<-sd_tcCons*sd_dif_IPC_CETES28*corr_sd
+#cov_C_CETES28
+
+
+##################
+
+```
+
+
+\begin{center}
+\textbf{Cuadro 5.1. Estadísticas descriptivas 28 días}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}28 días\end{sideways}}
+						&  &   \\
+						& $sd(g^c)$  & $0.04001254$  \\ 
+						&$sd(r^i-r_{cp}^j)$ & $0.3243786$ \\ 
+						&$corr(r^i-r_{cp}^j, g^c)$ & $0.07104924$ \\ 
+						&$cov(r^i-r_{cp}^j, g^c)$  & $0.0009221631$ \\ 						
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+
+
+
+ii) $cov(r^i-r_{lp}^j, g^c)$, donde $r^i$ es la tasa de retorno del IPC y $r_{lp}^j$ la tasa libre de riesgos de los CETES a 364 días. 
+
+
+
+El cálculo se obtiene como $cov(r^i-r_{lp}^j, g^c)=corr(r^i-r_{lp}^j, g^c)*sd(g^c)*sd(r^i-r_{lp}^j)$. Donde $corr(r^i-r_{lp}^j, g^c)$ es la correlación entre el diferencial de retornos (exceso de rendimiento en el mercado de activos) y la tasa de crecimiento del consumo,  $sd(g^c)$ la desviación estándar de la tasa de crecimiento del consumo y $sd(r^i-r_{lp}^j)$ es la desviación estándar del diferencial de retornos. 
+
+
+
+
+```{r}
+#Desviación estándar del crecimiento del consumo, divido por 100 para cambiar de escala para decimales como en Romer
+sd_tcCons<-(sd(tc_Cons))/100
+#sd_tcCons
+
+#Desviación estándar del diferencial de la tasa de CETES364 y la tasa de crecimiento del IPCc como indicador de retorno der mercado de valores. Misma obs para la división de 100
+sd_dif_IPC_CETES364<-(sd(d_IPCCETES364))/100
+#sd_dif_IPC_CETES364
+
+
+#Correlación de tasa de crecimiento del consumo y el diferencial de rendimientos
+corr_sd_lp<-cor(tc_Cons, d_IPCCETES364)
+#corr_sd_lp
+
+
+#La covarianza entre la tasa de crecimiento del consumo y el diferencial de rendimientos.Coto plazo 
+cov_C_CETES364<-sd_tcCons*sd_dif_IPC_CETES364*corr_sd_lp
+#cov_C_CETES364
+
+
+##################
+
+```
+
+
+
+\begin{center}
+\textbf{Cuadro 5.2. Estadísticas descriptivas 364 días}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}364 días\end{sideways}}
+						&  &   \\
+						& $sd(g^c)$  & $0.04001254$  \\ 
+						&$sd(r^i-r_{lp}^j)$ & $0.317422$ \\ 
+						&$corr(r^i-r_{lp}^j, g^c)$ & $0.03890785$ \\ 
+						&$cov(r^i-r_{lp}^j, g^c)$  & $0.0004941631$ \\ 						
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+
+Si a la $j$ le corresponden los bonos del gobierno (CETES) y a $i$ le corresponden las inversiones en la bolsa (S&P/IPC BMV), entonces  la covarianza del exceso de rendimientos $r^i-r^j$ con $g^c$, es de $0.0009221631$ con CETES a 28 días, y de $0.0004941631$ con CETES a 364 días. Para el primer caso, la volatilidad del consumo es de $4$ por ciento y la volatilidad del diferencial de retornos de las acciones con CETES a 28 días es $32.43$ por ciento. Para es segundo caso, la volatilidad del diferencial de retornos de las acciones con CETES a 364 días es $31.74$ por ciento.   
+
+
+
+
+\newpage
 ### Ejercicio 5.f
 
-Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.
+**Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC (funciones de utilidad de la Aversión Relativa al Riesgo Constante).** 
 
+
+
+
+
+Recordemos que la diferencia entre los retornos del mercado de activos y el retorno de la deuda del gobierno, es decir, el premio al capital o el exceso de rendimiento $r^i-r^j$, satisface  $E[r^i]-E[r^j]=\theta Cov(r^i-r^j, g^c)$, de donde tenemos queel coefiente de aversión relativa al riesgo es $\theta =\frac{E[r^i]-E[r^j]}{Cov(r^i-r^j, g^c)}$.  
+
+
+Para el análisis de corto plazo tenemos: 
+
+```{r}
+##################
+
+#Retomando la covarianza 
+#cov_C_CETES28
+
+#Tomamos la media como la esperanza de los CETES y del rendimeinto del IPC. 
+mean_CETES28<-mean(basec$CETES28)
+mean_tc_IPCc<-mean(tc_IPCc)
+
+#Diferencial promedio del rendimiento del IPC y del rendimientos de CETES28, es decir es el premio al capital o exceso de rendimiento 
+difermean_IPC_cetes28<-(mean_tc_IPCc-mean_CETES28)/100
+#difermean_IPC_cetes28
+
+#Coeficiente de aversión relativa al riesgo (teta)
+tetacp<-difermean_IPC_cetes28/((cov_C_CETES28))
+#tetacp
+
+
+```
+
+\begin{center}
+\textbf{Cuadro 5.3. Coeficiente de aversión al riesgo 28 días}
+\end{center}
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}28 días\end{sideways}}  
+							&   &  \\
+						&$cov(r^i-r_{cp}^j, g^c)$  & $0.0009221631$ \\
+						&$E[r^i]-E[r^j_{cp}]$ & $0.07491655$ \\ 
+						&$\theta$ & $81.24002$ \\ 
+						&  &   \\
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+
+
+
+ Para el análisis de largo plazo tenemos: 
+ 
+ 
+
+```{r}
+##################
+
+#Retomando la covarianza 
+#cov_C_CETES364
+
+#Tomamos la media como la esperanza de los CETES y del rendimeinto del IPC. 
+mean_CETES364<-mean(basec$CETES364)
+mean_tc_IPCc<-mean(tc_IPCc)
+
+#Diferencial promedio del rendimiento del IPC y del rendimientos de CETES364, es decir es el premio al capital o exceso de rendimiento 
+difermean_IPC_cetes364<-(mean_tc_IPCc-mean_CETES364)/100
+#difermean_IPC_cetes364
+
+#Coeficiente de aversión relativa al riesgo (teta)
+tetalp<-difermean_IPC_cetes364/((cov_C_CETES364))
+#tetalp
+
+
+```
+
+\begin{center}
+\textbf{Cuadro 5.4. Coeficiente de aversión al riesgo 364 días}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}364 días\end{sideways}} 
+						&  &   \\
+						&$cov(r^i-r_{lp}^j, g^c)$  & $0.0004941631$ \\
+						&$E[r^i]-E[r^j_{lp}]$ & $0.07187854$ \\ 
+						&$\theta$ & $145.4551$ \\ 
+						&  &   \\
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+El coeficiente de aversión relativa al riesgo, es de 81.24 en el corto plazo y de 145.45 en el largo plazo, que de acuerdo con Romer son valores muy altos de aversión al riesgo. Esto implica que los individuos preferirán aceptar una reducción de su consumo en un procentaje menor de manera segura, que arriesgarse a una lotería en que un resultado sería una reducción mucho mayor en el consumo. 
+
+ 
+ 
+\newpage
 ### Ejercicio 5.g
 
-Ahora calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado DE BIENES IMPORTADOS [aquí hay una serie: www.inegi.org.mx/temas/imcp/] de la economía mexicana. 
+**Ahora calcule la covarianza entre dicha diferencias y  la tasa de crecimiento real del consumo agregado DE BIENES IMPORTADOS [aquí hay una serie: www.inegi.org.mx/temas/imcp/] de la economía mexicana.** 
+
+
+Para el corto plazo tenemos: 
+```{r}
+#Tomar la base desde 1994
+based<-base[5:31, ]
+
+tcCM<-as.numeric(based$tcCM)
+
+#Desviación estándar del crecimiento del consumo importado. consideramos desde 1994
+sd_tcCM<-sd(tcCM)
+#sd_tcCM
+
+#Desviación estándar del diferencial de la tasa de CETES28 y la tasa de crecimiento del IPCc como indicador de retorno der mercado de valores. División entre 100 para la misma escala. Se considera desde 1994
+
+tcIPCc<-as.numeric(based$tcIPCc)
+
+dif_tcIPC_CETES28<-tcIPCc-((based$CETES28)/100)
+
+sd_dif_tcIPC_CETES28<-sd(dif_tcIPC_CETES28)
+#sd_dif_tcIPC_CETES28
+
+
+#Correlación de tasa de crecimiento del consumo importado y el diferencial de rendimientos
+corr_sd_CM_cp<-cor(tcCM,dif_tcIPC_CETES28 )  
+#corr_sd_CM_cp
+
+
+#La covarianza entre la tasa de crecimiento del consumo y el diferencial de rendimientos.Corto plazo. Observe que es la covarianza de  Spearman. 
+cov_CM_CETES28<-sd_tcCM*sd_dif_tcIPC_CETES28*corr_sd_CM_cp
+#cov_CM_CETES28
+
+
+##################
+
+```
+
+\begin{center}
+\textbf{Cuadro 5.5. Estadística descriptiva 28 días - Consumo Importado -}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}28 días\end{sideways}}
+						&  &   \\
+						& $sd(g^c)$  & $0.1940291$  \\ 
+						&$sd(r^i-r_{cp}^j)$ & $0.2710058$ \\ 
+						&$corr(r^i-r_{cp}^j, g^c)$ & $-0.01814767$ \\ 
+						&$cov(r^i-r_{cp}^j, g^c)$  & $-0.0009542589$ \\ 						
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+
+Para el largo plazo tenemos:
+```{r}
+
+#Desviación estándar del crecimiento del consumo importado. consideramos desde 1994
+#sd_tcCM
+
+#Desviación estándar del diferencial de la tasa de CETES28 y la tasa de crecimiento del IPCc como indicador de retorno der mercado de valores. División entre 100 para la misma escala. Se considera desde 1994
+
+dif_tcIPC_CETES364<-tcIPCc-((based$CETES364)/100)
+
+sd_dif_tcIPC_CETES364<-sd(dif_tcIPC_CETES364)
+#sd_dif_tcIPC_CETES364
+
+
+#Correlación de tasa de crecimiento del consumo importado y el diferencial de rendimientos
+corr_sd_CM_lp<-cor(tcCM,dif_tcIPC_CETES364 )  
+#corr_sd_CM_lp
+
+
+#La covarianza entre la tasa de crecimiento del consumo y el diferencial de rendimientos.Corto plazo. Observe que es la covarianza de  Spearman. 
+cov_CM_CETES364<-sd_tcCM*sd_dif_tcIPC_CETES364*corr_sd_CM_lp
+#cov_CM_CETES364
+
+
+##################
+
+```
+
+\begin{center}
+\textbf{Cuadro 5.6. Estadística descriptiva 364 días - Consumo Importado -}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}364 días\end{sideways}}
+						&  &   \\
+						& $sd(g^c)$  & $0.1940291$  \\ 
+						&$sd(r^i-r_{lp}^j)$ & $0.2620966$ \\ 
+						&$corr(r^i-r_{lp}^j, g^c)$ & $-0.07331527$ \\ 
+						&$cov(r^i-r_{lp}^j, g^c)$  & $-0.003728401$ \\ 						
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
 
 ### Ejercicio 5.h
 
-Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.
+**Calcule el valor de aversión relativa al riesgo que implican estos números, dado el supuesto de una utilidad con forma ARRC.**
+
+En el corto plazo tenemos: 
+
+```{r}
+##################
+
+#Retomando la covarianza 
+#cov_CM_CETES28
+
+#Tomamos la media como la esperanza de los CETES y del rendimeinto del IPC. 
+mean_CETES28_d<-mean((based$CETES28)/100)
+mean_tcIPCc_d<-mean(tcIPCc)
+
+#Diferencial promedio del rendimiento del IPC y del rendimientos de CETES28, es decir es el premio al capital o exceso de rendimiento 
+difermean_tcIPC_cetes28_d<-mean_tcIPCc_d-mean_CETES28_d
+#difermean_tcIPC_cetes28_d
+
+#Coeficiente de aversión relativa al riesgo (teta)
+tetacp<-difermean_tcIPC_cetes28_d/((cov_CM_CETES28))
+#tetacp
+
+
+```
+
+
+\begin{center}
+\textbf{Cuadro 5.7. Coeficiente de aversión al riesgo 28 días - Consumo Importado -}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}28 días\end{sideways}}  
+							&   &  \\
+						&$cov(r^i-r_{cp}^j, g^c)$  & $-0.0009542589$ \\
+						&$E[r^i]-E[r^j_{cp}]$ & $0.0281719$ \\ 
+						&$\theta$ & $-29.52228$ \\ 
+						&  &   \\
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+
+
+
+
+
+
+En el largo plazo tenemos:
+```{r}
+##################
+
+#Retomando la covarianza 
+#cov_CM_CETES364
+
+#Tomamos la media como la esperanza de los CETES y del rendimeinto del IPC. 
+mean_CETES364_d<-mean((based$CETES364)/100)
+mean_tcIPCc_d<-mean(tcIPCc)
+
+#Diferencial promedio del rendimiento del IPC y del rendimientos de CETES364, es decir es el premio al capital o exceso de rendimiento 
+difermean_tcIPC_cetes364_d<-mean_tcIPCc_d-mean_CETES364_d
+#difermean_tcIPC_cetes364_d
+
+#Coeficiente de aversión relativa al riesgo (teta)
+tetalp<-difermean_tcIPC_cetes364_d/((cov_CM_CETES364))
+#tetalp
+
+
+```
+
+\begin{center}
+\textbf{Cuadro 5.8. Coeficiente de aversión al riesgo 364 días - Consumo Importado -}
+\end{center}
+
+\begin{table}[h!]
+				\begin{center} 
+					\begin{tabular}{|c|c|c|c|} 
+						\hline 
+						\mbox{}\;\;\;\;\;\mbox{}& \; Notación\;  & \; Valor calculado\; \\ 
+						\hline 
+						\multirow{4}{*}{\begin{sideways}364 días\end{sideways}}  
+							&   &  \\
+						&$cov(r^i-r_{lp}^j, g^c)$  & $-0.003728401$ \\
+						&$E[r^i]-E[r^j_{lp}]$ & $0.02561693$ \\ 
+						&$\theta$ & $-6.870755$ \\ 
+						&  &   \\
+						\hline \hline
+						\hline
+					\end{tabular}
+				\end{center}
+\end{table}	
+
+
+
+El coeficiente de aversión relativa al riesgo, es de -29.52 en el corto plazo y de -6.87 en el largo plazo, lo que muestra un comportamiento de amor al riesgo. Esto implica que los individuos preferirán arriesgarse a una lotería en que un resultado sería una reducción mucho mayor en el consumo que aceptar una reducción de su consumo en un procentaje menor de manera segura. 
+
+
 
 \newpage
 
