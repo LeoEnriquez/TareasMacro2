@@ -20,7 +20,6 @@ output:
   pdf_document:
     toc: true
     toc_depth: 3
-bibliography: Bibliografía_Tarea1.bib  
 ---
 \pagenumbering{gobble}
 \pagenumbering{arabic} 
@@ -2192,3 +2191,4 @@ Y de acuerdo a las probabilidades objetivas:
 
 $$O_{O} = \frac{(Q_{A}(85 - 78) + Q_{B}(0))}{R^{LR}} = 4.33\bar{3}$$
 Suponiendo que $O_{O}$ es el valor observable de la opción, puede verse que el valor que debería tener, de acuerdo a las probabilidades subjetivas, es ligeramente mayor, por lo que su compra es sensata. Finalmente, es evidente que $q_{A} > Q_{A}$ y que $q_{B} < Q_{B}$, esto es: los retornos esperados del activo en un evento favorable son muy valorados el día de hoy y, asimismo, los retornos del activo en caso de un evento desfavorable son poco valorados en el presente.
+
