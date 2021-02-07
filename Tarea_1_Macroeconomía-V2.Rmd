@@ -13,9 +13,6 @@ header-includes:
 - \usepackage[spanish]{babel}
 - \usepackage{graphicx}
 - \usepackage{multirow,rotating}
-- \usepackage{titling}
-- \pretitle{\begin{center}\LARGE\includegraphics[width=12cm]{C:/User/marco/OneDrive/Documents/GitHub/TareasMacro2/colmex.jpg}
-- \posttitle{\end{center}}
 - \pagenumbering{gobble} 
 include-before:
 - '`\newpage{}`{=latex}'
@@ -1604,7 +1601,7 @@ En la siguiente gráfica se muestra la evolución de los valores de cierre anual
 
 
 ```{r}
-base<-read_excel("/Users/leobardoenriquez/Downloads/base.xlsx")
+base<-read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-1/Datos%20Tarea%201/base.csv")
 IPCc<- ts(base$IPCc, start=1990, frequency = 1)
 ts.plot (IPCc,   xlab="Años", ylab="IPC cierre", main="Indice de Precios y Cotizaciones de la BMV", col="blue")
 
