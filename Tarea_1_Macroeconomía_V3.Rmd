@@ -1,25 +1,20 @@
 ---
-title: |
-  | **Tarea 1, Macroeconomía II**
-  | Maestría en Economía, El Colegio de México, enero - mayo, 2021
-author:
-  - Vanessa Ayma Huaman
-  - Leobardo Enríquez Hernández
-  - Marco Méndez Atienza
-  - Flor Yurivia Valdés de la Torre 
-date: "`r format(Sys.time(), '%d de %B de %Y')`"
+title: ""
+date: ""
 header-includes:
 - \usepackage[utf8]{inputenc}
 - \usepackage[spanish]{babel}
 - \usepackage{graphicx}
 - \usepackage{multirow,rotating}
 - \pagenumbering{gobble} 
-include-before:
-- '`\newpage{}`{=latex}'
 output: 
   pdf_document:
     toc: true
     toc_depth: 3
+    includes:
+      before_body: cover.tex
+csl: apa.csl
+bibliography: fuentes1.bib
 ---
 \pagenumbering{gobble}
 \pagenumbering{arabic} 
@@ -1126,7 +1121,7 @@ stargazer(nnreg_11, nnreg_12, nnreg_13, nnreg_14, nnreg_15, nnreg_16, nnreg_17, 
 
 ## Ejercicio 3.a
 
-**Obtenga, del Inegi, datos de “C”, el consumo agregado en México, de “Y”, el producto agregado, de “I”, la inversión agregada, de “G”, el gasto del gobierno y de , de “NX”, las exportaciones netas, entre 1980 y el tercer trimestre de 2019, EN TÉRMINOS REALES.**
+**Obtenga, del [@inegi], datos de “C”, el consumo agregado en México, de “Y”, el producto agregado, de “I”, la inversión agregada, de “G”, el gasto del gobierno y de , de “NX”, las exportaciones netas, entre 1980 y el tercer trimestre de 2019, EN TÉRMINOS REALES.**
 
 Para este ejercicio obtuvimos datos del INEGI de 1980 a 1995 a precios de 1980, y de 1993 a 2019 a precios de 2013, para lo cual deflactamos los datos que se encontraban a precios de 1980 para tener todos los datos a precios de 2013 expresados en miles de millones de pesos.
 
@@ -1589,11 +1584,11 @@ Por su parte, las relaciones ya establecidas a lo largo de este documento indica
 
 **Estudie el acertijo del premio al riesgo para el caso de Mexico siguiendo los pasos a - h. [3 horas, 0.5 puntos cada inciso]**
 
-Una de las implicaciones más importantes del análisis de los rendimientos esperados de los activos se refiere al caso en el que el activo de riesgo es una amplia cartera de acciones. Si asumimos que los individuos tienen una utilidad de aversión al riesgo relativo constante, la ecuación de Euler puede expresarse como $C_t^{-\theta}=\frac{1}{1+\rho}E_t[(1+r^i_{t+1})C^{-\theta}_{t+1}]$, donde $\theta$ es el *coeficiente de aversión relativa al riesgo*. Siguiendo a Romer^[Romer, Advanced Macroeconomics, McGraw-Hill Education, 5 dition, p.397] tenemos que la diferencia entre los retornos esperados de dos activos, *i* y *j*, satisface la ecuación $E[r^i]-E[r^j]=\theta Cov(r^i-r^j, g^c)$, donde $g^c$ es la tasa de crecimiento del consumo de un periodo t al periodo t+1, $(\frac{C_{t+1}}{C_t})-1$.      
+Una de las implicaciones más importantes del análisis de los rendimientos esperados de los activos se refiere al caso en el que el activo de riesgo es una amplia cartera de acciones. Si asumimos que los individuos tienen una utilidad de aversión al riesgo relativo constante, la ecuación de Euler puede expresarse como $C_t^{-\theta}=\frac{1}{1+\rho}E_t[(1+r^i_{t+1})C^{-\theta}_{t+1}]$, donde $\theta$ es el *coeficiente de aversión relativa al riesgo*. Siguiendo a [@romer] tenemos que la diferencia entre los retornos esperados de dos activos, *i* y *j*, satisface la ecuación $E[r^i]-E[r^j]=\theta Cov(r^i-r^j, g^c)$, donde $g^c$ es la tasa de crecimiento del consumo de un periodo t al periodo t+1, $(\frac{C_{t+1}}{C_t})-1$.      
 
 ### Ejercicio 5.a
 
-**Consiga los valores anuales de IPC, el Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores por lo menos desde 1990.**
+**Consiga los valores anuales de IPC, el Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores por lo menos desde 1990 [@banxico]**
 
 
 
@@ -2192,3 +2187,8 @@ Y de acuerdo a las probabilidades objetivas:
 $$O_{O} = \frac{(Q_{A}(85 - 78) + Q_{B}(0))}{R^{LR}} = 4.33\bar{3}$$
 Suponiendo que $O_{O}$ es el valor observable de la opción, puede verse que el valor que debería tener, de acuerdo a las probabilidades subjetivas, es ligeramente mayor, por lo que su compra es sensata. Finalmente, es evidente que $q_{A} > Q_{A}$ y que $q_{B} < Q_{B}$, esto es: los retornos esperados del activo en un evento favorable son muy valorados el día de hoy y, asimismo, los retornos del activo en caso de un evento desfavorable son poco valorados en el presente.
 
+
+# Referencias
+
+
+<!-- <div id="refs"></div> -->
