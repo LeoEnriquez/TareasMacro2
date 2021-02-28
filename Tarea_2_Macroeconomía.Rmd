@@ -136,7 +136,8 @@ Por otro lado, para obtener el valor de capitalización de mercado de la empresa
 |       Capitalización de mercado        |               \$85'041'544'896               |
 
 ```{r}
-datoscontables <- readRDS("C:/Users/marco/OneDrive/Escritorio/Tarea 2 Macro/datoscontables.rds")
+
+datoscontables <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/datoscontables.csv")
 
 datoscontablesliverpool <- datoscontables[datoscontables$NombreCorto == "LIVERPOOL",]
 ```
@@ -144,15 +145,29 @@ datoscontablesliverpool <- datoscontables[datoscontables$NombreCorto == "LIVERPO
 Así, la variable Q (q promedio) se obtiene dividiendo el valor de la capitalización de mercado entre el total de capital que tiene la empresa. Este procedimiento funciona como una variable *proxy*: una aproximación al valor marginal que tiene la inversión en esta empresa.
 
 \setcounter{equation}{0}
+
+```{=tex}
 \begin{equation}
 Q = \frac{Valor\;total\;de\;la\;empresa}{Capital\;total\;de\;la\;empresa} = \frac{V}{K} = \frac{85'041'544'896}{109'074'538'000}  = 0.7796
 \end{equation}
-
-
+```
+Intuitivamente, una Q promedio menor a 1 desincentiva la inversión, dado que el beneficio esperado es menor a los costos asociados a adquirir una unidad más de capital.
 
 ### b)
 
-**Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex_Macro_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata, ".dta". Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (%**$\Delta$ ppen),o la tasa de cambio de los activos (%$\Delta$ta).
+**Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex_Macro_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata, ".dta". Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (%**$\Delta$ ppen), o la tasa de cambio de los activos (%$\Delta$ta).
+
+Para este inciso, y con base en los datos contables obtenidos de GitHub, se creó una medida de inversión a partir de la tasa de cambio de los activos de El Puerto de Liverpool.
+
+```{r}
+
+activosliverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/activosliverpool.csv")
+
+activosliverpool <- ts(activosliverpool, start=2007, frequency = 4)
+
+graficadeltaactivos <- ts.plot (activosliverpool[,2],   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento del valor de los activos\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
+
+```
 
 # Referencias
 
