@@ -1,0 +1,159 @@
+---
+title: ""
+date: ""
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[spanish]{babel}
+- \usepackage{graphicx}
+- \usepackage{multirow,rotating}
+- \pagenumbering{gobble} 
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    includes:
+      before_body: cover.tex
+csl: apa.csl
+bibliography: fuentes1.bib
+---
+
+```{=tex}
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+```
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = F, fig.width = 6, fig.height = 3.5)
+```
+
+```{r, include=FALSE}
+
+rm(list = ls())
+
+pacman::p_load(tidyverse,
+               kableExtra,
+               ggplot2,
+               cowplot,
+               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr, imager,lubridate,tseries, astsa, growthrates, tis, dynlm, readxl )
+```
+
+\newpage
+
+# Instrucciones
+
+```{=tex}
+\begin{enumerate}
+
+\item Resuelva los ejercicios 9.1, 9.4 y 9.7 (5a edición). Realice estos con ayuda de su laboratorista y entregue las soluciones escritas a máquina, utilizando LaTeX. [3 horas,0.5 punto cada inciso]
+
+\item Estudie los determinantes de la inversión agregada en México siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]
+
+\begin{enumerate}
+
+\item Obtenga, del Inegi, datos DESESTACIONALIZADOS para México del consumo ``C'', datos de ``I'', la inversióm privada (inversión fija bruta), y de ``Y'', el PIB, entre 1980 y 2018/III, A FRECUENCIA TRIMESTRAL, EN TÉRMINOS REALES. (Si encuentra varias series pero ninguna cubre el periodo completo, tome una decisión ejecutiva para ``unir'' las series.)
+
+\item Grafique la relación entre I y Y, es decir, grafique los puntos (\%$\Delta Y_t$,\%$\Delta I_t$) poniendo la inversión en el eje la ordenadas.
+
+\item Calcule la volatilidad de las tres series de tasas de crecimiento (\%$\Delta I$, \%$\Delta C$ y \%$\Delta Y$) y explique cuál es más volatil.
+
+\item Obtenga, del banco de México, datos sobre las tasas de interés reales ($r^r$) de la economía $r^r=r^n-\pi$, es decir, la tasa de interés nominal, menos la tasa de inflación esperada (en cuyo caso se trata de la tasa de interés real ``ex-ante''), o menos la tasa de inflación observada (en cuyo caso se trata de la ``ex-post'').
+
+\item Estime una serie de modelos lineales con el objetivo de averiguar qué variables predicen la tasa de crecimiento de la inversión $\Delta$\%$I_t$. Utilice valores corrientes y rezagados del crecimiento en el producto, de la tasa de interés real, valores rezagados de la propia tasa de cambio en la inversión y combinaciones de estas variables. 
+
+\item Estime otra serie de modelos lineales con el objetivo de averiguar qué variables predicen la tasa de crecimiento de la inversión $\Delta$\%$I_t$: a las especificaciones del inciso anterior, agregue valores corrientes y/o rezagados de {\it la confianza empresarial} del Inegi además de tambíen estimar su efecto por si sólas. 
+
+\item Interprete los resultados. 
+
+\end{enumerate}
+
+\item Estudie la habilidad de modelo de la $q$ de Tobin para explicar las tasas de inversión de empresas individuales, siguiendo estos pasos [3 horas, 0.5 puntos cada inciso]:
+
+\begin{enumerate}
+
+\item Con el propósito de desarrollar intuición sobre la existencia y fuente de los datos corporativos, vaya al sitio de internet de algún corporativo mexicano y obtenga su reporte anual. De ahí, obtenga el valor de los activos menos los pasivos (excepto el capital) y construya el valor en libros de la empresa. Posteriormente, de dicho reporte, o del sitio de la BMV o de la BIVA, obtenga el valor de capitalización de mercado de la misma empresa y finalmente construya la variable ``Q'' como la razón de dichos valores.
+
+\item Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex\_Macro\_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata,  ``.dta''. Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (\%$\Delta$ ppen), o la tasa de cambio de los activos (\%$\Delta$ta). 
+
+\item Cree una medida de la q de Tobin: el  valor de mercado de la empresa sobre el valor en libros de la empresa, en donde el valor de mercado es es número de acciones por el precio de la acción.
+
+\item Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo y la q de tobin en el mismo o en el periodo inmediato anterior. 
+
+\item Produzca un estimado del coeficiente del costo de ajuste. 
+
+\item Explique, suponiendo que la función de costo de ajuste es cuadrática (es decir $C_t=b(I_t/K_t)^2K_t $), qué implican los resultados de sus regresiones sobre el costo de ajuste relativo al capital total para una inversión de 30\% del capital total y qué implican los resultados para el tiempo que le tomaría a una empresa recorrer la mitad mitad del camino entre el capital que tiene, $K$, y el que quisiera tener $K^*$.
+
+\item Simule una relación lineal $Y=a+bX+\epsilon$ y cree dos variables con error de medición $\tilde{X}=X+\tilde{\epsilon}$ and also $\tilde{\tilde{X}}=X-c{\epsilon}$. Luego estime tres relaciones lineales, la de $Y$ con $X$, la de $Y$ con $\tilde{X}$ y la de $Y$ con $\tilde{\tilde{X}}$, explicando los resultados que obtenga y relacionandolos con los hayazgos del inciso anterior.
+
+\item Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo, la $q$ de Tobin en el mismo o en el periodo inmediato anterior, y el flujo de efectivo o las ganancias netas. Interprete los resultados contrastándolos con los resultados que obtuvo anteriormente.
+
+
+\end{enumerate}
+
+\item Proponga una mejora al archivo Diccionario de Economía utilizando github.
+
+\end{enumerate}
+```
+\newpage
+
+# Soluciones
+
+## Ejercicio 3
+
+**Estudie la habilidad de modelo de la q de Tobin para explicar las tasas de inversión de empresas individuales, siguiendo estos pasos [3 horas, 0.5 puntos cada inciso]:**
+
+### a)
+
+**Con el propósito de desarrollar intuición sobre la existencia y fuente de los datos corporativos, vaya al sitio de internet de algún corporativo mexicano y obtenga su reporte anual. De ahí, obtenga el valor de los activos menos los pasivos (excepto el capital) y construya el valor en libros de la empresa. Posteriormente, de dicho reporte, o del sitio de la BMV o de la BIVA, obtenga el valor de capitalización de mercado de la misma empresa y finalmente construya la variable "Q" como la razón de dichos valores.**
+
+Para este ejercicio, se eligió a la empresa El Puerto de Liverpool, mejor conocida como Liverpool, fundada en 1847 y dedicada a la operación de tiendas departamentales, restaurantes y centros comerciales.
+
+Así, se obtuvo el Informe Anual 2019 de El Puerto de Liverpool, publicado en febrero de 2020. A la fecha de entrega de este documento, todavía no se cuenta con la información pública del Informe equivalente para el año 2020.
+
+De acuerdo a este Informe, los datos más relevantes para el análisis de este inciso son:
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.1. Situación financiera de El Puerto de Liverpool, 2019}
+\end{center}
+```
+|              Variable              | Valor en miles de pesos |
+|:----------------------------------:|:-----------------------:|
+|          Activos totales           |    \$200'561'869.00     |
+|          Total de pasivos          |     \$91'487'331.00     |
+|     Total de capital contable      |    \$109'074'538.00     |
+| Total de pasivo y capital contable |    \$200'561'869.00     |
+
+Por otro lado, para obtener el valor de capitalización de mercado de la empresa, es necesario obtener el precio de la acción y multiplicarlo por el volumen de acciones que se encuentran en el mercado. Para tal efecto, se utilizaron los últimos datos reportados (al 27 de febrero de 2021) tanto por El Puerto de Liverpool, como por la Bolsa Mexicana de Valores (BMV):
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.2. Volumen, precio unitario de acciones y capitalización de mercado de El Puerto de Liverpool al 21/02/2021}
+\end{center}
+```
+|                Variable                | Valor (numérico y en pesos, respectivamente) |
+|:--------------------------------------:|:--------------------------------------------:|
+|    Total de acciones en el mercado     |                1'342'196'100                 |
+| Último cierre del precio de una acción |                   \$63.36                    |
+|       Capitalización de mercado        |               \$85'041'544'896               |
+
+```{r}
+datoscontables <- readRDS("C:/Users/marco/OneDrive/Escritorio/Tarea 2 Macro/datoscontables.rds")
+
+datoscontablesliverpool <- datoscontables[datoscontables$NombreCorto == "LIVERPOOL",]
+```
+
+Así, la variable Q (q promedio) se obtiene dividiendo el valor de la capitalización de mercado entre el total de capital que tiene la empresa. Este procedimiento funciona como una variable *proxy*: una aproximación al valor marginal que tiene la inversión en esta empresa.
+
+\setcounter{equation}{0}
+\begin{equation}
+Q = \frac{Valor\;total\;de\;la\;empresa}{Capital\;total\;de\;la\;empresa} = \frac{V}{K} = \frac{85'041'544'896}{109'074'538'000}  = 0.7796
+\end{equation}
+
+
+
+### b)
+
+**Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex_Macro_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata, ".dta". Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (%**$\Delta$ ppen),o la tasa de cambio de los activos (%$\Delta$ta).
+
+# Referencias
+
+<!-- <div id="refs"></div> -->
