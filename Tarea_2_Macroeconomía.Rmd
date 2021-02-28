@@ -135,7 +135,7 @@ Por otro lado, para obtener el valor de capitalización de mercado de la empresa
 | Último cierre del precio de una acción |                   \$63.36                    |
 |       Capitalización de mercado        |               \$85'041'544'896               |
 
-```{r}
+```{r include=FALSE}
 
 datoscontables <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/datoscontables.csv")
 
@@ -157,14 +157,17 @@ Intuitivamente, una Q promedio menor a 1 desincentiva la inversión, dado que el
 
 **Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex_Macro_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata, ".dta". Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (%**$\Delta$ ppen), o la tasa de cambio de los activos (%$\Delta$ta).
 
-Para este inciso, y con base en los datos contables obtenidos de GitHub, se creó una medida de inversión a partir de la tasa de cambio de los activos de El Puerto de Liverpool.
+Para este inciso, y con base en los datos contables obtenidos de GitHub, se creó una medida de la inversión a partir de la tasa de cambio de los activos de El Puerto de Liverpool.
 
-```{r}
+```{r include=FALSE}
 
 activosliverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/activosliverpool.csv")
 
 activosliverpool <- ts(activosliverpool, start=2007, frequency = 4)
 
+```
+
+```{r}
 graficadeltaactivos <- ts.plot (activosliverpool[,2],   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento del valor de los activos\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
 
 ```
