@@ -96,6 +96,10 @@ pacman::p_load(tidyverse,
 
 # Soluciones
 
+## Ejercicio 1
+
+**Resuelva los ejercicios 9.1, 9.4 y 9.7 [@romer]. Realice estos con ayuda de su laboratorista y entregue las soluciones escritas a máquina, utilizando LaTeX. [3 horas,0.5 punto cada inciso]**
+
 ## Ejercicio 3
 
 **Estudie la habilidad de modelo de la q de Tobin para explicar las tasas de inversión de empresas individuales, siguiendo estos pasos [3 horas, 0.5 puntos cada inciso]:**
@@ -104,7 +108,7 @@ pacman::p_load(tidyverse,
 
 **Con el propósito de desarrollar intuición sobre la existencia y fuente de los datos corporativos, vaya al sitio de internet de algún corporativo mexicano y obtenga su reporte anual. De ahí, obtenga el valor de los activos menos los pasivos (excepto el capital) y construya el valor en libros de la empresa. Posteriormente, de dicho reporte, o del sitio de la BMV o de la BIVA, obtenga el valor de capitalización de mercado de la misma empresa y finalmente construya la variable "Q" como la razón de dichos valores.**
 
-Para este ejercicio, se eligió a la empresa El Puerto de Liverpool, mejor conocida como Liverpool, fundada en 1847 y dedicada a la operación de tiendas departamentales, restaurantes y centros comerciales.
+Para este ejercicio, se eligió a la empresa El Puerto de Liverpool, mejor conocida como Liverpool [@liverpool], fundada en 1847 y dedicada a la operación de tiendas departamentales, restaurantes y centros comerciales.
 
 Así, se obtuvo el Informe Anual 2019 de El Puerto de Liverpool, publicado en febrero de 2020. A la fecha de entrega de este documento, todavía no se cuenta con la información pública del Informe equivalente para el año 2020.
 
@@ -122,7 +126,7 @@ De acuerdo a este Informe, los datos más relevantes para el análisis de este i
 |     Total de capital contable      |    \$109'074'538.00     |
 | Total de pasivo y capital contable |    \$200'561'869.00     |
 
-Por otro lado, para obtener el valor de capitalización de mercado de la empresa, es necesario obtener el precio de la acción y multiplicarlo por el volumen de acciones que se encuentran en el mercado. Para tal efecto, se utilizaron los últimos datos reportados (al 27 de febrero de 2021) tanto por El Puerto de Liverpool, como por la Bolsa Mexicana de Valores (BMV):
+Por otro lado, para obtener el valor de capitalización de mercado de la empresa, es necesario obtener el precio de la acción y multiplicarlo por el volumen de acciones que se encuentran en el mercado. Para tal efecto, se utilizaron los últimos datos reportados (al 27 de febrero de 2021) tanto por El Puerto de Liverpool, como por la Bolsa Mexicana de Valores [@bmv]:
 
 ```{=tex}
 \begin{center}
