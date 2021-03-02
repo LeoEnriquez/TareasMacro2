@@ -176,6 +176,26 @@ graficadeltaactivos <- ts.plot (activosliverpool[,2],   xlab="Trimestres", ylab=
 
 ```
 
+
+Otro indicador de la inversión es la tasa de cambio en el capital, que en la base de datos contable proporcionados en GitHub, es PPE (propiedad, plata y equipo). 
+
+```{r include=FALSE}
+
+bd_liverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/bd_liverpool.csv")
+
+capital_liverpool <- ts(bd_liverpool$PPE, start=2007, frequency = 4)
+
+```
+
+```{r}
+grafica_tc_capital <- ts.plot (activosliverpool[,2],   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento del valor de los activos\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
+
+```
+
+
+
+
+
 # Referencias
 
 <!-- <div id="refs"></div> -->
