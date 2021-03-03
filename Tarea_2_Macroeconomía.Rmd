@@ -143,12 +143,8 @@ Por otro lado, para obtener el valor de capitalización de mercado de la empresa
 | Último cierre del precio de una acción |                   \$63.36                    |
 |       Capitalización de mercado        |               \$85'041'544'896               |
 
-```{r include=FALSE}
 
-datoscontables <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/datoscontables.csv")
 
-datoscontablesliverpool <- datoscontables[datoscontables$NombreCorto == "LIVERPOOL",]
-```
 
 Así, la variable Q (q promedio) se obtiene dividiendo el valor de la capitalización de mercado entre el total de capital que tiene la empresa. Este procedimiento funciona como una variable *proxy*: una aproximación al valor marginal que tiene la inversión en esta empresa.
 
@@ -170,18 +166,23 @@ Nota: de acuerdo con el informe trimestral al cuarto trimestre de 2020 tenemos q
 
 **Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex_Macro_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata, ".dta". Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (%**$\Delta$ ppen), o la tasa de cambio de los activos (%$\Delta$ta).
 
-Para este inciso, y con base en los datos contables obtenidos de GitHub, se creó una medida de la inversión a partir de la tasa de cambio de los activos de El Puerto de Liverpool. La tasa de cambio es de un trimestre con respecto al trimestre inmediato anterior. 
+Para este inciso, y con base en los datos contables obtenidos de GitHub, se creó una medida de la inversión a partir de la tasa de cambio de los activos de El Puerto de Liverpool. La tasa de cambio es de un trimestre con respecto al mismo trimestre del año anterior. 
 
 ```{r include=FALSE}
 
-activosliverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/bd_liverpool.csv")
-
-#activosliverpool <- ts(bd_liverpool$, start=2007, frequency = 4)
+bd_liverpool<- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/bd_liverpool.csv")
 
 ```
 
+
+```{r include=FALSE}
+
+activos<- ts(bd_liverpool$activos_totales, start=c(2007,2), frequency = 4)
+tc_activos<-growth.rate(activos, lag=4)
+```
+
 ```{r}
-graficadeltaactivos <- ts.plot (activosliverpool[,2],   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento del valor de los activos\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
+grafica_tc_activos<- ts.plot(tc_activos,   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento del valor de los activos\n de El Puerto de Liverpool, 2008T2 - 2020T4", col = "red", lwd=2)
 
 ```
 
@@ -190,15 +191,13 @@ Otro indicador de la inversión es la tasa de cambio en el capital, que en la ba
 
 ```{r include=FALSE}
 
-bd_liverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/bd_liverpool.csv")
-
-capital_liverpool <- ts(bd_liverpool$PPE, start=2007, frequency = 4)
-tc_cap_liverpool<-growth.rate(capital_liverpool, lag=4)
+capital<- ts(bd_liverpool$capital_ppe, start=c(2007,2), frequency = 4)
+tc_capital<-growth.rate(capital, lag=4)
 ```
 
 
 ```{r}
-grafica_tc_capital <- ts.plot (tc_cap_liverpool,   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.4. Tasa de crecimiento del valor del capital\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
+grafica_tc_capital <- ts.plot (tc_capital,   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.4. Tasa de crecimiento del valor del capital\n de El Puerto de Liverpool, 2008T2 - 2020T4", col = "red", lwd=2)
 
 ```
 
@@ -207,13 +206,13 @@ grafica_tc_capital <- ts.plot (tc_cap_liverpool,   xlab="Trimestres", ylab="Tasa
 
 
 ```{r}
-variableq<-(bd_liverpool$prec_acc*bd_liverpool$num_acc)/(bd_liverpool$activ_t-bd_liverpool$pasiv_t)
-variableq_ts <- ts(variableq, start=2007, frequency = 4)
+qT<-(bd_liverpool$precio_acciones*bd_liverpool$num_acciones)/(bd_liverpool$activos_totales-bd_liverpool$pasivos_totales)
+qT_ts<- ts(qT, start=c(2007,2), frequency = 4)
 
 ```
 
 ```{r}
-grafica_q <- ts.plot (variableq_ts,   xlab="Trimestres", ylab="q de Tobin", main="Gráfica 3.5. Medida de la q de Tobin\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
+grafica_qT <- ts.plot (qT_ts,   xlab="Trimestres", ylab="q de Tobin", main="Gráfica 3.5. Medida de la q de Tobin\n de El Puerto de Liverpool, 2007T2 - 2020T4", col = "red", lwd=2)
 ```
 
 
