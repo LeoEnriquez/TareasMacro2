@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.3)  3 MAR 2021 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.3)  3 MAR 2021 12:36
 entering extended mode
 **./Tarea_2_Macroeconomía.tex
 (Tarea_2_Macroeconomía.tex
@@ -570,6 +570,12 @@ LaTeX Info: Redefining \% on input line 26.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `Tarea_2_Macroeconomía.aux'.
 
@@ -739,7 +745,7 @@ LaTeX Info: Redefining \% on input line 1.
 \openout3 = `Tarea_2_Macroeconomía.toc'.
 
 [1] [2] [3] [4]
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-4-1.pdf, id=85, 433.62
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-4-1.pdf, id=93, 433.62
 pt x 252.945pt>
 File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-4-1.pdf Graphic f
 ile (type pdf)
@@ -747,7 +753,7 @@ ile (type pdf)
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
 k-4-1.pdf  used on input line 362.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf, id=86, 433.62
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf, id=94, 433.62
 pt x 252.945pt>
 File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf Graphic f
 ile (type pdf)
@@ -756,49 +762,97 @@ Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
 k-5-1.pdf  used on input line 372.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
 [5 <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-4-1.pdf>]
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf, id=99, 433.62
-pt x 252.945pt>
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-6-1.pdf, id=107, 433.6
+2pt x 252.945pt>
+File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-6-1.pdf Graphic f
+ile (type pdf)
+<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-6-1.pdf>
+Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
+k-6-1.pdf  used on input line 385.
+(pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
+[6 <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf> <./Tarea
+_2_Macroeconomía_files/figure-latex/unnamed-chunk-6-1.pdf>]
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf, id=125, 433.6
+2pt x 252.945pt>
+File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf Graphic f
+ile (type pdf)
+<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
+k-7-1.pdf  used on input line 394.
+(pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf, id=126, 433.6
+2pt x 252.945pt>
 File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf Graphic f
 ile (type pdf)
 <use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
-k-9-1.pdf  used on input line 385.
+k-9-1.pdf  used on input line 402.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
-[6 <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf> <./Tarea
+[7 <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf> <./Tarea
 _2_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-12-1.pdf, id=118, 433.
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-12-1.pdf, id=144, 433.
 62pt x 252.945pt>
 File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-12-1.pdf Graphic 
 file (type pdf)
 <use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
-k-12-1.pdf  used on input line 403.
+k-12-1.pdf  used on input line 420.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 409.
+(Font)              <8> on input line 426.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 409.
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf, id=119, 433.
+(Font)              <6> on input line 426.
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf, id=145, 433.
 62pt x 252.945pt>
 File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf Graphic 
 file (type pdf)
 <use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
-k-14-1.pdf  used on input line 444.
+k-14-1.pdf  used on input line 461.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
-[7pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
+[8pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.474 \end{table}
+l.491 \end{table}
                   <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-12
--1.pdf>] [8pdfTeX warning (ext4): destination with the same identifier (name{ta
-ble.4}) has been already used, duplicate ignored
+-1.pdf>]
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf, id=163, 433.
+62pt x 252.945pt>
+File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf Graphic 
+file (type pdf)
+<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
+k-16-1.pdf  used on input line 501.
+(pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
+[9pdfTeX warning (ext4): destination with the same identifier (name{table.4}) h
+as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.502 \end{document}
-                     <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk
--14-1.pdf>] (Tarea_2_Macroeconomía.aux
+l.531 \end{table}
+                  <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14
+-1.pdf>]
+<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf, id=175, 433.
+62pt x 252.945pt>
+File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf Graphic 
+file (type pdf)
+<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
+k-18-1.pdf  used on input line 537.
+(pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
+[10pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.567 \end{table}
+                  <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16
+-1.pdf>] [11pdfTeX warning (ext4): destination with the same identifier (name{t
+able.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.605 \leavevmode
+                 \hypertarget{ref-liverpool}{}% <./Tarea_2_Macroeconomía_files
+/figure-latex/unnamed-chunk-18-1.pdf>] [12] (Tarea_2_Macroeconomía.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
@@ -807,13 +861,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16026 strings out of 479618
- 238846 string characters out of 2865027
- 591024 words of memory out of 3000000
- 32696 multiletter control sequences out of 15000+200000
- 467757 words of font info for 134 fonts, out of 3000000 for 9000
+ 16074 strings out of 479618
+ 241513 string characters out of 2865027
+ 602871 words of memory out of 3000000
+ 32720 multiletter control sequences out of 15000+200000
+ 468194 words of font info for 139 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,11n,88p,2318b,513s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 85i,11n,88p,4795b,513s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
 c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.en
 c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
@@ -834,9 +888,9 @@ co/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/marco
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/marco/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/marco/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Tarea_2_Macroeconomía.pdf (9 pages, 403059 bytes).
+Output written on Tarea_2_Macroeconomía.pdf (13 pages, 440571 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 34919 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 34955 words of extra memory for PDF output out of 35830 (max. 10000000)
 
