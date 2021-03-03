@@ -174,9 +174,9 @@ Para este inciso, y con base en los datos contables obtenidos de GitHub, se cre√
 
 ```{r include=FALSE}
 
-activosliverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/activosliverpool.csv")
+activosliverpool <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/bd_liverpool.csv")
 
-activosliverpool <- ts(activosliverpool, start=2007, frequency = 4)
+#activosliverpool <- ts(bd_liverpool$, start=2007, frequency = 4)
 
 ```
 
