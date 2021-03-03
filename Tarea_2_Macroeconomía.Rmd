@@ -126,6 +126,10 @@ De acuerdo a este Informe, los datos más relevantes para el análisis de este i
 |     Total de capital contable      |    \$109'074'538.00     |
 | Total de pasivo y capital contable |    \$200'561'869.00     |
 
+
+     
+
+
 Por otro lado, para obtener el valor de capitalización de mercado de la empresa, es necesario obtener el precio de la acción y multiplicarlo por el volumen de acciones que se encuentran en el mercado. Para tal efecto, se utilizaron los últimos datos reportados (al 27 de febrero de 2021) tanto por El Puerto de Liverpool, como por la Bolsa Mexicana de Valores [@bmv]:
 
 ```{=tex}
@@ -156,6 +160,11 @@ Q = \frac{Valor\;total\;de\;la\;empresa}{Capital\;total\;de\;la\;empresa} = \fra
 \end{equation}
 ```
 Intuitivamente, una Q promedio menor a 1 desincentiva la inversión, dado que el beneficio esperado es menor a los costos asociados a adquirir una unidad más de capital.
+
+++++++
+Nota: de acuerdo con el informe trimestral al cuarto trimestre de 2020 tenemos que los activos totales son de $204,843,372,000$ pesos, y los pasivos totales de $97,023,341,000$ pesos, por lo que el capital contable es de $107,820,031,000$ y el total de pasivo y capital contable es de $204,843,372,000$. Por otra parte, al 31 de diciembre de 2020, el precio de una acción era de $69.89$ y el número de acciones de $1,342,196,100$, por lo que la capitalización del mercado fue de $93,806,085,430$. Por lo tanto el cálculo de la Q es de $0.870024$  
+++++++
+
 
 ### b)
 
@@ -195,6 +204,19 @@ grafica_tc_capital <- ts.plot (tc_cap_liverpool,   xlab="Trimestres", ylab="Tasa
 
 
 ### c)  Cree una medida de la q de Tobin: el  valor de mercado de la empresa sobre el valor en libros de la empresa, en donde el valor de mercado es es número de acciones por el precio de la acción.
+
+
+```{r}
+variableq<-(bd_liverpool$prec_acc*bd_liverpool$num_acc)/(bd_liverpool$activ_t-bd_liverpool$pasiv_t)
+variableq_ts <- ts(variableq, start=2007, frequency = 4)
+
+```
+
+```{r}
+grafica_q <- ts.plot (variableq_ts,   xlab="Trimestres", ylab="q de Tobin", main="Gráfica 3.5. Medida de la q de Tobin\n de El Puerto de Liverpool, 2007 - 2017", col = "red", lwd=2)
+```
+
+
 
 
 
