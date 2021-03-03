@@ -164,12 +164,12 @@ bd_liverpool<- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMac
 
 ```{r include=FALSE}
 
-tasatrimtrim<- ts(bd_liverpool$tasa_trim_trim, start=c(2007,2), frequency = 4)
+tasaactivosTT<- ts(bd_liverpool$tasa_activos_trimtrim, start=c(2007,2), frequency = 4)
 
 ```
 
-```{r}
-grafica_tc_activos1<- plot.ts(tasatrimtrim, xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.1. Tasa de crecimiento trimestral del valor de los activos\n de El Puerto de Liverpool, 2007T3 - 2020T4", col = "blue", lwd=1, cex.main = 0.9)
+```{r echo=FALSE}
+grafica_tc_activos1<- plot.ts(tasaactivosTT, xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.1. Tasa de crecimiento trimestral del valor de los activos\n de El Puerto de Liverpool, 2007T3 - 2020T4", col = "blue", lwd=1, cex.main = 0.9)
 
 ```
 
@@ -179,27 +179,36 @@ Otro indicador que puede obtenerse de la inversión es la tasa de crecimiento de
 
 ```{r}
 
-tasatrimanual<- ts(bd_liverpool$tasa_trim_anual, start=c(2007,2), frequency = 4)
+tasaactivosTA<- ts(bd_liverpool$tasa_activos_trimanual, start=c(2007,2), frequency = 4)
 
-grafica_tc_activos2<- plot.ts(tasatrimanual, xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.2. Tasa de crecimiento trimestral del valor de los activos\n de El Puerto de Liverpool, con respecto al año anterior, 2008T2 - 2020T4", col = "red", lwd=1, cex.main = 0.9)
+grafica_tc_activos2<- plot.ts(tasaactivosTA, xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.2. Tasa de crecimiento trimestral del valor de los activos\n de El Puerto de Liverpool, con respecto al año anterior, 2008T2 - 2020T4", col = "red", lwd=1, cex.main = 0.9)
 
 
 ```
 
 En la gráfica inmediata anterior puede observarse que, respecto al año anterior, el crecimiento del valor de los activos es siempre positivo, lo que indica que, año con año, Liverpool incrementa, al menos un poco el valor de sus activos.
 
-```{r include=FALSE}
+Ahora, se presenta una medida de inversión construida a partir de la tasa de variación del capital de un trimestre con respecto al inmediato anterior. Puede verse que el comportamiento es relativamente estable a excepción de acontecimientos extraordinarios donde el stock de capital de la empresa subió o bajó drásticamente:
 
-#capital<- ts(bd_liverpool$capital_ppe, start=c(2007,2), frequency = 4)
-#tc_capital<-growth.rate(capital, lag=4)
+```{r echo=FALSE}
+
+tasacapitalTT<- ts(bd_liverpool$tasa_capital_trimtrim, start=c(2007,2), frequency = 4)
+
+grafica_tc_capial1<- plot.ts(tasacapitalTT, xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento trimestral del capital\n de El Puerto de Liverpool, 2007T3 - 2020T4", col = "green", lwd=1, cex.main = 0.9)
 ```
 
-```{r}
-#grafica_tc_capital <- ts.plot (tc_capital,   xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.3. Tasa de crecimiento del valor del capital\n de El Puerto de Liverpool, 2008T2 - 2020T4", col = "red", lwd = 1, cex.main = 0.9)
+Asimismo, se calculó la tasa de crecimiento del capital trimestral pero ahora con respecto al trimestre del año anterior. A diferencia de la gráfica anterior, la siguiente exhibe un comportamiento donde es claro que el crecimiento de capital suele ser positivo si se compara con el año anterior. Exceptuando el año 2012, que por razones obvias es un *outlier,* el crecimiento siempre es positivo.
 
+```{r echo=FALSE}
+
+tasacapitalTA<- ts(bd_liverpool$tasa_capital_trimanual, start=c(2007,2), frequency = 4)
+
+grafica_tc_capial1<- plot.ts(tasacapitalTA, xlab="Trimestres", ylab="Tasa de crecimiento", main="Gráfica 3.4. Tasa de crecimiento trimestral del capital\n de El Puerto de Liverpool, con respecto al año anterior, 2008T2 - 2020T4", col = "cyan", lwd=1, cex.main = 0.9)
 ```
 
-### c) Cree una medida de la q de Tobin: el valor de mercado de la empresa sobre el valor en libros de la empresa, en donde el valor de mercado es es número de acciones por el precio de la acción.
+### c)
+
+**Cree una medida de la q de Tobin: el valor de mercado de la empresa sobre el valor en libros de la empresa, en donde el valor de mercado es es número de acciones por el precio de la acción.**
 
 ```{r}
 qT<-(bd_liverpool$precio_acciones*bd_liverpool$num_acciones)/(bd_liverpool$activos_totales-bd_liverpool$pasivos_totales)
@@ -208,17 +217,19 @@ qT_ts<- ts(qT, start=c(2007,2), frequency = 4)
 ```
 
 ```{r}
-grafica_qT <- plot.ts (qT_ts,   xlab="Trimestres", ylab="q de Tobin", main="Gráfica 3.3. Medida de la q de Tobin\n de El Puerto de Liverpool, 2007T2 - 2020T4", col = "green", lwd=1, cex.main = 0.9)
+grafica_qT <- plot.ts (qT_ts,   xlab="Trimestres", ylab="q de Tobin", main="Gráfica 3.5. Medida de la q de Tobin\n de El Puerto de Liverpool, 2007T2 - 2020T4", col = "purple", lwd=1, cex.main = 0.9)
 abline(h = mean(qT_ts), col ="red", legend("topright", "Media", fill = "red"))
 ```
 
-La Gráfica 3.3 muestra los valores de la q de Tobin desde el segundo trimestre de 2007 para Liverpool. De hecho, solo se observan valores menores a 1 en el año 2020, derivado de la crisis económica ocasionada por la pandemia de Covid-19. Durante todos los periodos anteriores a este año, el valor de la q de Tobin es positivo, lo que indica una propensión de la empresa a incrementar su inversión en capital, dado que los beneficios esperados de esta eran mayores a los costos de adquirirlo. Específicamente, el promedio de la q de Tobin durante este periodo es de 2.56.
+La Gráfica 3.5 muestra los valores de la q de Tobin desde el segundo trimestre de 2007 para Liverpool. De hecho, solo se observan valores menores a 1 en el año 2020, derivado de la crisis económica ocasionada por la pandemia de Covid-19. Durante todos los periodos anteriores a este año, el valor de la q de Tobin es positivo, lo que indica una propensión de la empresa a incrementar su inversión en capital, dado que los beneficios esperados de esta eran mayores a los costos de adquirirlo. Específicamente, el promedio de la q de Tobin durante este periodo es de 2.56.
 
 ```{r include=FALSE}
 mean(qT_ts)
 ```
 
-### d) Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo y la q de Tobin en el mismo o en el periodo inmediato anterior.
+### d) 
+
+**Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo y la q de Tobin en el mismo o en el periodo inmediato anterior.**
 
 ```{r include=FALSE}
 
@@ -227,48 +238,173 @@ qT_ts1
 ```
 
 ```{r}
-scatter.smooth(x = qT_ts1, y = tasatrimtrim, span = 5, main = "Gráfica 3.4. q de Tobin y crecimiento de la inversión trimestre-trimestre.", xlab = "q de Tobin", ylab = "Tasa de inversión", col = "#333399", cex = 0.5, cex.main = 0.8)
+scatter.smooth(x = qT_ts1, y = tasaactivosTT, span = 1, main = "Gráfica 3.6. q de Tobin y crecimiento de los activos trimestre-trimestre.", xlab = "q de Tobin", ylab = "Crecimiento valor activos", col = "#333399", cex = 0.5, cex.main = 0.8)
 ```
 
 ```{r results='asis'}
-reg1 <- lm(qT_ts1 ~ tasatrimtrim)
+reg1 <- lm(qT_ts1 ~ tasaactivosTT)
 
 stargazer(reg1,
-          title= "Tabla de Regresión 1. q de Tobin y crecimiento de la inversión trimestre-trimestre.",
+          title= "Tabla de Regresión 1. q de Tobin y crecimiento de los activos trimestre-trimestre.",
           column.labels = "",
           header = FALSE,
           font.size = "footnotesize",
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = "q de Tobin",
-          covariate.labels = c("Tasa de inversión", "Constante"),
+          covariate.labels = c("Crecimiento valor activos", "Constante"),
           notes.label = "P-valor",
           type="latex",
           table.placement = "!htbp")
 ```
 
-En la Gráfica 3.4. y la Tabla de Regresión 1 puede observarse que la relación entre la q de Tobin y la tasa de regresión calculada a partir de la tasa de crecimiento de la inversión de un trimestre a otro es bastante débil, tal como lo exhibe el coeficiente $\beta = 0.024$. A partir de esto, puede inferirse que la empresa no toma en cuenta, o no conoce, los valores de la q de Tobin de manera inmediata de un trimestre a otro, por lo que sus subsecuentes decisiones de inversión no se ven afectadas de forma tan rápida.
+En la Gráfica 3.6. y la Tabla de Regresión 1 puede observarse que la relación entre la q de Tobin y la tasa de regresión calculada a partir de la tasa de crecimiento de la inversión de un trimestre a otro es bastante débil, tal como lo exhibe el coeficiente $\beta = 0.024$. A partir de esto, puede inferirse que la empresa no toma en cuenta, o no conoce, los valores de la q de Tobin de manera inmediata de un trimestre a otro, por lo que sus subsecuentes decisiones de inversión no se ven afectadas de forma tan rápida.
 
 ```{r}
-scatter.smooth(x = qT_ts, y = tasatrimanual, span = 5, main = "Gráfica 3.5.q de Tobin y crecimiento de la inversión trimestre/anual.", xlab = "q de Tobin", ylab = "Tasa de inversión", col = "#333399", cex = 0.5, cex.main = 0.8)
+scatter.smooth(x = qT_ts1, y = tasaactivosTA, span = 1, main = "Gráfica 3.7.q de Tobin y crecimiento de los activos trimestre/anual.", xlab = "q de Tobin", ylab = "Crecimiento valor activos", col = "#333399", cex = 0.5, cex.main = 0.8)
 ```
 
 ```{r results='asis'}
-reg2 <- lm(qT_ts ~ tasatrimanual)
+reg2 <- lm(qT_ts1 ~ tasaactivosTA)
 
 stargazer(reg2,
-          title= "Tabla de Regresión 2. q de Tobin y crecimiento de la inversión trimestre/anual.",
+          title= "Tabla de Regresión 2. q de Tobin y crecimiento de los activos trimestre/anual.",
           column.labels = "",
           header = FALSE,
           font.size = "footnotesize",
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = "q de Tobin",
-          covariate.labels = c("Tasa de inversión", "Constante"),
+          covariate.labels = c("Crecimiento valor activos", "Constante"),
           notes.label = "P-valor",
           type="latex",
           table.placement = "!htbp")
 ```
 
-En la Gráfica 3.5. y la Tabla de Regresión 2 se observa la relación entre la q de Tobin y la tasa de inversión construida a partir del crecimiento del valor de los activos de un trimestre con respecto al trimestre del año anterior. De nuevo, la relación que exhibe el parámetro $\beta = 0.30$ sigue siendo bastante pequeño, aunque ligeramente superior al modelo anterior, por lo que la conclusión es la misma que la expuesta antes.
+En la Gráfica 3.7. y la Tabla de Regresión 2 se observa la relación entre la q de Tobin y la tasa de inversión construida a partir del crecimiento del valor de los activos de un trimestre con respecto al trimestre del año anterior. De nuevo, la relación que exhibe el parámetro $\beta = 0.30$ sigue siendo bastante pequeño, aunque ligeramente superior al modelo anterior, por lo que la conclusión es la misma que la expuesta antes.
+
+```{r}
+scatter.smooth(x = qT_ts1, y = tasacapitalTT, span = 1, main = "Gráfica 3.8.q de Tobin y crecimiento del capital trimestre-trimestre", xlab = "q de Tobin", ylab = "Crecimiento capital", col = "#333399", cex = 0.5, cex.main = 0.8)
+```
+
+```{r results='asis'}
+reg3 <- lm(qT_ts1 ~ tasacapitalTT)
+
+stargazer(reg3,
+          title= "Tabla de Regresión 3. q de Tobin y crecimiento del capital trimestre-trimestre.",
+          column.labels = "",
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "q de Tobin",
+          covariate.labels = c("Crecimiento capital", "Constante"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+```
+
+El modelo que relaciona la q de Tobin con la tasa de crecimiento del capital de un trimestre a otro tampoco es demasiado explicativo. De hecho, lo es menos que los dos anteriores, dado que $\beta = 0.10$.
+
+```{r}
+scatter.smooth(x = qT_ts1, y = tasacapitalTA, span = 1, main = "Gráfica 3.9.q de Tobin y crecimiento del capital trimestre/anual", xlab = "q de Tobin", ylab = "Crecimiento capital", col = "#333399", cex = 0.5, cex.main = 0.8)
+```
+
+```{r results='asis'}
+reg4 <- lm(qT_ts1 ~ tasacapitalTA)
+
+stargazer(reg4,
+          title= "Tabla de Regresión 4. q de Tobin y crecimiento del capital trimestre/anual",
+          column.labels = "",
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "q de Tobin",
+          covariate.labels = c("Crecimiento capital", "Constante"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+```
+
+Al modelar una regresión lineal entre el valor de la q de Tobin contra el crecimiento del capital de un trimestre con respecto al año anterior, se observa que $\beta = -0.006$, lo cual es, incluso contraintuitivo. Un signo negativo de este parámetro implica que una mayor q de Tobin desincentiva la inversión, al menos marginalmente.
+
+En general, los dos modelos que mejor funcionaron fueron aquellos que relacionan la q de Tobin con el crecimiento trimestral-trimestral o el crecimiento trimestral/anual del valor de los activos de Liverpool. Si bien los parámetros estimados, $\beta = 0.024$ y $\beta = 0.030$ son bajos, sí implican una relación positiva entre ambas variables, lo que es consistente con la teoría.
+
+### e)
+
+**Produzca un estimado del coeficiente del costo de ajuste.**
+
+De acuerdo a lo propuesto por [@summers], la función de costos de ajuste tiene la forma:
+
+$$C(I(t),k(t)) = \frac{1}{2}a[\frac{I(t)}{k(t)}]^2k(t), \; \; a > 0$$
+
+Dado lo anterior, y sabiendo que $a = \frac{1}{\hat\beta}$, es decir, el parámetro $a$ es igual al inverso del parámetro $\hat\beta$ estimado en los modelos del inciso anterior, podemos obtener los siguientes valores de a:
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.3. Parámetros "a" implícitos de los coeficientes $\beta$ de 4 modelos lineales entre inversión y q de Tobin.}
+\end{center}
+```
+| Valor                 | Modelo 1 | Modelo 2 | Modelo 3 | Modelo 4  |
+|-----------------------|----------|----------|----------|-----------|
+| Estimador $\hat\beta$ | 0.024    | 0.030    | 0.010    | -0.006    |
+| "a" implícita         | 41.6667  | 33.3334  | 100      | -166.6667 |
+
+Los coeficientes anteriores implican que el costo de ajuste es inmenso: si la empresa busca aumentar sus *stocks* de capital, tendría que incurrir en costos de ajustes muchas veces más grandes de lo que se paga por el aumento de capital.
+
+### f) 
+
+**Explique, suponiendo que la función de costo de ajuste es cuadrática (es decir $C_t=b(I_t/K_t)^2K_t$), qué implican los resultados de sus regresiones sobre el costo de ajuste relativo al capital total para una inversión de 30% del capital total y qué implican los resultados para el tiempo que le tomaría a una empresa recorrer la mitad mitad del camino entre el capital que tiene, $K$, y el que quisiera tener $K^*$**
+
+Sea $b = \frac{1}{2}a$, lo que implica:
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.4. Parámetro b por modelo.}
+\end{center}
+```
+| Valor         | Modelo 1 | Modelo 2 | Modelo 3 | Modelo 4 |
+|---------------|----------|----------|----------|----------|
+| Parámetro "b" | 20.8334  | 16.6667  | 50       | -83.3334 |
+
+Para observar qué implican en términos de costos de ajuste para Liverpool estos resultados, dada una supuesta inversión de 30% del capital total, se tomarán los datos más recientes, del último trimestre de 2020 sobre la variable PPE (Propiedad, Planta y Equipo).
+
+Dado que la PPE más reciente es de \$50'684'928'000.00, el 30% es \$15'194'678'400.00.
+
+Dada la función de costos propuesta, $C_t=b(\frac{I_t}{K_t})^2K_t$, se obtienen los siguientes valores para $C_t$ (se omite el resultado del Modelo 4 por presentar mal comportamiento y no ser pertinente para el análisis de los costos de ajuste:
+
+```{r include=FALSE}
+
+C1 <- 20.8334*(15194678400/50684928000)^2*50684928000
+C1
+
+C2 <- 16.6667*(15194678400/50684928000)^2*50684928000
+C2
+
+C3 <- 50*(15194678400/50684928000)^2*50684928000
+C3
+```
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.5. Costos de ajuste estimados, dada una inversión de 30 por ciento del total, 2020T4.}
+\end{center}
+```
++-----------------+---------------------+---------------------+----------------------+
+|                 | Modelo 1            | Modelo 2            | Modelo 3             |
++=================+=====================+=====================+======================+
+| Costo de ajuste | \$94'899'591'621.00 | \$75'919'582'193.00 | \$227'758'291'064.00 |
++-----------------+---------------------+---------------------+----------------------+
+
+Como puede observarse, los costos de ajuste son inmensos, tanto que superan por mucho el gasto que se haría al aumentar en 30% el stock de capital de Liverpool. Por tanto, es sensato afirmar que las especificaciones sobre la función de costos de ajuste planteadas por [@summers] y sintetizadas en [@romer] son bastante inverosímiles al aplicarlas al caso de la empresa Liverpool.
+
+**FALTA RESPONDER "qué implican los resultados para el tiempo que le tomaría a una empresa recorrer la mitad mitad del camino entre el capital que tiene, $K$, y el que quisiera tener $K^*$"**
+
+### g)
+
+**Simule una relación lineal $Y=a+bX+\epsilon$ y cree dos variables con error de medición $\tilde{X}=X+\tilde{\epsilon}$ and also $\tilde{\tilde{X}}=X-c{\epsilon}$. Luego estime tres relaciones lineales, la de $Y$ con $X$, la de $Y$ con $\tilde{X}$ y la de $Y$ con $\tilde{\tilde{X}}$, explicando los resultados que obtenga y relacionandolos con los hayazgos del inciso anterior.**
+
+### f)
+
+**Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo, la $q$ de Tobin en el mismo o en el periodo inmediato anterior, y el flujo de efectivo o las ganancias netas. Interprete los resultados contrastándolos con los resultados que obtuvo anteriormente.**
+
 
 # Referencias
 
