@@ -401,7 +401,7 @@ Como puede observarse, los costos de ajuste son inmensos, tanto que superan por 
 
 **Simule una relación lineal $Y=a+bX+\epsilon$ y cree dos variables con error de medición $\tilde{X}=X+\tilde{\epsilon}$ and also $\tilde{\tilde{X}}=X-c{\epsilon}$. Luego estime tres relaciones lineales, la de $Y$ con $X$, la de $Y$ con $\tilde{X}$ y la de $Y$ con $\tilde{\tilde{X}}$, explicando los resultados que obtenga y relacionandolos con los hayazgos del inciso anterior.**
 
-### f)
+### h)
 
 **Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo, la $q$ de Tobin en el mismo o en el periodo inmediato anterior, y el flujo de efectivo o las ganancias netas. Interprete los resultados contrastándolos con los resultados que obtuvo anteriormente.**
 
