@@ -258,6 +258,9 @@ stargazer(reg1,
 ```
 
 
+
+
+
 ```{r}
 scatter.smooth(x = qT_ts1, y = tasaactivosTA, span = 1, main = "Gráfica 3.7.q de Tobin y crecimiento de los activos trimestre/anual.", xlab = "q de Tobin", ylab = "Crecimiento valor activos", col = "#333399", cex = 0.5, cex.main = 0.8)
 ```
@@ -395,16 +398,80 @@ C3
 
 Como puede observarse, los costos de ajuste son relativamente bajos; de hecho, todos son menores al costo en el que se incurriría de hacer una inversión equivalente al 30% del *stock* actual. Esto es consistente con el hecho de que las medidas de inversión creadas en los incisos anteriores suelen ser positivas, al tiempo que la q de Tobin estimada para cada periodo es mayor a 1.
 
-**FALTA RESPONDER "qué implican los resultados para el tiempo que le tomaría a una empresa recorrer la mitad mitad del camino entre el capital que tiene, $K$, y el que quisiera tener $K^*$"**
+Un menor costo de ajuste implica que el tiempo que le tomaría a una empresa recorrer la mitad del camino entre el capital que tiene, $K$, y el que quisiera tener $K^*$ es menor. Es decir, cuanto menor sea el costo de ajuste de la empresa, más rápido podrá pasar de un stock de capital del estado estacionario inicial a un stock de capital de estado estacionario final. Considerando el cálculo de Summer (1981), de que un costo de ajuste del $65\%$ del stock de capital implica que el stock de capital requiere de 10 años en llegar a la mitad de la trayectoria de su nuevo estado estacionario, calculamos con el modelo 3 lo siguiente: el costo de ajuste representa el $17.48\%$ del stock de capital de la empresa, y por lo tanto,  al stock de capital le tomará $2.68$ años en estar a la mitad de la trayectora de su nuevo estado estacionario incrementado en un $30\%$.        
+
+
 
 ### g)
 
 **Simule una relación lineal $Y=a+bX+\epsilon$ y cree dos variables con error de medición $\tilde{X}=X+\tilde{\epsilon}$ and also $\tilde{\tilde{X}}=X-c{\epsilon}$. Luego estime tres relaciones lineales, la de $Y$ con $X$, la de $Y$ con $\tilde{X}$ y la de $Y$ con $\tilde{\tilde{X}}$, explicando los resultados que obtenga y relacionandolos con los hayazgos del inciso anterior.**
 
+En el siguiente cuadro planteamos los tres modelos, 3.9 a 3.11. El primero 3.9 es el modelo 3.1 planteado en la sección (d), el segundo modelo 3.10 considera la variable independiente de la q de Tobin más un término de error $\epsilon$ y el tercer modelo 3.11 considera como variable independiente la q de Tobin menos un error $c \epsilon$.El término de error $\epsilon$ se conformó de valores aleatorios con media cero y varianza de $0.2$ y el término de error $c\epsilon$ con media cero y varianza $0.2$.      
+
+```{r results='asis'}
+set.seed(1)
+epsilon<-c(rnorm(55,0,0.2))
+cepsilon<-c(rnorm(55,0,0.2))
+qTe<-qT_ts1+epsilon
+qTce<-qT_ts1-cepsilon
+
+
+
+reg_1<-lm(tasaactivosTT ~ qT_ts1)
+reg_e<-lm(tasaactivosTT ~ qTe)
+reg_ce<-lm(tasaactivosTT ~ qTce)
+
+
+
+stargazer(reg_1,reg_e, reg_ce,
+          title= "Regresión 3.9 - 3.11. Inversión (crecimiento de los activos) y  la q de Tobin con elemento de error",
+          column.labels = "",
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          dep.var.labels = "Crecimiento activos T",
+          covariate.labels = c("q de Tobin"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+```
+
+Observemos que el coeficiente asociado a la q de Tobin es mayor en 3.10 con respecto al modelo original, y es menor con respecto al modelo original en el caso del modelo 3.11. Es decir, la suma de un término de error, aumenta el valor del coeficiente $\beta$, mientras que una resta de un término de error disminuye el valor de $\beta$. Es importante recalcar que pueden producirse distintos resultados ya que los términos de error son aleatorios. 
+
+
+Esto podría tener implicaciones en los resultados del inciso anterior (f), ya que al cambiar los valores de $\beta$ también cambiarían los valores de $a$ y de $b$, con lo cual los costos de ajuste también se verían modificados. Si $\beta$ aumenta, los costos de ajuste se hacen menores. 
+
 ### h)
 
 **Estime los coeficientes de una relación lineal entre la tasa de inversión en un periodo, la $q$ de Tobin en el mismo o en el periodo inmediato anterior, y el flujo de efectivo o las ganancias netas. Interprete los resultados contrastándolos con los resultados que obtuvo anteriormente.**
 
+A continuación se muestran las regresiones ateriores 3.1 a 3.4 amplidas con una variable independiente adicional, que es la del efectivo de la empresa y que hemos resumido en el siguiente cuadro como las regresiones 3.5(1) a 3.8(4), asociadas a los anteriores, respectivamente . La variable "tasaactivosTT" es la tasa de crecimiento de los activos de la empresa de un trimestre con respecto al trimestre anterior, "tasaactivosTA" es la tasa de crecimiento de los activos de la empresa de un trimestre con respecto al mismo trimestre del año anterior, la misma lógica aplica para la tasa de crecimiento del capital. Hemos tomado ambos indicadores como la invesión de la empresa. 
+
+```{r results='asis'}
+reg1_efectivo <- lm(tasaactivosTT ~ qT_ts1 + bd_liverpool$Efectivo)
+reg2_efectivo <- lm(tasaactivosTA ~ qT_ts1 + bd_liverpool$Efectivo)
+reg3_efectivo <- lm(tasacapitalTT ~ qT_ts1 + bd_liverpool$Efectivo)
+reg4_efectivo <- lm(tasacapitalTA ~ qT_ts1 + bd_liverpool$Efectivo)
+
+stargazer(reg1_efectivo,reg2_efectivo, reg3_efectivo, reg4_efectivo,
+          title= "Regresión 3.5(1) - 3.8(4). Inversión (crecimiento de los activos y del capital),  la q de Tobin, y el efectivo.",
+          column.labels = "",
+          header = FALSE,
+          font.size = "footnotesize",
+          dep.var.caption = "Variable Dependiente",
+          #dep.var.labels = "Crecimiento activos T",
+          covariate.labels = c("q de Tobin", "Efectivo"),
+          notes.label = "P-valor",
+          type="latex",
+          table.placement = "!htbp")
+```
+
+Se puede observar que la q de Tobin no es estadísticamente significativa, al igual que en los modelos anteriores. La constante no es significativa en ninguno de los modelos planteados y el coeficiente asociado del efectivo es estadísticamente significativo en dos de los modelos considerados, sin embargo, los coeficientes son muy marginales. Cabe notar que el segundo modelo se vuelve significativo en su conjunto, con la introducción del efectivo que es estadísticaente significativo. Esto implica que con la introducción de esta variable, podríamos mejorar en su conjunto los modelos planteados.    
+  
+
+
+
+\newpage
 
 # Referencias
 
