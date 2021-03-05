@@ -1,6 +1,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.3)  4 MAR 2021 14:11
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.27)  4 MAR 2021 13:33
+>>>>>>> Stashed changes
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.27)  4 MAR 2021 13:33
 >>>>>>> Stashed changes
@@ -832,6 +836,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 (Font)              <6> on input line 428.
 <Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf, id=142, 433.
 62pt x 252.945pt>
@@ -843,6 +848,8 @@ k-14-1.pdf  used on input line 462.
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 (Font)              <6> on input line 429.
 <Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf, id=183, 433
 .62pt x 252.945pt>
@@ -852,6 +859,9 @@ File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf Graphic
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chu
 nk-14-1.pdf  used on input line 464.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -860,6 +870,7 @@ nk-14-1.pdf  used on input line 464.
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 l.492 \end{table}
@@ -875,6 +886,8 @@ k-16-1.pdf  used on input line 502.
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 l.494 \end{table}
                   <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-1
 2-1.pdf>]
@@ -886,6 +899,9 @@ File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf Graphic
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chu
 nk-16-1.pdf  used on input line 504.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -894,6 +910,7 @@ nk-16-1.pdf  used on input line 504.
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 l.532 \end{table}
@@ -909,6 +926,8 @@ k-18-1.pdf  used on input line 539.
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 l.534 \end{table}
                   <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-1
 4-1.pdf>]
@@ -920,6 +939,9 @@ File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf Graphic
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chu
 nk-18-1.pdf  used on input line 540.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -936,12 +958,15 @@ table.6}) has been already used, duplicate ignored
                                                   
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 l.595 
        <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf>] [1
 2] [13] (Tarea_2_Macroeconomía.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 l.593 ...a[\frac{I(t)}{k(t)}]^2k(t), \; \; a > 0\]
@@ -960,6 +985,9 @@ Overfull \hbox (17.99997pt too wide) in alignment at lines 677--691
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -972,6 +1000,7 @@ Package rerunfilecheck Info: File `Tarea_2_Macroeconomía.out' has not changed
 (rerunfilecheck)             Checksum: 47555CD1D20BEF9088BA164B3C399759;1071.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
  16134 strings out of 479618
@@ -1007,6 +1036,8 @@ Output written on Tarea_2_Macroeconomía.pdf (14 pages, 464482 bytes).
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
  13243 strings out of 480953
  194281 string characters out of 5905231
  534111 words of memory out of 5000000
@@ -1040,6 +1071,9 @@ s/type1/public/lm/lmsy7.pfb></Users/leobardoenriquez/Library/TinyTeX/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb>
 Output written on Tarea_2_Macroeconomía.pdf (14 pages, 426661 bytes).
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
