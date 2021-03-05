@@ -245,7 +245,7 @@ scatter.smooth(x = qT_ts1, y = tasaactivosTT, span = 1, main = "Gráfica 3.6. q 
 reg1 <- lm(tasaactivosTT ~ qT_ts1)
 
 stargazer(reg1,
-          title= "Tabla de Regresión 1. q de Tobin y crecimiento de los activos trimestre-trimestre.",
+          title= "Regresión 3.1. q de Tobin y crecimiento de los activos trimestre-trimestre.",
           column.labels = "",
           header = FALSE,
           font.size = "footnotesize",
@@ -257,7 +257,6 @@ stargazer(reg1,
           table.placement = "!htbp")
 ```
 
-En la Gráfica 3.6. y la Tabla de Regresión 1 puede observarse que la relación entre la q de Tobin y la tasa de inversión calculada a partir de la tasa de crecimiento de los activos de un trimestre a otro es, de acuerdo al coeficiente, $\beta = 0.537$. A partir de esto, puede inferirse que la empresa toma en cuenta los valores de la q de Tobin de manera inmediata de un trimestre a otro, por lo que sus subsecuentes decisiones de inversión se ven afectadas por ello.
 
 ```{r}
 scatter.smooth(x = qT_ts1, y = tasaactivosTA, span = 1, main = "Gráfica 3.7.q de Tobin y crecimiento de los activos trimestre/anual.", xlab = "q de Tobin", ylab = "Crecimiento valor activos", col = "#333399", cex = 0.5, cex.main = 0.8)
@@ -267,7 +266,7 @@ scatter.smooth(x = qT_ts1, y = tasaactivosTA, span = 1, main = "Gráfica 3.7.q d
 reg2 <- lm(tasaactivosTA ~ qT_ts1)
 
 stargazer(reg2,
-          title= "Tabla de Regresión 2. q de Tobin y crecimiento de los activos trimestre/anual.",
+          title= "Regresión 3.2. q de Tobin y crecimiento de los activos trimestre/anual.",
           column.labels = "",
           header = FALSE,
           font.size = "footnotesize",
@@ -279,7 +278,6 @@ stargazer(reg2,
           table.placement = "!htbp")
 ```
 
-En la Gráfica 3.7. y la Tabla de Regresión 2 se observa la relación entre la q de Tobin y la tasa de inversión construida a partir del crecimiento del valor de los activos de un trimestre con respecto al trimestre del año anterior. Ahora, la relación que exhibe el parámetro $\beta = 1.287$ es incluso más grande que el modelo anterior, lo que indica una fuerte correlación positiva entre la q de Tobin en un punto del tiempo y las decisiones de inversión de un año después. 
 
 ```{r}
 scatter.smooth(x = qT_ts1, y = tasacapitalTT, span = 1, main = "Gráfica 3.8.q de Tobin y crecimiento del capital trimestre-trimestre", xlab = "q de Tobin", ylab = "Crecimiento capital", col = "#333399", cex = 0.5, cex.main = 0.8)
@@ -289,7 +287,7 @@ scatter.smooth(x = qT_ts1, y = tasacapitalTT, span = 1, main = "Gráfica 3.8.q d
 reg3 <- lm(tasacapitalTT ~ qT_ts1)
 
 stargazer(reg3,
-          title= "Tabla de Regresión 3. q de Tobin y crecimiento del capital trimestre-trimestre.",
+          title= "Regresión 3.3. q de Tobin y crecimiento del capital trimestre-trimestre.",
           column.labels = "",
           header = FALSE,
           font.size = "footnotesize",
@@ -301,7 +299,6 @@ stargazer(reg3,
           table.placement = "!htbp")
 ```
 
-El modelo que relaciona la q de Tobin con la tasa de crecimiento del capital de un trimestre a otro es menos explicativo que los anteriores, aunque continúa siendo sustantivamente positivo dado que $\beta = 0.257$.
 
 ```{r}
 scatter.smooth(x = qT_ts1, y = tasacapitalTA, span = 1, main = "Gráfica 3.9.q de Tobin y crecimiento del capital trimestre/anual", xlab = "q de Tobin", ylab = "Crecimiento capital", col = "#333399", cex = 0.5, cex.main = 0.8)
@@ -311,7 +308,7 @@ scatter.smooth(x = qT_ts1, y = tasacapitalTA, span = 1, main = "Gráfica 3.9.q d
 reg4 <- lm(tasacapitalTA ~ qT_ts1)
 
 stargazer(reg4,
-          title= "Tabla de Regresión 4. q de Tobin y crecimiento del capital trimestre/anual",
+          title= "Regresión 3.4. q de Tobin y crecimiento del capital trimestre/anual",
           column.labels = "",
           header = FALSE,
           font.size = "footnotesize",
@@ -323,13 +320,13 @@ stargazer(reg4,
           table.placement = "!htbp")
 ```
 
-Al modelar una regresión lineal entre el valor de la q de Tobin contra el crecimiento del capital de un trimestre con respecto al año anterior, se observa que $\beta = -0.620$, lo cual es, incluso contraintuitivo. Un signo negativo de este parámetro implica que una mayor q de Tobin desincentiva la inversión, al menos marginalmente.
-
-En general, los tres primeros modelos presentan un mejor comportamiento y son consistentes con la teoría, por lo que serán los utilizados en adelante.
+Las regresiones 3.1 a 3.4 exhiben coeficientes de relación estadísticamente no significativos entre la q de Tobin y las cuatro diferentes medidas de inversión creadas. Intuitivamente, esto quiere decir que las decisiones de inversión de Liverpool no están, de ninguna manera, relacionadas con el valor que tome la q de Tobin en ningún periodo. Por tal motivo, es sensato suponer que se trata de una empresa que toma en cuenta otros factores externos para aumentar o disminuir su *stock* de capital.
 
 ### e)
 
 **Produzca un estimado del coeficiente del costo de ajuste.**
+
+Para fines analíticos de este inciso y el siguiente, y con el objetivo de proveer una explicación teórica remotamente pertinente, se hará uso de la siguiente licencia: supóngase que los coeficientes $\hat\beta$ estimados en los modelos anteriores **SÍ** son significativos y demuestran una relación positiva entre las medidas de inversión y el valor de la q de Tobin (se excluirá el cuarto modelo, dado que presenta una relación negativa entre las variables de interés y resulta intuitivamente incorrecta); esto es, supóngase que el *stock* de capital de Liverpool aumenta si la q de Tobin sube, y disminuye si este baja.
 
 De acuerdo a lo propuesto por [@summers], la función de costos de ajuste tiene la forma:
 
@@ -371,7 +368,7 @@ Para observar qué implican en términos de costos de ajuste para Liverpool esto
 
 Dado que la PPE más reciente es de \$50'684'928'000.00, el 30% es \$15'194'678'400.00.
 
-Dada la función de costos propuesta, $C_t=b(\frac{I_t}{K_t})^2K_t$, se obtienen los siguientes valores para $C_t$ (se omite el resultado del Modelo 4 por presentar mal comportamiento y no ser pertinente para el análisis de los costos de ajuste:
+Dada la función de costos propuesta, $C_t=b(\frac{I_t}{K_t})^2K_t$, se obtienen los siguientes valores para $C_t$ (se omite el resultado del Modelo 4 por presentar mal comportamiento y no ser pertinente para el análisis de los costos de ajuste):
 
 ```{r include=FALSE}
 
