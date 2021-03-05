@@ -1,16 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.3)  4 MAR 2021 14:11
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.27)  4 MAR 2021 13:33
->>>>>>> Stashed changes
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.27)  4 MAR 2021 13:33
->>>>>>> Stashed changes
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.27)  4 MAR 2021 13:33
->>>>>>> Stashed changes
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.27)  5 MAR 2021 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -635,6 +623,12 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `Tarea_2_Macroeconomía.aux'.
 
@@ -834,22 +828,6 @@ nk-12-1.pdf  used on input line 423.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 429.
 LaTeX Font Info:    External font `lmex10' loaded for size
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-(Font)              <6> on input line 428.
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf, id=142, 433.
-62pt x 252.945pt>
-File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf Graphic 
-file (type pdf)
-<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf>
-Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
-k-14-1.pdf  used on input line 462.
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 (Font)              <6> on input line 429.
 <Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf, id=183, 433
 .62pt x 252.945pt>
@@ -857,38 +835,13 @@ File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf Graphic
  file (type pdf)
 <use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chu
-nk-14-1.pdf  used on input line 464.
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+nk-14-1.pdf  used on input line 455.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
 [8pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-l.492 \end{table}
-                  <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-12
--1.pdf>]
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf, id=160, 433.
-62pt x 252.945pt>
-File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf Graphic 
-file (type pdf)
-<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf>
-Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
-k-16-1.pdf  used on input line 502.
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-l.494 \end{table}
+l.485 \end{table}
                   <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-1
 2-1.pdf>]
 <Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf, id=201, 433
@@ -897,38 +850,13 @@ File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf Graphic
  file (type pdf)
 <use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chu
-nk-16-1.pdf  used on input line 504.
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+nk-16-1.pdf  used on input line 487.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
 [9pdfTeX warning (ext4): destination with the same identifier (name{table.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-l.532 \end{table}
-                  <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-14
--1.pdf>]
-<Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf, id=172, 433.
-62pt x 252.945pt>
-File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf Graphic 
-file (type pdf)
-<use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf>
-Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chun
-k-18-1.pdf  used on input line 539.
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-l.534 \end{table}
+l.517 \end{table}
                   <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-1
 4-1.pdf>]
 <Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf, id=213, 433
@@ -937,60 +865,43 @@ File: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf Graphic
  file (type pdf)
 <use Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: Tarea_2_Macroeconomía_files/figure-latex/unnamed-chu
-nk-18-1.pdf  used on input line 540.
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+nk-18-1.pdf  used on input line 519.
 (pdftex.def)             Requested size: 433.62555pt x 252.94823pt.
 [10pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.570 \end{table}
+l.549 \end{table}
                   <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-1
 6-1.pdf>] [11pdfTeX warning (ext4): destination with the same identifier (name{
 table.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-l.595 
-       <./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf>] [1
-2] [13] (Tarea_2_Macroeconomía.aux
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-l.593 ...a[\frac{I(t)}{k(t)}]^2k(t), \; \; a > 0\]
-                                                   <./Tarea_2_Macroeconomía_f
-iles/figure-latex/unnamed-chunk-18-1.pdf>]
-Overfull \hbox (17.99997pt too wide) in alignment at lines 662--677
+l.576 D
+       e acuerdo a lo propuesto por (Summers, 1981), la función de costos de <
+./Tarea_2_Macroeconomía_files/figure-latex/unnamed-chunk-18-1.pdf>]
+Overfull \hbox (17.99997pt too wide) in alignment at lines 648--663
  [] [] [] [] 
  []
 
 
-Overfull \hbox (17.99997pt too wide) in alignment at lines 677--691
+Overfull \hbox (17.99997pt too wide) in alignment at lines 663--677
  [] [] [] [] 
  []
 
-[12] [13] (./Tarea_2_Macroeconomía.aux
+[12] [13pdfTeX warning (ext4): destination with the same identifier (name{table
+.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.763 
+      ] [14pdfTeX warning (ext4): destination with the same identifier (name{ta
+ble.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.834 \newpage
+              ] [15] (./Tarea_2_Macroeconomía.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 )
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1000,47 +911,9 @@ Package rerunfilecheck Info: File `Tarea_2_Macroeconomía.out' has not changed
 (rerunfilecheck)             Checksum: 47555CD1D20BEF9088BA164B3C399759;1071.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
- 16134 strings out of 479618
- 240456 string characters out of 2865027
- 592987 words of memory out of 3000000
- 32736 multiletter control sequences out of 15000+200000
- 478585 words of font info for 158 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 85i,11n,88p,583b,513s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
-c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}<C:/Us
-ers/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Us
-ers/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Us
-ers/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx7.pfb><C:/Use
-rs/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Us
-ers/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Us
-ers/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Use
-rs/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/User
-s/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users
-/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/
-marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/m
-arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/mar
-co/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/marco
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/marco/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/marco/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/marco/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/marco/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/marco/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Tarea_2_Macroeconomía.pdf (14 pages, 464482 bytes).
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
- 13243 strings out of 480953
- 194281 string characters out of 5905231
- 534111 words of memory out of 5000000
+ 13247 strings out of 480953
+ 194311 string characters out of 5905231
+ 539117 words of memory out of 5000000
  30114 multiletter control sequences out of 15000+600000
  464685 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1069,17 +942,10 @@ lic/lm/lmsy10.pfb></Users/leobardoenriquez/Library/TinyTeX/texmf-dist/fonts/typ
 e1/public/lm/lmsy6.pfb></Users/leobardoenriquez/Library/TinyTeX/texmf-dist/font
 s/type1/public/lm/lmsy7.pfb></Users/leobardoenriquez/Library/TinyTeX/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb>
-Output written on Tarea_2_Macroeconomía.pdf (14 pages, 426661 bytes).
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+Output written on Tarea_2_Macroeconomía.pdf (16 pages, 430493 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
+ 358 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
  155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
