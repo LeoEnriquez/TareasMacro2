@@ -1582,7 +1582,7 @@ En estos dos modelos, se considera como variable dependiente la tasa de crecimie
 
 El Modelo 1.2 es estadísticamente significativo, sin embargo su $R^2$ (7.7%) es muy bajo para que el índice de Confianza Empresarial explique el comportamiento de la tasa de crecimiento trimestral de la inversión respecto al trimestre anterior.
 
-Como se ha observado en los primeros modelos planteados y los resultados de las regresiones de los modelos del enciso anterior, las tasas de crecimiento trimestral de las variables respecto al trimestre anterior no son significativas para explicar el comportamiento de la tasa de crecimiento de la inversión.
+Como se ha observado en los primeros modelos planteados y los resultados de las regresiones de los modelos del inciso anterior, las tasas de crecimiento trimestral de las variables respecto al trimestre anterior no son significativas para explicar el comportamiento de la tasa de crecimiento de la inversión.
 
 Por eso, en adelante, propondremos modelos donde consideremos solo tasas de crecimiento trimestral respecto al trimestre del año anterior.
 
