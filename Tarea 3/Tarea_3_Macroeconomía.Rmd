@@ -127,6 +127,51 @@ Cabe señalar que la información disponible sobre la PEA antes de 2005 es basta
 
 **Cree una serie de la productividad $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.**
 
+Como se explicó en los incisos anteriores, debido a la disponibilidad de los datos de las tres variables de interés, la serie que se utilizará en adelante contempla datos desde el año 2000 hasta el 2020.
+
+```{r}
+Base_de_datos_ejercicio_3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%203/Datos/Base%20de%20datos%20ejercicio%203.csv", 
+    col_types = cols(Fecha = col_date(format = "%d/%m/%Y")))
+```
+
+
+```{r}
+Base_de_datos_ejercicio_3$"F(K,L)" <- Base_de_datos_ejercicio_3$`Índice de volumen físico acumulado (base 2013, promedio trimestral)`^0.3*Base_de_datos_ejercicio_3$`Población económicamente activa`^0.7
+
+```
+
+```{r}
+Base_de_datos_ejercicio_3$"Productividad A" <- Base_de_datos_ejercicio_3$`PIB en millones de pesos (base 2013)`/ Base_de_datos_ejercicio_3$"F(K,L)"
+```
+
+```{r include=FALSE}
+mean(Base_de_datos_ejercicio_3$`Productividad A`)
+max(Base_de_datos_ejercicio_3$`Productividad A`)
+min(Base_de_datos_ejercicio_3$`Productividad A`)
+```
+Al realizar las operaciones correspondientes, $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$, se obtuvo el valor de $A_t = \frac{Y_t}{F(K,L)}$ para todos los trimestres desde 2000 hasta 2020. A continuación se muestran las estadísticas descriptivas más relevantes de $A_t$, así como una gráfica sobre la evolución de sus valores:
+
+\begin{table}[]
+\centering
+\caption{Cuadro 3.1. Estadísticas descriptivas del valor de la productividad A, por trimestre, 2000 - 2020.}
+\label{Cuadro 31}
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Estadística}} & \multicolumn{1}{c|}{\textbf{Valor}} \\ \hline
+Media                                      & 16.40066                            \\ \hline
+Máximo                                     & 17.83776                            \\ \hline
+Mínimo                                     & 15.25552                            \\ \hline
+\end{tabular}
+\end{table}
+
+```{r}
+
+serie3.1 <- ts(Base_de_datos_ejercicio_3, start= c(2000,2), frequency = 4)
+
+productividad <- serie3.1[,6]
+
+ts.plot (productividad, gpars=list(xlab="Trimestres", ylab="Índice", main="Gráfica 3.1. Índice de productividad trimestral, 2000 - 2020",  col=5:1, lwd=1))
+```
 
 
 ### e)
