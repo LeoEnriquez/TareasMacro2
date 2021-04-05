@@ -1,0 +1,144 @@
+---
+title: ""
+date: ""
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[spanish]{babel}
+- \usepackage{graphicx}
+- \usepackage{multirow,rotating}
+- \pagenumbering{gobble} 
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    includes:
+      in_header: labels.tex
+      before_body: cover.tex
+csl: apa.csl
+bibliography: fuentes1.bib
+---
+
+```{=tex}
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+```
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = F, fig.width = 6, fig.height = 3.5)
+```
+
+```{r, include=FALSE}
+
+rm(list = ls())
+
+pacman::p_load(tidyverse,
+               kableExtra,
+               ggplot2,
+               cowplot,
+               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr, imager,lubridate,tseries, astsa, growthrates, tis, dynlm, readxl )
+```
+
+\newpage
+
+# Instrucciones
+
+```{=tex}
+
+\subsection*{Instrucciones}
+Realice los siguientes ejercicios en su equipo de trabajo designado. La tarea se califica del 0 al 15 (¡!).
+
+\begin{enumerate}
+\item Resuelva los ejercicios 11.2 y 11.9 (5a Ed.). Realice estos con ayuda de su laboratorista y entregue las soluciones a máquina, utilizando LaTeX. [2 horas,1 punto cada ejercicio]
+
+\item Estudie el mercado laboral en México siguiendo estos pasos: [2 horas, 0.5 puntos cada inciso]. Por favor documente su trabajo para que se pueda replicar.
+\begin{enumerate}
+\item Obtenga del INEGI una serie anual de los salarios (en términos reales) en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 1)
+\item Obtenga del INEGI una serie anual del empleo total en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 2)
+\item Obtenga del INEGI una serie anual del producto interno bruto en términos reales, calcule su tasa de cambio anual, calcule su volatilidad. (Serie 3)
+\item Grafique las tres series de tasas de cambios de forma que se puedan comparar.
+\item Calcule la covarianza de la serie 1 con la 3 y de la 2 con la 3.
+\item Explique si sus resultados son o no consistentes con los hechos estilizados para EEUU que se discutieron en clase.
+\end{enumerate}
+
+\item Contraste un modelo trivial de la determinación del salario con los datos siguiendo estos pasos: [2 horas, 0.5 puntos cada inciso]. Por favor documente su trabajo para que se pueda replicar.
+\begin{enumerate}
+\item Obtenga una serie del PIB $Y_t$ de la economía.
+\item Obtenga una serie del capital $K_t$ de la economía (``Indice de Volumen físico acumulado´´).
+\item Obtenga una serie del empleo $L_t$ de la economía.
+\item Cree una serie de la productividad $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.
+\item Cree una serie contrafactual del salario que se debió de haber observado si el salario fuera el ingreso marginal del trabajo $A_tF_L(K_t,L_t)$.
+\item Compare el salario observado con el salario contrafactual a la luz de los hechos estilizados y las teorías descritas en clase.
+\end{enumerate}
+\item Desarrolle su intuición cuantitativa sobre la informalidad laboral en México siguiendo estos pasos   [3 horas, 0.5 puntos cada inciso]. Por favor documente su trabajo para que se pueda replicar.
+\begin{enumerate}
+\item Obtenga la Matriz Hussmans para México, del INEGI, para algún trimestre de 2019. 
+\item A partir de la tabla, averigüe qué proporción de los trabajadores trabaja en el ``sector informal'' de la economía.
+\item A partir de la tabla, averigüe qué proporción de los trabajadores del sector formal son informales.
+\item Averigüe con datos del INEGI cuáles son las industrias formales con mayor proporción de trabajadores informales y los estados de la república con mayor proporción de trabajadores informales.
+\item Obtenga una medida de salario por industria y grafique el nivel de informalidad contra el salario.
+\item Averigue si la tasa de informalidad (la proporción, del total de personas ocupadas, que trabajan informalmente) se comportó de forma ``procíclica'' o ``contracíclica'' durante los primeros meses de esta pandemia y contrástelo con el comportamiento durante crisis anteriores (1994-5 y 2008-9).
+\item Enuncie algunas conclusiones tentativas sobre los resultados que obtuvo, relacionándolas con los modelos discutidos en clase.
+\end{enumerate}
+\item Practique trabajar con datos laborales de México siguiendo estos pasos: [3 horas, 0.5 puntos cada inciso]. Por favor documente su trabajo para que se pueda replicar.
+\begin{enumerate}
+\item Explique en un par de párrafos cómo es que el INEGI atendió la ncesidad de crear encuestas durante el inicio de la pandemia con la ENOE-T y luego como aterrizó una nueva encuesta, la ENOE-N de ahí en adelante.
+\item Descargue los micro-datos de la ENOE (ENOE,ENOE-T y ENOE-N), correspondientes a los cuatro trimestres de 2020.
+\item Calcule el desempleo en cada trimestre, explicando cómo lo calculó.
+\item Calcule, utilizando a los individuos que aparecen en más de uno de los trimestres, la fracción de trabajadores que pasan del empleo al desempleo y del desempleo al empleo entre los cuatro trimestres del 2020. Esta es la parte más complicada, pero la más útil, porque enseña que la ENOE es una encuesta tipo panel rotativo, y cómo utilizar esta característica.
+\item Calcule qué fracción de los trabajadores trabaja en empresas chicas, medianas y grandes.
+\item Calcule qué fracción de los trabajadores está buscando otro empleo.
+\item Grafique la relación entre el ingreso promedio y la edad de los trabajadores.
+\item Documente y entregue su código estadístico para realizar este ejercicio.
+\end{enumerate}
+\end{enumerate}
+```
+\newpage
+
+# Soluciones
+
+## Ejercicio 1
+
+## Ejercicio 2
+
+## Ejercicio 3
+
+**Contraste un modelo trivial de la determinación del salario con los datos siguiendo estos pasos: [2 horas, 0.5 puntos cada inciso]. Por favor documente su trabajo para que se pueda replicar.**
+
+### a)
+
+**Obtenga una serie del PIB $Y_t$ de la economía.**
+
+Para este inciso, se hizo uso de los datos proporcionados por el INEGI desde el primer trimestre de 1993 hasta el último trimestre de 2020, se trata de la serie del Producto Interno Bruto en millones de pesos y con base en precios de 2013.
+
+### b)
+
+**Obtenga una serie del capital $K_t$ de la economía (``Indice de Volumen físico acumulado´´).**
+
+Para esto, se utilizó la serie de Índice de Volumen Físico acumulado del INEGI, misma que tiene periodicidad mensual desde enero de 1993 hasta diciembre de 2020. Para asegurar la consistencia temporal con los datos anteriores, se realizaron promedios cada tres meses, con el objetivo de presentar los datos trimestralmente.
+
+### c)
+
+**Obtenga una serie del empleo $L_t$ de la economía.**
+
+Para este inciso, se unieron dos series. La primera, directamente extraída del INEGI, muestra la Población Económicamente Activa (PEA) desde el primer trimestre de 2005 hasta el último de 2020; por otro lado, se encontró una serie de datos más antiguos, recopilados por el Centro de Estudios para las Finanzas Públicas de la Cámara de Diputados del H. Congreso de la Unión (y que indica como referencia al INEGI), que incluye información trimestral sobre la PEA desde el año 2000 hasta 2015. Así, la muestra total de estos datos abarca desde 2000 hasta 2020.
+
+Cabe señalar que la información disponible sobre la PEA antes de 2005 es bastante limitada, dado que la Encuesta Nacional de Ocupación y Empleo (ENOE) se comenzó a realizar desde 2005; anteriormente, los datos se registraban anualmente mediante censos de población.
+
+### d)
+
+**Cree una serie de la productividad $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.**
+
+
+
+### e)
+
+**Cree una serie contrafactual del salario que se debió de haber observado si el salario fuera el ingreso marginal del trabajo $A_tF_L(K_t,L_t)$.**
+
+### f)
+
+**Compare el salario observado con el salario contrafactual a la luz de los hechos estilizados y las teorías descritas en clase.**
+
+\newpage
+
+# Referencias
+
+<!-- <div id="refs"></div> -->
