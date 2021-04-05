@@ -107,19 +107,19 @@ Realice los siguientes ejercicios en su equipo de trabajo designado. La tarea se
 
 **Obtenga una serie del PIB $Y_t$ de la economía.**
 
-Para este inciso, se hizo uso de los datos proporcionados por el INEGI desde el primer trimestre de 1993 hasta el último trimestre de 2020, se trata de la serie del Producto Interno Bruto en millones de pesos y con base en precios de 2013.
+Para este inciso, se hizo uso de los datos proporcionados por el [@inegi] desde el primer trimestre de 1993 hasta el último trimestre de 2020, se trata de la serie del Producto Interno Bruto en millones de pesos y con base en precios de 2013.
 
 ### b)
 
 **Obtenga una serie del capital $K_t$ de la economía (``Indice de Volumen físico acumulado´´).**
 
-Para esto, se utilizó la serie de Índice de Volumen Físico acumulado del INEGI, misma que tiene periodicidad mensual desde enero de 1993 hasta diciembre de 2020. Para asegurar la consistencia temporal con los datos anteriores, se realizaron promedios cada tres meses, con el objetivo de presentar los datos trimestralmente.
+Para esto, se utilizó la serie de Índice de Volumen Físico acumulado del [@inegi], misma que tiene periodicidad mensual desde enero de 1993 hasta diciembre de 2020. Para asegurar la consistencia temporal con los datos anteriores, se realizaron promedios cada tres meses, con el objetivo de presentar los datos trimestralmente.
 
 ### c)
 
 **Obtenga una serie del empleo $L_t$ de la economía.**
 
-Para este inciso, se unieron dos series. La primera, directamente extraída del INEGI, muestra la Población Económicamente Activa (PEA) desde el primer trimestre de 2005 hasta el último de 2020; por otro lado, se encontró una serie de datos más antiguos, recopilados por el Centro de Estudios para las Finanzas Públicas de la Cámara de Diputados del H. Congreso de la Unión (y que indica como referencia al INEGI), que incluye información trimestral sobre la PEA desde el año 2000 hasta 2015. Así, la muestra total de estos datos abarca desde 2000 hasta 2020.
+Para este inciso, se unieron dos series. La primera, directamente extraída del [@inegi] muestra la Población Económicamente Activa (PEA) desde el primer trimestre de 2005 hasta el último de 2020; por otro lado, se encontró una serie de datos más antiguos, recopilados por el Centro de Estudios para las Finanzas Públicas de la Cámara de Diputados del H. Congreso de la Unión [@cefp] (y que indica como referencia al INEGI), que incluye información trimestral sobre la PEA desde el año 2000 hasta 2015. Así, la muestra total de estos datos abarca desde 2000 hasta 2020.
 
 Cabe señalar que la información disponible sobre la PEA antes de 2005 es bastante limitada, dado que la Encuesta Nacional de Ocupación y Empleo (ENOE) se comenzó a realizar desde 2005; anteriormente, los datos se registraban anualmente mediante censos de población.
 
