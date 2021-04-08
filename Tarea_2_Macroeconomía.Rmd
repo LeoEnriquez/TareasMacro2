@@ -389,9 +389,9 @@ Sin embargo, la condición de transversalidad nos garantiza que la acumulación 
 </p>
 
 ```{r}
-imagen1 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/gr%C3%A1fica_9.7_a.PNG")
+#imagen1 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/gr%C3%A1fica_9.7_a.PNG")
 
-plot(imagen1, main = "Figura 1.1. Diagrama de fase: Una guerra destruye la mitad \n del stock de capital de la economía", axes = FALSE, cex.main = 0.8)
+#plot(imagen1, main = "Figura 1.1. Diagrama de fase: Una guerra destruye la mitad \n del stock de capital de la economía", axes = FALSE, cex.main = 0.8)
 ```
 
 Si se destruye la mitad del stock de capital de la economía, el nivel de $K_0$ se recorre a $K_1= K_0/2$ en el momento de la destrucción. Se observa que las lineas que representan a $\dot{K}$ y $\dot{q}$ no se mueven, es decir, las fuerzas dinámicas de la economía no cambian.
@@ -427,9 +427,9 @@ El mayor valor de mercado del capital atrae inversiones y poco a poco el capital
 </p>
 
 ```{r}
-imagen2 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/gr%C3%A1fica_9.7_b.PNG")
+#imagen2 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/gr%C3%A1fica_9.7_b.PNG")
 
-plot(imagen2, main = "Figura 1.2. Diagrama de fase: El gobierno grava \n los rendimientos empresariales", axes = FALSE, cex.main = 0.8)
+#plot(imagen2, main = "Figura 1.2. Diagrama de fase: El gobierno grava \n los rendimientos empresariales", axes = FALSE, cex.main = 0.8)
 ```
 
 En el primer nivel de equilibrio $E_0$, el nivel de beneficios es de $\pi(K)$, pero con un impuestos, los beneficios en el nuevo punto de equilibrio $E_1$ son de $\pi(K)[1-\tau]$. Entonces la nueva condición para que $\dot{q}=0$ es $q=(1-\tau) \frac{\pi(K)}{r}$.
@@ -487,9 +487,9 @@ La economía termina en el punto $E_1$. De esta manera el menor capital y, por t
 </p>
 
 ```{r}
-imagen3 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/gr%C3%A1fica_9.7_c.PNG")
+#imagen3 <- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/Tarea-2/Datos%20Tarea%202/gr%C3%A1fica_9.7_c.PNG")
 
-plot(imagen3, main = "Figura 1.3. Diagrama de fase: El gobierno grava la inversión", axes = FALSE, cex.main = 0.8)
+#plot(imagen3, main = "Figura 1.3. Diagrama de fase: El gobierno grava la inversión", axes = FALSE, cex.main = 0.8)
 ```
 
 Se desalienta la inversión, puesto que ha sido grabada. Al reducirse la inversión, los beneficios de la industria (sin tomar en cuenta el impuesto) serán más altos y por lo tanto, el capital existente será más valioso, lo cual implica que gráficamente $q$ salte hacia arriba.
