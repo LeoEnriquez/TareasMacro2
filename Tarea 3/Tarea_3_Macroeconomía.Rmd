@@ -42,7 +42,6 @@ pacman::p_load(tidyverse,
 # Instrucciones
 
 ```{=tex}
-
 \subsection*{Instrucciones}
 Realice los siguientes ejercicios en su equipo de trabajo designado. La tarea se califica del 0 al 15 (¡!).
 
@@ -111,7 +110,7 @@ Para este inciso, se hizo uso de los datos proporcionados por el [@inegi] desde 
 
 ### b)
 
-**Obtenga una serie del capital $K_t$ de la economía (``Indice de Volumen físico acumulado´´).**
+**Obtenga una serie del capital $K_t$ de la economía (\`\`Indice de Volumen físico acumulado´´).**
 
 Para esto, se utilizó la serie de Índice de Volumen Físico acumulado del [@inegi], misma que tiene periodicidad mensual desde enero de 1993 hasta diciembre de 2020. Para asegurar la consistencia temporal con los datos anteriores, se realizaron promedios cada tres meses, con el objetivo de presentar los datos trimestralmente.
 
@@ -134,7 +133,6 @@ Base_de_datos_ejercicio_3 <- read_csv("https://raw.githubusercontent.com/LeoEnri
     col_types = cols(Fecha = col_date(format = "%d/%m/%Y")))
 ```
 
-
 ```{r}
 Base_de_datos_ejercicio_3$"F(K,L)" <- Base_de_datos_ejercicio_3$`Índice de volumen físico acumulado (base 2013, promedio trimestral)`^0.3*Base_de_datos_ejercicio_3$`Población económicamente activa`^0.7
 
@@ -144,39 +142,87 @@ Base_de_datos_ejercicio_3$"F(K,L)" <- Base_de_datos_ejercicio_3$`Índice de volu
 Base_de_datos_ejercicio_3$"Productividad A" <- Base_de_datos_ejercicio_3$`PIB en millones de pesos (base 2013)`/ Base_de_datos_ejercicio_3$"F(K,L)"
 ```
 
-```{r include=FALSE}
-mean(Base_de_datos_ejercicio_3$`Productividad A`)
-max(Base_de_datos_ejercicio_3$`Productividad A`)
-min(Base_de_datos_ejercicio_3$`Productividad A`)
-```
-Al realizar las operaciones correspondientes, $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$, se obtuvo el valor de $A_t = \frac{Y_t}{F(K,L)}$ para todos los trimestres desde 2000 hasta 2020. A continuación se muestran las estadísticas descriptivas más relevantes de $A_t$, así como una gráfica sobre la evolución de sus valores:
+Para una mejor visualización e interpretación de los datos, y dada la ambigüedad sobre las unidades de medición de la recién creada variable A, es pertinente realizar un índice con ella. Para esto, y en consistencia con las series utilizadas, se fijará al último trimestre de 2013 como la base igual a 100. A continuación se muestran las estadísticas descriptivas y gráfica de este nuevo índice:
 
+```{r}
+Base_de_datos_ejercicio_3$"Índice Productividad" <- Base_de_datos_ejercicio_3$`Productividad A`*100/16.63102398528814
+```
+
+```{r include=FALSE}
+mean(Base_de_datos_ejercicio_3$`Índice Productividad`)
+max(Base_de_datos_ejercicio_3$`Índice Productividad`)
+min(Base_de_datos_ejercicio_3$`Índice Productividad`)
+```
+
+```{=tex}
 \begin{table}[]
 \centering
-\caption{Cuadro 3.1. Estadísticas descriptivas del valor de la productividad A, por trimestre, 2000 - 2020.}
+\caption{Cuadro 3.1. Estadísticas descriptivas del valor del índice de productividad A, por trimestre, 2000 - 2020.}
 \label{Cuadro 31}
 \begin{tabular}{|l|r|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Estadística}} & \multicolumn{1}{c|}{\textbf{Valor}} \\ \hline
-Media                                      & 16.40066                            \\ \hline
-Máximo                                     & 17.83776                            \\ \hline
-Mínimo                                     & 15.25552                            \\ \hline
+Media                                      & 98.61482                            \\ \hline
+Máximo                                     & 107.256                            \\ \hline
+Mínimo                                     & 91.72929                            \\ \hline
 \end{tabular}
 \end{table}
+```
 
 ```{r}
 
 serie3.1 <- ts(Base_de_datos_ejercicio_3, start= c(2000,2), frequency = 4)
 
-productividad <- serie3.1[,6]
+productividad <- serie3.1[,7]
 
 ts.plot (productividad, gpars=list(xlab="Trimestres", ylab="Índice", main="Gráfica 3.1. Índice de productividad trimestral, 2000 - 2020",  col=5:1, lwd=1))
 ```
 
-
 ### e)
 
-**Cree una serie contrafactual del salario que se debió de haber observado si el salario fuera el ingreso marginal del trabajo $A_tF_L(K_t,L_t)$.**
+**Cree una serie contrafactual del salario que se debió de haber observado si el salario fuera el ingreso marginal del trabajo** $A_tF_L(K_t,L_t)$.
+
+Asumiendo que el salario fuera igual al producto marginal del trabajo, entonces tenemos que:
+
+$$
+Salario ~ contrafactural =PmgL = \frac{\delta Y}{\delta L} = \frac{\delta (AK^{0.3}L^{0.7})}{\delta L} = 0.7A(\frac{K}{L})^{0.3}
+$$
+
+A continuación se muestra las estadísticas descriptivas y gráfica del salario contrafactual estimado:
+
+```{r}
+Base_de_datos_ejercicio_3$"Salario contrafactual" <- Base_de_datos_ejercicio_3$`Índice Productividad`*0.7*Base_de_datos_ejercicio_3$`Índice de volumen físico acumulado (base 2013, promedio trimestral)`^0.3/Base_de_datos_ejercicio_3$`Población económicamente activa`^0.3
+```
+
+```{r include=FALSE}
+mean(Base_de_datos_ejercicio_3$`Salario contrafactual`)
+max(Base_de_datos_ejercicio_3$`Salario contrafactual`)
+min(Base_de_datos_ejercicio_3$`Salario contrafactual`)
+```
+
+```{=tex}
+\begin{table}[b]
+\centering
+\caption{Cuadro 3.2. Estadísticas descriptivas del valor del salario contrafactual, por trimestre, 2000 - 2020.}
+\label{Cuadro 32}
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Estadística}} & \multicolumn{1}{c|}{\textbf{Valor}} \\ \hline
+Media                                      & 1.350293                            \\ \hline
+Máximo                                     & 1.442441                           \\ \hline
+Mínimo                                     & 1.229052                           \\ \hline
+\end{tabular}
+\end{table}
+```
+
+
+```{r}
+serie3.1 <- ts(Base_de_datos_ejercicio_3, start= c(2000,2), frequency = 4)
+
+salariocontrafactual <- serie3.1[,8]
+
+ts.plot (salariocontrafactual, gpars=list(xlab="Trimestres", ylab="Índice", main="Gráfica 3.2. Salario contrafactual, 2000 - 2020",  col=5:1, lwd=1))
+```
 
 ### f)
 
