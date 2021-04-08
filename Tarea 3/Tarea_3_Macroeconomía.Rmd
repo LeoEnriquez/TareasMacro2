@@ -96,12 +96,313 @@ Realice los siguientes ejercicios en su equipo de trabajo designado. La tarea se
 
 ## Ejercicio 1
 
-## Ejercicio 2
+### 11.2.
 
+**Salarios de eficiencia y negociación (Garino y Martin, 2000). Summers (1988, p. 386) asegura que en un ambiente de salarios de eficiencia, las firmas que están forzadas a pagar a los trabajadores salarios premium sufren pérdidas de segundo orden. En casi cualquier aparato de negociación verosímil, esto hace que sea más fácil extraer concesiones para los trabajadores. Se pregunta cómo investigar esta afirmación.**
+
+#### a) 
+
+**Supóngase que e está fija en 1, tal que las consideraciones de un salario de eficiencia no existen.**
+
+##### i)
+
+**¿Qué valor de L escoge la firma, dado w? ¿Cuál es el nivel resultante de beneficios?**
+
+Si e está fijado en 1 y w está dado, el problema de la firma es elegir L para maximizar sus beneficios:
+
+$$
+\pi = \frac{L^\alpha}{\alpha} - wL
+$$
+
+Cuya condición de primer orden (CPO) es:
+
+$$
+\frac{\delta\pi}{\delta L} = L^{\alpha-1} - w = 0
+$$
+
+Por tanto, la elección de la firma sobre el empleo es:
+
+$$
+L = w^{-1/(1-\alpha)}
+$$
+
+Sustituyendo la ecuación anterior en la función de beneficios, se obtiene:
+
+$$
+\pi = \frac{w^{-1/(1-\alpha)}}{\alpha} - w^{[(1-\alpha)-1]/(1-\alpha)}= w^{-\alpha/(1-\alpha)}[(1/\alpha)-1]
+$$
+
+Por lo que el beneficio es:
+
+$$
+\pi = [(1-\alpha)/\alpha]w^{-\alpha(1-\alpha)}
+$$
+
+##### ii) 
+
+**Supóngase que la firma y el sindicato escogen w para maximizar $U^{\gamma}\pi^{1-\gamma}$ donde $0 < \gamma < \alpha$ indexan el poder de negociación del sindicato. ¿Qué nivel de w se escoge?**
+
+Sustituyendo el nivel de L en la función objetivo del sindicato, $U = (w -x)L$:
+
+$$
+U = (w-x)x^{-1/(1-\alpha)}
+$$
+
+A partir de esta ecuación y la que se obtuvo de beneficios, se tiene el siguiente problema de negociación:
+
+$$
+max_{w} ~~ (w-x)^\gamma w^{-\gamma/(1-\alpha)}[(\frac{1-\alpha}{\alpha})w^{-\alpha/(1-\alpha)}]^{1-\gamma}
+$$
+
+Para simplificar el álgebra de la maximización, tómese el log de $U^\gamma \pi^{1-\gamma}$:
+
+$$
+max_w ~~ \gamma ln(w-x) - \frac{\gamma}{1-\alpha}lnw + (1-\gamma)ln(\frac{1-\alpha}{\alpha})-\frac{\alpha(1-\gamma)}{1-\alpha}lnw
+$$
+
+Cuya CPO es:
+
+$$
+\frac{\delta[ln(U^\gamma\pi^{1-\gamma})]}{\delta w} = \gamma \frac{1}{w-x} - \frac{\gamma}{1-\alpha}\frac{1}{w} - \frac{\alpha(1-\gamma)}{1-\alpha}\frac{1}{w} = 0
+$$
+
+Que puede ser reescrita como:
+
+$$
+\gamma \frac{1}{w-x} = \frac{\gamma + \alpha - \alpha \gamma}{1-\alpha}\frac{1}{w}
+$$
+
+Realizando una multiplicación cruzada se obtiene:
+
+$$
+(1-\alpha)\gamma w = [\alpha + \gamma (1-\alpha)](w-x)
+$$
+
+Restando $(1-\alpha)\gamma w$ de cada lado:
+
+$$
+\alpha w = [\alpha + (1-\alpha)\gamma]x
+$$
+
+Por tanto, el salario escogido durante el proceso de negociación es:
+
+$$
+w = \frac{\alpha + (1-\alpha)\gamma}{\alpha}x
+$$
+
+#### b)
+
+**Supóngase que e está dado por $e = [(w-x)/x]^{\beta}$ para $w > x$ donde $0 < \beta < 1$**
+
+##### i)
+
+**¿Qué valor de L escoge la firma, dado w? ¿Cuál es el nivel de beneficios resultante?**
+
+Sustituyendo $e = [(w-x)/x]^\beta$ en la expresión de beneficios permite caracterizar el problema de la firma como:
+
+$$
+max_L ~~ \pi = \frac{1}{\alpha}(\frac{w-x}{x})^{\alpha \beta}L^\alpha - wL
+$$
+
+Cuya CPO es:
+
+$$
+\frac{\delta \pi}{\delta L} = (\frac{w-x}{x})^{\alpha \beta} L^{\alpha -1} - w = 0
+$$
+
+Por lo que la elección sobre el trabajo de la firma es:
+
+$$
+L = (\frac{w-x}{x})^{\alpha \beta/(1-\alpha)}w^{-1/(1-\alpha)}
+$$
+
+Sustituyendo la ecuación anterior en la función de beneficios, se obtiene:
+
+$$
+\pi = \frac{1}{\alpha}(\frac{w-x}{x})^{\alpha \beta}(\frac{w-x}{x})^{\alpha^2 \beta/(1-\alpha)}w^{-\alpha/(1-\alpha)}-w^{1-[1/(1-\alpha)]}(\frac{w-x}{x})^{\alpha \beta/(1-\alpha)}
+$$
+
+Como $\alpha \beta + [\alpha^2 \beta/(1-\alpha)] = [\alpha \beta - \alpha^2 \beta + \alpha^2 \beta]/(1-\alpha) = \alpha \beta/(1-\alpha)$ y $1-[1/(1-\alpha)] = [(1-\alpha-1)/(1-\alpha)] = -\alpha/(1-\alpha)$, la ecuación anterior puede ser reescrita como:
+
+$$
+\pi = \frac{1}{\alpha}(\frac{w-x}{x})^{\alpha \beta/(1-\alpha)}w^{-\alpha/(1-\alpha)}-w^{-\alpha/(1-\alpha)}(\frac{w-x}{x})^{\alpha \beta/(1-\alpha)}
+$$
+
+Simplificando:
+
+$$
+\pi = \frac{1-\alpha}{\alpha}(\frac{w-x}{x})^{\alpha \beta/(1-\alpha)}w^{-\alpha/(1-\alpha)}
+$$
+
+##### ii)
+
+**Supóngase que la firma y el sindicato escogen w para maximizar $U^\gamma\pi^{1-\gamma}, 0 < \gamma < \alpha$. ¿Qué nivel de w escogen?**
+
+Sustituyendo el nivel L obtenido en el inciso anterior en la función objetivo del sindicato, $U = (w-x)L$:
+
+$$
+U = (w-x)(w-x)^{\frac{\alpha \beta}{1-\alpha}}(\frac{1}{x})^{\frac{\alpha \beta}{1-\alpha}}w^{\frac{-1}{1-\alpha}}
+$$
+
+Que se simplifica como:
+
+$$
+U = (w-x)^{\frac{1-\alpha(1-\beta)}{1-\alpha}}(\frac{1}{x})^{\frac{\alpha \beta}{1-\alpha}}w^{\frac{-1}{1-\alpha}}
+$$
+
+Utilizando esta ecuación en la función de beneficios de la empresa, se obtiene el siguiente problema de negociación:
+
+$$
+max_w ~~ (w-x)^{\frac{1-\alpha(1-\beta)\gamma}{1-\alpha}}(\frac{1}{x})^{\frac{\alpha \beta \gamma}{1-\alpha}}w^{\frac{-\gamma}{1-\alpha}}(\frac{1-\alpha}{\alpha})^{1-\alpha}(w-x)^{\frac{\alpha \beta(1-\gamma)}{1-\alpha}}(\frac{1}{x})^{\frac{\alpha \beta(1-\gamma)}{1-\alpha}}w^{\frac{-\alpha(1-\gamma)}{1-\alpha}}
+$$
+
+De nuevo, se maximizará el log de $U^\gamma\pi^{1-\alpha}$. Ignorando los términos que no contienen w, se tiene el siguiente problema de negociación:
+
+$$
+max_w ~~ \frac{[1-\alpha(1-\beta)]\gamma}{1-\alpha}ln(w-x)-\frac{\gamma}{1-\alpha}lnw + \frac{\alpha \beta(1-\gamma)}{1-\alpha}ln(w-x)- \frac{\alpha(1-\gamma)}{1-\alpha}lnw
+$$
+
+Cuya CPO es:
+
+$$
+\frac{\delta[ln(U^\gamma\pi^{1-\gamma})]}{\delta w} = \frac{[1-\alpha(1-\beta)]\gamma}{1-\alpha}\frac{1}{w-x} - \frac{\gamma}{1-\alpha}\frac{1}{w} + \frac{\alpha \beta(1-\gamma)}{1-\alpha}\frac{1}{w-x} - \frac{\alpha(1-\gamma)}{1-\alpha}\frac{1}{w} = 0
+$$
+
+Que puede ser reescrita como:
+
+$$
+\frac{1}{1-\alpha}[\gamma - \alpha \gamma(1-\beta) + \alpha \beta - \alpha \beta \gamma]\frac{1}{w-x} = \frac{1}{1-\alpha}[\gamma + \alpha - \alpha \gamma]\frac{1}{2}
+$$
+
+Multiplicando ambos lados por $(1-\alpha)$ y simplificando:
+
+$$
+[\gamma - \alpha(\gamma - \beta)]\frac{1}{w-x} = [\alpha + (1-\alpha)\gamma]\frac{1}{w}
+$$
+
+Multiplicando de forma cruzada:
+
+$$
+[\gamma - \alpha(\gamma - \beta)]w = [\alpha + (1-\alpha)\gamma](w-x)
+$$
+
+Restando $\gamma w$ de ambos lados:
+
+$$
+-\alpha(\gamma - \beta)w = \alpha(1-\gamma)w - [\alpha + (1-\alpha)\gamma]x
+$$
+
+Simplifcando:
+
+$$
+[-\alpha \gamma + \alpha \beta - \alpha + \alpha \gamma]w = -[\alpha + (1-\alpha)\gamma]x
+$$
+$$
+-[\alpha(1-\beta)]w = -[\alpha + (1-\alpha)\gamma]x
+$$
+
+Por lo que el salario escogido en el proceso de negociación es:
+
+$$
+w = \frac{\alpha + (1-\alpha)\gamma}{\alpha(1-\beta)}x
+$$
+
+Donde si $\beta = 0$, el resultado es el mismo que en a):
+
+$$
+w = \frac{\alpha + (1-\alpha)\gamma}{\alpha(1-\beta)}x = \frac{\alpha + (1-\alpha)\gamma}{\alpha}x
+$$
+
+##### iii)
+
+**¿El impacto proporcional del poder de negociación de los trabajadores es mayor con salarios de eficiencia, o sin ellos? ¿ Es mayor cuando los efectos de los salarios de eficiencia, $\beta$, son más grandes?**
+
+El impacto proporcional del poder de negociación de los trabajadores en los salarios puede ser medido por una elasticidad:
+
+$$
+\frac{\delta[lnw]}{\delta \gamma}
+$$
+
+En ausencia de salarios de eficiencia, el salario elegido en el proceso de negociación está dado por:
+
+$$
+w  = \frac{\alpha + (1-\alpha)\gamma}{\alpha}x
+$$
+
+Comparando esta ecuación con $w = \frac{\alpha + (1-\alpha)\gamma}{\alpha(1-\beta)}x$ podemos ver que, bajo salarios de eficiencia, el salario aumenta por el factor de $\frac{1}{(1-\beta)}$. Por tanto, el hecho de que existan salarios de eficiencia no afecta la elasticidad dada por $\frac{\delta[lnw]}{\delta \gamma}$. Así, el impacto proporcional sobre los salarios del poder de negociación de los trabajadores NO es mayor con salarios de eficiencia que sin ellos.
+
+### 11.9
+
+**El modelo Harris-Todaro. Supóngase que existen dos sectores. Los empleos del sector primario pagan $w_p$; los empleos del sector secundario pagan $w_s$. Cada trabajador decide en qué sector está. Todos los trabajadores que escogen el sector secundario obtienen un trabajo. Sin embargo, existe un número fijo, $N_p$, de empleos primarios, los cuales están distribuidos aleatoriamente entre los trabajadores que escogen este sector. Aquellos trabajadores que no consiguen un empleo primario son desempleados y reciben un beneficio $b$. Los trabajadores son neutrales al riesgo y no existe desutilidad por trabajar. Por tanto, la utilidad esperada de los trabajadores primarios es $qw_p+(1-q)b$, donde $q$ es la probabilidad de que un trabajador obtenga un trabajo primario. Asúmase que $b < w_s < w_p$ y que $N_p/\bar N < (w_s - b)/(w_p - b)$.**
+
+#### a)
+
+**¿CUál es el desempleo de equilibrio como función de $w_p, w_s, N_p, b$ y el tamaño de la fuerza laboral, $\bar N$?**
+
+En el equilibrio, debe ocurrir que el número de personas en el sector primario sea igual al número de personas empleadas. Así, esto iguala al número de empleos primarios, $N_p$, más el número de personas desempleadas en la economía, U. Además, en equilibrio, y dado que los individuos son contratados aleatoriamente, la probabilidad de obtener un empleo primario, q, es igual al número total de trabajos, $N_p$, dividido por el total de personas en el sector primario, $N_p + U$. Por tanto:
+
+$$
+q = \frac{N_p}{N_p+U}
+$$
+
+Adicionalmente, en el equilibrio, la utilidad esperada de elegir el sector primario, $qw_p + (1-q)b$ debe ser igual a la utilidad esperada de escoger el sector secundario, $w_s$. Por lo que, en equilibrio:
+
+$$
+qw_p + (1-q)b = w_s
+$$
+Resolviendo para q:
+
+$$
+q = \frac{(w_s-b)}{w_p-b}
+$$
+
+Ahora, hay dos condiciones que debe satisfacer q en el equilibrio. Igualándolas:
+
+$$
+\frac{N_p}{N_p+U} = \frac{(w_s-b)}{w_p-b}
+$$
+
+Que puede ser reescrita como:
+
+$$
+N_p(w_p-b) = N_p(w_s-b) + (w_s-b)U
+$$
+
+Y resolviendo para el desempleo de equilibrio, encontramos:
+
+$$
+U = (\frac{w_p-w_s}{w_s-b})N_p
+$$
+
+#### b)
+
+**¿Cómo un incremento de $N_p$ afecta al desempleo? Explíquese intuitivamente el porqué, a pesar de que el empleo es igual a los trabajadores esperando por empleos primarios, el incrementar estos trabajos puede incrementar el desempleo.**
+
+Para determinar la manera en que un incremento del número de empleos primarios afecta al desempleo, obténgase la derivada de U con respecto de $N_p$:
+
+$$
+\frac{\delta U}{\delta N_p} = (\frac{w_p - w_s}{w_s - b}) > 0
+$$
+
+La derivada es positiva porque estamos asumiendo que $b < w_s < w_p$. Además, esta implica que un aumento en el número de empleos primarios incrementa el desempleo de equilibrio. Intuitivamente: más empleos primarios incrementan las probabilidades para las personas en este sector de conseguir empleo; sin embargo, este hecho motiva a más individuos a escoger el sector primario antes que el secundario; así, muchos más lo prefieren, tantos que el número que no consiguen un puesto aumenta.
+
+#### c)
+
+**¿Cuáles son los efectos de un incremento en el nivel de los beneficios de desempleo?**
+
+Para visualizar estos efectos, tómese la derivada de U con respecto a b:
+
+$$
+\frac{\delta U}{\delta b} = \frac{(w_p - w_s)}{(w_s - b)^2}N_p > 0
+$$
+
+Lo que indica que el desempleo aumenta si b sube. Intuitivamente: mayores beneficios al estar desempleado hacen el sector primario más atractivo; así, más individuos lo prefieren y, dado que existe un número fijo de trabajos disponibles, más personas terminarán desempleadas.
 
 \newpage
 
-## Estudie el mercado laboral en México siguiendo estos pasos [2 horas, 0.5 puntos cada inciso]: Por favor documente su trabajo para que se pueda replicar.
+## Ejercicio 2
+
+**Estudie el mercado laboral en México siguiendo estos pasos [2 horas, 0.5 puntos cada inciso]: Por favor documente su trabajo para que se pueda replicar.**
 
 ```{r include=FALSE}
 
@@ -109,7 +410,9 @@ bdanual <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/
 ```
 
 
-(a) Obtenga del INEGI una serie anual de los salarios (en términos reales) en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 1)
+### a) 
+
+**Obtenga del INEGI una serie anual de los salarios (en términos reales) en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 1)**
 
 En la siguiente gráfica se muestra la evolución del salario promedio de la industria manufacturera de México desde 2007 a 2020, en dólares por hora de trabajo y con año base 2013. Se observa una caída en el año 2009, se recupera lentamente alcanzando su nivel máximo del periodo en el 2014 y  cae nuevamente en el 2015 y 2016, año en que alcanza el nivel más bajo comparable al de 2009. Se muestra una recuperación del 2006 a 2020, año en que se muestra una caída ligera con datos preliminares. Es importante notar una variabilidad alta de este indicador. 
 
@@ -131,7 +434,9 @@ abline(h = mean(tc_salario_anual)-sd(tc_salario_anual), col ="green", legend("bo
 abline(h = mean(tc_salario_anual)+sd(tc_salario_anual), col ="green", legend("bottomleft", "sd(7.57)", fill = "green"))
 ```
 
-(b) Obtenga del INEGI una serie anual del empleo total en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 2)
+### b) 
+
+**Obtenga del INEGI una serie anual del empleo total en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 2)**
 
 En la siguiente gráfica se muestra la evolución del empleo total anual de México desde 2007 a 2020, en número de personas que representan el personal ocupado total de la economía.  La tendencia es creciente, con caídas en 2008, 2010, 2014 y 2020, esta última es la más importante. 
 
@@ -154,7 +459,9 @@ abline(h = mean(tc_empleo_anual)+sd(tc_empleo_anual), col ="green", legend("bott
 ```
 
 
-(c) Obtenga del INEGI una serie del PIB en términos reales, calcule su tasa de cambio anual, calcule su volatilidad. (Serie 3)
+### c) 
+
+**Obtenga del INEGI una serie del PIB en términos reales, calcule su tasa de cambio anual, calcule su volatilidad. (Serie 3)**
 
 
 En la siguiente gráfica se muestra la evolución del PIB total anual de México desde 2007 a 2020, en millones de pesos reales con año base 2013. La tendencia es creciente, con una caída importante en el año 2009 y la más severa en el 2020. 
@@ -180,7 +487,9 @@ abline(h = mean(tc_pib_anual)+sd(tc_pib_anual), col ="green", legend("bottomleft
 
 
 
-(d) Grafique las tres series de tasas de cambios de forma que se puedan comparar. 
+### d) 
+
+**Grafique las tres series de tasas de cambios de forma que se puedan comparar.**
 
 La siguiente gráfica muestra las tasas de crecimiento de los salarios reales, del nivel de empleos y del  PIB real. La variable más volátil es la de la tasa de crecimiento de los salarios de las industrias manufactureras (7.57), seguido por la tasa de crecimiento del PIB (3.78) y finalmente la tasa de crecimiento del empleo (2.46). 
 
@@ -195,7 +504,9 @@ legend ('bottom', col=c("green","blue","red"),lwd=3, legend=c("Salario","Empleo"
 ```
 
 
-(e) Calcule la covarianza de la Serie 1 con la Serie 3 y de la Serie 2 con la Serie 3. 
+### e)
+
+**Calcule la covarianza de la Serie 1 con la Serie 3 y de la Serie 2 con la Serie 3.**
 
 ```{r}
 cov_sal_pib<-cov(salario_anual,pib_anual, method = c("pearson"))
@@ -240,11 +551,13 @@ En siguiente cuadro podemos observar el coeficiente de correlación de Pearson e
 
 
 
-(f) Explique si los resultados son o no consistentes con los hechos estilizados para EEUU que se discutieron en clase. 
+### f) 
+
+**Explique si los resultados son o no consistentes con los hechos estilizados para EEUU que se discutieron en clase.**
 
 Los resultados muestran que para el caso de México, en el periodo 2007 a 2020, considerando las tasas de crecimiento del salario por hora en dólares a precios constantes de 2013 de la industria manufacturera, del personal ocupado total nacional y del PIB real nacional, que el empleo es muy procíclico y el salario también, aunque a un nivel poco significativo. Es decir, la tasa de crecimiento de los niveles de empleo se mueve conforme al ciclo económico, si la economía está en una etapa de crecimiento acelerado, también los niveles de empleo incrementan, por otra parte, los salarios tienden permanecer casi constantes aunque con un efecto positivo muy marginal. 
 
-
+\newpage
 
 ## Ejercicio 3
 
@@ -252,19 +565,19 @@ Los resultados muestran que para el caso de México, en el periodo 2007 a 2020, 
 
 ### a)
 
-**Obtenga una serie del PIB** $Y_t$ de la economía.
+**Obtenga una serie del PIB $Y_t$ de la economía.**
 
 Para este inciso, se hizo uso de los datos proporcionados por el [@inegi] desde el primer trimestre de 1993 hasta el último trimestre de 2020, se trata de la serie del Producto Interno Bruto en millones de pesos y con base en precios de 2013.
 
 ### b)
 
-**Obtenga una serie del capital** $K_t$ de la economía (\`\`Indice de Volumen físico acumulado´´).
+**Obtenga una serie del capital $K_t$ de la economía (\`\`Indice de Volumen físico acumulado´´).**
 
 Para esto, se utilizó la serie de Índice de Volumen Físico acumulado del [@inegi], misma que tiene periodicidad mensual desde enero de 1993 hasta diciembre de 2020. Para asegurar la consistencia temporal con los datos anteriores, se realizaron promedios cada tres meses, con el objetivo de presentar los datos trimestralmente.
 
 ### c)
 
-**Obtenga una serie del empleo** $L_t$ de la economía.
+**Obtenga una serie del empleo $L_t$ de la economía.**
 
 Para este inciso, se unieron dos series. La primera, directamente extraída del [@inegi] muestra la Población Económicamente Activa (PEA) desde el primer trimestre de 2005 hasta el último de 2020; por otro lado, se encontró una serie de datos más antiguos, recopilados por el Centro de Estudios para las Finanzas Públicas de la Cámara de Diputados del H. Congreso de la Unión [@cefp] (y que indica como referencia al INEGI), que incluye información trimestral sobre la PEA desde el año 2000 hasta 2015. Así, la muestra total de estos datos abarca desde 2000 hasta 2020.
 
@@ -272,7 +585,7 @@ Cabe señalar que la información disponible sobre la PEA antes de 2005 es basta
 
 ### d)
 
-**Cree una serie de la productividad** $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.
+**Cree una serie de la productividad $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.**
 
 Como se explicó en los incisos anteriores, debido a la disponibilidad de los datos de las tres variables de interés, la serie que se utilizará en adelante contempla datos desde el año 2000 hasta el 2020.
 
