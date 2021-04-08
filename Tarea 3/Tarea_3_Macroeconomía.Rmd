@@ -104,19 +104,19 @@ Realice los siguientes ejercicios en su equipo de trabajo designado. La tarea se
 
 ### a)
 
-**Obtenga una serie del PIB $Y_t$ de la economía.**
+**Obtenga una serie del PIB** $Y_t$ de la economía.
 
 Para este inciso, se hizo uso de los datos proporcionados por el [@inegi] desde el primer trimestre de 1993 hasta el último trimestre de 2020, se trata de la serie del Producto Interno Bruto en millones de pesos y con base en precios de 2013.
 
 ### b)
 
-**Obtenga una serie del capital $K_t$ de la economía (\`\`Indice de Volumen físico acumulado´´).**
+**Obtenga una serie del capital** $K_t$ de la economía (\`\`Indice de Volumen físico acumulado´´).
 
 Para esto, se utilizó la serie de Índice de Volumen Físico acumulado del [@inegi], misma que tiene periodicidad mensual desde enero de 1993 hasta diciembre de 2020. Para asegurar la consistencia temporal con los datos anteriores, se realizaron promedios cada tres meses, con el objetivo de presentar los datos trimestralmente.
 
 ### c)
 
-**Obtenga una serie del empleo $L_t$ de la economía.**
+**Obtenga una serie del empleo** $L_t$ de la economía.
 
 Para este inciso, se unieron dos series. La primera, directamente extraída del [@inegi] muestra la Población Económicamente Activa (PEA) desde el primer trimestre de 2005 hasta el último de 2020; por otro lado, se encontró una serie de datos más antiguos, recopilados por el Centro de Estudios para las Finanzas Públicas de la Cámara de Diputados del H. Congreso de la Unión [@cefp] (y que indica como referencia al INEGI), que incluye información trimestral sobre la PEA desde el año 2000 hasta 2015. Así, la muestra total de estos datos abarca desde 2000 hasta 2020.
 
@@ -124,7 +124,7 @@ Cabe señalar que la información disponible sobre la PEA antes de 2005 es basta
 
 ### d)
 
-**Cree una serie de la productividad $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.**
+**Cree una serie de la productividad** $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{0.3}L^{0.7}$.
 
 Como se explicó en los incisos anteriores, debido a la disponibilidad de los datos de las tres variables de interés, la serie que se utilizará en adelante contempla datos desde el año 2000 hasta el 2020.
 
@@ -155,19 +155,16 @@ min(Base_de_datos_ejercicio_3$`Índice Productividad`)
 ```
 
 ```{=tex}
-\begin{table}[]
-\centering
-\caption{Cuadro 3.1. Estadísticas descriptivas del valor del índice de productividad A, por trimestre, 2000 - 2020.}
-\label{Cuadro 31}
-\begin{tabular}{|l|r|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Estadística}} & \multicolumn{1}{c|}{\textbf{Valor}} \\ \hline
-Media                                      & 98.61482                            \\ \hline
-Máximo                                     & 107.256                            \\ \hline
-Mínimo                                     & 91.72929                            \\ \hline
-\end{tabular}
-\end{table}
+\begin{center}
+\textbf{Cuadro 3.1. Estadísticas descriptivas del índice de productividad trimestral.}
+\end{center}
 ```
+
+| Estadística 	| Valor    	|
+|-------------	|----------	|
+| Media       	| 98.61482 	|
+| Máximo      	| 107.256  	|
+| Mínimo      	| 91.72929 	|
 
 ```{r}
 
@@ -201,20 +198,16 @@ min(Base_de_datos_ejercicio_3$`Salario contrafactual`)
 ```
 
 ```{=tex}
-\begin{table}[b]
-\centering
-\caption{Cuadro 3.2. Estadísticas descriptivas del valor del salario contrafactual, por trimestre, 2000 - 2020.}
-\label{Cuadro 32}
-\begin{tabular}{|l|r|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Estadística}} & \multicolumn{1}{c|}{\textbf{Valor}} \\ \hline
-Media                                      & 1.350293                            \\ \hline
-Máximo                                     & 1.442441                           \\ \hline
-Mínimo                                     & 1.229052                           \\ \hline
-\end{tabular}
-\end{table}
+\begin{center}
+\textbf{Cuadro 3.2. Estadísticas descriptivas del valor del salario contrafactual, por trimestre.}
+\end{center}
 ```
 
+| Estadística 	| Valor    	|
+|-------------	|----------	|
+| Media       	| 1.350293 	|
+| Máximo      	| 1.442441 	|
+| Mínimo      	| 1.229052 	|
 
 ```{r}
 serie3.1 <- ts(Base_de_datos_ejercicio_3, start= c(2000,2), frequency = 4)
@@ -227,6 +220,44 @@ ts.plot (salariocontrafactual, gpars=list(xlab="Trimestres", ylab="Índice", mai
 ### f)
 
 **Compare el salario observado con el salario contrafactual a la luz de los hechos estilizados y las teorías descritas en clase.**
+
+Para fines de la adecuada comparación entre el salario real observado en México y el salario contrafactual estimado en el inciso anterior, se utilizó las remuneraciones en el sector manufacturero reportadas por el [@inegi] desde 2007 hasta 2020, mismas que tienen base en el año 2013. Además, la serie del salario contrafactual fue transformada en un índice base 2013.
+
+```{r}
+Salarios_ejercicio_3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%203/Datos/Salario%20real%202007-2020.csv", 
+    col_types = cols(Fecha = col_date(format = "%d/%m/%Y")))
+```
+
+```{r}
+Base_de_datos_ejercicio_3$"Índice Salario contrafactual" <- Base_de_datos_ejercicio_3$`Salario contrafactual`*100/1.3534931427529
+```
+
+```{r}
+serie3.2 <- ts(Salarios_ejercicio_3, start= c(2007,1), frequency = 4)
+
+salarioreal <- serie3.2[,2]
+
+serie3.3 <- ts(Base_de_datos_ejercicio_3, start= c(2000,2), frequency = 4)
+
+salariocontrafactual1 <- serie3.3[,9]
+
+ts.plot (salariocontrafactual1, salarioreal, gpars=list(xlab="Trimestres", ylab="Índice", main="Gráfica 3.3. Salarios contrafactual y observado, 2000 - 2020",  col=7:6, lwd=1))
+legend("topleft", bty="n", lty=c(1,1), col=7:6,
+       legend=c(" Salario contrafactual ", "Salario real "))
+
+```
+
+Como puede observarse en la gráfica, el periodo pertinente para comparar ambos salarios va desde 2007 hasta 2020, de manera trimestral, y debido a la disponibilidad de datos sobre salarios reales ya explicada.
+
+De manera general, se observan 3 grandes comportamientos:
+
+1.  **Crisis del 2008:** Puede verse que, de acuerdo al salario contrafactual calculado a partir de la función $Y_t = A_tK^{0.3}L^{0.7}$, este debió haberse contraído muchísimo más que lo observado. Como se explicó en los incisos anteriores, el salario contrafactual está cercanamente relacionado con el índice de productividad, que a su vez se obtiene a partir de las variables del PIB, Población Económicamente Activa (PEA) y el Índice de Volumen Físico Acumulado (capital).
+2.  **Periodo 2010 - 2019:** Durante este periodo resaltan dos elementos; en primer lugar, una tendencia relativamente lenta, pero consistente, a la alza del salario contrafactual calculado y también del observado; por otro lado, una relativa similitud en los movimientos de ambos salarios.
+3.  **2019 - 2020:** Derivado de la pandemia por Covid-19 y del crecimiento económico escaso que le precedió, el salario contrafactual se comporta como uno esperaría, esto es, presenta una caída importante respecto a la tendencia precedente, con una ligera recuperación en los últimos meses de 2020. Por su parte, el salario real observado muestra, de hecho, una continuación de la tendencia positiva de aumento, exceptuando el segundo trimestre de 2020, donde se exhibe una caída sustantiva de este, para luego volverse a recuperar.
+
+Todos estos comportamientos son consistentes con los modelos de contratos implícitos, los cuales parten de la hipótesis de que las empresas son menos adversas al riesgo que los trabajadores, lo que implica negociaciones salariales y contractuales relativamente estables. De hecho, un supuesto nuclear de estos modelos es que la empresa provee de un salario constante al trabajador, el cual es más estable que su productividad laboral y se sostiene durante las contingencias económicas.
+
+Si bien el salario real observado no se mantiene constante, sí sigue una tendencia relativamente estable a la alza y no presenta modificaciones abruptas ante coyunturas económicas importantísimas como la crisis de 2008 o la pandemia por Covid-19.
 
 \newpage
 
