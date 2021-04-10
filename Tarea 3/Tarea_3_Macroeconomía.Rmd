@@ -414,24 +414,24 @@ bdanual <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/
 
 **Obtenga del INEGI una serie anual de los salarios (en términos reales) en México, calcule la serie de su tasa de cambio anual, calcule la volatilidad de dicha serie. (Serie 1)**
 
-En la siguiente gráfica se muestra la evolución del salario promedio de la industria manufacturera de México desde 2007 a 2020, en dólares por hora de trabajo y con año base 2013. Se observa una caída en el año 2009, se recupera lentamente alcanzando su nivel máximo del periodo en el 2014 y  cae nuevamente en el 2015 y 2016, año en que alcanza el nivel más bajo comparable al de 2009. Se muestra una recuperación del 2006 a 2020, año en que se muestra una caída ligera con datos preliminares. Es importante notar una variabilidad alta de este indicador. 
+En la siguiente gráfica se muestra la evolución del salario promedio anual de  México desde 2007 a 2020,  en pesos constantes de 2019. Se observa una caída en el año 2010, se recupera desde el año 2017. La tendencia hasta este año es decreciente. 
 
 ```{r}
-salario_anual <- ts(bdanual$salario_manuf, start=2007, frequency = 1)
-ts.plot (salario_anual,   xlab="Años", ylab="Salario por hora", main="Gráfica 2.1 Salario en México, dólares por hora base 2019.", col="blue", lwd=2)
+salario_anual <- ts(bdanual$salario_anual_totreal, start=2007, frequency = 1)
+ts.plot (salario_anual,   xlab="Años", ylab="Salario anual promedio", main="Gráfica 2.1 Salario promedio anual en México, base 2019.", col="blue", lwd=2)
 volatil_salario<-sd(salario_anual)
 
 ```
 
-Por otra parte, en la siguiente gráfica se muestra la tasa de crecimiento de este salario en México desde 2008 a 2020. La tasa de crecimiento promedio en el periodo es positiva y muy cercana a cero, con las mayores caídas (aproximadamente del 13.5%) en el año 2009 y 2015. La volatilidad de esta tasa de crecimiento, medido por la desviación estándar es de 7.57. 
+Por otra parte, en la siguiente gráfica se muestra la tasa de crecimiento de este salario en México desde 2008 a 2020. La tasa de crecimiento promedio en el periodo es negativa y muy cercana a cero, con las mayores caídas (aproximadamente del 6%) en el año 2010. La volatilidad de esta tasa de crecimiento, medido por la desviación estándar es de 2.12. 
 
 ```{r}
 tc_salario_anual <- growth.rate(salario_anual, lag=1)
 volatil_tc_salario<-sd(tc_salario_anual)
 ts.plot (tc_salario_anual,   xlab="Años", ylab="Tasa de crecimiento", main="Gráfica 2.2 Tasa de crecimiento del salario en México.", col="blue", lwd=2) 
 abline(h = mean(tc_salario_anual), col ="red", legend("bottomright", "Media", fill = "red"))
-abline(h = mean(tc_salario_anual)-sd(tc_salario_anual), col ="green", legend("bottomleft", "sd(7.57)", fill = "green"))
-abline(h = mean(tc_salario_anual)+sd(tc_salario_anual), col ="green", legend("bottomleft", "sd(7.57)", fill = "green"))
+abline(h = mean(tc_salario_anual)-sd(tc_salario_anual), col ="green", legend("bottomleft", "sd(2.12)", fill = "green"))
+abline(h = mean(tc_salario_anual)+sd(tc_salario_anual), col ="green", legend("bottomleft", "sd(2.12)", fill = "green"))
 ```
 
 ### b) 
@@ -457,6 +457,7 @@ abline(h = mean(tc_empleo_anual), col ="red", legend("topleft", "Media", fill = 
 abline(h = mean(tc_empleo_anual)-sd(tc_empleo_anual), col ="green", legend("bottomleft", "sd(2.46)", fill = "green"))
 abline(h = mean(tc_empleo_anual)+sd(tc_empleo_anual), col ="green", legend("bottomleft", "sd(2.46)", fill = "green"))
 ```
+
 
 
 ### c) 
@@ -487,11 +488,12 @@ abline(h = mean(tc_pib_anual)+sd(tc_pib_anual), col ="green", legend("bottomleft
 
 
 
+
 ### d) 
 
 **Grafique las tres series de tasas de cambios de forma que se puedan comparar.**
 
-La siguiente gráfica muestra las tasas de crecimiento de los salarios reales, del nivel de empleos y del  PIB real. La variable más volátil es la de la tasa de crecimiento de los salarios de las industrias manufactureras (7.57), seguido por la tasa de crecimiento del PIB (3.78) y finalmente la tasa de crecimiento del empleo (2.46). 
+La siguiente gráfica muestra las tasas de crecimiento de los salarios reales, del nivel de empleos y del  PIB real. La variable más volátil es la de la  tasa de crecimiento del PIB (3.78), luego  la tasa de crecimiento del empleo (2.46) y finalmente la tasa de crecimiento del salario promedio anual (2.12). 
 
 ```{r}
 tc_salario_anual<- ts(tc_salario_anual, start=2008, frequency = 1)
@@ -502,6 +504,8 @@ tc_pib_anual<- ts(tc_pib_anual, start=2008, frequency = 1)
 ts.plot (tc_salario_anual, tc_empleo_anual, tc_pib_anual, gpars=list(xlab="Años", ylab="Tasas de crecimiento", main=" Gráfica 2.7 Tasas de crecimiento del empleo, salarios y PIB en México.", col=c("green","blue","red"),lwd= 2, cex.main=0.9))
 legend ('bottom', col=c("green","blue","red"),lwd=3, legend=c("Salario","Empleo","PIB"), bg='white',bty="n",cex=0.7)
 ```
+
+
 
 
 ### e)
@@ -518,12 +522,12 @@ cov_tc_empleo_pib<-cov(tc_empleo_anual,tc_pib_anual, method = c("pearson"))
 cor_tc_salario_pib<-cor(salario_anual,pib_anual, method = c("pearson"))
 cor_tc_empleo_pib<-cor(empleo_anual,pib_anual, method = c("pearson"))
 
+
 ```
 
 
-En el siguiente cuadro podemos observar las covarianzas (por el método de Pearson) entre la tasa de crecimiento del salario y la tasa de crecimiento del PIB, así como la covarianza de la tasa de crecimiento del empleo y la tasa de crecimiento del PIB. Observemos que para el primer caso, la covarianza es positiva, al igual que en el segundo caso. 
+En el siguiente cuadro podemos observar las covarianzas (por el método de Pearson) entre la tasa de crecimiento del salario y la tasa de crecimiento del PIB, así como la covarianza de la tasa de crecimiento del empleo y la tasa de crecimiento del PIB. Observemos que para el primer caso, la covarianza es negativa, mientras que en el caso de la covarianza del PIB con el empleo es positiva. 
 
-Estos son los signos esperados por los hechos estilizados de las economías como por ejemplo la de EEUU. 
 
 ```{=tex}
 \begin{center}
@@ -532,12 +536,12 @@ Estos son los signos esperados por los hechos estilizados de las economías como
 ```
 |              Variables             | Covarianza              |
 |:----------------------------------:|:-----------------------:|
-|          Salario y PIB             |     9.3303              |
-|          Empleo y PIB              |     3.5544              |
+|          Salario y PIB             |     -2.8584             |
+|          Empleo y PIB              |      3.5544             |
 
 
 
-En siguiente cuadro podemos observar el coeficiente de correlación de Pearson entre la tasa de crecimiento del salario y la tasa de crecimiento del PIB, así como el coeficiente de correlación de la tasa de crecimiento del empleo y la tasa de crecimiento del PIB. Observemos que para el primer caso, el coeficiente es positivo, el igual que en el segundo caso, sin embargo es poco significativo y muy cercano a cero, mientras que la correlación de la tasa de crecimiento del empleo y la tasa de crecimiento del PIB es bastante alto, muy cercano a 1. Esto muestra que el empleo es bastante procíclico, mientras que el salario cambia positiva y muy marginalmente con el ciclo económico. 
+En siguiente cuadro podemos observar el coeficiente de correlación de Pearson entre la tasa de crecimiento del salario y la tasa de crecimiento del PIB, así como el coeficiente de correlación de la tasa de crecimiento del empleo y la tasa de crecimiento del PIB. Observemos que para el primer caso, el coeficiente es negativa de -0.4936, mienttras que en el segundo caso es positiva de 0.9499 más cercana a 1.  Esto muestra que el empleo es bastante procíclico, mientras que el salario es contracíclico, aunque en un menor importancia. 
 
 ```{=tex}
 \begin{center}
@@ -546,8 +550,8 @@ En siguiente cuadro podemos observar el coeficiente de correlación de Pearson e
 ```
 |              Variables             | Correlación             |
 |:----------------------------------:|:-----------------------:|
-|          Salario y PIB             |     0.1518              |
-|          Empleo y PIB              |     0.9499              |
+|          Salario y PIB             |     -0.4936             |
+|          Empleo y PIB              |      0.9499             |
 
 
 
@@ -555,7 +559,8 @@ En siguiente cuadro podemos observar el coeficiente de correlación de Pearson e
 
 **Explique si los resultados son o no consistentes con los hechos estilizados para EEUU que se discutieron en clase.**
 
-Los resultados muestran que para el caso de México, en el periodo 2007 a 2020, considerando las tasas de crecimiento del salario por hora en dólares a precios constantes de 2013 de la industria manufacturera, del personal ocupado total nacional y del PIB real nacional, que el empleo es muy procíclico y el salario también, aunque a un nivel poco significativo. Es decir, la tasa de crecimiento de los niveles de empleo se mueve conforme al ciclo económico, si la economía está en una etapa de crecimiento acelerado, también los niveles de empleo incrementan, por otra parte, los salarios tienden permanecer casi constantes aunque con un efecto positivo muy marginal. 
+Los resultados muestran que para el caso de México, en el periodo 2007 a 2020, considerando las tasas de crecimiento del salario promedio anual a precios constantes de 2019, del personal ocupado total nacional y del PIB real nacional, que el empleo es muy procíclico y el salario contracíclico, aunque a un nivel menos significativo. Es decir, la tasa de crecimiento de los niveles de empleo se mueve positivamente conforme al ciclo económico, si la economía está en una etapa de crecimiento acelerado, también los niveles de empleo incrementan, por otra parte, los salarios tienden a disminuir con esta fase favorable del cíclo económico.  
+
 
 \newpage
 
