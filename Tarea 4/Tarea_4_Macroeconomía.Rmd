@@ -188,8 +188,8 @@ A continuación se muestra el comportamiento de los valores absolutos de cada in
 ```{r}
 captaciones3<- ts(captaciones3, start=1986, frequency = 1)
 
-ts.plot (captaciones3[,3], captaciones3[,4], captaciones3[,5], captaciones3[,6], captaciones3[,7], captaciones3[,8], captaciones3[,9], captaciones3[,10], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.1. Niveles absolutos de los instrumentos \n de financiación de la banca comercial, 1986-2020", col=c("green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
-legend ('topleft', col=c("green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd=3, legend=c("Cuentas de cheques","A la vista","Depósitos de nómina", "Cuentas de ahorro", "Depósitos retirables", "Depósitos a plazo", "Pagarés", "Banca de inversión"), bg='white',bty="n",cex=0.7)
+ts.plot (captaciones3[,2], captaciones3[,3], captaciones3[,4], captaciones3[,5], captaciones3[,6], captaciones3[,7], captaciones3[,8], captaciones3[,9], captaciones3[,10], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.1. Niveles absolutos de los instrumentos \n de financiación de la banca comercial, 1986-2020", col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
+legend ('topleft', col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd=3, legend=c("Total", "Cuentas de cheques","A la vista","Depósitos de nómina", "Cuentas de ahorro", "Depósitos retirables", "Depósitos a plazo", "Pagarés", "Banca de inversión"), bg='white',bty="n",cex=0.7)
 ```
 
 En primer lugar, resulta evidente que algunas denominaciones financieras han dejado de utilizarse o comenzado a utilizarse en diversos momentos del tiempo. Esto se debe a que, en ocasiones, la definición de un concepto "absorbe" a otra y se comienza a incluir al momento de calcularla.
@@ -238,12 +238,39 @@ Primeramente, se observa que los pagarés constituían una gran parte de la fina
 
 Además, puede verse el incremento en la participación de 3 instrumentos, principalmente: cuentas de cheques, depósitos a la vista y depósitos a plazo. En los últimos 15 o 20 años, los tres han aumentado su importancia como medios de financiación del sector bancario comercial.
 
-Finalmente, y en consistencia con lo explicado con anterioridad, la participación de la banca de inversión se ha reducido sustantivamente a partir del año 2000, lo que implica que los recursos utilizados en instrumentos de inversión y reportos no han seguido la tendencia ascendente de todos los demás instrumentos de financiación de la banca comercial.
+Adicionalmente, y en consistencia con lo explicado con anterioridad, la participación de la banca de inversión se ha reducido sustantivamente a partir del año 2000, lo que implica que los recursos utilizados en instrumentos de inversión y reportos no han seguido la tendencia ascendente de todos los demás instrumentos de financiación de la banca comercial.
+
+Finalmente, es claro que, a partir de cierto momento durante la primer década del siglo, la financiación de la banca comercial se divide, de manera absoluta, en cuatro instrumentos: cuentas de cheques, depósitos a la vista, depósitos a plazo y banca de inversión.
 
 
 ## b)
 
 **Obtenga de la misma fuente información del tipo de créditos que el sistema bancario (comercial) mexicano otorga, y haga gráficas describiendo la evolución en el tiempo de distintos tipos de crédito y de la proporción que cada uno representa del total. Al igual que en el inciso anterior, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.**
+
+```{r include=FALSE}
+financiamiento3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_financiamiento.csv")
+```
+
+Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos", específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente. Así, se observa que la captación de la banca comercial está compuesta por:
+
+1. Cuentas de cheques;
+2. A la vista en cuenta corriente;
+3. Depósitos de nómina y otros retirables solo con tarjeta de débito;
+4. Cuentas de ahorro;
+5. Depósitos retirables en días preestablecidos;
+6. Depósitos a plazo;
+7. Pagarés con rendimiento liquidable al vencimiento; y
+8. Banca de inversión y reportos.
+
+A continuación se muestra el comportamiento de los valores absolutos de cada instrumento reportado en la serie:
+
+```{r}
+financiamiento3<- ts(financiamiento3, start=2004, frequency = 12)
+
+ts.plot (financiamiento3[,2], financiamiento3[,3], financiamiento3[,4], financiamiento3[,5], financiamiento3[,6], financiamiento3[,7], financiamiento3[,8],  gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.3. Niveles absolutos de la financiación \n otorgada por la banca comercial, 2004-2021", col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd= 1, cex.main=0.9))
+legend ('topleft', col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd=3, legend=c("Total", "Sector privado no financiero","Secor financiero no bancario","Sector público", "Otros sectores", "Sector externo", "Crédito a banca comercial"), bg='white',bty="n",cex=0.7)
+```
+
 
 ## c)
 
