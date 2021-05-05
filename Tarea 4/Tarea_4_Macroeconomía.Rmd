@@ -157,6 +157,8 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 
 **c) ¿Existe algún tipo de arreglo que el banco puede ofrecer para mejorar el resultado de la autarquía?**
 
+\newpage
+
 # Ejercicio 2.
 
 **Estudie el financiamiento del sistema bancario en México a la luz del concepto de "transformación de madurez": [3 horas, 1 puntos cada inciso].**
@@ -164,6 +166,80 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 ## a)
 
 **Obtenga, del SIE/Financiamiento e información financiera de intermediarios financieros/ del Banco de México, información de las formas de financiamiento del sector bancario (comercial) mexicano, y haga gráficas describiendo la evolución en el tiempo de las distintas tipos de financiamiento (depósitos a la vista, financiamiento de mercado y otros) y de la proporción que cada uno representa del total. Es decir, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.**
+
+```{r include=FALSE}
+captaciones3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_captaciones.csv")
+
+```
+
+Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos", específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente. Así, se observa que la captación de la banca comercial está compuesta por:
+
+1. Cuentas de cheques;
+2. A la vista en cuenta corriente;
+3. Depósitos de nómina y otros retirables solo con tarjeta de débito;
+4. Cuentas de ahorro;
+5. Depósitos retirables en días preestablecidos;
+6. Depósitos a plazo;
+7. Pagarés con rendimiento liquidable al vencimiento; y
+8. Banca de inversión y reportos.
+
+A continuación se muestra el comportamiento de los valores absolutos de cada instrumento reportado en la serie:
+
+```{r}
+captaciones3<- ts(captaciones3, start=1986, frequency = 1)
+
+ts.plot (captaciones3[,3], captaciones3[,4], captaciones3[,5], captaciones3[,6], captaciones3[,7], captaciones3[,8], captaciones3[,9], captaciones3[,10], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.1. Niveles absolutos de los instrumentos \n de financiación de la banca comercial, 1986-2020", col=c("green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
+legend ('topleft', col=c("green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd=3, legend=c("Cuentas de cheques","A la vista","Depósitos de nómina", "Cuentas de ahorro", "Depósitos retirables", "Depósitos a plazo", "Pagarés", "Banca de inversión"), bg='white',bty="n",cex=0.7)
+```
+
+En primer lugar, resulta evidente que algunas denominaciones financieras han dejado de utilizarse o comenzado a utilizarse en diversos momentos del tiempo. Esto se debe a que, en ocasiones, la definición de un concepto "absorbe" a otra y se comienza a incluir al momento de calcularla.
+
+Así, puede observarse que, de manera consistente, la captación por cuentas de cheques, depósitos a la vista y depósitos a plazo han exhibido un comportamiento a la alza con el paso del tiempo. Por otro lado, resalta el instrumento de captación de la banca de inversión, que ha presentado un comportamiento más bien estancado a partir del nuevo siglo.
+
+Ahora, se presentan los mismos datos anteriores, pero ahora con cada instrumento como porcentaje del total de la financiación de la banca comercial:
+
+
+```{r include=FALSE}
+captaciones3.1 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_captaciones2.csv")
+
+```
+
+```{r}
+ggplot(captaciones3.1, aes(x=captaciones3.1$time, y=captaciones3.1$percentage, fill=captaciones3.1$group)) + 
+    geom_area(alpha=.7 , size=0.2, colour="black") +
+    xlab("Tiempo") + 
+    ylab("Porcentage") + 
+    labs(fill = "Instrumento") +
+    ggtitle("Gráfica 3.2. Participación porcentual de instrumentos de \n financiación de la banca comercial") +
+    theme(
+    plot.title = element_text(color="black", size=12, face="bold", hjust= c(0.5))
+)
+```
+
+Donde:
+
+A: Cuentas de cheques;
+
+B: A la vista en cuenta corriente;
+
+C: Depósitos de nómina y otros retirables solo con tarjeta de débito;
+
+D. Cuentas de ahorro;
+
+E: Depósitos retirables en días preestablecidos;
+
+F: Depósitos a plazo;
+
+G: Pagarés con rendimiento liquidable al vencimiento; y
+
+H: Banca de inversión y reportos.
+
+Primeramente, se observa que los pagarés constituían una gran parte de la financiación de la banca comercial hasta inicios del nuevo siglo. Derivado de la modernización de los instrumentos financieros, los pagarés perdieron relevancia o fueron absorbidos a través de mecanismos más modernos, por lo que su participación desapareció por completo.
+
+Además, puede verse el incremento en la participación de 3 instrumentos, principalmente: cuentas de cheques, depósitos a la vista y depósitos a plazo. En los últimos 15 o 20 años, los tres han aumentado su importancia como medios de financiación del sector bancario comercial.
+
+Finalmente, y en consistencia con lo explicado con anterioridad, la participación de la banca de inversión se ha reducido sustantivamente a partir del año 2000, lo que implica que los recursos utilizados en instrumentos de inversión y reportos no han seguido la tendencia ascendente de todos los demás instrumentos de financiación de la banca comercial.
+
 
 ## b)
 
@@ -180,6 +256,8 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 ## e)
 
 **A propósito, documente incremento dramático a lo largo del tiempo en el crédito hipotecario como proporción del PIB.**
+
+\newpage
 
 # Ejercicio 3. 
 
