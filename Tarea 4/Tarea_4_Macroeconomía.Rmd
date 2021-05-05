@@ -1,0 +1,197 @@
+---
+title: ""
+date: ""
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[spanish]{babel}
+- \usepackage{graphicx}
+- \usepackage{multirow,rotating}
+- \pagenumbering{gobble} 
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    includes:
+      in_header: labels.tex
+      before_body: cover.tex
+csl: apa.csl
+bibliography: fuentes1.bib
+---
+
+```{=tex}
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+```
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = F, fig.width = 6, fig.height = 3.5)
+```
+
+```{r, include=FALSE}
+
+rm(list = ls())
+
+pacman::p_load(tidyverse,
+               kableExtra,
+               ggplot2,
+               cowplot,
+               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr, imager,lubridate,tseries, astsa, growthrates, tis, dynlm, readxl, foreign)
+```
+
+\newpage
+
+# Instrucciones
+
+```{=tex}
+
+\subsection*{Instrucciones}
+
+Realice los siguientes ejercicios con el equipo que formó para las tareas anteriores. La tarea se califica del 0 al 10. La fecha de entrega es el martes 21 de abril a las 9pm.
+
+\begin{enumerate}
+
+\item Resuelva los ejercicios 10.4, 10.6, 10.11  (5a edición). Realice estos con ayuda de su laboratorista y entregue las soluciones escritas a máquina, utilizando LaTeX. [3 horas,1 punto cada inciso]
+
+\item Estudie el financiamiento del sistema bancario en México a la luz del concepto de "transformación de madurez": [3 horas, 1 puntos cada inciso]
+
+\begin{enumerate}
+
+\item Obtenga, del SIE/Financiamiento e información financiera de intermediarios financieros/ del Banco de México, información de las formas de financiamiento del sector bancario (comercial) mexicano, y haga gráficas describiendo la evolución en el tiempo de las distintas tipos de financiamiento (depósitos a la vista, financiamiento de mercado y otros) y de la proporción que cada uno representa del total. Es decir, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.
+
+\item Obtenga de la misma fuente información del tipo de créditos que el sistema bancario (comercial) mexicano otorga, y haga gráficas describiendo la evolución en el tiempo de distintos tipos de crédito y de la proporción que cada uno representa del total. Al igual que en el inciso anterior, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.
+
+\item Explique si los datos son consistentes con la hipótesis de que los bancos hacen transformación de madurez o si no lo son y porqué. Para ello posiblemente tenga que hacer supuestos (razonables) o buscar información adicional acerca de la madurez de los distintos tipos de financiamiento y crédito otorgado.
+
+\item Explique qué implica la evolución de las formas de financiamiento y los tipos de crédito otorgados que observó en los incisos anteriores para la estabilidad del sistema financiero a la luz del modelo Diamond-Dybvig.
+
+\item A propósito, documente incremento dramático a lo largo del tiempo en el crédito hipotecario como proporción del PIB.
+
+\end{enumerate}
+
+\item Estudie al Gobierno Mexicano y a los corporativos Mexicanos desde el punto de vista de su endeudamiento [1 hora, 1 punto cada inciso]:
+
+\begin{enumerate}
+
+\item Utilice datos del SIE/Valores en Circulación y de SIE/Finanzas públicas del Banco de México para describir la evolución a lo largo del tiempo de la composición de la deuda del Gobierno Mexicano por tipo de instrumento, madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.
+
+\item Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.
+
+
+
+\end{enumerate}
+
+\item Proponga una mejora al archivo Diccionario de Economía utilizando github.
+
+\end{enumerate}
+
+```
+\newpage
+
+# Soluciones
+
+## Ejercicio 1
+
+### 10.4.
+
+**Un enfoque más simple a los costos de agencia: compromiso limitado. (Lacker & Weinberg, 1989; Holmström % Tirole, 1998). Considere el modelo de 10.2 con una fricción diferente: no existe costo de verificar el producto, pero el emprendedor puede esconder la fracción $1-f$ del producto del proyecto del inversos (con $0\leq f \leq 1$). Así, el emprendedor solo puede prometer pagar la fracción $f$ del proyecto de manera creíble.**
+
+#### a) 
+
+**Considere un proyecto con pago esperado $\gamma$ que excede $1+r$. ¿Qué condición sobre el proyecto es necesaria para que se lleve a cabo?**
+
+#### b) 
+
+**Supóngase que la condición encontrada en a) se cumple con desigualdad estricta. ¿Es el contrato entre el inversor y el emprendedor único? Si lo es, ¿cuál es este contrato? Explique por qué.**
+
+#### c) 
+
+**El compromiso limitado lleva a una ineficiencia (relativa al caso sin fricciones) si $\gamma > 1+r$ pero el proyecto se lleva a cabo normalmente. Describa si cada uno de los siguientes casos pueden causar que el proyecto con $\gamma > 1+r$ no se realice:**
+
+**i) Una caída en la riqueza del emprendedor, W.**
+
+**ii) Un incremento en la fracción del proyecto que el emprendedor puede esconder, $1-f$ (esto es, una caída en $f$).**
+
+**iii) Un incremento en el riesgo ideosincrático. Concretamente, supóngase que el producto del proyecto se distribuye uniformemente en $[\gamma -b, \gamma+b]$ y no uniformemente en $[0, 2\gamma]$, y hay un incremento en b.**
+
+### 10.6.
+
+**Riesgo fundamental y riesgo de ruido. Considere la siguiente variante del *trader* ruidoso en las ecuaciones 10.15 - 10.23. Existen tres periodos, denotados 0, 1 y 2. Hay dos activos. El primero es seguro con oferta perfectamente elástica; su tasa de retorno está normalizada a cero: una unidad del bien de la economía invertido en este activo en el periodo 0 implica una unidad del bien retornada en el periodo 1, asimismo, una unidad del bien invertida en el activo en el periodo 1 implica una unidad segura en el periodo 2. El segundo activo es riesgoso; si pago, realizado en el periodo 2, es $1+F_1+F_2$, donde $F_t$ está distribuida normalmente con media 0 y varianza $V_t^F$. $F_1$ se observa en el periodo 1 y $F_2$ en el periodo 2. Este activo tiene una oferta neta de 0. Así, el equilibrio requiere que la suma sobre los agentes de la cantidad del activo demandado sea cero.**
+
+**Existen dos tipos de *traders*. Los primeros son ruidosos y demandan una cantidad $N_0$ del activo riesgoso en el periodo 0 y $N_0 + N_1$ en el periodo 1, donde $N_0$ es exógena y $N_q$ distribuida normalmente con media 0 y varianza $V_1^N$. $F_1, F_2, N_1$ son independientes. El segundo tipo de *trader* es arbitragista. $A_0$ nacen en el periodo 0 y $A_1$ en el periodo 1. Viven por dos periodos y solo valoran el consumo en el segundo periodo de su vida con utilidad $U(C) = -e^{2 \gamma C}, \gamma > 0$. No tienen riqueza inicial.**
+
+#### a) 
+
+**Considere el periodo 1.**
+
+**i) Considere un arbitragista nacido en el periodo 1. ¿Cuál es su consumo del segundo periodo como función de $P_1, F_1, F_2$, y su gasto en el activo riesgoso, $X_1^a$? ¿Cuál es la media y varianza de su consumo del segundo periodo como función de $P_1, F_1, F_2 ~y ~ V_t^F$? ¿CUál es la condición de primer orden de su elección de $X_1^a$?**
+
+**ii) ¿Cuál es la condición de equilibrio del periodo 1?**
+
+**iii) Use los resultados de i) y ii) para encontrar una expresión para $P_1-(1+F_1)$, la diferencia del precio en el periodo 1 de su valor fundamental.**
+
+**iv) ¿Estos resultados apoyan la idea de que riesgos fundamentales más grandes silencian a la voluntad de los arbitragistas de comerciar para eliminar las diferencias de los precios de sus valores fundamentales, lo que lleva a mayores diferencias entre precios y sus valores fundamentales?**
+
+
+#### b) 
+
+**Considere el periodo 0.**
+
+**i) ¿Cuál es la condición de primer orden para $X_0^a$ (compras del activo riesgoso por el arbitragista representativo) en términos de $E_0[P_1]$ y $Var(P_1)$ y los parámetros del modelo?**
+
+**ii) Use el resultado anterior para encontrar $E_0[P_1]$ y $Var(P_1)$ en términos de los parámetros exógenos.**
+
+**iii) Use los resultados anteriores para encontrar una expresión para $P_0-1$, la diferencia del precio de su valor fundamental en el periodo 0.**
+
+**iv) ¿Un incremento en el riesgo fundamental ($V_1^F$ y $V_2^F$) aumenta la diferencia de precios de sus fundamentales? ¿Incrementan al riesgo de los ruidosos? ¿Hay interacciones -esto es, un incremento del riesgo de los ruidosos sube, baja o no tiene efecto sobre el riesgo fundamental?**
+
+
+### 10.11.
+
+**Considere el modelo Diamond-Dybvig descrito en la sección 10.6, pero supóngase que $\rho R < 1.$**
+
+#### a)
+
+**En este caso, cuáles son los valores de $c_1^{a\ast}$ y $c_2^{b\ast}$? ¿Es $c_2^{b\ast} >  c_1^{a\ast}$?**
+
+
+**b) Supóngase que el banco ofrece un contrato del siguiente modo: cualquier que deposite una unidad en el periodo 0 puede retirar $c_1^{a\ast}$ en el periodo 1, sujeto a la disponibilidad de fondos, con cualquier de los activos remanente en el periodo 2 divididos igualmente entre los depositantes que no retiraron en el periodo 1. Explique por qué no es un equilibrio para el tipo a de agente el retirar en el periodo 1 y tampoco para el tipo b el retirar en el periodo 2.**
+
+**c) ¿Existe algún tipo de arreglo que el banco puede ofrecer para mejorar el resultado de la autarquía?**
+
+# Ejercicio 2.
+
+**Estudie el financiamiento del sistema bancario en México a la luz del concepto de "transformación de madurez": [3 horas, 1 puntos cada inciso].**
+
+## a)
+
+**Obtenga, del SIE/Financiamiento e información financiera de intermediarios financieros/ del Banco de México, información de las formas de financiamiento del sector bancario (comercial) mexicano, y haga gráficas describiendo la evolución en el tiempo de las distintas tipos de financiamiento (depósitos a la vista, financiamiento de mercado y otros) y de la proporción que cada uno representa del total. Es decir, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.**
+
+## b)
+
+**Obtenga de la misma fuente información del tipo de créditos que el sistema bancario (comercial) mexicano otorga, y haga gráficas describiendo la evolución en el tiempo de distintos tipos de crédito y de la proporción que cada uno representa del total. Al igual que en el inciso anterior, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.**
+
+## c)
+
+**Explique si los datos son consistentes con la hipótesis de que los bancos hacen transformación de madurez o si no lo son y porqué. Para ello posiblemente tenga que hacer supuestos (razonables) o buscar información adicional acerca de la madurez de los distintos tipos de financiamiento y crédito otorgado.**
+
+## d)
+
+**Explique qué implica la evolución de las formas de financiamiento y los tipos de crédito otorgados que observó en los incisos anteriores para la estabilidad del sistema financiero a la luz del modelo Diamond-Dybvig.**
+
+## e)
+
+**A propósito, documente incremento dramático a lo largo del tiempo en el crédito hipotecario como proporción del PIB.**
+
+# Ejercicio 3. 
+
+**Estudie al Gobierno Mexicano y a los corporativos Mexicanos desde el punto de vista de su endeudamiento [1 hora, 1 punto cada inciso]:**
+
+## a)
+
+**Utilice datos del SIE/Valores en Circulación y de SIE/Finanzas públicas del Banco de México para describir la evolución a lo largo del tiempo de la composición de la deuda del Gobierno Mexicano por tipo de instrumento, madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.**
+
+## b)
+
+**Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.**
+# Referencias
+
+<!-- <div id="refs"></div> -->
