@@ -271,6 +271,23 @@ ts.plot (financiamiento3[,2], financiamiento3[,3], financiamiento3[,4], financia
 legend ('topleft', col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd=3, legend=c("Total", "Sector privado no financiero","Secor financiero no bancario","Sector público", "Otros sectores", "Sector externo", "Crédito a banca comercial"), bg='white',bty="n",cex=0.7)
 ```
 
+```{r include=FALSE}
+financiamiento3.2 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_financiamiento2.csv", 
+    col_types = cols(time = col_date(format = "%d/%m/%Y")))
+```
+
+```{r}
+ggplot(financiamiento3.2, aes(x=financiamiento3.2$time, y=financiamiento3.2$percentage, fill=financiamiento3.2$group)) + 
+    geom_area(alpha=.7 , size=0.2, colour="black") +
+    xlab("Tiempo") + 
+    ylab("Porcentage") + 
+    labs(fill = "Instrumento") +
+    ggtitle("Gráfica 3.4. Participación porcentual de la financiación de \n otorgada por la banca comercial") +
+    theme(
+    plot.title = element_text(color="black", size=12, face="bold", hjust= c(0.5))
+)
+```
+
 
 ## c)
 
