@@ -34,7 +34,7 @@ pacman::p_load(tidyverse,
                kableExtra,
                ggplot2,
                cowplot,
-               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr, imager,lubridate,tseries, astsa, growthrates, tis, dynlm, readxl, foreign)
+               stargazer,knitr,viridis,dplyr,readr,scales,quantmod,texreg,tinytex, tidyr, imager,lubridate,tseries, astsa, growthrates, tis, dynlm, readxl, foreign, hrbthemes)
 ```
 
 \newpage
@@ -86,7 +86,7 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 
 # Soluciones
 
-## Ejercicio 1
+# Ejercicio 1.
 
 ### 10.4.
 
@@ -377,6 +377,28 @@ Por último, la proporción del crédito otorgado al sector externo y a la misma
 
 **A propósito, documente incremento dramático a lo largo del tiempo en el crédito hipotecario como proporción del PIB.**
 
+A continuación se muestra la evolución del crédito hipotecario otorgado por el sector financiero de México como proporción del PIB, a partir de 1994, de manera trimestral:
+
+```{r include=FALSE}
+hipotecas3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_creditohipotecario.csv", 
+    col_types = cols(time = col_date(format = "%d/%m/%Y")))
+
+```
+
+```{r}
+# Most basic bubble plot
+
+hipotecas3<- ts(hipotecas3, start=1994, frequency = 4)
+
+ts.plot (hipotecas3[,4],  gpars=list(xlab="Años", ylab="Porcentaje", main=" Gráfica 3.5. Financiamiento hipotecario \n como proporción del PIB, 1994 - 2020, trimestral.", col=c("blue"),lwd= 2, cex.main=0.9))
+```
+
+En primer lugar, es necesario apuntar que, durante los años 1994-1996 existen algunos valores no reportados en la serie, razón por la cual el porcentaje es igual a 0. Sin embargo, a partir de 1997 se observa una tendencia consistentemente ascendente del financiamiento hipotecario como proporción del PIB, hasta legar a niveles de 18%.
+
+Es interesante notar que antes del inicio de la pandemia por Covid-19, durante el primer y segundo trimestres de 2020 el aumento fue muy pronunciado para después caer. En general, puede atribuirse este comportamiento al hecho de que las tasas de interés en México han sido históricamente bajas, lo cual estimula el consumo y, por ende, el gasto, en este caso, en vivienda.
+
+De hecho, aunque los datos todavía no se encuentran disponibles, diversas fuentes como [@realestate] y [@eluniversal] aseguran que los créditos hipotecarios han frenado su caída derivado de la pandemia y se encuentran en una senda de recuperación debido, principalmente, a las tasas de interés históricamente bajas y al creciente progreso tecnológico que ha facilitado la adquisición de créditos hipotecarios.
+
 \newpage
 
 # Ejercicio 3.
@@ -389,6 +411,8 @@ Por último, la proporción del crédito otorgado al sector externo y a la misma
 
 ## b)
 
-**Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.** \# Referencias
+**Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.** 
+
+# Referencias
 
 <!-- <div id="refs"></div> -->
