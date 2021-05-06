@@ -42,7 +42,6 @@ pacman::p_load(tidyverse,
 # Instrucciones
 
 ```{=tex}
-
 \subsection*{Instrucciones}
 
 Realice los siguientes ejercicios con el equipo que formó para las tareas anteriores. La tarea se califica del 0 al 10. La fecha de entrega es el martes 21 de abril a las 9pm.
@@ -82,7 +81,6 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 \item Proponga una mejora al archivo Diccionario de Economía utilizando github.
 
 \end{enumerate}
-
 ```
 \newpage
 
@@ -92,68 +90,65 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 
 ### 10.4.
 
-**Un enfoque más simple a los costos de agencia: compromiso limitado. (Lacker & Weinberg, 1989; Holmström % Tirole, 1998). Considere el modelo de 10.2 con una fricción diferente: no existe costo de verificar el producto, pero el emprendedor puede esconder la fracción $1-f$ del producto del proyecto del inversos (con $0\leq f \leq 1$). Así, el emprendedor solo puede prometer pagar la fracción $f$ del proyecto de manera creíble.**
-
-#### a) 
-
-**Considere un proyecto con pago esperado $\gamma$ que excede $1+r$. ¿Qué condición sobre el proyecto es necesaria para que se lleve a cabo?**
-
-#### b) 
-
-**Supóngase que la condición encontrada en a) se cumple con desigualdad estricta. ¿Es el contrato entre el inversor y el emprendedor único? Si lo es, ¿cuál es este contrato? Explique por qué.**
-
-#### c) 
-
-**El compromiso limitado lleva a una ineficiencia (relativa al caso sin fricciones) si $\gamma > 1+r$ pero el proyecto se lleva a cabo normalmente. Describa si cada uno de los siguientes casos pueden causar que el proyecto con $\gamma > 1+r$ no se realice:**
-
-**i) Una caída en la riqueza del emprendedor, W.**
-
-**ii) Un incremento en la fracción del proyecto que el emprendedor puede esconder, $1-f$ (esto es, una caída en $f$).**
-
-**iii) Un incremento en el riesgo ideosincrático. Concretamente, supóngase que el producto del proyecto se distribuye uniformemente en $[\gamma -b, \gamma+b]$ y no uniformemente en $[0, 2\gamma]$, y hay un incremento en b.**
-
-### 10.6.
-
-**Riesgo fundamental y riesgo de ruido. Considere la siguiente variante del *trader* ruidoso en las ecuaciones 10.15 - 10.23. Existen tres periodos, denotados 0, 1 y 2. Hay dos activos. El primero es seguro con oferta perfectamente elástica; su tasa de retorno está normalizada a cero: una unidad del bien de la economía invertido en este activo en el periodo 0 implica una unidad del bien retornada en el periodo 1, asimismo, una unidad del bien invertida en el activo en el periodo 1 implica una unidad segura en el periodo 2. El segundo activo es riesgoso; si pago, realizado en el periodo 2, es $1+F_1+F_2$, donde $F_t$ está distribuida normalmente con media 0 y varianza $V_t^F$. $F_1$ se observa en el periodo 1 y $F_2$ en el periodo 2. Este activo tiene una oferta neta de 0. Así, el equilibrio requiere que la suma sobre los agentes de la cantidad del activo demandado sea cero.**
-
-**Existen dos tipos de *traders*. Los primeros son ruidosos y demandan una cantidad $N_0$ del activo riesgoso en el periodo 0 y $N_0 + N_1$ en el periodo 1, donde $N_0$ es exógena y $N_q$ distribuida normalmente con media 0 y varianza $V_1^N$. $F_1, F_2, N_1$ son independientes. El segundo tipo de *trader* es arbitragista. $A_0$ nacen en el periodo 0 y $A_1$ en el periodo 1. Viven por dos periodos y solo valoran el consumo en el segundo periodo de su vida con utilidad $U(C) = -e^{2 \gamma C}, \gamma > 0$. No tienen riqueza inicial.**
-
-#### a) 
-
-**Considere el periodo 1.**
-
-**i) Considere un arbitragista nacido en el periodo 1. ¿Cuál es su consumo del segundo periodo como función de $P_1, F_1, F_2$, y su gasto en el activo riesgoso, $X_1^a$? ¿Cuál es la media y varianza de su consumo del segundo periodo como función de $P_1, F_1, F_2 ~y ~ V_t^F$? ¿CUál es la condición de primer orden de su elección de $X_1^a$?**
-
-**ii) ¿Cuál es la condición de equilibrio del periodo 1?**
-
-**iii) Use los resultados de i) y ii) para encontrar una expresión para $P_1-(1+F_1)$, la diferencia del precio en el periodo 1 de su valor fundamental.**
-
-**iv) ¿Estos resultados apoyan la idea de que riesgos fundamentales más grandes silencian a la voluntad de los arbitragistas de comerciar para eliminar las diferencias de los precios de sus valores fundamentales, lo que lleva a mayores diferencias entre precios y sus valores fundamentales?**
-
-
-#### b) 
-
-**Considere el periodo 0.**
-
-**i) ¿Cuál es la condición de primer orden para $X_0^a$ (compras del activo riesgoso por el arbitragista representativo) en términos de $E_0[P_1]$ y $Var(P_1)$ y los parámetros del modelo?**
-
-**ii) Use el resultado anterior para encontrar $E_0[P_1]$ y $Var(P_1)$ en términos de los parámetros exógenos.**
-
-**iii) Use los resultados anteriores para encontrar una expresión para $P_0-1$, la diferencia del precio de su valor fundamental en el periodo 0.**
-
-**iv) ¿Un incremento en el riesgo fundamental ($V_1^F$ y $V_2^F$) aumenta la diferencia de precios de sus fundamentales? ¿Incrementan al riesgo de los ruidosos? ¿Hay interacciones -esto es, un incremento del riesgo de los ruidosos sube, baja o no tiene efecto sobre el riesgo fundamental?**
-
-
-### 10.11.
-
-**Considere el modelo Diamond-Dybvig descrito en la sección 10.6, pero supóngase que $\rho R < 1.$**
+**Un enfoque más simple a los costos de agencia: compromiso limitado. (Lacker & Weinberg, 1989; Holmström % Tirole, 1998). Considere el modelo de 10.2 con una fricción diferente: no existe costo de verificar el producto, pero el emprendedor puede esconder la fracción** $1-f$ del producto del proyecto del inversos (con $0\leq f \leq 1$). Así, el emprendedor solo puede prometer pagar la fracción $f$ del proyecto de manera creíble.
 
 #### a)
 
-**En este caso, cuáles son los valores de $c_1^{a\ast}$ y $c_2^{b\ast}$? ¿Es $c_2^{b\ast} >  c_1^{a\ast}$?**
+**Considere un proyecto con pago esperado** $\gamma$ que excede $1+r$. ¿Qué condición sobre el proyecto es necesaria para que se lleve a cabo?
 
+#### b)
 
-**b) Supóngase que el banco ofrece un contrato del siguiente modo: cualquier que deposite una unidad en el periodo 0 puede retirar $c_1^{a\ast}$ en el periodo 1, sujeto a la disponibilidad de fondos, con cualquier de los activos remanente en el periodo 2 divididos igualmente entre los depositantes que no retiraron en el periodo 1. Explique por qué no es un equilibrio para el tipo a de agente el retirar en el periodo 1 y tampoco para el tipo b el retirar en el periodo 2.**
+**Supóngase que la condición encontrada en a) se cumple con desigualdad estricta. ¿Es el contrato entre el inversor y el emprendedor único? Si lo es, ¿cuál es este contrato? Explique por qué.**
+
+#### c)
+
+**El compromiso limitado lleva a una ineficiencia (relativa al caso sin fricciones) si** $\gamma > 1+r$ pero el proyecto se lleva a cabo normalmente. Describa si cada uno de los siguientes casos pueden causar que el proyecto con $\gamma > 1+r$ no se realice:
+
+**i) Una caída en la riqueza del emprendedor, W.**
+
+**ii) Un incremento en la fracción del proyecto que el emprendedor puede esconder,** $1-f$ (esto es, una caída en $f$).
+
+**iii) Un incremento en el riesgo ideosincrático. Concretamente, supóngase que el producto del proyecto se distribuye uniformemente en** $[\gamma -b, \gamma+b]$ y no uniformemente en $[0, 2\gamma]$, y hay un incremento en b.
+
+### 10.6.
+
+**Riesgo fundamental y riesgo de ruido. Considere la siguiente variante del *trader* ruidoso en las ecuaciones 10.15 - 10.23. Existen tres periodos, denotados 0, 1 y 2. Hay dos activos. El primero es seguro con oferta perfectamente elástica; su tasa de retorno está normalizada a cero: una unidad del bien de la economía invertido en este activo en el periodo 0 implica una unidad del bien retornada en el periodo 1, asimismo, una unidad del bien invertida en el activo en el periodo 1 implica una unidad segura en el periodo 2. El segundo activo es riesgoso; si pago, realizado en el periodo 2, es** $1+F_1+F_2$, donde $F_t$ está distribuida normalmente con media 0 y varianza $V_t^F$. $F_1$ se observa en el periodo 1 y $F_2$ en el periodo 2. Este activo tiene una oferta neta de 0. Así, el equilibrio requiere que la suma sobre los agentes de la cantidad del activo demandado sea cero.
+
+**Existen dos tipos de *traders*. Los primeros son ruidosos y demandan una cantidad** $N_0$ del activo riesgoso en el periodo 0 y $N_0 + N_1$ en el periodo 1, donde $N_0$ es exógena y $N_q$ distribuida normalmente con media 0 y varianza $V_1^N$. $F_1, F_2, N_1$ son independientes. El segundo tipo de *trader* es arbitragista. $A_0$ nacen en el periodo 0 y $A_1$ en el periodo 1. Viven por dos periodos y solo valoran el consumo en el segundo periodo de su vida con utilidad $U(C) = -e^{2 \gamma C}, \gamma > 0$. No tienen riqueza inicial.
+
+#### a)
+
+**Considere el periodo 1.**
+
+**i) Considere un arbitragista nacido en el periodo 1. ¿Cuál es su consumo del segundo periodo como función de** $P_1, F_1, F_2$, y su gasto en el activo riesgoso, $X_1^a$? ¿Cuál es la media y varianza de su consumo del segundo periodo como función de $P_1, F_1, F_2 ~y ~ V_t^F$? ¿CUál es la condición de primer orden de su elección de $X_1^a$?
+
+**ii) ¿Cuál es la condición de equilibrio del periodo 1?**
+
+**iii) Use los resultados de i) y ii) para encontrar una expresión para** $P_1-(1+F_1)$, la diferencia del precio en el periodo 1 de su valor fundamental.
+
+**iv) ¿Estos resultados apoyan la idea de que riesgos fundamentales más grandes silencian a la voluntad de los arbitragistas de comerciar para eliminar las diferencias de los precios de sus valores fundamentales, lo que lleva a mayores diferencias entre precios y sus valores fundamentales?**
+
+#### b)
+
+**Considere el periodo 0.**
+
+**i) ¿Cuál es la condición de primer orden para** $X_0^a$ (compras del activo riesgoso por el arbitragista representativo) en términos de $E_0[P_1]$ y $Var(P_1)$ y los parámetros del modelo?
+
+**ii) Use el resultado anterior para encontrar** $E_0[P_1]$ y $Var(P_1)$ en términos de los parámetros exógenos.
+
+**iii) Use los resultados anteriores para encontrar una expresión para** $P_0-1$, la diferencia del precio de su valor fundamental en el periodo 0.
+
+**iv) ¿Un incremento en el riesgo fundamental (**$V_1^F$ y $V_2^F$) aumenta la diferencia de precios de sus fundamentales? ¿Incrementan al riesgo de los ruidosos? ¿Hay interacciones -esto es, un incremento del riesgo de los ruidosos sube, baja o no tiene efecto sobre el riesgo fundamental?
+
+### 10.11.
+
+**Considere el modelo Diamond-Dybvig descrito en la sección 10.6, pero supóngase que** $\rho R < 1.$
+
+#### a)
+
+**En este caso, cuáles son los valores de** $c_1^{a\ast}$ y $c_2^{b\ast}$? ¿Es $c_2^{b\ast} > c_1^{a\ast}$?
+
+**b) Supóngase que el banco ofrece un contrato del siguiente modo: cualquier que deposite una unidad en el periodo 0 puede retirar** $c_1^{a\ast}$ en el periodo 1, sujeto a la disponibilidad de fondos, con cualquier de los activos remanente en el periodo 2 divididos igualmente entre los depositantes que no retiraron en el periodo 1. Explique por qué no es un equilibrio para el tipo a de agente el retirar en el periodo 1 y tampoco para el tipo b el retirar en el periodo 2.
 
 **c) ¿Existe algún tipo de arreglo que el banco puede ofrecer para mejorar el resultado de la autarquía?**
 
@@ -172,16 +167,16 @@ captaciones3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMa
 
 ```
 
-Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos", específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente. Así, se observa que la captación de la banca comercial está compuesta por:
+Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos" del Sistema de Información Económica de [@banxico], específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente. Así, se observa que la captación de la banca comercial está compuesta por:
 
-1. Cuentas de cheques;
-2. A la vista en cuenta corriente;
-3. Depósitos de nómina y otros retirables solo con tarjeta de débito;
-4. Cuentas de ahorro;
-5. Depósitos retirables en días preestablecidos;
-6. Depósitos a plazo;
-7. Pagarés con rendimiento liquidable al vencimiento; y
-8. Banca de inversión y reportos.
+1.  Cuentas de cheques;
+2.  A la vista en cuenta corriente;
+3.  Depósitos de nómina y otros retirables solo con tarjeta de débito;
+4.  Cuentas de ahorro;
+5.  Depósitos retirables en días preestablecidos;
+6.  Depósitos a plazo;
+7.  Pagarés con rendimiento liquidable al vencimiento; y
+8.  Banca de inversión y reportos.
 
 A continuación se muestra el comportamiento de los valores absolutos de cada instrumento reportado en la serie:
 
@@ -197,7 +192,6 @@ En primer lugar, resulta evidente que algunas denominaciones financieras han dej
 Así, puede observarse que, de manera consistente, la captación por cuentas de cheques, depósitos a la vista y depósitos a plazo han exhibido un comportamiento a la alza con el paso del tiempo. Por otro lado, resalta el instrumento de captación de la banca de inversión, que ha presentado un comportamiento más bien estancado a partir del nuevo siglo.
 
 Ahora, se presentan los mismos datos anteriores, pero ahora con cada instrumento como porcentaje del total de la financiación de la banca comercial:
-
 
 ```{r include=FALSE}
 captaciones3.1 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_captaciones2.csv")
@@ -242,7 +236,6 @@ Adicionalmente, y en consistencia con lo explicado con anterioridad, la particip
 
 Finalmente, es claro que, a partir de cierto momento durante la primer década del siglo, la financiación de la banca comercial se divide, de manera absoluta, en cuatro instrumentos: cuentas de cheques, depósitos a la vista, depósitos a plazo y banca de inversión.
 
-
 ## b)
 
 **Obtenga de la misma fuente información del tipo de créditos que el sistema bancario (comercial) mexicano otorga, y haga gráficas describiendo la evolución en el tiempo de distintos tipos de crédito y de la proporción que cada uno representa del total. Al igual que en el inciso anterior, hay que producir dos gráficas de series de tiempo en la que el valor total está constituido por varias partes intermedias.**
@@ -251,18 +244,73 @@ Finalmente, es claro que, a partir de cierto momento durante la primer década d
 financiamiento3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_financiamiento.csv")
 ```
 
-Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos", específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente. Así, se observa que la captación de la banca comercial está compuesta por:
+Para este inciso, se hizo uso de los datos sobre el "Financiamiento otorgado por la banca comercial", de [@banxico], específicamente, la serie "Crédito por actividad económica según la actividad principal de los acreditados", que va de enero del 2004 a marzo del 2021, reportada mensualmente.
 
-1. Cuentas de cheques;
-2. A la vista en cuenta corriente;
-3. Depósitos de nómina y otros retirables solo con tarjeta de débito;
-4. Cuentas de ahorro;
-5. Depósitos retirables en días preestablecidos;
-6. Depósitos a plazo;
-7. Pagarés con rendimiento liquidable al vencimiento; y
-8. Banca de inversión y reportos.
+Así, se observa que el financiamiento otorgado por la banca comercial se divide en:
 
-A continuación se muestra el comportamiento de los valores absolutos de cada instrumento reportado en la serie:
+1.  Sector privado no financiero;
+
+    I.  Empresas privadas no financieras
+
+        i.  Actividades primarias
+
+        ii. Actividades secundarias
+
+        iii. Actividades terciarias
+
+    II. Hogares
+
+        i.  Crédito a la vivienda
+
+        ii. Crédito al consumo
+
+2.  Sector financiero no bancario;
+
+    I.  Privado
+
+        i.  Uniones de crédito
+
+        ii. Empresas de factoraje
+
+        iii. Otros servicios financieros
+
+    II. Público
+
+        i.  Banca de desarrollo
+
+        ii. Fondos y fideicomisos
+
+        iii. Uniones de crédito
+
+        iv. Otros servicios financieros
+
+3.  Sector público;
+
+    I.  Gobierno Feneral
+
+    II. Gobierno de la Ciudad de México
+
+    III. Gobiernos estatales
+
+    IV. Organismos y empresas
+
+4.  Otros sectores;
+
+    I.  PIDIREGAS
+
+    II. IPAB
+
+    III. FONADIN
+
+5.  Sector externo;
+
+    I.  Financieras
+
+    II. No financieras
+
+6.  Crédito a la banca comercial;
+
+A continuación se muestra el comportamiento de los valores absolutos del financiamiento en cada sector reportado en la serie:
 
 ```{r}
 financiamiento3<- ts(financiamiento3, start=2004, frequency = 12)
@@ -271,6 +319,12 @@ ts.plot (financiamiento3[,2], financiamiento3[,3], financiamiento3[,4], financia
 legend ('topleft', col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd=3, legend=c("Total", "Sector privado no financiero","Secor financiero no bancario","Sector público", "Otros sectores", "Sector externo", "Crédito a banca comercial"), bg='white',bty="n",cex=0.7)
 ```
 
+Es claro que la tendencia del financiamiento total otorgado por bancos comerciales es sumamente similar al comportamiento que exhibe el financiamiento al sector privado no financiero. De hecho, es casi idéntico, donde la diferencia en magnitudes es los valores que toman las otras cinco variables. 
+
+Por otro lado, es claro que el financiamiento otorgado al sector público ha exhibido un ligero aumento con el paso de los años, así como el sector financiero no bancario. En contraste, otros sectores, sector externo y el crédito a banca comercial han mantenido niveles insignificantes desde 2004.
+
+La Gráfica 3.4. muestra la participación porcentual de cada sector en la financiación otorgada por la banca comercial:
+
 ```{r include=FALSE}
 financiamiento3.2 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_financiamiento2.csv", 
     col_types = cols(time = col_date(format = "%d/%m/%Y")))
@@ -278,16 +332,38 @@ financiamiento3.2 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/Tar
 
 ```{r}
 ggplot(financiamiento3.2, aes(x=financiamiento3.2$time, y=financiamiento3.2$percentage, fill=financiamiento3.2$group)) + 
-    geom_area(alpha=.7 , size=0.2, colour="black") +
+    geom_area(alpha=0.7 , size=0.2, colour="black") +
     xlab("Tiempo") + 
     ylab("Porcentage") + 
     labs(fill = "Instrumento") +
-    ggtitle("Gráfica 3.4. Participación porcentual de la financiación de \n otorgada por la banca comercial") +
+    ggtitle("Gráfica 3.4. Participación porcentual de la financiación de \n otorgada por la banca comercial, 2004-2021") +
     theme(
     plot.title = element_text(color="black", size=12, face="bold", hjust= c(0.5))
 )
 ```
 
+Donde:
+
+A: Sector privado no financiero;
+
+B: Sector financiero no bancario;
+
+C: Sector público;
+
+D. Otros sectores;
+
+E: Sector externo;
+
+F: Crédito a la banca comercial;
+
+
+Lo más notorio es, sin duda, el comportamiento del sector privado no financiero, donde es evidente que siempre ha constituido la mayor parte proporcional del total de financiamiento otorgado por la banca comercial. 
+
+Además, puede verse que otros sectores (recordando que está compuesto por fondos y fideicomisos federales especiales como el Proyecto de Inversión de Infraestructura Productiva con Registro Diferido en el Gasto Público [PIDIREGAS], el Instituto para la Protección del Ahorro Bancario [IPAB] y el Fondo Nacional de Infraestructura [FONADIN]) constituía una proporción sustantiva alrededor del año 2005. Específicamente, el PIDIREGAS y el FONADIN se crearon en los años 2007 y 2008, por lo que el único activo alrededor del año 2005 fue el IPAB, fundado en 1999. Esto implica que, derivado de su operatividad y mecanismos de funcionamiento, se necesitó un gran financiamiento proveniente de la banca comercial alrededor de 2005.
+
+Por otro lado, es claro que la participación porcentual del financiamiento al sector público y al sector financiero no bancario ha sido relativa y consistentemente creciente durante toda la serie.
+
+Por último, la proporción del crédito otorgado al sector externo y a la misma banca comercial nunca ha representado un nivel significativo.
 
 ## c)
 
@@ -303,7 +379,7 @@ ggplot(financiamiento3.2, aes(x=financiamiento3.2$time, y=financiamiento3.2$perc
 
 \newpage
 
-# Ejercicio 3. 
+# Ejercicio 3.
 
 **Estudie al Gobierno Mexicano y a los corporativos Mexicanos desde el punto de vista de su endeudamiento [1 hora, 1 punto cada inciso]:**
 
@@ -313,7 +389,6 @@ ggplot(financiamiento3.2, aes(x=financiamiento3.2$time, y=financiamiento3.2$perc
 
 ## b)
 
-**Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.**
-# Referencias
+**Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.** \# Referencias
 
 <!-- <div id="refs"></div> -->
