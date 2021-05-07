@@ -178,18 +178,20 @@ Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de
 7.  Pagarés con rendimiento liquidable al vencimiento; y
 8.  Banca de inversión y reportos.
 
-A continuación se muestra el comportamiento de los valores absolutos de cada instrumento reportado en la serie:
+A continuación se muestra el comportamiento de los valores deflactados de los niveles de cada instrumento reportado en la serie con base en el INPC de 2018:
 
-```{r}
+```{r fig.width = 8, fig.height = 5}
 captaciones3<- ts(captaciones3, start=1986, frequency = 1)
 
-ts.plot (captaciones3[,2], captaciones3[,3], captaciones3[,4], captaciones3[,5], captaciones3[,6], captaciones3[,7], captaciones3[,8], captaciones3[,9], captaciones3[,10], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.1. Niveles absolutos de los instrumentos \n de financiación de la banca comercial, 1986-2020", col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
+ts.plot (captaciones3[,3], captaciones3[,5], captaciones3[,7], captaciones3[,9], captaciones3[,11], captaciones3[,13], captaciones3[,15], captaciones3[,17], captaciones3[,19], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.1. Niveles deflactados de los instrumentos \n de financiación de la banca comercial, 1986-2020, base 2018", col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
 legend ('topleft', col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd=3, legend=c("Total", "Cuentas de cheques","A la vista","Depósitos de nómina", "Cuentas de ahorro", "Depósitos retirables", "Depósitos a plazo", "Pagarés", "Banca de inversión"), bg='white',bty="n",cex=0.7)
 ```
 
 En primer lugar, resulta evidente que algunas denominaciones financieras han dejado de utilizarse o comenzado a utilizarse en diversos momentos del tiempo. Esto se debe a que, en ocasiones, la definición de un concepto "absorbe" a otra y se comienza a incluir al momento de calcularla.
 
-Así, puede observarse que, de manera consistente, la captación por cuentas de cheques, depósitos a la vista y depósitos a plazo han exhibido un comportamiento a la alza con el paso del tiempo. Por otro lado, resalta el instrumento de captación de la banca de inversión, que ha presentado un comportamiento más bien estancado a partir del nuevo siglo.
+El primer resultado evidente es que el total de financiamiento de la banca comercial sufrió un aumento considerable alrededor del año 1986, impulsado principalmente por la subida sustancial del financiamiento obtenido mediante banca de inversión.
+
+Así, puede observarse que, de manera consistente, la captación por cuentas de cheques y depósitos a la vista han exhibido un comportamiento a la alza con el paso del tiempo, mientras que los depósitos a plazo, después de un estancamiento que duró hasta principios del siglo, presentó un aumento considerable para después mantener una tendencia ligeramente ascendente. Por otro lado, resalta el instrumento de captación de la banca de inversión, que ha presentado un comportamiento más bien estancado a partir del nuevo siglo.
 
 Ahora, se presentan los mismos datos anteriores, pero ahora con cada instrumento como porcentaje del total de la financiación de la banca comercial:
 
@@ -198,11 +200,11 @@ captaciones3.1 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/Tareas
 
 ```
 
-```{r}
+```{r fig.width = 8, fig.height = 5}
 ggplot(captaciones3.1, aes(x=captaciones3.1$time, y=captaciones3.1$percentage, fill=captaciones3.1$group)) + 
-    geom_area(alpha=.7 , size=0.2, colour="black") +
+    geom_area(alpha=0.7 , size=0.2, colour="black") +
     xlab("Tiempo") + 
-    ylab("Porcentage") + 
+    ylab("Porcentaje") + 
     labs(fill = "Instrumento") +
     ggtitle("Gráfica 3.2. Participación porcentual de instrumentos de \n financiación de la banca comercial") +
     theme(
@@ -312,10 +314,10 @@ Así, se observa que el financiamiento otorgado por la banca comercial se divide
 
 A continuación se muestra el comportamiento de los valores absolutos del financiamiento en cada sector reportado en la serie:
 
-```{r}
+```{r fig.width = 8, fig.height = 5}
 financiamiento3<- ts(financiamiento3, start=2004, frequency = 12)
 
-ts.plot (financiamiento3[,2], financiamiento3[,3], financiamiento3[,4], financiamiento3[,5], financiamiento3[,6], financiamiento3[,7], financiamiento3[,8],  gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.3. Niveles absolutos de la financiación \n otorgada por la banca comercial, 2004-2021", col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd= 1, cex.main=0.9))
+ts.plot (financiamiento3[,3], financiamiento3[,5], financiamiento3[,7], financiamiento3[,9], financiamiento3[,11], financiamiento3[,13], financiamiento3[,15],  gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.3. Niveles deflactados de la financiación \n otorgada por la banca comercial, 2004-2021, base 2018", col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd= 1, cex.main=0.9))
 legend ('topleft', col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd=3, legend=c("Total", "Sector privado no financiero","Secor financiero no bancario","Sector público", "Otros sectores", "Sector externo", "Crédito a banca comercial"), bg='white',bty="n",cex=0.7)
 ```
 
@@ -330,11 +332,11 @@ financiamiento3.2 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/Tar
     col_types = cols(time = col_date(format = "%d/%m/%Y")))
 ```
 
-```{r}
+```{r fig.width = 8, fig.height = 5}
 ggplot(financiamiento3.2, aes(x=financiamiento3.2$time, y=financiamiento3.2$percentage, fill=financiamiento3.2$group)) + 
     geom_area(alpha=0.7 , size=0.2, colour="black") +
     xlab("Tiempo") + 
-    ylab("Porcentage") + 
+    ylab("Porcentaje") + 
     labs(fill = "Instrumento") +
     ggtitle("Gráfica 3.4. Participación porcentual de la financiación de \n otorgada por la banca comercial, 2004-2021") +
     theme(
@@ -385,17 +387,16 @@ hipotecas3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacr
 
 ```
 
-```{r}
-# Most basic bubble plot
+```{r fig.width = 8, fig.height = 5}
 
 hipotecas3<- ts(hipotecas3, start=1994, frequency = 4)
 
 ts.plot (hipotecas3[,4],  gpars=list(xlab="Años", ylab="Porcentaje", main=" Gráfica 3.5. Financiamiento hipotecario \n como proporción del PIB, 1994 - 2020, trimestral.", col=c("blue"),lwd= 2, cex.main=0.9))
 ```
 
-En primer lugar, es necesario apuntar que, durante los años 1994-1996 existen algunos valores no reportados en la serie, razón por la cual el porcentaje es igual a 0. Sin embargo, a partir de 1997 se observa una tendencia consistentemente ascendente del financiamiento hipotecario como proporción del PIB, hasta legar a niveles de 18%.
+En primer lugar, es necesario apuntar que, durante los años 1994-1996 existen algunos valores para el crédito hipotecario no reportados en la serie, razón por la cual el porcentaje es igual a 0. Sin embargo, a partir del año 2000, se observa una tendencia consistentemente ascendente del financiamiento hipotecario como proporción del PIB, hasta legar a niveles de casi 14%.
 
-Es interesante notar que antes del inicio de la pandemia por Covid-19, durante el primer y segundo trimestres de 2020 el aumento fue muy pronunciado para después caer. En general, puede atribuirse este comportamiento al hecho de que las tasas de interés en México han sido históricamente bajas, lo cual estimula el consumo y, por ende, el gasto, en este caso, en vivienda.
+Es interesante notar que antes del inicio de la pandemia por Covid-19, durante el último trimestre de 2019 y el primer trimestre de 2020, el aumento fue muy pronunciado para después caer. En general, puede atribuirse este comportamiento al hecho de que las tasas de interés en México han sido históricamente bajas, lo cual estimula el consumo y, por ende, el gasto, en este caso, en vivienda.
 
 De hecho, aunque los datos todavía no se encuentran disponibles, diversas fuentes como [@realestate] y [@eluniversal] aseguran que los créditos hipotecarios han frenado su caída derivado de la pandemia y se encuentran en una senda de recuperación debido, principalmente, a las tasas de interés históricamente bajas y al creciente progreso tecnológico que ha facilitado la adquisición de créditos hipotecarios.
 
