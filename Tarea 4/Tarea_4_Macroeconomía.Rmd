@@ -94,63 +94,197 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 
 #### a)
 
-**Considere un proyecto con pago esperado** $\gamma$ que excede $1+r$. ¿Qué condición sobre el proyecto es necesaria para que se lleve a cabo?
+**Considere un proyecto con pago esperado $\gamma$ que excede $1+r$. ¿Qué condición sobre el proyecto es necesaria para que se lleve a cabo?**
+
+Según el modelo, el contrato entre el empresario y los inversionistas, los pagos esperados a los inversionistas son $(1-W)(1 + r)$, la producción esperada del proyecto es $\gamma$ y los ingresos esperados del empresario son $\gamma -(1-W) (1+r)$, que es igual a $W(1+r) +\gamma - (1 + r)$. 
+
+El equilibrio del modelo tiene dos condiciones importantes:
+
+$$(1) \ \ \ \ \ \ \ \ \  (1+r)(1-W)\leq R^{MAX}$$ 
+
+$$(2) \ \ \ \ \ \ \ \ \  \gamma -(1+r)(1-W)-A(c,r,W,\gamma)>(1+r)W $$ 
+En el enunciado del problema se menciona que no hay costo de verificar la producción, por lo que el empresario puede ocultar la fracción $1-f$ de la producción del proyecto al inversionista ( con $0 \leq f \leq 1$). Por lo tanto, el empresario solo puede prometer de manera creíble el reembolso de una fracción $f$ del producto del proyecto.
+
+Ahora necesitamos encontrar $R^{MAX}$, por lo que primero encontramos $R(f)$, rendimientos netos del inversionista. Se conoce que la distribución de Q es una distribución uniforme $[0,2\gamma]$. En este sentido, el valor esperado de Q es igual a $\gamma$. Por lo que los rendimientos netos del inversionista son:
+
+$$R(f)=f\gamma$$
+Dada la naturaleza del contrato, la distribución de Q y la ausencia de los costos de verificación de la producción, se tiene que 
+
+$$R(f)=f\gamma=R^{MAX}$$
 
 #### b)
 
 **Supóngase que la condición encontrada en a) se cumple con desigualdad estricta. ¿Es el contrato entre el inversor y el emprendedor único? Si lo es, ¿cuál es este contrato? Explique por qué.**
 
+La ecuación 1 en el inciso a, nos muestra la condición del inversionista que le permite decidir si invertir o no. La desigualdad estricta $(1+r)(1-W)< R^{MAX}$ indica que el inversionista estará mejor si decide invertir en el proyecto del empresario. Dado que el empresario decide buscar financiamiento externo, entonces la desigualdad estricta es un sólo equilibrio y es global. 
+
 #### c)
 
-**El compromiso limitado lleva a una ineficiencia (relativa al caso sin fricciones) si** $\gamma > 1+r$ pero el proyecto se lleva a cabo normalmente. Describa si cada uno de los siguientes casos pueden causar que el proyecto con $\gamma > 1+r$ no se realice:
+**El compromiso limitado lleva a una ineficiencia (relativa al caso sin fricciones) si $\gamma > 1+r$ pero el proyecto se lleva a cabo normalmente. Describa si cada uno de los siguientes casos pueden causar que el proyecto con $\gamma > 1+r$ no se realice:**
 
 **i) Una caída en la riqueza del emprendedor, W.**
 
-**ii) Un incremento en la fracción del proyecto que el emprendedor puede esconder,** $1-f$ (esto es, una caída en $f$).
+Considerando la condición del inversionista $(1+r)(1-W)< R^{MAX}$, si la riqueza del inversionista $(W)$ disminuye entonces la desigualdad podría cambiar $(1+r)(1-W)> R^{MAX}$ generando que el inversionista no se encuentre dispuesto a invertir en el proyecto del empresario. 
 
-**iii) Un incremento en el riesgo ideosincrático. Concretamente, supóngase que el producto del proyecto se distribuye uniformemente en** $[\gamma -b, \gamma+b]$ y no uniformemente en $[0, 2\gamma]$, y hay un incremento en b.
+**ii) Un incremento en la fracción del proyecto que el emprendedor puede esconder, $1-f$ (esto es, una caída en $f$).**
+
+Una caída de $f$, genera que el rendimiento máximo del inversionista $R^{MAX}$ disminuya y esto puede afectar la condición del inversionista $(1+r)(1-W)< R^{MAX}$ cambiando la desigualdad $(1+r)(1-W)> R^{MAX}$, por lo que el inversionista ya no tendría incentivos para invertir. 
+
+**iii) Un incremento en el riesgo ideosincrático. Concretamente, supóngase que el producto del proyecto se distribuye uniformemente en $[\gamma -b, \gamma+b]$ y no uniformemente en $[0, 2\gamma]$, y hay un incremento en b.**
+
+Considerando que ahora el resultado del proyecto se distribuye uniformemente en $[\gamma- b,\gamma+b]$ en lugar de uniformemente en $[0,2\gamma]$, el valor esperado de $Q$ continua siendo $\gamma$ y el aumento en $b$ no afecta este valor esperado, por lo que la condición del inversionista no es afectada y el proyecto se lleva a cabo. 
 
 ### 10.6.
 
-**Riesgo fundamental y riesgo de ruido. Considere la siguiente variante del *trader* ruidoso en las ecuaciones 10.15 - 10.23. Existen tres periodos, denotados 0, 1 y 2. Hay dos activos. El primero es seguro con oferta perfectamente elástica; su tasa de retorno está normalizada a cero: una unidad del bien de la economía invertido en este activo en el periodo 0 implica una unidad del bien retornada en el periodo 1, asimismo, una unidad del bien invertida en el activo en el periodo 1 implica una unidad segura en el periodo 2. El segundo activo es riesgoso; si pago, realizado en el periodo 2, es** $1+F_1+F_2$, donde $F_t$ está distribuida normalmente con media 0 y varianza $V_t^F$. $F_1$ se observa en el periodo 1 y $F_2$ en el periodo 2. Este activo tiene una oferta neta de 0. Así, el equilibrio requiere que la suma sobre los agentes de la cantidad del activo demandado sea cero.
+**Riesgo fundamental y riesgo de ruido. Considere la siguiente variante del *trader* ruidoso en las ecuaciones 10.15 - 10.23. Existen tres periodos, denotados 0, 1 y 2. Hay dos activos. El primero es seguro con oferta perfectamente elástica; su tasa de retorno está normalizada a cero: una unidad del bien de la economía invertido en este activo en el periodo 0 implica una unidad del bien retornada en el periodo 1, asimismo, una unidad del bien invertida en el activo en el periodo 1 implica una unidad segura en el periodo 2. El segundo activo es riesgoso; si pago, realizado en el periodo 2, es $1+F_1+F_2$, donde $F_t$ está distribuida normalmente con media 0 y varianza $V_t^F$. $F_1$ se observa en el periodo 1 y $F_2$ en el periodo 2. Este activo tiene una oferta neta de 0. Así, el equilibrio requiere que la suma sobre los agentes de la cantidad del activo demandado sea cero.**
 
-**Existen dos tipos de *traders*. Los primeros son ruidosos y demandan una cantidad** $N_0$ del activo riesgoso en el periodo 0 y $N_0 + N_1$ en el periodo 1, donde $N_0$ es exógena y $N_q$ distribuida normalmente con media 0 y varianza $V_1^N$. $F_1, F_2, N_1$ son independientes. El segundo tipo de *trader* es arbitragista. $A_0$ nacen en el periodo 0 y $A_1$ en el periodo 1. Viven por dos periodos y solo valoran el consumo en el segundo periodo de su vida con utilidad $U(C) = -e^{2 \gamma C}, \gamma > 0$. No tienen riqueza inicial.
+**Existen dos tipos de *traders*. Los primeros son ruidosos y demandan una cantidad $N_0$ del activo riesgoso en el periodo 0 y $N_0 + N_1$ en el periodo 1, donde $N_0$ es exógena y $N_q$ distribuida normalmente con media 0 y varianza $V_1^N$. $F_1, F_2, N_1$ son independientes. El segundo tipo de *trader* es arbitragista. $A_0$ nacen en el periodo 0 y $A_1$ en el periodo 1. Viven por dos periodos y solo valoran el consumo en el segundo periodo de su vida con utilidad $U(C) = -e^{2 \gamma C}, \gamma > 0$. No tienen riqueza inicial.**
 
 #### a)
 
 **Considere el periodo 1.**
 
-**i) Considere un arbitragista nacido en el periodo 1. ¿Cuál es su consumo del segundo periodo como función de** $P_1, F_1, F_2$, y su gasto en el activo riesgoso, $X_1^a$? ¿Cuál es la media y varianza de su consumo del segundo periodo como función de $P_1, F_1, F_2 ~y ~ V_t^F$? ¿CUál es la condición de primer orden de su elección de $X_1^a$?
+**i) Considere un arbitragista nacido en el periodo 1. ¿Cuál es su consumo del segundo periodo como función de $P_1, F_1, F_2$, y su gasto en el activo riesgoso, $X_1^a$? ¿Cuál es la media y varianza de su consumo del segundo periodo como función de $P_1, F_1, F_2 ~y ~ V_t^F$? ¿CUál es la condición de primer orden de su elección de $X_1^a$?**
+
+El consumo del período 2 del inversionista es igual a su tenencias del activo seguro, que son 
+$W - P_1X^a_1$, más el producto de sus tenencias del activo riesgoso, $X^a_1$, y el pago de cada unidad del activo es, $1 + F_1 + F_2$. 
+
+$$C^a_2 = W - P_1X^a_1 + X^a_1 (1 + F_1 + F_2)$$ 
+Como W=0, entonces la expresión de consumo se reduce a:
+
+$$C^a_2 = X^a_1 (1 + F_1 + F_2)- P_1X^a_1$$ 
+En el periodo 1, $F_1$ ya se ha realizado y los inversores pueden observar el precio del activo ($P_1$), mientras que $F_2$ tiene media cero (como se indica en el enunciado del problema). Por lo que, la media de su consumo del segundo periodo es:
+
+$$E_1(C^a_2)=X^a_1 (1 + F_1)-P_1X^a_1$$
+y la varianza de su consumo del segundo periodo es:
+
+$$Var_1(C^a_2)=Var_1( X^a_1 (1 + F_1 + F_2)- P_1X^a_1 )$$
+$F_2$ es una variable no conocida en el periodo 1; mientras que las demás si son conocidas. Por lo que la varianza queda en función de $F_2$.
+
+
+$$Var_1(C^a_2)=V^F_2(X^a_1)^2$$
+Para poder plantear el problema del inversionista es necesario recordar la regla para la media de una variable que se distribuye lognormalmente: si x se distribuye normalmente con media $\mu$ y varianza $V$, $E[e^x] = e^\mu e^{V/2}$. Por tanto, si el consumo del inversionista se distribuye normalmente con media $E[C]$ y varianza $Var(C)$, la expectativa de $–e^{-2\gamma C}$ es $-e^{-2\gamma E(C)}e^{2\gamma Var(C)}$. Por lo tanto, para maximizar la utilidad esperada, el inversor quiere hacer que $-2\gamma E(C) + 2\gamma Var(C)$ sea lo más pequeño posible. De manera equivalente, maximizará $E[C] - \gamma Var(C)$.
+
+Entonces, el problema del inversionista representativo es:
+
+$$\max_{X^a_1} X^a_1 (1 + F_1)-P_1X^a_1-\gamma V^F_2(X^a_1)^2$$
+La condición de primer orden para su elección de $X^a_1$ es:
+
+$$(1 + F_1)-P_1-2\gamma V^F_2(X^a_1)=0$$
 
 **ii) ¿Cuál es la condición de equilibrio del periodo 1?**
 
-**iii) Use los resultados de i) y ii) para encontrar una expresión para** $P_1-(1+F_1)$, la diferencia del precio en el periodo 1 de su valor fundamental.
+La condición para el equilibrio en el período 1 es $N_0 + N_1 + X^a_1A_1 = 0$, es decir que $X^a_1= -(N_0 + N_1)/A_1$ (como se menciono en el enunciado, el equilibrio requiere que la suma entre agentes de la cantidad demandada del activo sea cero).
+
+**iii) Use los resultados de i) y ii) para encontrar una expresión para $P_1-(1+F_1)$, la diferencia del precio en el periodo 1 de su valor fundamental.**
+
+En el inciso (i), la expresión es:
+
+$$(1 + F_1)-P_1-2\gamma V^F_2(X^a_1)=0$$
+
+Reemplazando el resultado del inciso (ii) en (i), se obtiene:
+
+$$P_1- (1 + F_1)=-2\gamma V^F_2(-(N_0 + N_1)/A_1)$$
+$$P_1- (1 + F_1)=(\frac{2\gamma}{A_1})V^F_2(N_0 + N_1)$$
 
 **iv) ¿Estos resultados apoyan la idea de que riesgos fundamentales más grandes silencian a la voluntad de los arbitragistas de comerciar para eliminar las diferencias de los precios de sus valores fundamentales, lo que lleva a mayores diferencias entre precios y sus valores fundamentales?**
+
+El lado izquierdo de la expresión del inciso (iii) es la desviación del precio del activo de su valor fundamental y en el lado derecho hay tres términos y vamos a analizar el impacto de cada uno de ellos: $(N_0 + N_1)$ es la demanda del activo por comerciantes de ruido y que cuanto mayor sea la demanda del activo por parte de estos agentes mayor será el precio del activo, es decir que con menos inversores sofisticados (menos agentes neutrales al riesgo) los precios pueden desviarse de su valor fundamental. $V^F_2$ es la varianza de los fundamentos en el período 2, que tambien es conocido como "riesgo fundamental" y que si éste se incrementa, entonces la desviación del precio respecto a su valor fundamental aumenta. $A_1/(2\gamma)$ es la "profundidad" del mercado, cuando hay más inversionistas sofisticados o menos reacios al riesgo, los precios se apartan menos de su valor fundamental.
 
 #### b)
 
 **Considere el periodo 0.**
 
-**i) ¿Cuál es la condición de primer orden para** $X_0^a$ (compras del activo riesgoso por el arbitragista representativo) en términos de $E_0[P_1]$ y $Var(P_1)$ y los parámetros del modelo?
+**i) ¿Cuál es la condición de primer orden para $X_0^a$ (compras del activo riesgoso por el arbitragista representativo) en términos de $E_0[P_1]$ y $Var(P_1)$ y los parámetros del modelo?**
 
-**ii) Use el resultado anterior para encontrar** $E_0[P_1]$ y $Var(P_1)$ en términos de los parámetros exógenos.
+El consumo del periodo 1 de un inversionista sofisticado nacido en el periodo 0 es:
 
-**iii) Use los resultados anteriores para encontrar una expresión para** $P_0-1$, la diferencia del precio de su valor fundamental en el periodo 0.
+$$C^a_1=W-P_0X^a_0+P_1X^a_0$$
+Como no hay riqueza inicial $W=0$, entonces el consumo es:
 
-**iv) ¿Un incremento en el riesgo fundamental (**$V_1^F$ y $V_2^F$) aumenta la diferencia de precios de sus fundamentales? ¿Incrementan al riesgo de los ruidosos? ¿Hay interacciones -esto es, un incremento del riesgo de los ruidosos sube, baja o no tiene efecto sobre el riesgo fundamental?
+$$C^a_1=P_1X^a_0-P_0X^a_0$$
+
+Ahora, obtenemos la media y la varianza:
+
+$$E_0(C^a_1)=X^a_0E_0[P_1]-P_0X^a_0$$
+
+$$Var_0(C^a_1)=(X^a_0)^2Var_0[P_1]$$
+En este inciso, el problema de maximización es:
+
+$$\max_{X^a_1} X^a_0E_0[P_1]-P_0X^a_0-\gamma (X^a_0)^2Var_0[P_1]$$
+La condición de primer orden para $X^a_0$ es:
+
+$$E_0[P_1]-P_0-2\gamma X^a_0Var_0[P_1]=0$$
+$$X^a_0=\frac {E_0[P_1]-P_0}{2\gamma Var_0[P_1]}$$
+
+**ii) Use el resultado anterior para encontrar $E_0[P_1]$ y $Var(P_1)$ en términos de los parámetros exógenos.**
+
+Vamos a utilizar los resultados del inciso a, y encontramos $E_0[P_1]$ y $Var(P_1)$.
+
+$$E_0[P_1]=E_0[(1 + F_1)+(\frac{2\gamma}{A_1})V^F_2(N_0 + N_1)]$$
+$$E_0[P_1]=1 + E_0[F_1]+(\frac{2\gamma}{A_1})V^F_2E_0[N_0 + N_1]$$
+Como la media de $N_1$ es cero. 
+
+$$E_0[P_1]=1 + E_0[F_1]+(\frac{2\gamma}{A_1})V^F_2N_0$$
+Como $F_t$ tiene media igual a cero. 
+$$E_0[P_1]=1 +(\frac{2\gamma}{A_1})V^F_2N_0$$
+Por otro lado, la varianza es igual a:
+
+$$Var_0[P_1]=Var_0[(1 + F_1)+(\frac{2\gamma}{A_1})V^F_2(N_0 + N_1)]$$
+$$Var_0[P_1]=Var_0[F_1]+(\frac{2\gamma}{A_1}V^F_2)^2Var_0(N_0 + N_1)]$$
+Como $N_0$ es exógeno, entonces su varianza es cero.
+
+$$Var_0[P_1]=V^F_1+(\frac{2\gamma}{A_1}V^F_2)^2V^N_1$$
+
+**iii) Use los resultados anteriores para encontrar una expresión para $P_0-1$, la diferencia del precio de su valor fundamental en el periodo 0.**
+
+La condición de equilibrio en el periodo 0 es $N_0+X^a_0A_0=0$, es decir que $X^a_0=-N_0/A_0$.
+
+En el inciso (i), $X^a_0$ es:
+$$X^a_0=\frac {E_0[P_1]-P_0}{2\gamma Var_0[P_1]}$$
+y luego, empezamos a reemplazar $E_0[P_1]$ y $Var_0[P_1]$ en $X^a_0$ obteniendo lo siguiente:
+
+$$X^a_0=\frac {1 +(\frac{2\gamma}{A_1})V^F_2N_0-P_0}{2\gamma (V^F_1+(\frac{2\gamma}{A_1}V^F_2)^2V^N_1)}$$
+Utilizando la condición de equilibrio, $X^a_0=-N_0/A_0$ obtenemos 
+
+$$-\frac{N_0}{A_0}=\frac {1 +(\frac{2\gamma}{A_1})V^F_2N_0-P_0}{2\gamma (V^F_1+(\frac{2\gamma}{A_1}V^F_2)^2V^N_1)}$$
+$$P_0-1-(\frac{2\gamma}{A_1})V^F_2N_0 = \frac{N_0}{A_0} 2\gamma (V^F_1+(\frac{2\gamma}{A_1}V^F_2)^2V^N_1)$$
+$$P_0-1 = \frac{N_0}{A_0} 2\gamma (V^F_1+(\frac{2\gamma}{A_1}V^F_2)^2V^N_1)+(\frac{2\gamma}{A_1})V^F_2N_0$$
+$$P_0-1 = \frac{N_0}{A_0} 2\gamma (V^F_1+(\frac{2\gamma}{A_1}V^F_2)^2V^N_1)+(\frac{2\gamma}{A_1})V^F_2N_0$$
+$$P_0-1 = 2\gamma N_0 \left\{\frac{V^F_2}{A_1}+\frac{1}{A_0}\left[\left(\frac{2\gamma V^F_2}{A_1}\right)^2V^N_1+V^F_1\right]\right\}$$
+
+**iv) ¿Un incremento en el riesgo fundamental ($V_1^F$ y $V_2^F$) aumenta la diferencia de precios de sus fundamentales? ¿Incrementan al riesgo de los ruidosos? ¿Hay interacciones -esto es, un incremento del riesgo de los ruidosos sube, baja o no tiene efecto sobre el riesgo fundamental?**
+
+Se observa que un incremento del riesgo fundamental ($V^F_1$ y $V^F_2$) genera una mayor desviación del precio respecto a su nivel fundamental. Un aumento de los riesgos de los comerciantes de ruido $(V^N_1)$ produce una mayor desviación del precio de los activos respecto de su valor fundamental. También, se puede demostrar que existe una interacción positiva entre el riesgo de ruido y el riesgo fundamental.
 
 ### 10.11.
 
-**Considere el modelo Diamond-Dybvig descrito en la sección 10.6, pero supóngase que** $\rho R < 1.$
+**Considere el modelo Diamond-Dybvig descrito en la sección 10.6, pero supóngase que $\rho R < 1.$**
 
 #### a)
 
-**En este caso, cuáles son los valores de** $c_1^{a\ast}$ y $c_2^{b\ast}$? ¿Es $c_2^{b\ast} > c_1^{a\ast}$?
+**En este caso, cuáles son los valores de $c_1^{a\ast}$ y $c_2^{b\ast}$? ¿Es $c_2^{b\ast} > c_1^{a\ast}$?**
 
-**b) Supóngase que el banco ofrece un contrato del siguiente modo: cualquier que deposite una unidad en el periodo 0 puede retirar** $c_1^{a\ast}$ en el periodo 1, sujeto a la disponibilidad de fondos, con cualquier de los activos remanente en el periodo 2 divididos igualmente entre los depositantes que no retiraron en el periodo 1. Explique por qué no es un equilibrio para el tipo a de agente el retirar en el periodo 1 y tampoco para el tipo b el retirar en el periodo 2.
+En este caso, ¿cuáles son $c^{a*}_1$ y $c^{b*}_1$? ¿Es $c^{b*}_1$ mayor que $c^{a*}_1$? 
+
+En el desarrollo del modelo, se obtiene los niveles de consumo óptimo del agente a y b en el periodo 1.
+
+$$c^{a*}_1=\frac {1}{\theta+(1-\theta)\rho}$$
+$$c^{b*}_1=\frac {\rho R}{\theta+(1-\theta)\rho}$$
+
+En el enunciado del problema, nos indican que $\rho R <1$, por lo que si observamos las soluciones de $c^{a*}_1$ y $c^{b*}_1$, concluimos que $c^{b*}_1$ es menor que $c^{a*}_1$.
+
+**b) Supóngase que el banco ofrece un contrato del siguiente modo: cualquier que deposite una unidad en el periodo 0 puede retirar $c_1^{a\ast}$ en el periodo 1, sujeto a la disponibilidad de fondos, con cualquier de los activos remanente en el periodo 2 divididos igualmente entre los depositantes que no retiraron en el periodo 1. Explique por qué no es un equilibrio para el tipo a de agente el retirar en el periodo 1 y tampoco para el tipo b el retirar en el periodo 2.**
+
+En el modelo Diamond y Dybvig, una corrida es una pura crisis de liquidez para el banco. Todos los agentes saben que si los de tipo b no intentaran retirarse en el período 1, el banco tendría fondos suficientes para realizar los pagos prometidos en el período 2. En ese sentido, el banco es completamente solvente.
+
+La alternativa a una crisis de liquidez es una crisis de solvencia. Por ejemplo, que existe la posibilidad de que el gerente del banco se fugue con algunos de los fondos, o de un shock en el período 1 que provoque el fracaso de una fracción sustancial de los proyectos de inversión. Con tales extensiones del modelo, el banco a veces no puede reembolsar todos los tipos b, incluso si esperan hasta el período 2; es decir, a veces es insolvente. En tales situaciones, todos los agentes tienen un incentivo para retirar sus fondos antes de tiempo, pero ahora eso es cierto independientemente de si creen que otros agentes también están tratando de retirarlos antes. Por lo tanto, una pequeña probabilidad de insolvencia puede hacer que sea una estrategia dominante para que algunos tipos b (como el más reacio al riesgo o el menos paciente) quieran retirarse temprano. 
+
+El resultado final puede ser que una pequeña probabilidad de insolvencia lleve a una corrida que provoque la quiebra del banco con seguridad, demostrando que no es un equilibrio para tipo b retirarse en el periodo 2. 
 
 **c) ¿Existe algún tipo de arreglo que el banco puede ofrecer para mejorar el resultado de la autarquía?**
+
+Sí existe. El banco acepta depósitos de los agentes e invierten en proyectos generando una rentabilidad que ofrece pago de intereses a los agentes. Además, permite accesibilidad para que el agente puede disponer de su dinero en el momento que desee y claro con un cantidad mayor producto del depósito. Por ello, en el modelo se incorpora que $c^{a*}_1$ es mayor que 1 y que $c^{b*}_2 >c^{a*}_1$ generando una mejora del resultado que en autarquía.  
 
 \newpage
 
