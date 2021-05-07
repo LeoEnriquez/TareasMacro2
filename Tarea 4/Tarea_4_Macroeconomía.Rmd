@@ -86,37 +86,44 @@ Realice los siguientes ejercicios con el equipo que formó para las tareas anter
 
 # Soluciones
 
-# Ejercicio 1.
+# Ejercicio 1. [@romer]
 
 ### 10.4.
 
-**Un enfoque más simple a los costos de agencia: compromiso limitado. (Lacker & Weinberg, 1989; Holmström % Tirole, 1998). Considere el modelo de 10.2 con una fricción diferente: no existe costo de verificar el producto, pero el emprendedor puede esconder la fracción** $1-f$ del producto del proyecto del inversos (con $0\leq f \leq 1$). Así, el emprendedor solo puede prometer pagar la fracción $f$ del proyecto de manera creíble.
+**Un enfoque más simple a los costos de agencia: compromiso limitado. (Lacker & Weinberg, 1989; Holmström % Tirole, 1998). Considere el modelo de 10.2 con una fricción diferente: no existe costo de verificar el producto, pero el emprendedor puede esconder la fracción $1-f$ del producto del proyecto del inversos (con $0\leq f \leq 1$). Así, el emprendedor solo puede prometer pagar la fracción $f$ del proyecto de manera creíble.**
 
 #### a)
 
 **Considere un proyecto con pago esperado $\gamma$ que excede $1+r$. ¿Qué condición sobre el proyecto es necesaria para que se lleve a cabo?**
 
-Según el modelo, el contrato entre el empresario y los inversionistas, los pagos esperados a los inversionistas son $(1-W)(1 + r)$, la producción esperada del proyecto es $\gamma$ y los ingresos esperados del empresario son $\gamma -(1-W) (1+r)$, que es igual a $W(1+r) +\gamma - (1 + r)$. 
+Según el modelo, el contrato entre el emprendedor y los inversionistas, los pagos esperados a los inversionistas son $(1-W)(1 + r)$, la producción esperada del proyecto es $\gamma$ y los ingresos esperados del emprendedor son $\gamma -(1-W) (1+r)$, que es igual a $W(1+r) +\gamma - (1 + r)$. 
 
 El equilibrio del modelo tiene dos condiciones importantes:
 
-$$(1) \ \ \ \ \ \ \ \ \  (1+r)(1-W)\leq R^{MAX}$$ 
+$$
+(1) \ \ \ \ \ \ \ \ \  (1+r)(1-W)\leq R^{MAX}
+$$ 
 
-$$(2) \ \ \ \ \ \ \ \ \  \gamma -(1+r)(1-W)-A(c,r,W,\gamma)>(1+r)W $$ 
-En el enunciado del problema se menciona que no hay costo de verificar la producción, por lo que el empresario puede ocultar la fracción $1-f$ de la producción del proyecto al inversionista ( con $0 \leq f \leq 1$). Por lo tanto, el empresario solo puede prometer de manera creíble el reembolso de una fracción $f$ del producto del proyecto.
+$$
+(2) \ \ \ \ \ \ \ \ \  \gamma -(1+r)(1-W)-A(c,r,W,\gamma)>(1+r)W 
+$$ 
+
+En el enunciado del problema se menciona que no hay costo de verificar la producción, por lo que el emprendedor puede ocultar la fracción $1-f$ de la producción del proyecto al inversionista ( con $0 \leq f \leq 1$). Por lo tanto, el emprendedor solo puede prometer de manera creíble el reembolso de una fracción $f$ del producto del proyecto.
 
 Ahora necesitamos encontrar $R^{MAX}$, por lo que primero encontramos $R(f)$, rendimientos netos del inversionista. Se conoce que la distribución de Q es una distribución uniforme $[0,2\gamma]$. En este sentido, el valor esperado de Q es igual a $\gamma$. Por lo que los rendimientos netos del inversionista son:
 
 $$R(f)=f\gamma$$
 Dada la naturaleza del contrato, la distribución de Q y la ausencia de los costos de verificación de la producción, se tiene que 
 
-$$R(f)=f\gamma=R^{MAX}$$
+$$
+R(f)=f\gamma=R^{MAX}
+$$
 
 #### b)
 
 **Supóngase que la condición encontrada en a) se cumple con desigualdad estricta. ¿Es el contrato entre el inversor y el emprendedor único? Si lo es, ¿cuál es este contrato? Explique por qué.**
 
-La ecuación 1 en el inciso a, nos muestra la condición del inversionista que le permite decidir si invertir o no. La desigualdad estricta $(1+r)(1-W)< R^{MAX}$ indica que el inversionista estará mejor si decide invertir en el proyecto del empresario. Dado que el empresario decide buscar financiamiento externo, entonces la desigualdad estricta es un sólo equilibrio y es global. 
+La ecuación 1 en el inciso a, nos muestra la condición del inversionista que le permite decidir si invertir o no. La desigualdad estricta $(1+r)(1-W)< R^{MAX}$ indica que el inversionista estará mejor si decide invertir en el proyecto del emprendedor Dado que el emprendedor decide buscar financiamiento externo, entonces la desigualdad estricta es un sólo equilibrio y es global. 
 
 #### c)
 
@@ -124,7 +131,7 @@ La ecuación 1 en el inciso a, nos muestra la condición del inversionista que l
 
 **i) Una caída en la riqueza del emprendedor, W.**
 
-Considerando la condición del inversionista $(1+r)(1-W)< R^{MAX}$, si la riqueza del inversionista $(W)$ disminuye entonces la desigualdad podría cambiar $(1+r)(1-W)> R^{MAX}$ generando que el inversionista no se encuentre dispuesto a invertir en el proyecto del empresario. 
+Considerando la condición del inversionista $(1+r)(1-W)< R^{MAX}$, si la riqueza del inversionista $(W)$ disminuye entonces la desigualdad podría cambiar $(1+r)(1-W)> R^{MAX}$ generando que el inversionista no se encuentre dispuesto a invertir en el proyecto del emprendedor 
 
 **ii) Un incremento en la fracción del proyecto que el emprendedor puede esconder, $1-f$ (esto es, una caída en $f$).**
 
@@ -301,7 +308,7 @@ captaciones3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMa
 
 ```
 
-Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos" del Sistema de Información Económica de [@banxico], específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente. Así, se observa que la captación de la banca comercial está compuesta por:
+Para este inciso, se hizo uso de los datos sobre la "Distribución por rangos de la captación de la Banca Comercial en moneda nacional por principales instrumentos" del Sistema de Información Económica de [@banxico], específicamente, la serie "Por instrumentos", que va de 1986 al 2020, reportada anualmente en miles de pesos. Así, se observa que la captación de la banca comercial está compuesta por:
 
 1.  Cuentas de cheques;
 2.  A la vista en cuenta corriente;
@@ -380,7 +387,7 @@ Finalmente, es claro que, a partir de cierto momento durante la primer década d
 financiamiento3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_financiamiento.csv")
 ```
 
-Para este inciso, se hizo uso de los datos sobre el "Financiamiento otorgado por la banca comercial", de [@banxico], específicamente, la serie "Crédito por actividad económica según la actividad principal de los acreditados", que va de enero del 2004 a marzo del 2021, reportada mensualmente.
+Para este inciso, se hizo uso de los datos sobre el "Financiamiento otorgado por la banca comercial", de [@banxico], específicamente, la serie "Crédito por actividad económica según la actividad principal de los acreditados", que va de enero del 2004 a marzo del 2021, reportada mensualmente en millones de pesos.
 
 Así, se observa que el financiamiento otorgado por la banca comercial se divide en:
 
@@ -505,15 +512,48 @@ Por último, la proporción del crédito otorgado al sector externo y a la misma
 
 **Explique si los datos son consistentes con la hipótesis de que los bancos hacen transformación de madurez o si no lo son y porqué. Para ello posiblemente tenga que hacer supuestos (razonables) o buscar información adicional acerca de la madurez de los distintos tipos de financiamiento y crédito otorgado.**
 
+A partir de las gráficas anteriores se observa que, desde mediados de la primera década de este siglo, la financiación de la banca comercial se ha constituido de cuatro instrumentos: cuentas de cheques, depósitos a la vista, depósitos a plazo y banca de inversión.
+
+Las cuentas de cheques y los depósitos a la vista son instrumentos financieros de cuenta corriente en los cuales las cantidades depositadas pueden retirarse o transferirse en cualquier momento, sin previo aviso a la entidad depositaria, ya sea mediante un cheque o una transferencia electrónica, etc. Podemos observar que estos dos instrumentos representan un poco más del $50\%$ del total de la financiación de la banca comercial, entonces para 2020 su mayor porcentaje de financiación la obtiene de instrumentos que pueden tener retiros en el muy corto plazo, es decir, con “ahorros líquidos” de muy corta madurez.
+
+Los depósitos a plazo consisten en la entrega de una cantidad de dinero a la entidad bancaria durante un tiempo determinado, donde se puede retirar el dinero y los intereses hasta después del vencimiento (también puede ser que los intereses se paguen periódicamente mientras dure la operación).  De esta manera, a diferencia de las cuentas de cheques y los depósitos a la vista, no se puede disponer de la cantidad depositada hasta la fecha de vencimiento, por lo cual, este activo no es tan líquido como las cuentas de cheques y los depósitos a la vista, sin embargo, si se puede disponer de estos ahorros abonando una penalización o una comisión por cancelación anticipada, aunque también puede darse el caso de que no se permita la cancelación anticipada haciendo aún menos líquido este instrumento. Hay diferentes plazos, desde meses hasta años, por lo cual, este instrumento si bien es menos líquido que las cuentas de cheques y los depósitos a la vista, puede tener distintos niveles de liquidez.
+
+La banca de inversión es un segmento del sector bancario destinado a la obtención de fondos para realizar una inversión a mediano y largo plazo como objetivo principal. Mientras que la banca comercial tradicional va enfocada a pequeños ahorradores y necesitados de financiación, la banca de inversión se enfoca en la gran empresa. 
+
+Por otro lado, podemos observar que más del $75\%$ de la financiación que otorga la banca comercial en este mismo periodo (a partir de la segunda mitad de la primera década de este siglo), va dirigido al sector privado no financiero, el cual está conformado por empresas privadas no financieras que se dedican a actividades productivas (actividades primarias, secundarias y terciarias), así como a los hogares, tanto para crédito a la vivienda como para crédito al consumo. Vemos que estos préstamos que realiza la banca comercial son en gran parte “inversiones no líquidas” de larguísima madurez.
+
+Por lo tanto, podemos concluir que los datos sí son consistentes con la hipótesis de que los bancos realizan una transformación de madurez, toda vez que los datos exhiben que la banca comercial transforma “ahorros líquidos” de corta madurez, en “inversiones no líquidas” de madurez muy larga. 
+
+
 ## d)
 
 **Explique qué implica la evolución de las formas de financiamiento y los tipos de crédito otorgados que observó en los incisos anteriores para la estabilidad del sistema financiero a la luz del modelo Diamond-Dybvig.**
+
+De acuerdo al modelo Diamond-Dybvig  la evolución de las formas de financiamiento y los tipos de crédito otorgados que observamos en los incisos anteriores implican un riesgo para la estabilidad del sistema financiero, puesto que, en la medida en que los intermediarios financieros hagan transformación de madurez, se genera una exposición a corridas bancarias, porque al retirar sus depósitos los ahorradores obligan al banco a liquidar sus inversiones lo cual reduce los retornos esperados, haciendo que sea óptimo para todos retirar su dinero del banco.
+
+Observamos en la evolución de las formas de financiamiento de la banca comercial que, en niveles ha habido una tendencia positiva, es decir, conforme pasan los años, es más usado este sector financiero, solo con caídas en época de crisis. También podemos ver que, a partir de este nuevo siglo, aumentó la participación porcentual de los instrumentos basados en ahorros líquidos de corta madurez, esto es, de las cuentas de cheques y de los depósitos a la vista y por otro lado, disminuyó la participación porcentual de instrumentos de financiación de la banca de inversión, es decir, de instrumentos de ahorro de mediano y largo plazo.
+
+De igual manera también los tipos de crédito que otorga la banca comercial a lo largo de estos años ha tenido una tendencia positiva, y vimos que la tendencia del financiamiento otorgado al sector privado no financiero tiene un comportamiento muy cercano al financiamiento total que otorgan los bancos comerciales. De hecho, el sector privado no financiero ocupa el mayor porcentaje de la participación de la financiación otorgada por la banca comercial, y dicho porcentaje (de más del $75\%$) se ha mantenido a lo largo de los años, es decir, la mayor financiación que otorga la banca comercial está dirigida a instrumentos de inversión de mediano y largo plazo.
+
+Como mencionamos, no solo la banca comercial transforma ahorros líquidos de corta madurez en inversiones no líquidas de larguísima madurez, sino que además esta tendencia se acentúa cada vez más, es decir, con el paso de los años, cada vez aumenta la proporción de financiamiento basado en ahorros líquidos de corta madurez y la proporción de financiación que otorga dirigida a instrumentos de inversión de mediano y largo plazo, se mantiene y en valores absolutos aumenta.
+
+El modelo Diamond-Dybvig muestra lo que “producen” los bancos y por qué funcionan, es decir, cómo pueden invertir en proyectos de largo plazo con depósitos que están disponibles en el corto plazo, pero a la vez, es un modelo que explica por qué es tan “frágil” el sistema bancario dado el supuesto del rol que cumple. 
+
+Este modelo plantea que los bancos comerciales proveen un servicio parecido al que haría el planificador social que busca maximizar el bienestar de la sociedad, es decir, lograr la misma distribución de riqueza entre los agentes dada la misma tecnología. En ese sentido, un banco logra resolver el problema de coordinación en el tiempo entre los agentes y la dificultad de mantener los activos de forma líquida a pesar de que las inversiones son de largo plazo y además “diluye” el riesgo de necesidad de liquidez entre todos los agentes y así poder invertir en activos de largo plazo. En este modelo hay dos periodos (de 0 a 1 y de 1 a 2) y hay dos tipos de agentes que guardan su dinero en el banco, sin embargo, ninguno agente sabe qué tipo de agente es. Los agentes del tipo A después de tomar sus decisiones de inversión -y sin que nadie pueda saber que va a ocurrir- tienen la necesidad de retirar su dinero en el periodo 1 y los agentes del tipo B dejan guardados sus ahorros los dos periodos.  
+
+Además, de acuerdo a lo estipulado en el modelo, los agentes que sí pudieron invertir a largo plazo obtienen retornos “altos” y los que tuvieron que sacar su dinero antes de tiempo, lo pueden hace con un retorno superior al que hubiera sido si nada más hubieran dejado su riqueza guardada, lo cual se da como una transferencia de los que ahorran los dos periodos a los agentes que ahorraron solo un periodo, siendo esta situación el óptimo que maximiza la utilidad de la sociedad, puesto que es como un tipo de seguro ante la incertidumbre de poder pertenecer a un grupo de agentes o al otro. De acuerdo con los parámetros de este modelo, esto implicaría un retorno mayor a 1.
+Mientras no ocurran corridas bancarias, de tal modo que los agentes del tipo A efectivamente se retiran pronto pero solo son una porción del total de los agentes, el banco puede operar como este planificador social y las cosas funcionarían bien. 
+
+El problema ocurre cuando muchos agentes tienen que sacar su dinero del banco, en primer lugar porque se reduce el retorno de los agentes del periodo 2 (que en el modelo incluso pueden tener retornos menores a 1), entonces puede ocurrir que los agentes del tipo B se declaren ser del tipo A, puesto que piensan que todos los demás van a retirar sus recursos del banco y todos querrán sacar su dinero en el periodo 1, es decir, la creencia de que los agentes que terminen quedándose al final no van a recibir nada es suficiente para que todos traten de sacar sus recursos el primer periodo y el banco no va a poder pagar a todos, porque no les podrá dar un retorno mayor de 1 a todos, además de que debemos recordar que esos activos el banco los tiene invertidos y los activos no líquidos solo pagan un retorno de 1 cuando son liquidados en el primer periodo y por lo tanto el banco terminará quebrando.
+
+Por lo tanto, si se da una crisis de confianza entre los agentes, puede generarse una crisis auto cumplida, lo que generaría una corrida bancaria y, si no se cuenta con instituciones principalmente gubernamentales fuertes que regulen y prevean esta posible situación, puede ocurrir una crisis bancaria que eventualmente pueda derivar en una crisis de todo el sector financiero con consecuencias sustantivas en las variables reales de la economía.
+
 
 ## e)
 
 **A propósito, documente incremento dramático a lo largo del tiempo en el crédito hipotecario como proporción del PIB.**
 
-A continuación se muestra la evolución del crédito hipotecario otorgado por el sector financiero de México como proporción del PIB, a partir de 1994, de manera trimestral:
+A continuación se muestra la evolución del crédito hipotecario otorgado por el sector financiero de México como proporción del PIB, a partir de 1996, de manera trimestral:
 
 ```{r include=FALSE}
 hipotecas3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/Ejercicio%203_creditohipotecario.csv", 
@@ -523,12 +563,12 @@ hipotecas3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacr
 
 ```{r fig.width = 8, fig.height = 5}
 
-hipotecas3<- ts(hipotecas3, start=1994, frequency = 4)
+hipotecas3<- ts(hipotecas3, start=c(1996,4), frequency = 4)
 
 ts.plot (hipotecas3[,4],  gpars=list(xlab="Años", ylab="Porcentaje", main=" Gráfica 3.5. Financiamiento hipotecario \n como proporción del PIB, 1994 - 2020, trimestral.", col=c("blue"),lwd= 2, cex.main=0.9))
 ```
 
-En primer lugar, es necesario apuntar que, durante los años 1994-1996 existen algunos valores para el crédito hipotecario no reportados en la serie, razón por la cual el porcentaje es igual a 0. Sin embargo, a partir del año 2000, se observa una tendencia consistentemente ascendente del financiamiento hipotecario como proporción del PIB, hasta legar a niveles de casi 14%.
+En primer lugar, es necesario apuntar que, a partir del año 2000, se observa una tendencia consistentemente ascendente del financiamiento hipotecario como proporción del PIB, hasta legar a niveles de casi 14%.
 
 Es interesante notar que antes del inicio de la pandemia por Covid-19, durante el último trimestre de 2019 y el primer trimestre de 2020, el aumento fue muy pronunciado para después caer. En general, puede atribuirse este comportamiento al hecho de que las tasas de interés en México han sido históricamente bajas, lo cual estimula el consumo y, por ende, el gasto, en este caso, en vivienda.
 
@@ -547,6 +587,8 @@ De hecho, aunque los datos todavía no se encuentran disponibles, diversas fuent
 ## b)
 
 **Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.** 
+
+\newpage
 
 # Referencias
 

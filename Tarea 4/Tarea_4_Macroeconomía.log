@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.3)  7 MAY 2021 11:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.3)  7 MAY 2021 12:19
 entering extended mode
 **./Tarea_4_Macroeconomía.tex
 (Tarea_4_Macroeconomía.tex
@@ -756,7 +756,7 @@ LaTeX Info: Redefining \% on input line 1.
 
 [1] [2] [3] [4]
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 395.
+LaTeX Warning: Command \textendash invalid in math mode on input line 402.
 
 [5] [6] [7] [8]
 <Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-3-1.pdf, id=121, 578.1
@@ -765,7 +765,7 @@ File: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-3-1.pdf Graphic f
 ile (type pdf)
 <use Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chun
-k-3-1.pdf  used on input line 656.
+k-3-1.pdf  used on input line 663.
 (pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
 [9 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-3-1.pdf>]
 <Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf, id=142, 578.1
@@ -774,7 +774,7 @@ File: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf Graphic f
 ile (type pdf)
 <use Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chun
-k-5-1.pdf  used on input line 682.
+k-5-1.pdf  used on input line 689.
 (pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
 [10 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-5-1.pdf>] [11]
 <Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf, id=178, 578.1
@@ -783,7 +783,7 @@ File: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf Graphic f
 ile (type pdf)
 <use Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chun
-k-7-1.pdf  used on input line 849.
+k-7-1.pdf  used on input line 856.
 (pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
 [12 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-7-1.pdf>]
 <Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf, id=204, 578.1
@@ -792,32 +792,33 @@ File: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf Graphic f
 ile (type pdf)
 <use Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chun
-k-9-1.pdf  used on input line 866.
+k-9-1.pdf  used on input line 873.
 (pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
-[13 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-11-1.pdf, id=218, 578.
+[13 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-9-1.pdf>] [14] [
+15]
+<Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-11-1.pdf, id=228, 578.
 16pt x 361.35pt>
 File: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-11-1.pdf Graphic 
 file (type pdf)
 <use Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: Tarea_4_Macroeconomía_files/figure-latex/unnamed-chun
-k-11-1.pdf  used on input line 933.
+k-11-1.pdf  used on input line 1091.
 (pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
-[14 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-11-1.pdf>] [15]
+[16 <./Tarea_4_Macroeconomía_files/figure-latex/unnamed-chunk-11-1.pdf>] [17]
 
 Package caption Warning: Unused \captionsetup[table] on input line 61.
 See the caption package documentation for explanation.
 
-[16] (Tarea_4_Macroeconomía.aux
+[18] (Tarea_4_Macroeconomía.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 ) ) 
 Here is how much of TeX's memory you used:
- 17274 strings out of 479618
- 261655 string characters out of 2865027
- 613010 words of memory out of 3000000
+ 17299 strings out of 479618
+ 261922 string characters out of 2865027
+ 613025 words of memory out of 3000000
  33834 multiletter control sequences out of 15000+200000
- 463551 words of font info for 150 fonts, out of 3000000 for 9000
+ 464475 words of font info for 161 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,6n,88p,623b,589s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.e
@@ -840,9 +841,9 @@ rs/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users
 arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/m
 arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/m
 arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb>
-Output written on Tarea_4_Macroeconomía.pdf (17 pages, 435782 bytes).
+Output written on Tarea_4_Macroeconomía.pdf (19 pages, 445878 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 121 named destinations out of 1000 (max. 500000)
  30879 words of extra memory for PDF output out of 35830 (max. 10000000)
 
