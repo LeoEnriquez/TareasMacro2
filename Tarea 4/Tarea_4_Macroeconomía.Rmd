@@ -170,7 +170,7 @@ $F_2$ es una variable no conocida en el periodo 1; mientras que las demás si so
 
 
 $$Var_1(C^a_2)=V^F_2(X^a_1)^2$$
-Para poder plantear el problema del inversionista es necesario recordar la regla para la media de una variable que se distribuye lognormalmente: si x se distribuye normalmente con media $\mu$ y varianza $V$, $E[e^x] = e^\mu e^{V/2}$. Por tanto, si el consumo del inversionista se distribuye normalmente con media $E[C]$ y varianza $Var(C)$, la expectativa de $–e^{-2\gamma C}$ es $-e^{-2\gamma E(C)}e^{2\gamma Var(C)}$. Por lo tanto, para maximizar la utilidad esperada, el inversor quiere hacer que $-2\gamma E(C) + 2\gamma Var(C)$ sea lo más pequeño posible. De manera equivalente, maximizará $E[C] - \gamma Var(C)$.
+Para poder plantear el problema del inversionista es necesario recordar la regla para la media de una variable que se distribuye normalmente: si x se distribuye normalmente con media $\mu$ y varianza $V$, $E[e^x] = e^\mu e^{V/2}$. Por tanto, si el consumo del inversionista se distribuye normalmente con media $E[C]$ y varianza $Var(C)$, la expectativa de $–e^{-2\gamma C}$ es $-e^{-2\gamma E(C)}e^{2\gamma Var(C)}$. Por lo tanto, para maximizar la utilidad esperada, el inversor quiere hacer que $-2\gamma E(C) + 2\gamma Var(C)$ sea lo más pequeño posible. De manera equivalente, maximizará $E[C] - \gamma Var(C)$.
 
 Entonces, el problema del inversionista representativo es:
 
@@ -324,7 +324,7 @@ A continuación se muestra el comportamiento de los valores deflactados de los n
 ```{r fig.width = 8, fig.height = 5}
 captaciones3<- ts(captaciones3, start=1986, frequency = 1)
 
-ts.plot (captaciones3[,3], captaciones3[,5], captaciones3[,7], captaciones3[,9], captaciones3[,11], captaciones3[,13], captaciones3[,15], captaciones3[,17], captaciones3[,19], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.1. Niveles deflactados de los instrumentos \n de financiación de la banca comercial, 1986-2020, base 2018", col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
+ts.plot (captaciones3[,3], captaciones3[,5], captaciones3[,7], captaciones3[,9], captaciones3[,11], captaciones3[,13], captaciones3[,15], captaciones3[,17], captaciones3[,19], gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 2.1. Niveles deflactados de los instrumentos \n de financiación de la banca comercial, 1986-2020, base 2018", col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd= 1, cex.main=0.9))
 legend ('topleft', col=c("black", "green","blue","cyan", "yellow", "orange", "purple", "brown", "red"),lwd=3, legend=c("Total", "Cuentas de cheques","A la vista","Depósitos de nómina", "Cuentas de ahorro", "Depósitos retirables", "Depósitos a plazo", "Pagarés", "Banca de inversión"), bg='white',bty="n",cex=0.7)
 ```
 
@@ -347,7 +347,7 @@ ggplot(captaciones3.1, aes(x=captaciones3.1$time, y=captaciones3.1$percentage, f
     xlab("Tiempo") + 
     ylab("Porcentaje") + 
     labs(fill = "Instrumento") +
-    ggtitle("Gráfica 3.2. Participación porcentual de instrumentos de \n financiación de la banca comercial") +
+    ggtitle("Gráfica 2.2. Participación porcentual de instrumentos de \n financiación de la banca comercial") +
     theme(
     plot.title = element_text(color="black", size=12, face="bold", hjust= c(0.5))
 )
@@ -458,7 +458,7 @@ A continuación se muestra el comportamiento de los valores absolutos del financ
 ```{r fig.width = 8, fig.height = 5}
 financiamiento3<- ts(financiamiento3, start=2004, frequency = 12)
 
-ts.plot (financiamiento3[,3], financiamiento3[,5], financiamiento3[,7], financiamiento3[,9], financiamiento3[,11], financiamiento3[,13], financiamiento3[,15],  gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 3.3. Niveles deflactados de la financiación \n otorgada por la banca comercial, 2004-2021, base 2018", col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd= 1, cex.main=0.9))
+ts.plot (financiamiento3[,3], financiamiento3[,5], financiamiento3[,7], financiamiento3[,9], financiamiento3[,11], financiamiento3[,13], financiamiento3[,15],  gpars=list(xlab="Años", ylab="Valor", main=" Gráfica 2.3. Niveles deflactados de la financiación \n otorgada por la banca comercial, 2004-2021, base 2018", col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd= 1, cex.main=0.9))
 legend ('topleft', col=c("black", "green","blue","cyan", "orange", "purple", "red"),lwd=3, legend=c("Total", "Sector privado no financiero","Secor financiero no bancario","Sector público", "Otros sectores", "Sector externo", "Crédito a banca comercial"), bg='white',bty="n",cex=0.7)
 ```
 
@@ -479,7 +479,7 @@ ggplot(financiamiento3.2, aes(x=financiamiento3.2$time, y=financiamiento3.2$perc
     xlab("Tiempo") + 
     ylab("Porcentaje") + 
     labs(fill = "Instrumento") +
-    ggtitle("Gráfica 3.4. Participación porcentual de la financiación de \n otorgada por la banca comercial, 2004-2021") +
+    ggtitle("Gráfica 2.4. Participación porcentual de la financiación de \n otorgada por la banca comercial, 2004-2021") +
     theme(
     plot.title = element_text(color="black", size=12, face="bold", hjust= c(0.5))
 )
@@ -565,7 +565,7 @@ hipotecas3 <- read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacr
 
 hipotecas3<- ts(hipotecas3, start=c(1996,4), frequency = 4)
 
-ts.plot (hipotecas3[,4],  gpars=list(xlab="Años", ylab="Porcentaje", main=" Gráfica 3.5. Financiamiento hipotecario \n como proporción del PIB, 1994 - 2020, trimestral.", col=c("blue"),lwd= 2, cex.main=0.9))
+ts.plot (hipotecas3[,4],  gpars=list(xlab="Años", ylab="Porcentaje", main=" Gráfica 2.5. Financiamiento hipotecario \n como proporción del PIB, 1994 - 2020, trimestral.", col=c("blue"),lwd= 2, cex.main=0.9))
 ```
 
 En primer lugar, es necesario apuntar que, a partir del año 2000, se observa una tendencia consistentemente ascendente del financiamiento hipotecario como proporción del PIB, hasta legar a niveles de casi 14%.
@@ -679,30 +679,23 @@ Por otra parte, tenemos la siguiente tabla que muestra la clasificación de las 
 
 ```{=tex}
 \begin{landscape}
-
-\begin{center}
-\textbf{Cuadro 3.2: Clasificación de emisiones de títulos de deuda emitidos en el mercado local, marzo 2021, valor nominal en miles de millones de pesos}
-\end{center}
 ```
 
-opción 1
 
-```{r, fig.width = 15, fig.height = 12}
-figura1<- load.image("https://github.com/LeoEnriquez/TareasMacro2/blob/fe31429ab80c448fe309c91904c5b02574e4b29f/Tarea%204/clasif_deuda_local.png")
+```{r, fig.width = 18, fig.height = 15}
+figura1<- load.image("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/clasif_deuda_local.png")
 
 plot(figura1, main = "Cuadro 3.2: Clasificación de emisiones de títulos de deuda emitidos en el mercado local, marzo 2021. \n (Saldos a valor nominal en miles de millones de pesos)", cex.main = 5, axes = FALSE)
 
 ```
 
-opción 2
-
-Cuadro 3.2: Clasificación de emisiones de títulos de deuda emitidos en el mercado local, marzo 2021. \n (Saldos a valor nominal en miles de millones de pesos)
-
-![Fuente: Banco de México](clasif_deuda_local.PNG)
+```{=tex}
+\end{landscape}
+```
 
 \newpage 
 
-En la siguiente gráfica, podemos ver que con respecto a la deuda del gobierno federal en el corto y largo plazo, vemos que la mayor proporción corresponde a la de largo plazo. La tendencia para los de largo plazo es creciento en téminos porcentuales con respecto a total. La deuda de largo plazo representa casi el 90% de la deuda total. 
+En la siguiente gráfica, podemos ver que con respecto a la deuda del gobierno federal en el corto y largo plazo, vemos que la mayor proporción corresponde a la de largo plazo. La tendencia para los de largo plazo es creciente en términos porcentuales con respecto a total. La deuda de largo plazo representa casi el 90% de la deuda total. 
 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
@@ -835,7 +828,7 @@ theme(
 
 
 
-En la siguiente gráfica vemos que casi el 100% de la deuda del sector privado no financiero es en moneda nacional, lo que implica que los choques externos adversos no serían tan desastrosos para la economía nacional en ese rubro. Aún cuando existen empresas con deudas en moneda estranjera, el monto es muy inferior al mostrado por empresas no financieros que se endeudan en moneda nacional.    
+En la siguiente gráfica vemos que casi el 100% de la deuda del sector privado no financiero es en moneda nacional, lo que implica que los choques externos adversos no serían tan desastrosos para la economía nacional en ese rubro. Aún cuando existen empresas con deudas en moneda extranjera, el monto es muy inferior al mostrado por empresas no financieros que se endeudan en moneda nacional.    
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
 
