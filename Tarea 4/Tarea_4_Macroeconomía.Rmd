@@ -584,9 +584,300 @@ De hecho, aunque los datos todavía no se encuentran disponibles, diversas fuent
 
 **Utilice datos del SIE/Valores en Circulación y de SIE/Finanzas públicas del Banco de México para describir la evolución a lo largo del tiempo de la composición de la deuda del Gobierno Mexicano por tipo de instrumento, madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.**
 
+En México, el Gobierno Federal puede emitir y colocar valores en el mercado y han existido  una  variedad de éstos en la historia del país (Banxico, 2014 ). Sin embargo, actualmente emite y coloca  principalmente cuatro instrumentos distintos en el mercado de deuda local. Éstos son los CETES, BONDES D, UNIBONOS y BONOS. Por otra parte, el Instituto para la Protección al Ahorro Bancario (IPAB) coloca Bonos de Protección al Ahorro (BPAS), mismos que, si bien son emitidos por este Instituto, cuentan con una garantía de crédito del Gobierno Federal. Cabe señalar que el Banco de México funge como agente financiero en la colocación de estos valores, tanto los del Gobierno Federal como  los del IPAB. 
+
+En esta sección del documento se presenta un análisis de la evolución y composición de estos títulos que emite como tal el Gobierno Federal, especificamente los CETES, BONDES D, UNIBONOS y BONOS. El total en circulación puede dividirse también entre la circulación a cargo del Gobierno Federal y la circulación a cargo del Banco de México. En la siguiente tabla se muestra una clasificacón más amplia de la estructura en general de cada uno de estos valores, con datos al 31 de mayo de 2021, disponibles en el Banco de México. 
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.1: Títulos de deuda gubernamental emitidos localmente, mes de marzo del 2021. \n (Miles de Pesos)}
+\end{center}
+```
+
+
+
+|                                         |                     | CETES            | BONDES   D       | UDIBONOS         | BONOS            | TOTAL            |
+|:---------------------------------------:|:-------------------:|------------------|------------------|------------------|------------------|------------------|
+| En Poder de Residentes en el País       | Banco   de México   | 0                | 0                | 0                | 5,359,185.00     | 5,359,185.00     |
+|                                         | Banca de Desarrollo | 15,058,383.00    | 561,053,743.00   | 894,560.00       | 1,560,045.00     | 578,566,731.00   |
+|                                         | Banca Comercial     | 404,044,695.00   | 257,953,837.00   | 45,582,422.00    | 1,025,488,204.00 | 1,733,069,158.00 |
+|                                         | Sector Público      | 47,814,284.34    | 862,370.54       | 146,606,872.83   | 61,984,945.02    | 257,268,472.73   |
+|                                         | Siefores            | 230,922,921.84   | 105,559,871.21   | 1,206,780,054.71 | 568,896,867.97   | 2,112,159,715.73 |
+|                                         | Sector Privado      | 522,128,798.83   | 777,007,890.25   | 679,965,005.38   | 514,537,223.01   | 2,493,638,917.46 |
+| En   Poder de Residentes en el Exterior | Sector   Privado    | 131,715,440.00   | 42,304,350.00    | 49,217,700.00    | 1,693,163,530.00 | 1,916,401,020.00 |
+|                  Total                  |                     | 1,351,684,523.01 | 1,744,742,062.00 | 2,129,046,614.92 | 3,870,990,000.00 | 9,096,463,199.92 |
+
+
+
+
+La siguiente gráfica, muestra la evolución de la composición de los valores del gobierno en los distintos instrumentos con datos mensuales de julio de 2009 a marzo de 2021. La mayor proporsión corresponde a los bonos, que son los Bonos de Desarrollo del Gobierno Federal con Tasa de Interés Fija, que son emitidos y colocados a 3, 5, 10, 20 y 30 años. Los bonos pagan intereses cada seis meses y, a diferencia de los bondes, la tasa de interés se determina desde la emisión del instrumento y se mantiene fija a lo largo de toda la vida del mismo. Lo anterior ocasiona que los bonos no puedan ser fungibles entre sí a menos que paguen exactamente la misma tasa de interés. En segundo lugar, vemos que los BONDES van cobrando relevancia en el total, estos son los Bonos de Desarrollo del Gobierno Federal, se emiten y colocan a plazos de 3, 10 y 30 años y pagan intereses cada seis meses en función de una tasa de interés real fija que se determina en la fecha de emisión del título. Devengan intereses en udis que son pagaderos en pesos. Los BONDES y CETES tienen menor participación en el total, cabe mencionalr que los Certificados de la Tesorería de la Federación son el instrumento de deuda más antiguo emitido por el Gobierno Federal, estos títulos pertenecen a la familia de los bonos cupón cero, esto es, se comercializan a descuento (por debajo de su valor nominal), no pagan intereses en el transcurso de su vida y liquidan su valor nominal en la fecha de vencimiento. Su plazo máximo actualmente es de un año.
+
+
+
+
+
+
+```{r, echo=FALSE}
+rm(list = ls())
+valgob<-read_xlsx("/Users/leobardoenriquez/Documents/GitHub/pruebastareaFINANCIERO/instrum_gob.xlsx")
+
+valgob_add<-valgob
+valgob_add$bondesd<-valgob_add$bondes_tot+valgob_add$bondesD_tot
+valgob_add$cetes_en_tot<-(valgob_add$cetes_tot/valgob_add$valores_gob_tot)*100 
+valgob_add$bondesd_en_tot<-(valgob_add$bondesd/valgob_add$valores_gob_tot)*100 
+valgob_add$udibonos_en_tot<-(valgob_add$udibonos_tot/valgob_add$valores_gob_tot)*100 
+valgob_add$bonos_en_tot<-(valgob_add$bonos_tot/valgob_add$valores_gob_tot)*100 
+
+tab1<-tibble(valgob_add$cetes_en_tot, valgob_add$bondesd_en_tot, valgob_add$udibonos_en_tot, valgob_add$bonos_en_tot)
+
+tab2<-t(tab1)
+tab2<-as.array(tab2)
+
+tab_inst<-as.data.frame(c(1, data=tab2))
+tab_inst<-tab_inst[-c(1),] 
+tab_inst<-as.data.frame(tab_inst)
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+tiempo <- data.frame(seq(as.Date("2009/08/1"), by = "month", length.out = 141)-1)
+tiempo$veces<-rep(4,times=141)
+names(tiempo)<-c("fecha","veces")
+
+expanded <-tiempo[rep(row.names(tiempo), tiempo$veces), ]
+data.frame(expanded,Date=expanded$fecha+(sequence(tiempo$veces)-1))
+
+nombres <- rep(c("CETES", "BONDESD", "UDIBONOS", "BONOS"),times=141)  
+nombres<-as.data.frame(nombres)
+
+instrumentos<-tibble(expanded$fecha, tab_inst$tab_inst, nombres$nombres)
+names(instrumentos)<-c("Meses","Participacion", "Instrumentos")
+
+
+```
+
+```{r, echo=FALSE}
+ggplot(instrumentos, aes(x=Meses, y=Participacion, fill=Instrumentos)) + 
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.1 Evolución de la composición de los títulos de deuda gubernamental \n emitidos localmente, de julio de 2009 a marzo de 2021 (porcentual)")
+```
+
+
+Por otra parte, tenemos la siguiente tabla que muestra la clasificación de las emisiones de títulos de deuda  en el mercado local, en saldos a valor nominal en miles de millones de pesos al mes de marzo de 2021. Esta tabla incluye también la información necesaria para el siguiente inciso. 
+
+
+\newpage
+
+```{=tex}
+\begin{center}
+\textbf{Cuadro 3.2: Clasificación de emisiones de títulos de deuda emitidos en el mercado local, marzo 2021. \n (Saldos a valor nominal en miles de millones de pesos)}
+\end{center}
+```
+
+|                                    |                                |          |                        |                           |                 |                       |                   |                         |                     |                    |                        |                        |                  |                    |                                |                             |                       |          |
+|:----------------------------------:|:------------------------------:|:--------:|:----------------------:|:-------------------------:|:---------------:|:---------------------:|:-----------------:|:-----------------------:|:-------------------:|:------------------:|:----------------------:|:----------------------:|:----------------:|:------------------:|:------------------------------:|:---------------------------:|:---------------------:|:--------:|
+|        Tipo de Deuda/Emisor        |           Residentes           |          |                        |                           |                 |                       |                   |                         |                     |                    |                        |                        |                  |                    |          No Residentes         |                             |                       |   Total  |
+|                                    | Instituciones   no financieras |          |                        | Instituciones financieras |                 |                       |                   |                         |                     |  Gobierno General  |                        |                        |                  | Total   Residentes | Instituciones   no financieras | Instituciones   financieras | Total No   Residentes |          |
+|                                    |            Públicas            | Privadas | Total   no financieras |          Públicas         | Banco   Central | Banca   de desarrollo | Banca   comercial | Privadas   no bancarias | Total   financieras | Gobierno   Federal | Regulación   Monetaria | Estados   y municipios | Total   Gobierno |                    |                                |                             |                       |          |
+| Por plazo   original               |              267.2             |   546.5  |          813.7         |          1,591.3          |      102.2      |         711.8         |       387.8       |          149.7          |       2,942.8       |       7,365.2      |         1,359.1        |          69.7          |      8,794.0     |      12,550.5      |               6.4              |             10.0            |          16.4         | 12,566.9 |
+| Corto plazo                        |               0.0              |   15.0   |          15.0          |            23.4           |       0.0       |         464.0         |       128.3       |           27.3          |        642.9        |       1,015.9      |          437.5         |           0.0          |      1,453.4     |       2,111.4      |               0.0              |             0.0             |          0.0          |  2,111.4 |
+| Largo plazo                        |              267.2             |   531.4  |          798.7         |          1,567.9          |      102.2      |         247.8         |       259.6       |          122.5          |       2,299.9       |       6,349.3      |          921.6         |          69.7          |      7,340.6     |      10,439.2      |               6.4              |             10.0            |          16.4         | 10,455.6 |
+| Por plazo   remanente              |              267.2             |   546.5  |          813.7         |          1,591.3          |      102.2      |         711.8         |       387.8       |          149.7          |       2,942.8       |       7,365.2      |         1,359.1        |          69.7          |      8,794.0     |      12,550.5      |               6.4              |             10.0            |          16.4         | 12,566.9 |
+| Corto plazo                        |              29.1              |   58.1   |          87.2          |           251.9           |       0.0       |         482.6         |       167.7       |           49.3          |        951.4        |       1,556.4      |          687.4         |           1.0          |      2,244.9     |       3,283.5      |               0.0              |             0.0             |          0.0          |  3,283.5 |
+| Largo plazo                        |              238.1             |   488.4  |          726.5         |          1,339.4          |      102.2      |         229.2         |       220.2       |          100.5          |       1,991.4       |       5,808.7      |          671.7         |          68.7          |      6,549.2     |       9,267.1      |               6.4              |             10.0            |          16.4         |  9,283.5 |
+| Por tipo de   tasa                 |              267.2             |   546.5  |          813.7         |          1,591.3          |      102.2      |         711.8         |       387.8       |          149.7          |       2,942.8       |       7,365.2      |         1,359.1        |          69.7          |      8,794.0     |      12,550.5      |               6.4              |             10.0            |          16.4         | 12,566.9 |
+| Tasa fija                          |              168.2             |   289.8  |          458.0         |            67.3           |       0.0       |         595.1         |        98.1       |           42.4          |        802.8        |       4,576.7      |          431.0         |          14.8          |      5,022.5     |       6,283.4      |               6.4              |             4.1             |          10.5         |  6,293.9 |
+| Tasa variable                      |              99.0              |   256.6  |          355.7         |          1,524.0          |      102.2      |         116.7         |       263.3       |          104.3          |       2,110.5       |       2,788.5      |          928.1         |          54.9          |      3,771.5     |       6,237.7      |               0.0              |             5.9             |          5.9          |  6,243.6 |
+|     Indizada   a la inflación      |              86.2              |   103.9  |          190.1         |           431.6           |       0.0       |          21.5         |        21.1       |           27.2          |        501.4        |       1,957.8      |           0.0          |          46.1          |      2,003.9     |       2,695.5      |               0.0              |             0.0             |          0.0          |  2,695.5 |
+|     Otro   tipo de tasa variable   |              12.8              |   152.8  |          165.6         |          1,092.4          |      102.2      |          95.2         |       242.2       |           77.1          |       1,609.1       |        830.7       |          928.1         |           8.8          |      1,767.6     |       3,542.2      |               0.0              |             5.9             |          5.9          |  3,548.1 |
+| No   identificada                  |               0.0              |    0.0   |           0.0          |            0.0            |       0.0       |          0.0          |        26.5       |           3.0           |         29.5        |         0.0        |           0.0          |           0.0          |        0.0       |        29.5        |               0.0              |             0.0             |          0.0          |   29.5   |
+| Por tipo de calificación           |              267.2             |   546.5  |          813.7         |          1,591.3          |      102.2      |         711.8         |       387.8       |          149.7          |       2,942.8       |       7,365.2      |         1,359.1        |          69.7          |      8,794.0     |      12,550.5      |               6.4              |             10.0            |          16.4         | 12,566.9 |
+| AAA                                |              66.1              |   239.8  |          305.9         |          1,384.4          |      102.2      |         711.8         |       280.5       |           78.5          |       2,557.4       |       7,365.2      |         1,359.1        |          53.4          |      8,777.7     |      11,641.0      |               0.0              |             10.0            |          10.0         | 11,651.0 |
+| Igual o mayor   a AA               |              49.2              |   127.1  |          176.3         |            0.9            |       0.0       |          0.0          |        32.7       |           13.6          |         47.2        |         0.0        |           0.0          |          16.3          |       16.3       |        239.9       |               1.0              |             0.0             |          1.0          |   240.9  |
+| Mayor o igual   a BBB-             |              151.9             |   120.0  |          271.9         |           205.4           |       0.0       |          0.0          |        24.3       |           24.0          |        253.7        |         0.0        |           0.0          |           0.0          |        0.0       |        525.6       |               0.0              |             0.0             |          0.0          |   525.6  |
+| Menor a BBB-                       |               0.0              |   16.2   |          16.2          |            0.5            |       0.0       |          0.0          |        2.5        |           15.2          |         18.2        |         0.0        |           0.0          |           0.0          |        0.0       |        34.4        |               0.0              |             0.0             |          0.0          |   34.4   |
+| No   identificada                  |               0.0              |   43.3   |          43.3          |            0.0            |       0.0       |          0.0          |        47.8       |           18.5          |         66.3        |         0.0        |           0.0          |           0.0          |        0.0       |        109.6       |               5.4              |             0.0             |          5.4          |   115.0  |
+| Por tipo de   moneda               |              267.2             |   546.5  |          813.7         |          1,591.3          |      102.2      |         711.8         |       387.8       |          149.7          |       2,942.8       |       7,365.2      |         1,359.1        |          69.7          |      8,794.0     |      12,550.5      |               6.4              |             10.0            |          16.4         | 12,566.9 |
+| En moneda   local                  |              267.2             |   535.9  |          803.1         |          1,591.3          |      102.2      |         706.9         |       345.4       |          146.8          |       2,892.5       |       7,365.2      |         1,359.1        |          69.7          |      8,794.0     |      12,489.6      |               6.4              |             10.0            |          16.4         | 12,506.0 |
+| En moneda   extranjera             |               0.0              |   10.6   |          10.6          |            0.0            |       0.0       |          4.9          |        42.5       |           2.9           |         50.3        |         0.0        |           0.0          |           0.0          |        0.0       |        60.9        |               0.0              |             0.0             |          0.0          |   60.9   |
+| Títulos respaldados por hipotecas: |                0               |     0    |            0           |            96.1           |        0        |           0           |         1         |           23.1          |        120.2        |          0         |            0           |            0           |         0        |        120.2       |                0               |              0              |           0           |   120.2  |
+|                                    |                                |          |                        |                           |                 |                       |                   |                         |                     |                    |                        |                        |                  |                    |                                |                             |                       |          |
+
+\newpage
+
+
+
+
+
+
+En la siguiente gráfica, podemos ver que con respecto a la deuda del gobierno federal en el corto y largo plazo, vemos que la mayor proporción corresponde a la de largo plazo. La tendencia para los de largo plazo es creciento en téminos porcentuales con respecto a total. La deuda de largo plazo representa casi el 90% de la deuda total. 
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+deuda<-read_xlsx("/Users/leobardoenriquez/Documents/GitHub/pruebastareaFINANCIERO/madura_moneda.xlsx")
+deuda_add<-deuda
+
+deuda_add$gobfed_cp_porciento<-(deuda_add$resid_gobfed_cp/(deuda_add$resid_gobfed_cp+deuda_add$resid_gobfed_lp))*100 
+deuda_add$gobfed_lp_porciento<-(deuda_add$resid_gobfed_lp/(deuda_add$resid_gobfed_cp+deuda_add$resid_gobfed_lp))*100 
+
+tab11<-tibble(deuda_add$gobfed_cp_porciento,deuda_add$gobfed_lp_porciento)
+tab12<-t(tab11)
+tab12<-as.array(tab12)
+
+tab_inst13<-as.data.frame(c(1, data=tab12))
+tab_inst13<-tab_inst13[-c(1),] 
+tab_inst13<-as.data.frame(tab_inst13)
+
+tiempo11 <- data.frame(seq(as.Date("2009/08/1"), by = "month", length.out = 141)-1)
+tiempo11$veces<-rep(2,times=141)
+names(tiempo11)<-c("fecha","veces")
+
+expanded11 <-tiempo11[rep(row.names(tiempo11), tiempo11$veces), ]
+data.frame(expanded11,Date=expanded11$fecha+(sequence(tiempo11$veces)-1))
+
+nombres11 <- rep(c("Corto Plazo", "Largo Plazo"),times=141)  
+nombres11<-as.data.frame(nombres11)
+
+plazo<-tibble(expanded11$fecha, tab_inst13$tab_inst, nombres11$nombres)
+names(plazo)<-c("Meses","Participacion", "Plazo")
+
+```
+
+
+```{r, echo=FALSE}
+ggplot(plazo, aes(x=Meses, y=Participacion, fill=Plazo)) + 
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.2 Composición y evolución de la deuda del Gobierno Federal  \n en el Corto y Largo plazo, de julio de 2009 a marzo de 2021 ( porcentual)")
+```
+
+
+La siguiente gráfica muestra la deuda del sector público, aproximadamente el 60% es interna, esto muestra un fuerte componente externo. Casi del 40%, lo que implica una gran apertura con respecto al financiamiento extranjero, que en general es en moneda internacional, en su mayor parte en dólares. Esto podría tener implicaciones importantes cuando el tipo de cambio es volátil, y es una fuente de inestabilidad internacional.   
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+
+deuda_add$deuda_int_porciento<-(deuda_add$deuda_int_sp/(deuda_add$deuda_int_sp+deuda_add$deuda_ext_sp))*100 
+deuda_add$deuda_ext_porciento<-(deuda_add$deuda_ext_sp/(deuda_add$deuda_int_sp+deuda_add$deuda_ext_sp))*100 
+
+tab21<-tibble(deuda_add$deuda_int_porciento,deuda_add$deuda_ext_porciento)
+tab22<-t(tab21)
+tab22<-as.array(tab22)
+
+tab_inst23<-as.data.frame(c(1, data=tab22))
+tab_inst23<-tab_inst23[-c(1),] 
+tab_inst23<-as.data.frame(tab_inst23)
+
+tiempo21 <- data.frame(seq(as.Date("2009/08/1"), by = "month", length.out = 141)-1)
+tiempo21$veces<-rep(2,times=141)
+names(tiempo21)<-c("fecha","veces")
+
+expanded21 <-tiempo21[rep(row.names(tiempo21), tiempo21$veces), ]
+data.frame(expanded21,Date=expanded21$fecha+(sequence(tiempo21$veces)-1))
+
+nombres21 <- rep(c("Interna", "Externa"),times=141)  
+nombres21<-as.data.frame(nombres21)
+
+deudas<-tibble(expanded21$fecha, tab_inst23$tab_inst, nombres21$nombres)
+names(deudas)<-c("Meses","Participacion", "Deuda")
+
+```
+
+
+```{r, echo=FALSE}
+ggplot(deudas, aes(x=Meses, y=Participacion, fill=Deuda)) + 
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.3 Deuda neta externa e interna del sector público,  \n de julio de 2009 a marzo de 2021 (en porcentajes)")
+```
+
+
+
+\newpage
+
 ## b)
 
 **Utilice datos del SIE/Valores en Circulación o para describir la composición a lo largo del tiempo de la deuda del del sector privado no financiero mexicano por madurez y moneda. Señale la implicación de lo que encuentre para el riesgo de impago.** 
+
+Si analizamos el sector privado no financiero, gran parte de la composición de su deuda es de corto plazo, aunque la de largo plazo no es despreciable, casi del 40% y con una tendencia creciente. 
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+
+deuda_add$priv_cp_porciento<-(deuda_add$resid_nofin_priv_cp/(deuda_add$resid_nofin_priv_cp+deuda_add$resid_nofin_priv_lp))*100 
+deuda_add$priv_lp_porciento<-(deuda_add$resid_nofin_priv_lp/(deuda_add$resid_nofin_priv_cp+deuda_add$resid_nofin_priv_lp))*100 
+
+tab31<-tibble(deuda_add$deuda_int_porciento,deuda_add$deuda_ext_porciento)
+tab32<-t(tab31)
+tab32<-as.array(tab32)
+
+tab_inst33<-as.data.frame(c(1, data=tab32))
+tab_inst33<-tab_inst33[-c(1),] 
+tab_inst33<-as.data.frame(tab_inst33)
+
+tiempo31 <- data.frame(seq(as.Date("2009/08/1"), by = "month", length.out = 141)-1)
+tiempo31$veces<-rep(2,times=141)
+names(tiempo31)<-c("fecha","veces")
+
+expanded31 <-tiempo31[rep(row.names(tiempo31), tiempo31$veces), ]
+data.frame(expanded31,Date=expanded31$fecha+(sequence(tiempo31$veces)-1))
+
+nombres31 <- rep(c("Corto Plazo", "Largo Plazo"),times=141)  
+nombres31<-as.data.frame(nombres31)
+
+plazo31<-tibble(expanded31$fecha, tab_inst33$tab_inst, nombres31$nombres)
+names(plazo31)<-c("Meses","Participacion", "Plazo")
+```
+
+
+```{r, echo=FALSE}
+ggplot(plazo31, aes(x=Meses, y=Participacion, fill=Plazo)) + 
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.4 Evolución de la composición de la deuda del sector \n privado no financiero en el Corto y Largo plazo, \n de julio de 2009 a marzo de 2021 (en porcentajes)")
+
+```
+
+
+
+En la siguiente gráfica vemos que casi el 100% de la deuda del sector privado no financiero es en moneda nacional, lo que implica que los choques externos adversos no serían tan desastrosos para la economía nacional en ese rubro. Aún cuando existen empresas con deudas en moneda estranjera, el monto es muy inferior al mostrado por empresas no financieros que se endeudan en moneda nacional.    
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+
+deuda_add$priv_mn_porciento<-(deuda_add$resid_nofin_priv_monlocal/(deuda_add$resid_nofin_priv_monlocal+deuda_add$resid_nofin_priv_monextra))*100 
+deuda_add$priv_me_porciento<-(deuda_add$resid_nofin_priv_monextra/(deuda_add$resid_nofin_priv_monlocal+deuda_add$resid_nofin_priv_monextra))*100 
+
+tab41<-tibble(deuda_add$priv_mn_porciento,deuda_add$priv_me_porciento)
+tab42<-t(tab41)
+tab42<-as.array(tab42)
+
+tab_inst43<-as.data.frame(c(1, data=tab42))
+tab_inst43<-tab_inst43[-c(1),] 
+tab_inst43<-as.data.frame(tab_inst43)
+
+tiempo41 <- data.frame(seq(as.Date("2009/08/1"), by = "month", length.out = 141)-1)
+tiempo41$veces<-rep(2,times=141)
+names(tiempo41)<-c("fecha","veces")
+
+expanded41 <-tiempo41[rep(row.names(tiempo41), tiempo41$veces), ]
+data.frame(expanded41,Date=expanded41$fecha+(sequence(tiempo41$veces)-1))
+
+nombres41 <- rep(c("Nacional", "Extranjera"),times=141)  
+nombres41<-as.data.frame(nombres41)
+
+moneda<-tibble(expanded41$fecha, tab_inst43$tab_inst, nombres41$nombres)
+names(moneda)<-c("Meses","Participacion", "Moneda")
+```
+
+
+
+
+```{r, echo=FALSE}
+ggplot(moneda, aes(x=Meses, y=Participacion, fill=Moneda)) + 
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.5 Evolución de la composición de la deuda del sector \n privado no financiero en moneda Nacional y Extranjera, \n de julio de 2009 a marzo de 2021 (en porcentajes)")
+
+```
+
+
+
+Las consecuencias para el riesgo de impago disminuyen a medida que la mayor parte de la deuda del sector privado es en moneda nacional. Por otra parte, la deuda la deuda de empresas no financieras de corto plazo son proporcionalmente mayores a la de largo plazo, sin embargo la de largo plazo es casi del 40%, lo cual indica una mayor diversificación en términos de la madurez, con lo cual los riesgos de impago disminuyen. 
+
+
+
+
 
 \newpage
 
