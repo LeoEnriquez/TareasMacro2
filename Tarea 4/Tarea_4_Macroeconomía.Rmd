@@ -586,12 +586,18 @@ De hecho, aunque los datos todavía no se encuentran disponibles, diversas fuent
 
 En México, el Gobierno Federal puede emitir y colocar valores en el mercado y han existido  una  variedad de éstos en la historia del país (Banxico, 2014 ). Sin embargo, actualmente emite y coloca  principalmente cuatro instrumentos distintos en el mercado de deuda local. Éstos son los CETES, BONDES D, UNIBONOS y BONOS. Por otra parte, el Instituto para la Protección al Ahorro Bancario (IPAB) coloca Bonos de Protección al Ahorro (BPAS), mismos que, si bien son emitidos por este Instituto, cuentan con una garantía de crédito del Gobierno Federal. Cabe señalar que el Banco de México funge como agente financiero en la colocación de estos valores, tanto los del Gobierno Federal como  los del IPAB. 
 
-En esta sección del documento se presenta un análisis de la evolución y composición de estos títulos que emite como tal el Gobierno Federal, especificamente los CETES, BONDES D, UNIBONOS y BONOS. El total en circulación puede dividirse también entre la circulación a cargo del Gobierno Federal y la circulación a cargo del Banco de México. En la siguiente tabla se muestra una clasificacón más amplia de la estructura en general de cada uno de estos valores, con datos al 31 de mayo de 2021, disponibles en el Banco de México. 
+En esta sección del documento se presenta un análisis de la evolución y composición de estos títulos que emite como tal el Gobierno Federal, específicamente los CETES, BONDES D, UNIBONOS y BONOS. El total en circulación puede dividirse también entre la circulación a cargo del Gobierno Federal y la circulación a cargo del Banco de México. En la siguiente tabla se muestra una clasificación más amplia de la estructura en general de cada uno de estos valores, con datos al 31 de mayo de 2021, disponibles en el Banco de México. 
+
+\newpage
 
 ```{=tex}
+
+\begin{landscape}
+
 \begin{center}
-\textbf{Cuadro 3.1: Títulos de deuda gubernamental emitidos localmente, mes de marzo del 2021. \n (Miles de Pesos)}
+\textbf{Cuadro 3.1: Títulos de deuda gubernamental emitidos localmente, mes de marzo del 2021, Miles de Pesos}
 \end{center}
+
 ```
 
 
@@ -607,20 +613,18 @@ En esta sección del documento se presenta un análisis de la evolución y compo
 | En   Poder de Residentes en el Exterior | Sector   Privado    | 131,715,440.00   | 42,304,350.00    | 49,217,700.00    | 1,693,163,530.00 | 1,916,401,020.00 |
 |                  Total                  |                     | 1,351,684,523.01 | 1,744,742,062.00 | 2,129,046,614.92 | 3,870,990,000.00 | 9,096,463,199.92 |
 
+```{=tex}
+\end{landscape}
+```
+
+La siguiente gráfica, muestra la evolución de la composición de los valores del gobierno en los distintos instrumentos con datos mensuales de julio de 2009 a marzo de 2021. La mayor proporción corresponde a los bonos, que son los Bonos de Desarrollo del Gobierno Federal con Tasa de Interés Fija, que son emitidos y colocados a 3, 5, 10, 20 y 30 años. Los bonos pagan intereses cada seis meses y, a diferencia de los bondes, la tasa de interés se determina desde la emisión del instrumento y se mantiene fija a lo largo de toda la vida del mismo. Lo anterior ocasiona que los bonos no puedan ser fungibles entre sí a menos que paguen exactamente la misma tasa de interés. En segundo lugar, vemos que los BONDES van cobrando relevancia en el total, estos son los Bonos de Desarrollo del Gobierno Federal, se emiten y colocan a plazos de 3, 10 y 30 años y pagan intereses cada seis meses en función de una tasa de interés real fija que se determina en la fecha de emisión del título. Devengan intereses en udis que son pagaderos en pesos. Los BONDES y CETES tienen menor participación en el total, cabe mencionar que los Certificados de la Tesorería de la Federación son el instrumento de deuda más antiguo emitido por el Gobierno Federal, estos títulos pertenecen a la familia de los bonos cupón cero, esto es, se comercializan a descuento (por debajo de su valor nominal), no pagan intereses en el transcurso de su vida y liquidan su valor nominal en la fecha de vencimiento. Su plazo máximo actualmente es de un año.
 
 
+```{r include=FALSE}
+valgob<-read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/instrum_gob.csv")
+```
 
-La siguiente gráfica, muestra la evolución de la composición de los valores del gobierno en los distintos instrumentos con datos mensuales de julio de 2009 a marzo de 2021. La mayor proporsión corresponde a los bonos, que son los Bonos de Desarrollo del Gobierno Federal con Tasa de Interés Fija, que son emitidos y colocados a 3, 5, 10, 20 y 30 años. Los bonos pagan intereses cada seis meses y, a diferencia de los bondes, la tasa de interés se determina desde la emisión del instrumento y se mantiene fija a lo largo de toda la vida del mismo. Lo anterior ocasiona que los bonos no puedan ser fungibles entre sí a menos que paguen exactamente la misma tasa de interés. En segundo lugar, vemos que los BONDES van cobrando relevancia en el total, estos son los Bonos de Desarrollo del Gobierno Federal, se emiten y colocan a plazos de 3, 10 y 30 años y pagan intereses cada seis meses en función de una tasa de interés real fija que se determina en la fecha de emisión del título. Devengan intereses en udis que son pagaderos en pesos. Los BONDES y CETES tienen menor participación en el total, cabe mencionalr que los Certificados de la Tesorería de la Federación son el instrumento de deuda más antiguo emitido por el Gobierno Federal, estos títulos pertenecen a la familia de los bonos cupón cero, esto es, se comercializan a descuento (por debajo de su valor nominal), no pagan intereses en el transcurso de su vida y liquidan su valor nominal en la fecha de vencimiento. Su plazo máximo actualmente es de un año.
-
-
-
-
-
-
-```{r, echo=FALSE}
-rm(list = ls())
-valgob<-read_xlsx("https://github.com/LeoEnriquez/TareasMacro2/blob/1d4d2313fa11783d74932df7b5898839676e013f/Tarea%204/Datos/instrum_gob.xlsx")
-
+```{r}
 valgob_add<-valgob
 valgob_add$bondesd<-valgob_add$bondes_tot+valgob_add$bondesD_tot
 valgob_add$cetes_en_tot<-(valgob_add$cetes_tot/valgob_add$valores_gob_tot)*100 
@@ -637,6 +641,7 @@ tab_inst<-as.data.frame(c(1, data=tab2))
 tab_inst<-tab_inst[-c(1),] 
 tab_inst<-as.data.frame(tab_inst)
 ```
+
 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
@@ -656,9 +661,12 @@ names(instrumentos)<-c("Meses","Participacion", "Instrumentos")
 
 ```
 
-```{r, echo=FALSE}
+```{r fig.width = 8, fig.height = 5, echo=FALSE}
 ggplot(instrumentos, aes(x=Meses, y=Participacion, fill=Instrumentos)) + 
-    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.1 Evolución de la composición de los títulos de deuda gubernamental \n emitidos localmente, de julio de 2009 a marzo de 2021 (porcentual)")
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.1 Evolución de la composición de los títulos de deuda gubernamental \n emitidos localmente, de julio de 2009 a marzo de 2021 (porcentual)") +
+theme(
+    plot.title = element_text(color="black", size=10, face="bold", hjust= c(0.5))
+)
 ```
 
 
@@ -667,9 +675,13 @@ Por otra parte, tenemos la siguiente tabla que muestra la clasificación de las 
 
 \newpage
 
+
+
 ```{=tex}
+\begin{landscape}
+
 \begin{center}
-\textbf{Cuadro 3.2: Clasificación de emisiones de títulos de deuda emitidos en el mercado local, marzo 2021. \n (Saldos a valor nominal en miles de millones de pesos)}
+\textbf{Cuadro 3.2: Clasificación de emisiones de títulos de deuda emitidos en el mercado local, marzo 2021, valor nominal en miles de millones de pesos}
 \end{center}
 ```
 
@@ -702,10 +714,10 @@ Por otra parte, tenemos la siguiente tabla que muestra la clasificación de las 
 | Títulos respaldados por hipotecas: |                0               |     0    |            0           |            96.1           |        0        |           0           |         1         |           23.1          |        120.2        |          0         |            0           |            0           |         0        |        120.2       |                0               |              0              |           0           |   120.2  |
 |                                    |                                |          |                        |                           |                 |                       |                   |                         |                     |                    |                        |                        |                  |                    |                                |                             |                       |          |
 
-\newpage
 
-
-
+```{=tex}
+\end{landscape}
+```
 
 
 
@@ -713,7 +725,7 @@ En la siguiente gráfica, podemos ver que con respecto a la deuda del gobierno f
 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
-deuda<-read_xlsx("https://github.com/LeoEnriquez/TareasMacro2/blob/1d4d2313fa11783d74932df7b5898839676e013f/Tarea%204/Datos/madura_moneda.xlsx")
+deuda<-read_csv("https://raw.githubusercontent.com/LeoEnriquez/TareasMacro2/main/Tarea%204/Datos/madura_moneda.csv")
 deuda_add<-deuda
 
 deuda_add$gobfed_cp_porciento<-(deuda_add$resid_gobfed_cp/(deuda_add$resid_gobfed_cp+deuda_add$resid_gobfed_lp))*100 
@@ -743,9 +755,12 @@ names(plazo)<-c("Meses","Participacion", "Plazo")
 ```
 
 
-```{r, echo=FALSE}
+```{r fig.width = 8, fig.height = 5, echo=FALSE}
 ggplot(plazo, aes(x=Meses, y=Participacion, fill=Plazo)) + 
-    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.2 Composición y evolución de la deuda del Gobierno Federal  \n en el Corto y Largo plazo, de julio de 2009 a marzo de 2021 ( porcentual)")
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.2 Composición y evolución de la deuda del Gobierno Federal  \n en el Corto y Largo plazo, de julio de 2009 a marzo de 2021 ( porcentual)") +
+theme(
+    plot.title = element_text(color="black", size=10, face="bold", hjust= c(0.5))
+)
 ```
 
 
@@ -781,9 +796,12 @@ names(deudas)<-c("Meses","Participacion", "Deuda")
 ```
 
 
-```{r, echo=FALSE}
+```{r fig.width = 8, fig.height = 5, echo=FALSE}
 ggplot(deudas, aes(x=Meses, y=Participacion, fill=Deuda)) + 
-    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.3 Deuda neta externa e interna del sector público,  \n de julio de 2009 a marzo de 2021 (en porcentajes)")
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.3 Deuda neta externa e interna del sector público,  \n de julio de 2009 a marzo de 2021 (en porcentajes)") +
+theme(
+    plot.title = element_text(color="black", size=10, face="bold", hjust= c(0.5))
+)
 ```
 
 
@@ -825,9 +843,12 @@ names(plazo31)<-c("Meses","Participacion", "Plazo")
 ```
 
 
-```{r, echo=FALSE}
+```{r fig.width = 8, fig.height = 5, echo=FALSE}
 ggplot(plazo31, aes(x=Meses, y=Participacion, fill=Plazo)) + 
-    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.4 Evolución de la composición de la deuda del sector \n privado no financiero en el Corto y Largo plazo, \n de julio de 2009 a marzo de 2021 (en porcentajes)")
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.4 Evolución de la composición de la deuda del sector \n privado no financiero en el Corto y Largo plazo, \n de julio de 2009 a marzo de 2021 (en porcentajes)") +
+theme(
+    plot.title = element_text(color="black", size=10, face="bold", hjust= c(0.5))
+)
 
 ```
 
@@ -865,9 +886,12 @@ names(moneda)<-c("Meses","Participacion", "Moneda")
 
 
 
-```{r, echo=FALSE}
+```{r fig.width = 8, fig.height = 5, echo=FALSE}
 ggplot(moneda, aes(x=Meses, y=Participacion, fill=Moneda)) + 
-    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.5 Evolución de la composición de la deuda del sector \n privado no financiero en moneda Nacional y Extranjera, \n de julio de 2009 a marzo de 2021 (en porcentajes)")
+    geom_area(alpha=0.7, size=0.2, colour="black")+ggtitle("Gráfica 3.5 Evolución de la composición de la deuda del sector \n privado no financiero en moneda Nacional y Extranjera, \n de julio de 2009 a marzo de 2021 (en porcentajes)") +
+theme(
+    plot.title = element_text(color="black", size=10, face="bold", hjust= c(0.5))
+)
 
 ```
 
