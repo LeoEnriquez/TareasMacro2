@@ -619,7 +619,7 @@ La siguiente gráfica, muestra la evolución de la composición de los valores d
 
 ```{r, echo=FALSE}
 rm(list = ls())
-valgob<-read_xlsx("/Users/leobardoenriquez/Documents/GitHub/pruebastareaFINANCIERO/instrum_gob.xlsx")
+valgob<-read_xlsx("https://github.com/LeoEnriquez/TareasMacro2/blob/1d4d2313fa11783d74932df7b5898839676e013f/Tarea%204/Datos/instrum_gob.xlsx")
 
 valgob_add<-valgob
 valgob_add$bondesd<-valgob_add$bondes_tot+valgob_add$bondesD_tot
@@ -713,7 +713,7 @@ En la siguiente gráfica, podemos ver que con respecto a la deuda del gobierno f
 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
-deuda<-read_xlsx("/Users/leobardoenriquez/Documents/GitHub/pruebastareaFINANCIERO/madura_moneda.xlsx")
+deuda<-read_xlsx("https://github.com/LeoEnriquez/TareasMacro2/blob/1d4d2313fa11783d74932df7b5898839676e013f/Tarea%204/Datos/madura_moneda.xlsx")
 deuda_add<-deuda
 
 deuda_add$gobfed_cp_porciento<-(deuda_add$resid_gobfed_cp/(deuda_add$resid_gobfed_cp+deuda_add$resid_gobfed_lp))*100 
