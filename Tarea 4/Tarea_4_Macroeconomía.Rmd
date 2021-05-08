@@ -876,9 +876,6 @@ ggplot(moneda, aes(x=Meses, y=Participacion, fill=Moneda)) +
 Las consecuencias para el riesgo de impago disminuyen a medida que la mayor parte de la deuda del sector privado es en moneda nacional. Por otra parte, la deuda la deuda de empresas no financieras de corto plazo son proporcionalmente mayores a la de largo plazo, sin embargo la de largo plazo es casi del 40%, lo cual indica una mayor diversificación en términos de la madurez, con lo cual los riesgos de impago disminuyen. 
 
 
-
-
-
 \newpage
 
 # Referencias
